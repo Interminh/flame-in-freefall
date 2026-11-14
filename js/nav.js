@@ -2,7 +2,7 @@
 const links = [
   { href: 'index.html', label: 'Overview' },
   { href: 'ranking.html', label: 'List of investigations' },
-  { href: 'ai.html', label: 'AI' },
+  { href: 'ai.html', label: 'Ignis AI' },
   { href: 'presentation.html', label: 'Presentation' },
   { href: 'sources.html', label: 'Our sources' },
   { href: 'novelty.html', label: 'Novelty' },
