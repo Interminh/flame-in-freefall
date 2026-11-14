@@ -9,16 +9,36 @@
     <link rel="stylesheet" href="src/styles/base.css" />
     <link rel="stylesheet" href="src/styles/layout.css" />
     <link rel="stylesheet" href="src/styles/themes.css" />
+    <link rel="stylesheet" href="src/styles/ai.css" />
   </head>
   <body>
     <div id="nav"></div>
     <main class="page">
       <section>
         <h1>Ignis AI</h1>
-      <p class="placeholder">Ethay uickqay ownbray oxfay umpsjay overyay ethay azylay ogday. Isthay isyay aceholderplay exttay orfay ayoutlay onlyyay.</p>
-      <p class="placeholder">Orem-lay ipsumyay olorday itsay ametyay, onsectetuercay adipiscingyay elityay.</p>
+        <p>Describe what you are researching, or ask a question such as "Does oxygen concentration affect flame spread?" Ignis AI ranks all 24 investigations from most to least relevant and explains the top three.</p>
+
+        <form id="ask" class="ask">
+          <label for="question">Your question</label>
+          <textarea id="question" name="question" rows="3" maxlength="500" required></textarea>
+          <div class="ask__row">
+            <button type="submit" id="submit">Rank investigations</button>
+            <span class="ask__examples">
+              Try:
+              <button type="button" class="link-button" data-example="Does oxygen concentration affect flame spread over solid fuels?">Oxygen and flame spread</button>
+              <button type="button" class="link-button" data-example="I am researching fire detection in spacecraft smoke">Smoke and detection</button>
+            </span>
+          </div>
+        </form>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <div id="results"></div>
+
+        <p class="note">Ranked by an AI model, using only the fields in our investigation data. Scores and explanations are interpretation, not results from the investigations. Check each one against its PSI record.</p>
       </section>
     </main>
+
     <script src="js/nav.js"></script>
+    <script src="js/ai.js"></script>
   </body>
 </html>
