@@ -26,3 +26,20 @@ document.getElementById('nav').outerHTML = `
     </ul>
   </nav>
 </header>`
+
+const picker = document.createElement('select')
+picker.className = 'theme-picker'
+picker.setAttribute('aria-label', 'Theme')
+picker.innerHTML = `
+  <option value="">Lab sheet</option>
+  <option value="apple">Apple</option>
+  <option value="anthropic">Anthropic</option>
+  <option value="tech">Tech</option>`
+picker.value = document.documentElement.dataset.theme || ''
+picker.addEventListener('change', () => {
+  const v = picker.value
+  if (v) document.documentElement.dataset.theme = v
+  else delete document.documentElement.dataset.theme
+  try { localStorage.setItem('theme', v) } catch {}
+})
+document.querySelector('.site-nav__inner').appendChild(picker)
