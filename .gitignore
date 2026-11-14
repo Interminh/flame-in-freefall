@@ -1,0 +1,24 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# claude
+CLAUDE.md
+.claude/
+
+# dependencies and builds
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+dist/
+build/
+
+# os and editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
