@@ -56,3 +56,16 @@
 }
 
 .placeholder { color: var(--muted); }
+
+/* Frosted nav */
+.site-nav {
+  background: var(--paper-glass);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--rule-glass);
+}
+
+.site-nav__links a[aria-current='page'] {
+  text-decoration: none;
+  color: var(--blue);
+}
