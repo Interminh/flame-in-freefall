@@ -1,10 +1,11 @@
 // Shared nav, injected into <div id="nav"> so it is written once.
 const links = [
-  { href: 'index.html', label: 'Summary' },
+  { href: 'index.html', label: 'Overview' },
   { href: 'ranking.html', label: 'Ranking' },
-  { href: 'novelty.html', label: 'Novelty' },
+  { href: 'ai.html', label: 'AI' },
   { href: 'presentation.html', label: 'Presentation' },
-  { href: 'sources.html', label: 'Sources' },
+  { href: 'sources.html', label: 'Our sources' },
+  { href: 'novelty.html', label: 'Novelty' },
 ]
 
 const here = location.pathname.split('/').pop() || 'index.html'
@@ -22,7 +23,6 @@ document.getElementById('nav').outerHTML = `
     <a href="index.html" class="site-nav__brand">Flame in freefall</a>
     <ul class="site-nav__links">
       ${items}
-      <li><a href="index.html#edge">Our edge</a></li>
     </ul>
   </nav>
 </header>`
