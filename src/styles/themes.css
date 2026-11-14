@@ -15,17 +15,23 @@
   --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05), 0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
+/* Anthropic flame. Token names are legacy: --blue is the flame (flight data,
+   links, buttons) and --amber is slate blue (ground studies). */
 :root[data-theme='anthropic'] {
-  --paper: #F0EEE6;
+  --paper: #F6EFE4;
   --ink: #141413;
   --muted: #66645C;
-  --rule: #D9D5C7;
-  --blue: #3F6E9C;
-  --amber: #B4492B;
-  --surface: #F7F5EF;
-  --paper-glass: rgba(240, 238, 230, 0.78);
-  --rule-glass: rgba(217, 213, 199, 0.6);
-  --shadow-soft: 0 1px 2px rgba(20, 20, 19, 0.05), 0 12px 32px rgba(20, 20, 19, 0.07);
+  --rule: #E0D5C3;
+  --blue: #C2410C;
+  --amber: #3F6E9C;
+  --surface: #FCF8F1;
+  --paper-glass: rgba(246, 239, 228, 0.8);
+  --rule-glass: rgba(224, 213, 195, 0.7);
+  --flame-gradient: linear-gradient(90deg, #FFB020, #FF6A1A, #E0301E);
+  --flame-text: linear-gradient(100deg, #B91C1C, #D9480F, #B91C1C);
+  --flame-button: linear-gradient(135deg, #B91C1C, #C2410C);
+  --flame-glow: radial-gradient(closest-side, rgba(255, 106, 26, 0.28), rgba(255, 176, 32, 0.12) 55%, transparent);
+  --shadow-soft: 0 1px 2px rgba(20, 20, 19, 0.05), 0 16px 40px rgba(194, 65, 12, 0.12);
 }
 
 :root[data-theme='tech'] {
@@ -60,3 +66,60 @@
   border-radius: var(--radius-control);
   padding: var(--space-1) var(--space-3);
 }
+
+/* Flame accents, Anthropic theme only */
+:root[data-theme='anthropic'] .site-nav { border-bottom: 0; }
+:root[data-theme='anthropic'] .site-nav::after {
+  content: '';
+  display: block;
+  height: 3px;
+  background: var(--flame-gradient);
+}
+
+:root[data-theme='anthropic'] .hero { position: relative; }
+:root[data-theme='anthropic'] .hero::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -120px;
+  width: 640px;
+  height: 640px;
+  max-width: 100vw;
+  background: var(--flame-glow);
+  pointer-events: none;
+  z-index: -1;
+}
+
+:root[data-theme='anthropic'] .hero .accent-blue { color: var(--blue); }
+:root[data-theme='anthropic'] .hero .accent-amber {
+  background: var(--flame-text);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: flame-shift 6s ease-in-out infinite alternate;
+}
+
+@keyframes flame-shift {
+  from { background-position: 0% 0; }
+  to { background-position: 100% 0; }
+}
+
+:root[data-theme='anthropic'] .button-link { background: var(--flame-button); }
+
+:root[data-theme='anthropic'] .map-frame,
+:root[data-theme='anthropic'] .facts div { position: relative; overflow: hidden; }
+:root[data-theme='anthropic'] .map-frame::before,
+:root[data-theme='anthropic'] .facts div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--flame-gradient);
+}
+:root[data-theme='anthropic'] .map-hatch { stroke: var(--blue); }
+
+/* keeps the hero glow from causing sideways scroll on phones */
+:root[data-theme='anthropic'] body { overflow-x: clip; }
