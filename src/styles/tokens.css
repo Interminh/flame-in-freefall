@@ -1,0 +1,23 @@
+:root {
+  --paper: #E8EDF1;
+  --ink: #1B2A41;
+  --muted: #52627A;
+  --rule: #C3CCD6;
+  --blue: #2455C3;
+  --amber: #9A4A0C;
+
+  --font-read: 'Newsreader', Georgia, serif;
+  --font-data: 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  --radius-control: 4px;
+}
