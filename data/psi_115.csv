@@ -1,0 +1,267 @@
+experiment,test_id,platform,gravity_g,fuel,fuel_geometry,fuel_thickness_mm,o2_percent,pressure_kpa,flow_velocity_cm_s,flow_direction,outcome,spread_rate_mm_s,burning_rate,extinction_reason,source_file,source_row_or_page,distribution_value,evidence_type,gravity_regime,model_case,node_index,psi_id,record_kind
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,1,7.61470077036613778E-006,simulation,Earth gravity,10cmGravityPSD,2,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,2,8.01624461601995744E-006,simulation,Earth gravity,10cmGravityPSD,3,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,3,1.10575160707797687E-004,simulation,Earth gravity,10cmGravityPSD,4,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,4,1354.4584901998426,simulation,Earth gravity,10cmGravityPSD,5,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,5,1297.6208151736453,simulation,Earth gravity,10cmGravityPSD,6,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,6,1751.5892210762831,simulation,Earth gravity,10cmGravityPSD,7,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,7,2430.7065098831713,simulation,Earth gravity,10cmGravityPSD,8,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,8,3363.4734375767766,simulation,Earth gravity,10cmGravityPSD,9,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,9,4615.0875316564070,simulation,Earth gravity,10cmGravityPSD,10,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,10,6280.1437201318158,simulation,Earth gravity,10cmGravityPSD,11,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,11,8488.6729768289097,simulation,Earth gravity,10cmGravityPSD,12,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,12,11419.431498177273,simulation,Earth gravity,10cmGravityPSD,13,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,13,15322.061849720638,simulation,Earth gravity,10cmGravityPSD,14,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,14,20553.846972190357,simulation,Earth gravity,10cmGravityPSD,15,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,15,27641.928737689737,simulation,Earth gravity,10cmGravityPSD,16,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,16,37390.229291938020,simulation,Earth gravity,10cmGravityPSD,17,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,17,51064.171554508197,simulation,Earth gravity,10cmGravityPSD,18,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,18,70709.210469827158,simulation,Earth gravity,10cmGravityPSD,19,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,19,99697.709477561337,simulation,Earth gravity,10cmGravityPSD,20,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,20,143666.69301473993,simulation,Earth gravity,10cmGravityPSD,21,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,21,212141.24271261439,simulation,Earth gravity,10cmGravityPSD,22,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,22,321434.37243896449,simulation,Earth gravity,10cmGravityPSD,23,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,23,500103.48481886752,simulation,Earth gravity,10cmGravityPSD,24,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,24,799175.20137438434,simulation,Earth gravity,10cmGravityPSD,25,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,25,1308078.4057916831,simulation,Earth gravity,10cmGravityPSD,26,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,26,2180214.8802439994,simulation,Earth gravity,10cmGravityPSD,27,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,27,3756108.3239561543,simulation,Earth gravity,10cmGravityPSD,28,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,28,13262318.364451839,simulation,Earth gravity,10cmGravityPSD,29,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,29,215032429.04382557,simulation,Earth gravity,10cmGravityPSD,30,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,30,1645009244.7270110,simulation,Earth gravity,10cmGravityPSD,31,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,31,4314397011.6770430,simulation,Earth gravity,10cmGravityPSD,32,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,32,4485166105.8065767,simulation,Earth gravity,10cmGravityPSD,33,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,33,2169692422.3594513,simulation,Earth gravity,10cmGravityPSD,34,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,34,603727856.43336010,simulation,Earth gravity,10cmGravityPSD,35,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,35,128959804.32586490,simulation,Earth gravity,10cmGravityPSD,36,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,36,36017019.825373970,simulation,Earth gravity,10cmGravityPSD,37,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,37,43762402.733734913,simulation,Earth gravity,10cmGravityPSD,38,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,38,6961629.7475887211,simulation,Earth gravity,10cmGravityPSD,39,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,39,1898.5131621099140,simulation,Earth gravity,10cmGravityPSD,40,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,40,0.27224628808422413,simulation,Earth gravity,10cmGravityPSD,41,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,41,1.59760313515117433E-005,simulation,Earth gravity,10cmGravityPSD,42,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,42,3.61891084033572582E-010,simulation,Earth gravity,10cmGravityPSD,43,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,43,2.86899031192775127E-015,simulation,Earth gravity,10cmGravityPSD,44,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmGravityPSD.dat,44,7.44611917659219543E-021,simulation,Earth gravity,10cmGravityPSD,45,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,1,8.86418544853267746E-029,simulation,microgravity,10cmNoGravityPSD,2,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,2,4.16205527883950445E-019,simulation,microgravity,10cmNoGravityPSD,3,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,3,1.95504375121061512E-018,simulation,microgravity,10cmNoGravityPSD,4,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,4,1.66404343899886927E-017,simulation,microgravity,10cmNoGravityPSD,5,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,5,6.91845415779827303E-004,simulation,microgravity,10cmNoGravityPSD,6,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,6,6.61979627150234779E-004,simulation,microgravity,10cmNoGravityPSD,7,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,7,8.54336207294340033E-004,simulation,microgravity,10cmNoGravityPSD,8,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,8,1.14897243614923246E-003,simulation,microgravity,10cmNoGravityPSD,9,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,9,1.55790165206345205E-003,simulation,microgravity,10cmNoGravityPSD,10,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,10,2.11130005426859784E-003,simulation,microgravity,10cmNoGravityPSD,11,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,11,2.85533514718926823E-003,simulation,microgravity,10cmNoGravityPSD,12,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,12,3.85687658950037166E-003,simulation,microgravity,10cmNoGravityPSD,13,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,13,5.21361578287192571E-003,simulation,microgravity,10cmNoGravityPSD,14,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,14,7.07233025255010316E-003,simulation,microgravity,10cmNoGravityPSD,15,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,15,9.66216983008220953E-003,simulation,microgravity,10cmNoGravityPSD,16,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,16,1.33574561082162903E-002,simulation,microgravity,10cmNoGravityPSD,17,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,17,1.88012957748594986E-002,simulation,microgravity,10cmNoGravityPSD,18,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,18,2.71620654841562802E-002,simulation,microgravity,10cmNoGravityPSD,19,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,19,4.07041821154333072E-002,simulation,microgravity,10cmNoGravityPSD,20,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,20,6.41851554783554878E-002,simulation,microgravity,10cmNoGravityPSD,21,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,21,0.10874586912052364,simulation,microgravity,10cmNoGravityPSD,22,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,22,0.20482049103187280,simulation,microgravity,10cmNoGravityPSD,23,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,23,0.45687812466831712,simulation,microgravity,10cmNoGravityPSD,24,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,24,1.3511764477090082,simulation,microgravity,10cmNoGravityPSD,25,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,25,7.6810738721971221,simulation,microgravity,10cmNoGravityPSD,26,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,26,334.17143493465926,simulation,microgravity,10cmNoGravityPSD,27,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,27,25372.167972358362,simulation,microgravity,10cmNoGravityPSD,28,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,28,1328214.6153023434,simulation,microgravity,10cmNoGravityPSD,29,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,29,32066351.056111064,simulation,microgravity,10cmNoGravityPSD,30,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,30,305293695.37165958,simulation,microgravity,10cmNoGravityPSD,31,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,31,1167797079.6058435,simulation,microgravity,10cmNoGravityPSD,32,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,32,1930177691.5483658,simulation,microgravity,10cmNoGravityPSD,33,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,33,1479668557.5245697,simulation,microgravity,10cmNoGravityPSD,34,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,34,555796292.70132959,simulation,microgravity,10cmNoGravityPSD,35,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,35,110371638.96236910,simulation,microgravity,10cmNoGravityPSD,36,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,36,30437989.759449475,simulation,microgravity,10cmNoGravityPSD,37,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,37,37093500.289417490,simulation,microgravity,10cmNoGravityPSD,38,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,38,28360194.726022776,simulation,microgravity,10cmNoGravityPSD,39,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,39,9867780.8935471810,simulation,microgravity,10cmNoGravityPSD,40,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,40,1625128.4707478557,simulation,microgravity,10cmNoGravityPSD,41,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,41,131996.45938683755,simulation,microgravity,10cmNoGravityPSD,42,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,42,5457.0610334073835,simulation,microgravity,10cmNoGravityPSD,43,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,43,117.57588055014698,simulation,microgravity,10cmNoGravityPSD,44,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_10cmNoGravityPSD.dat,44,1.3516049830203849,simulation,microgravity,10cmNoGravityPSD,45,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,1,5.05783736574177575E+020,simulation,Earth gravity,8cmGravityNS_PSD,1,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,2,5.20745137715782967E-005,simulation,Earth gravity,8cmGravityNS_PSD,2,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,3,8.23875808545567801E-004,simulation,Earth gravity,8cmGravityNS_PSD,3,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,4,4.62624298589001115E-003,simulation,Earth gravity,8cmGravityNS_PSD,4,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,5,94.945028813035350,simulation,Earth gravity,8cmGravityNS_PSD,5,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,6,24.908798520464643,simulation,Earth gravity,8cmGravityNS_PSD,6,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,7,29.607445031131853,simulation,Earth gravity,8cmGravityNS_PSD,7,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,8,39.447140720280196,simulation,Earth gravity,8cmGravityNS_PSD,8,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,9,53.680216949623556,simulation,Earth gravity,8cmGravityNS_PSD,9,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,10,73.094943226478378,simulation,Earth gravity,8cmGravityNS_PSD,10,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,11,99.126293697938621,simulation,Earth gravity,8cmGravityNS_PSD,11,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,12,133.84342660963728,simulation,Earth gravity,8cmGravityNS_PSD,12,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,13,180.15060331460501,simulation,Earth gravity,8cmGravityNS_PSD,13,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,14,242.16652167012370,simulation,Earth gravity,8cmGravityNS_PSD,14,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,15,325.87632731647477,simulation,Earth gravity,8cmGravityNS_PSD,15,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,16,440.26662996271239,simulation,Earth gravity,8cmGravityNS_PSD,16,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,17,599.34948230207817,simulation,Earth gravity,8cmGravityNS_PSD,17,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,18,825.85710245910241,simulation,Earth gravity,8cmGravityNS_PSD,18,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,19,1158.1605512579488,simulation,Earth gravity,8cmGravityNS_PSD,19,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,20,1663.6777430201678,simulation,Earth gravity,8cmGravityNS_PSD,20,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,21,2466.1537437234110,simulation,Earth gravity,8cmGravityNS_PSD,21,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,22,3804.9735830770064,simulation,Earth gravity,8cmGravityNS_PSD,22,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,23,6176.9094070872316,simulation,Earth gravity,8cmGravityNS_PSD,23,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,24,10722.021972171637,simulation,Earth gravity,8cmGravityNS_PSD,24,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,25,20516.628790956074,simulation,Earth gravity,8cmGravityNS_PSD,25,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,26,59090.363882631042,simulation,Earth gravity,8cmGravityNS_PSD,26,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,27,1089131.5626965216,simulation,Earth gravity,8cmGravityNS_PSD,27,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,28,20775879.489966944,simulation,Earth gravity,8cmGravityNS_PSD,28,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,29,150234034.38455179,simulation,Earth gravity,8cmGravityNS_PSD,29,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,30,468315566.29665387,simulation,Earth gravity,8cmGravityNS_PSD,30,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,31,998284078.71070302,simulation,Earth gravity,8cmGravityNS_PSD,31,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,32,2403820065.1632638,simulation,Earth gravity,8cmGravityNS_PSD,32,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,33,4005448865.7044311,simulation,Earth gravity,8cmGravityNS_PSD,33,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,34,3135056010.6269851,simulation,Earth gravity,8cmGravityNS_PSD,34,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,35,1124977130.2880290,simulation,Earth gravity,8cmGravityNS_PSD,35,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,36,196275362.98749918,simulation,Earth gravity,8cmGravityNS_PSD,36,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,37,18456781.275832102,simulation,Earth gravity,8cmGravityNS_PSD,37,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,38,4012466.7948216870,simulation,Earth gravity,8cmGravityNS_PSD,38,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,39,8009630.3004236799,simulation,Earth gravity,8cmGravityNS_PSD,39,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,40,8732423.0227620807,simulation,Earth gravity,8cmGravityNS_PSD,40,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,41,4263783.3539589774,simulation,Earth gravity,8cmGravityNS_PSD,41,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,42,985225.45592967805,simulation,Earth gravity,8cmGravityNS_PSD,42,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,43,113013.23542156593,simulation,Earth gravity,8cmGravityNS_PSD,43,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,44,6664.1790056423069,simulation,Earth gravity,8cmGravityNS_PSD,44,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityNS_PSD.dat,45,210.24044327619555,simulation,Earth gravity,8cmGravityNS_PSD,45,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,1,3.08924495010846170E-023,simulation,Earth gravity,8cmGravityPSD,2,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,2,5.85262548537013034E-004,simulation,Earth gravity,8cmGravityPSD,3,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,3,3.53331378244160646E-003,simulation,Earth gravity,8cmGravityPSD,4,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,4,0.30729188270344321,simulation,Earth gravity,8cmGravityPSD,5,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,5,2.42846084844641798E-002,simulation,Earth gravity,8cmGravityPSD,6,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,6,2.27275683084529299E-002,simulation,Earth gravity,8cmGravityPSD,7,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,7,2.97296043538508060E-002,simulation,Earth gravity,8cmGravityPSD,8,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,8,4.00299153870805474E-002,simulation,Earth gravity,8cmGravityPSD,9,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,9,5.41742144202188997E-002,simulation,Earth gravity,8cmGravityPSD,10,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,10,7.31260836824855903E-002,simulation,Earth gravity,8cmGravityPSD,11,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,11,9.82988095442836468E-002,simulation,Earth gravity,8cmGravityPSD,12,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,12,0.13165134114909485,simulation,Earth gravity,8cmGravityPSD,13,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,13,0.17589810374639617,simulation,Earth gravity,8cmGravityPSD,14,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,14,0.23487049932121568,simulation,Earth gravity,8cmGravityPSD,15,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,15,0.31413910907124265,simulation,Earth gravity,8cmGravityPSD,16,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,16,0.42210753639340542,simulation,Earth gravity,8cmGravityPSD,17,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,17,0.57200864904216164,simulation,Earth gravity,8cmGravityPSD,18,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,18,0.78710774258014204,simulation,Earth gravity,8cmGravityPSD,19,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,19,1.1048469287707223,simulation,Earth gravity,8cmGravityPSD,20,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,20,1.5791115995678831,simulation,Earth gravity,8cmGravityPSD,21,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,21,2.2806047116009802,simulation,Earth gravity,8cmGravityPSD,22,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,22,3.3349226960223959,simulation,Earth gravity,8cmGravityPSD,23,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,23,6.2852391842714797,simulation,Earth gravity,8cmGravityPSD,24,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,24,84.530446629719918,simulation,Earth gravity,8cmGravityPSD,25,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,25,5943.4886599916163,simulation,Earth gravity,8cmGravityPSD,26,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,26,444702.76294573059,simulation,Earth gravity,8cmGravityPSD,27,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,27,12223971.014523137,simulation,Earth gravity,8cmGravityPSD,28,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,28,112196399.13335590,simulation,Earth gravity,8cmGravityPSD,29,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,29,389228568.71680659,simulation,Earth gravity,8cmGravityPSD,30,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,30,655944593.58682716,simulation,Earth gravity,8cmGravityPSD,31,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,31,1142156842.6630290,simulation,Earth gravity,8cmGravityPSD,32,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,32,2294887012.0084367,simulation,Earth gravity,8cmGravityPSD,33,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,33,2503879770.9082131,simulation,Earth gravity,8cmGravityPSD,34,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,34,1347743336.9943769,simulation,Earth gravity,8cmGravityPSD,35,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,35,424780315.38362020,simulation,Earth gravity,8cmGravityPSD,36,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,36,99777961.499041736,simulation,Earth gravity,8cmGravityPSD,37,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,37,33185469.096667785,simulation,Earth gravity,8cmGravityPSD,38,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,38,1064214.9056200699,simulation,Earth gravity,8cmGravityPSD,39,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,39,1783.8929528486055,simulation,Earth gravity,8cmGravityPSD,40,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,40,0.93466108821596572,simulation,Earth gravity,8cmGravityPSD,41,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,41,1.40589352936449318E-004,simulation,Earth gravity,8cmGravityPSD,42,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,42,6.13116983746396034E-009,simulation,Earth gravity,8cmGravityPSD,43,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,43,7.93605436741068482E-014,simulation,Earth gravity,8cmGravityPSD,44,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,1,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmGravityPSD.dat,44,3.10948281537420480E-019,simulation,Earth gravity,8cmGravityPSD,45,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,1,5.13530751209617490E+020,simulation,microgravity,8cmNoGravityNoTF_PSD,1,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,2,1.29306229262730242E-020,simulation,microgravity,8cmNoGravityNoTF_PSD,2,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,3,1.58355024095969330E-009,simulation,microgravity,8cmNoGravityNoTF_PSD,3,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,4,2.46610715246956885E-008,simulation,microgravity,8cmNoGravityNoTF_PSD,4,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,5,1.61573594222034919E-004,simulation,microgravity,8cmNoGravityNoTF_PSD,5,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,6,4.39308907790617476E-003,simulation,microgravity,8cmNoGravityNoTF_PSD,6,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,7,4.22567664371889789E-003,simulation,microgravity,8cmNoGravityNoTF_PSD,7,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,8,5.49745272952409901E-003,simulation,microgravity,8cmNoGravityNoTF_PSD,8,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,9,7.40401682406553567E-003,simulation,microgravity,8cmNoGravityNoTF_PSD,9,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,10,1.00319377267014467E-002,simulation,microgravity,8cmNoGravityNoTF_PSD,10,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,11,1.35664307041261246E-002,simulation,microgravity,8cmNoGravityNoTF_PSD,11,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,12,1.82838237989048288E-002,simulation,microgravity,8cmNoGravityNoTF_PSD,12,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,13,2.45744050657734810E-002,simulation,microgravity,8cmNoGravityNoTF_PSD,13,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,14,3.29915597992025272E-002,simulation,microgravity,8cmNoGravityNoTF_PSD,14,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,15,4.43375257002011150E-002,simulation,microgravity,8cmNoGravityNoTF_PSD,15,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,16,5.98125583463104890E-002,simulation,microgravity,8cmNoGravityNoTF_PSD,16,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,17,8.12794803090596124E-002,simulation,microgravity,8cmNoGravityNoTF_PSD,17,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,18,0.11174238440081476,simulation,microgravity,8cmNoGravityNoTF_PSD,18,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,19,0.15623190825345254,simulation,microgravity,8cmNoGravityNoTF_PSD,19,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,20,0.22349348229391555,simulation,microgravity,8cmNoGravityNoTF_PSD,20,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,21,0.32936949106941499,simulation,microgravity,8cmNoGravityNoTF_PSD,21,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,22,0.50411893899252602,simulation,microgravity,8cmNoGravityNoTF_PSD,22,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,23,0.81016882928103340,simulation,microgravity,8cmNoGravityNoTF_PSD,23,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,24,1.3926761667862926,simulation,microgravity,8cmNoGravityNoTF_PSD,24,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,25,2.6592405455389643,simulation,microgravity,8cmNoGravityNoTF_PSD,25,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,26,6.0967788011787842,simulation,microgravity,8cmNoGravityNoTF_PSD,26,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,27,24.932687498566526,simulation,microgravity,8cmNoGravityNoTF_PSD,27,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,28,2756.4267030194792,simulation,microgravity,8cmNoGravityNoTF_PSD,28,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,29,385818.08606167999,simulation,microgravity,8cmNoGravityNoTF_PSD,29,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,30,17409632.629555728,simulation,microgravity,8cmNoGravityNoTF_PSD,30,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,31,245186523.84905201,simulation,microgravity,8cmNoGravityNoTF_PSD,31,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,32,1212128590.3303487,simulation,microgravity,8cmNoGravityNoTF_PSD,32,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,33,2390022694.4258170,simulation,microgravity,8cmNoGravityNoTF_PSD,33,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,34,2081665626.5037289,simulation,microgravity,8cmNoGravityNoTF_PSD,34,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,35,863986558.46594822,simulation,microgravity,8cmNoGravityNoTF_PSD,35,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,36,181024201.35100538,simulation,microgravity,8cmNoGravityNoTF_PSD,36,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,37,22629603.213435180,simulation,microgravity,8cmNoGravityNoTF_PSD,37,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,38,13688545.076447830,simulation,microgravity,8cmNoGravityNoTF_PSD,38,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,39,21808978.344165128,simulation,microgravity,8cmNoGravityNoTF_PSD,39,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,40,15164557.532797009,simulation,microgravity,8cmNoGravityNoTF_PSD,40,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,41,4547106.9891594155,simulation,microgravity,8cmNoGravityNoTF_PSD,41,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,42,623622.36509468779,simulation,microgravity,8cmNoGravityNoTF_PSD,42,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,43,40942.365986924146,simulation,microgravity,8cmNoGravityNoTF_PSD,43,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,44,1331.2955238843858,simulation,microgravity,8cmNoGravityNoTF_PSD,44,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat,45,22.188234837739639,simulation,microgravity,8cmNoGravityNoTF_PSD,45,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,1,2.89681000620322228E-004,simulation,microgravity,8cmNoGravityPSD,2,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,2,2.59609163818545264E-004,simulation,microgravity,8cmNoGravityPSD,3,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,3,2.74832446237261016E-003,simulation,microgravity,8cmNoGravityPSD,4,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,4,0.25646465964848264,simulation,microgravity,8cmNoGravityPSD,5,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,5,3.53765084756776788E-002,simulation,microgravity,8cmNoGravityPSD,6,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,6,3.20813246902261207E-002,simulation,microgravity,8cmNoGravityPSD,7,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,7,4.18076817820035723E-002,simulation,microgravity,8cmNoGravityPSD,8,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,8,5.62504162706164018E-002,simulation,microgravity,8cmNoGravityPSD,9,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,9,7.62062721634885060E-002,simulation,microgravity,8cmNoGravityPSD,10,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,10,0.10310972765181928,simulation,microgravity,8cmNoGravityPSD,11,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,11,0.13910635181118591,simulation,microgravity,8cmNoGravityPSD,12,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,12,0.18717325932049225,simulation,microgravity,8cmNoGravityPSD,13,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,13,0.25129807768452805,simulation,microgravity,8cmNoGravityPSD,14,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,14,0.33709794240833646,simulation,microgravity,8cmNoGravityPSD,15,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,15,0.45354672498187321,simulation,microgravity,8cmNoGravityPSD,16,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,16,0.61533951517116092,simulation,microgravity,8cmNoGravityPSD,17,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,17,0.84585240786814664,simulation,microgravity,8cmNoGravityPSD,18,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,18,1.1834036192810278,simulation,microgravity,8cmNoGravityPSD,19,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,19,1.6938045434434814,simulation,microgravity,8cmNoGravityPSD,20,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,20,2.4921905937645956,simulation,microgravity,8cmNoGravityPSD,21,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,21,3.7797069379876067,simulation,microgravity,8cmNoGravityPSD,22,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,22,5.9461286283987986,simulation,microgravity,8cmNoGravityPSD,23,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,23,9.9317089731122685,simulation,microgravity,8cmNoGravityPSD,24,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,24,18.346714118548014,simulation,microgravity,8cmNoGravityPSD,25,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,25,41.870054668471589,simulation,microgravity,8cmNoGravityPSD,26,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,26,206.80380119901787,simulation,microgravity,8cmNoGravityPSD,27,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,27,3178.6407728772519,simulation,microgravity,8cmNoGravityPSD,28,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,28,97924.772496442907,simulation,microgravity,8cmNoGravityPSD,29,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,29,3036923.2630628194,simulation,microgravity,8cmNoGravityPSD,30,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,30,47844504.797934011,simulation,microgravity,8cmNoGravityPSD,31,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,31,311458031.41037822,simulation,microgravity,8cmNoGravityPSD,32,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,32,836862860.52811420,simulation,microgravity,8cmNoGravityPSD,33,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,33,976934566.86446178,simulation,microgravity,8cmNoGravityPSD,34,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,34,523513811.67895371,simulation,microgravity,8cmNoGravityPSD,35,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,35,137165421.44135350,simulation,microgravity,8cmNoGravityPSD,36,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,36,34159312.556386203,simulation,microgravity,8cmNoGravityPSD,37,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,37,44657120.116200998,simulation,microgravity,8cmNoGravityPSD,38,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,38,45077421.094519988,simulation,microgravity,8cmNoGravityPSD,39,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,39,20221108.257553644,simulation,microgravity,8cmNoGravityPSD,40,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,40,4183388.1279529580,simulation,microgravity,8cmNoGravityPSD,41,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,41,417252.91026395949,simulation,microgravity,8cmNoGravityPSD,42,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,42,20751.714894904217,simulation,microgravity,8cmNoGravityPSD,43,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,43,527.88864250464371,simulation,microgravity,8cmNoGravityPSD,44,PSI-115,particle_distribution
+PSI-115 smoke simulation,,ground,,,,,,,,,unknown,,,,PSI-115_Analyzed Data_8cmNoGravityPSD.dat,44,7.0529563712505556,simulation,microgravity,8cmNoGravityPSD,45,PSI-115,particle_distribution

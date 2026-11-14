@@ -1,0 +1,59 @@
+series_id,experiment,test_id,platform,gravity_g,fuel,fuel_geometry,fuel_thickness_mm,o2_percent,pressure_kpa,flow_velocity_cm_s,flow_direction,outcome,spread_rate_mm_s,burning_rate,extinction_reason,source_file,evidence_type,gravity_regime,psi_id,quantity_original,record_kind,source_column_index
+PSI-47-series-0001,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,Data1,instrument_cell,3
+PSI-47-series-0002,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,Data2,instrument_cell,6
+PSI-47-series-0003,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,Data3,instrument_cell,9
+PSI-47-series-0004,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,Data4,instrument_cell,12
+PSI-47-series-0005,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,Data5,instrument_cell,15
+PSI-47-series-0006,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,Data6,instrument_cell,18
+PSI-47-series-0007,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,Data7,instrument_cell,21
+PSI-47-series-0008,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,0.5011921296296297,instrument_cell,2
+PSI-47-series-0009,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,38415.0,instrument_cell,7
+PSI-47-series-0010,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,0.6534953703703704,instrument_cell,5
+PSI-47-series-0011,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,"DAFT-1,2",instrument_cell,2
+PSI-47-series-0012,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,,instrument_cell,3
+PSI-47-series-0013,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,,instrument_cell,4
+PSI-47-series-0014,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,,instrument_cell,5
+PSI-47-series-0015,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,DAFT-3,instrument_cell,7
+PSI-47-series-0016,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,,instrument_cell,8
+PSI-47-series-0017,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,,instrument_cell,9
+PSI-47-series-0018,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,00:00:12:51,instrument_cell,2
+PSI-47-series-0019,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,00:00:12:58,instrument_cell,3
+PSI-47-series-0020,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,00:00:12:34,instrument_cell,4
+PSI-47-series-0021,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,00:00:09:05,instrument_cell,5
+PSI-47-series-0022,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,00:00:40:26,instrument_cell,7
+PSI-47-series-0023,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,00:00:04:31,instrument_cell,8
+PSI-47-series-0024,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,00:00:39:25,instrument_cell,9
+PSI-47-series-0025,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,0.0006944444444444445,instrument_cell,2
+PSI-47-series-0026,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,0.0006944444444444445,instrument_cell,3
+PSI-47-series-0027,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,0.0006944444444444445,instrument_cell,4
+PSI-47-series-0028,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,0.0006944444444444445,instrument_cell,5
+PSI-47-series-0029,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,0.0006944444444444445,instrument_cell,7
+PSI-47-series-0030,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,0.0006944444444444445,instrument_cell,8
+PSI-47-series-0031,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,0.0006944444444444445,instrument_cell,9
+PSI-47-series-0032,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,8525-03031002,instrument_cell,2
+PSI-47-series-0033,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,8525-03031002,instrument_cell,3
+PSI-47-series-0034,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,8525-03031002,instrument_cell,4
+PSI-47-series-0035,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,8525-03031002,instrument_cell,5
+PSI-47-series-0036,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,8525-03031002,instrument_cell,7
+PSI-47-series-0037,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,8525-03031002,instrument_cell,8
+PSI-47-series-0038,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,8525-03031002,instrument_cell,9
+PSI-47-series-0039,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,00:00:12:04,instrument_cell,2
+PSI-47-series-0040,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,00:00:12:04,instrument_cell,3
+PSI-47-series-0041,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,00:00:11:47,instrument_cell,4
+PSI-47-series-0042,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,00:00:07:35,instrument_cell,5
+PSI-47-series-0043,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,00:00:38:50,instrument_cell,7
+PSI-47-series-0044,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,00:00:19:47,instrument_cell,8
+PSI-47-series-0045,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,00:00:38:12,instrument_cell,9
+PSI-47-series-0046,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,time,instrument_cell,1
+PSI-47-series-0047,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,P-Trak n/cm3,instrument_cell,2
+PSI-47-series-0048,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,DustTrak mg/m3,instrument_cell,3
+PSI-47-series-0049,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,P-Trak n/cm3,instrument_cell,5
+PSI-47-series-0050,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,DustTrak mg/m3,instrument_cell,6
+PSI-47-series-0051,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,P-Trak n/cm3,instrument_cell,8
+PSI-47-series-0052,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,DustTrak mg/m3,instrument_cell,9
+PSI-47-series-0053,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,P-Trak,instrument_cell,1
+PSI-47-series-0054,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,DustTrak,instrument_cell,2
+PSI-47-series-0055,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,P-Trak,instrument_cell,3
+PSI-47-series-0056,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,DustTrak,instrument_cell,4
+PSI-47-series-0057,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,P-Trak,instrument_cell,5
+PSI-47-series-0058,DAFT / DAFT-2,,ISS,,,,,,,,,unknown,,,,PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls,flight_instrument_validation,microgravity,PSI-47,DustTrak,instrument_cell,6

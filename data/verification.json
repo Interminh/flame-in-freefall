@@ -1,0 +1,1875 @@
+{
+  "status": "PASS",
+  "raw_files": 69,
+  "raw_bytes": 155808304,
+  "spot_checks": [
+    {
+      "psi_id": "PSI-25",
+      "clean_csv_row": 24,
+      "source_file": "PSI-25_Experimental table_BASS-II.csv",
+      "source_location": "24",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 17,
+          "raw_row": 24
+        },
+        {
+          "field": "o2_percent",
+          "raw": "22.2",
+          "clean": "22.2"
+        },
+        {
+          "field": "PDF test ID anchor",
+          "pdf_page": 113,
+          "table": 1,
+          "table_row": 2,
+          "raw": "F1",
+          "clean": "F1"
+        },
+        {
+          "field": "PDF observation text",
+          "match": true
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-25",
+      "clean_csv_row": 54,
+      "source_file": "PSI-25_Experimental table_BASS-II.csv",
+      "source_location": "54",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 17,
+          "raw_row": 54
+        },
+        {
+          "field": "o2_percent",
+          "raw": "14.2",
+          "clean": "14.2"
+        },
+        {
+          "field": "PDF test ID anchor",
+          "pdf_page": 119,
+          "table": 1,
+          "table_row": 10,
+          "raw": "O5b",
+          "clean": "O5b"
+        },
+        {
+          "field": "PDF observation text",
+          "match": true
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-25",
+      "clean_csv_row": 88,
+      "source_file": "PSI-25_Experimental table_BASS-II.csv",
+      "source_location": "88",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 17,
+          "raw_row": 88
+        },
+        {
+          "field": "o2_percent",
+          "raw": "18.4",
+          "clean": "18.4"
+        },
+        {
+          "field": "PDF test ID anchor",
+          "pdf_page": 114,
+          "table": 1,
+          "table_row": 12,
+          "raw": "P14",
+          "clean": "P14"
+        },
+        {
+          "field": "PDF observation text",
+          "match": true
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-25",
+      "clean_csv_row": 112,
+      "source_file": "PSI-25_Experimental table_BASS-II.csv",
+      "source_location": "112",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 17,
+          "raw_row": 112
+        },
+        {
+          "field": "o2_percent",
+          "raw": "16.8",
+          "clean": "16.8"
+        },
+        {
+          "field": "PDF test ID anchor",
+          "pdf_page": 120,
+          "table": 1,
+          "table_row": 8,
+          "raw": "T12",
+          "clean": "T12"
+        },
+        {
+          "field": "PDF observation text",
+          "match": true
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-25",
+      "clean_csv_row": 118,
+      "source_file": "PSI-25_Experimental table_BASS-II.csv",
+      "source_location": "118",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 17,
+          "raw_row": 118
+        },
+        {
+          "field": "o2_percent",
+          "raw": "17.4",
+          "clean": "17.4"
+        },
+        {
+          "field": "PDF test ID anchor",
+          "pdf_page": 120,
+          "table": 1,
+          "table_row": 21,
+          "raw": "T18",
+          "clean": "T18"
+        },
+        {
+          "field": "PDF observation text",
+          "match": true
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-26",
+      "clean_csv_row": 44,
+      "source_file": "PSI-26_Science Documents_As Run_Test Matrix.xlsx",
+      "source_location": "as run matrix!row 46",
+      "checks": [
+        {
+          "field": "test_id",
+          "raw": "42",
+          "clean": "42"
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.21894414078122915",
+          "clean": "21.894414078122915"
+        },
+        {
+          "field": "pressure_kpa",
+          "raw": "0.9869736842105263",
+          "clean": "100.0051085526315773475"
+        },
+        {
+          "field": "observations",
+          "match": true
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-26",
+      "clean_csv_row": 53,
+      "source_file": "PSI-26_Science Documents_As Run_Test Matrix.xlsx",
+      "source_location": "as run matrix!row 55",
+      "checks": [
+        {
+          "field": "test_id",
+          "raw": "51",
+          "clean": "51"
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.22383806099347453",
+          "clean": "22.383806099347453"
+        },
+        {
+          "field": "pressure_kpa",
+          "raw": "0.9880263157894736",
+          "clean": "100.11176644736841252"
+        },
+        {
+          "field": "observations",
+          "match": true
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-26",
+      "clean_csv_row": 67,
+      "source_file": "PSI-26_Science Documents_As Run_Test Matrix.xlsx",
+      "source_location": "as run matrix!row 70",
+      "checks": [
+        {
+          "field": "test_id",
+          "raw": "65",
+          "clean": "65"
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.215162301439728",
+          "clean": "21.5162301439728"
+        },
+        {
+          "field": "pressure_kpa",
+          "raw": "0.9906842105263157",
+          "clean": "100.3810776315789383025"
+        },
+        {
+          "field": "observations",
+          "match": true
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-26",
+      "clean_csv_row": 87,
+      "source_file": "PSI-26_Science Documents_As Run_Test Matrix.xlsx",
+      "source_location": "as run matrix!row 94",
+      "checks": [
+        {
+          "field": "test_id",
+          "raw": "85",
+          "clean": "85"
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.211",
+          "clean": "21.1"
+        },
+        {
+          "field": "pressure_kpa",
+          "raw": "0.982",
+          "clean": "99.50115"
+        },
+        {
+          "field": "observations",
+          "match": true
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-26",
+      "clean_csv_row": 89,
+      "source_file": "PSI-26_Science Documents_As Run_Test Matrix.xlsx",
+      "source_location": "as run matrix!row 96",
+      "checks": [
+        {
+          "field": "test_id",
+          "raw": "86",
+          "clean": "86"
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.21111",
+          "clean": "21.111"
+        },
+        {
+          "field": "pressure_kpa",
+          "raw": "0.98",
+          "clean": "99.2985"
+        },
+        {
+          "field": "observations",
+          "match": true
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-69",
+      "clean_csv_row": 65,
+      "source_file": "PSI-69_Experimental table_FLEX.csv",
+      "source_location": "65",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 15,
+          "raw_row": 65
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.18",
+          "clean": "18"
+        },
+        {
+          "field": "pressure_kpa",
+          "raw": "764.6",
+          "clean": "101.9382828947368421052631579"
+        },
+        {
+          "field": "outcome",
+          "raw": "Extinction",
+          "clean": "extinguished"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-69",
+      "clean_csv_row": 97,
+      "source_file": "PSI-69_Experimental table_FLEX.csv",
+      "source_location": "97",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 15,
+          "raw_row": 97
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.24",
+          "clean": "24"
+        },
+        {
+          "field": "pressure_kpa",
+          "raw": "534.4",
+          "clean": "71.24747368421052631578947367"
+        },
+        {
+          "field": "outcome",
+          "raw": "Disruption",
+          "clean": "unknown"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-69",
+      "clean_csv_row": 111,
+      "source_file": "PSI-69_Experimental table_FLEX.csv",
+      "source_location": "111",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 15,
+          "raw_row": 111
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.21",
+          "clean": "21"
+        },
+        {
+          "field": "pressure_kpa",
+          "raw": "537",
+          "clean": "71.59411184210526315789473683"
+        },
+        {
+          "field": "outcome",
+          "raw": "Extinction",
+          "clean": "extinguished"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-69",
+      "clean_csv_row": 143,
+      "source_file": "PSI-69_Experimental table_FLEX.csv",
+      "source_location": "143",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 15,
+          "raw_row": 143
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.15",
+          "clean": "15"
+        },
+        {
+          "field": "pressure_kpa",
+          "raw": "534.5",
+          "clean": "71.26080592105263157894736841"
+        },
+        {
+          "field": "outcome",
+          "raw": "Extinction",
+          "clean": "extinguished"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-69",
+      "clean_csv_row": 253,
+      "source_file": "PSI-69_Experimental table_FLEX.csv",
+      "source_location": "253",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 15,
+          "raw_row": 253
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.24",
+          "clean": "24"
+        },
+        {
+          "field": "pressure_kpa",
+          "raw": "534.6",
+          "clean": "71.27413815789473684210526315"
+        },
+        {
+          "field": "outcome",
+          "raw": "Disruption",
+          "clean": "unknown"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-68",
+      "clean_csv_row": 2,
+      "source_file": "PSI-68_Experimental table_Flex2.csv",
+      "source_location": "2",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 7,
+          "raw_row": 2
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-68",
+      "clean_csv_row": 3,
+      "source_file": "PSI-68_Experimental table_Flex2.csv",
+      "source_location": "3",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 7,
+          "raw_row": 3
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-68",
+      "clean_csv_row": 4,
+      "source_file": "PSI-68_Experimental table_Flex2.csv",
+      "source_location": "4",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 7,
+          "raw_row": 4
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-68",
+      "clean_csv_row": 5,
+      "source_file": "PSI-68_Experimental table_Flex2.csv",
+      "source_location": "5",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 7,
+          "raw_row": 5
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-68",
+      "clean_csv_row": 9,
+      "source_file": "PSI-68_Experimental table_Flex2.csv",
+      "source_location": "9",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 7,
+          "raw_row": 9
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-98",
+      "clean_csv_row": 2,
+      "source_file": "PSI-98_Experimental table_SAFFIRE-1.csv",
+      "source_location": "2",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 13,
+          "raw_row": 2
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-98",
+      "clean_csv_row": 3,
+      "source_file": "PSI-98_Experimental table_SAFFIRE-1.csv",
+      "source_location": "3",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 13,
+          "raw_row": 3
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-99",
+      "clean_csv_row": 3,
+      "source_file": "PSI-99_Experimental table_SAFFIRE-2.csv",
+      "source_location": "2",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 17,
+          "raw_row": 2
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-99",
+      "clean_csv_row": 12,
+      "source_file": "PSI-99_Experimental table_SAFFIRE-2.csv",
+      "source_location": "7",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 17,
+          "raw_row": 7
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-99",
+      "clean_csv_row": 14,
+      "source_file": "PSI-99_Experimental table_SAFFIRE-2.csv",
+      "source_location": "8",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 17,
+          "raw_row": 8
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-99",
+      "clean_csv_row": 15,
+      "source_file": "PSI-99_Experimental table_SAFFIRE-2.csv",
+      "source_location": "8",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 17,
+          "raw_row": 8
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-99",
+      "clean_csv_row": 17,
+      "source_file": "PSI-99_Experimental table_SAFFIRE-2.csv",
+      "source_location": "9",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 17,
+          "raw_row": 9
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-100",
+      "clean_csv_row": 2,
+      "source_file": "PSI-100_Experimental table_SAFFIRE-3.csv",
+      "source_location": "2",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 9,
+          "raw_row": 2
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-100",
+      "clean_csv_row": 3,
+      "source_file": "PSI-100_Experimental table_SAFFIRE-3.csv",
+      "source_location": "3",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 9,
+          "raw_row": 3
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-39",
+      "clean_csv_row": 25,
+      "source_file": "PSI-39_Science Documents_CFI_DataSummary_Spreadsheet_Jan2021.xlsx",
+      "source_location": "Master Sheet!row 25",
+      "checks": [
+        {
+          "field": "test_id",
+          "raw": "1229",
+          "clean": "1229"
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.21",
+          "clean": "21"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-39",
+      "clean_csv_row": 55,
+      "source_file": "PSI-39_Science Documents_CFI_DataSummary_Spreadsheet_Jan2021.xlsx",
+      "source_location": "Master Sheet!row 55",
+      "checks": [
+        {
+          "field": "test_id",
+          "raw": "1259",
+          "clean": "1259"
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.21",
+          "clean": "21"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-39",
+      "clean_csv_row": 66,
+      "source_file": "PSI-39_Science Documents_CFI_DataSummary_Spreadsheet_Jan2021.xlsx",
+      "source_location": "Master Sheet!row 66",
+      "checks": [
+        {
+          "field": "test_id",
+          "raw": "1270",
+          "clean": "1270"
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.21",
+          "clean": "21"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-39",
+      "clean_csv_row": 160,
+      "source_file": "PSI-39_Science Documents_CFI_DataSummary_Spreadsheet_Jan2021.xlsx",
+      "source_location": "Master Sheet!row 161",
+      "checks": [
+        {
+          "field": "test_id",
+          "raw": "1364",
+          "clean": "1364"
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.21",
+          "clean": "21"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-39",
+      "clean_csv_row": 162,
+      "source_file": "PSI-39_Science Documents_CFI_DataSummary_Spreadsheet_Jan2021.xlsx",
+      "source_location": "Master Sheet!row 163",
+      "checks": [
+        {
+          "field": "test_id",
+          "raw": "1366",
+          "clean": "1366"
+        },
+        {
+          "field": "o2_percent",
+          "raw": "0.21",
+          "clean": "21"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-117",
+      "clean_csv_row": 103,
+      "source_file": "PSI-117_Analyzed Data_MST_2024_Burning_history_Flame_diameter.csv",
+      "source_location": "9",
+      "checks": [
+        {
+          "field": "value",
+          "source_column": 16,
+          "raw": "79.7148801",
+          "clean": "79.7148801"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-117",
+      "clean_csv_row": 6718,
+      "source_file": "PSI-117_Analyzed Data_MST_2024_Radiance_Flame_Diameter.csv",
+      "source_location": "256",
+      "checks": [
+        {
+          "field": "value",
+          "source_column": 21,
+          "raw": "3.355",
+          "clean": "3.355"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-117",
+      "clean_csv_row": 10678,
+      "source_file": "PSI-117_Analyzed Data_PROCI_2019_Oscillatory_Cool_Flame.csv",
+      "source_location": "145",
+      "checks": [
+        {
+          "field": "value",
+          "source_column": 6,
+          "raw": "26.4869",
+          "clean": "26.4869"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-117",
+      "clean_csv_row": 16933,
+      "source_file": "PSI-117_Analyzed Data_PROCI_C12_2019_Three_Stage.csv",
+      "source_location": "38",
+      "checks": [
+        {
+          "field": "value",
+          "source_column": 34,
+          "raw": "3.04833",
+          "clean": "3.04833"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-117",
+      "clean_csv_row": 22218,
+      "source_file": "PSI-117_Analyzed Data_PROCI_C12_2019_Three_Stage.csv",
+      "source_location": "386",
+      "checks": [
+        {
+          "field": "value",
+          "source_column": 38,
+          "raw": "20.38424881",
+          "clean": "20.38424881"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-142",
+      "clean_csv_row": 1661,
+      "source_file": "PSI-142_Analyzed Data_PSI data summary Princeton with links.xlsx",
+      "source_location": "data ID 6!row 63",
+      "checks": [
+        {
+          "field": "value",
+          "column": 13,
+          "raw": "608.658927627694",
+          "clean": "608.658927627694"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-142",
+      "clean_csv_row": 1691,
+      "source_file": "PSI-142_Analyzed Data_PSI data summary Princeton with links.xlsx",
+      "source_location": "data ID 6!row 68",
+      "checks": [
+        {
+          "field": "value",
+          "column": 13,
+          "raw": "606.509406928119",
+          "clean": "606.509406928119"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-142",
+      "clean_csv_row": 4678,
+      "source_file": "PSI-142_Analyzed Data_PSI data summary Princeton with links.xlsx",
+      "source_location": "data ID 6!row 566",
+      "checks": [
+        {
+          "field": "value",
+          "column": 12,
+          "raw": "11.795713037401924",
+          "clean": "11.795713037401924"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-142",
+      "clean_csv_row": 9831,
+      "source_file": "PSI-142_Analyzed Data_PSI data summary Princeton with links.xlsx",
+      "source_location": "data ID 7!row 366",
+      "checks": [
+        {
+          "field": "value",
+          "column": 9,
+          "raw": "63.96547390301407",
+          "clean": "63.96547390301407"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-142",
+      "clean_csv_row": 13409,
+      "source_file": "PSI-142_Analyzed Data_PSI data summary Princeton with links.xlsx",
+      "source_location": "data ID 7!row 962",
+      "checks": [
+        {
+          "field": "value",
+          "column": 13,
+          "raw": "0.1995348743409977",
+          "clean": "0.1995348743409977"
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-20",
+      "clean_csv_row": 6,
+      "source_file": "PSI-20_Experimental table_ACME BRE.csv",
+      "source_location": "6",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 8,
+          "raw_row": 6
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-20",
+      "clean_csv_row": 8,
+      "source_file": "PSI-20_Experimental table_ACME BRE.csv",
+      "source_location": "8",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 8,
+          "raw_row": 8
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-20",
+      "clean_csv_row": 12,
+      "source_file": "PSI-20_Experimental table_ACME BRE.csv",
+      "source_location": "12",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 8,
+          "raw_row": 12
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-20",
+      "clean_csv_row": 14,
+      "source_file": "PSI-20_Experimental table_ACME BRE.csv",
+      "source_location": "14",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 8,
+          "raw_row": 14
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-20",
+      "clean_csv_row": 19,
+      "source_file": "PSI-20_Experimental table_ACME BRE.csv",
+      "source_location": "19",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 8,
+          "raw_row": 19
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-159",
+      "clean_csv_row": 50,
+      "source_file": "PSI-159_Experimental table_CFI-G_Inverse Flames.csv",
+      "source_location": "51",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 20,
+          "raw_row": 51
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-159",
+      "clean_csv_row": 54,
+      "source_file": "PSI-159_Experimental table_CFI-G_Inverse Flames.csv",
+      "source_location": "55",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 20,
+          "raw_row": 55
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-159",
+      "clean_csv_row": 145,
+      "source_file": "PSI-159_Experimental table_CFI-G_Inverse Flames.csv",
+      "source_location": "146",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 20,
+          "raw_row": 146
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-159",
+      "clean_csv_row": 195,
+      "source_file": "PSI-159_Experimental table_CFI-G_Normal Flames.csv",
+      "source_location": "42",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 18,
+          "raw_row": 42
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-159",
+      "clean_csv_row": 327,
+      "source_file": "PSI-159_Experimental table_CFI-G_Normal Flames.csv",
+      "source_location": "174",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 18,
+          "raw_row": 174
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-22",
+      "clean_csv_row": 17,
+      "source_file": "PSI-22_Experimental table_ACME E-FIELD Flames.csv",
+      "source_location": "17",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 10,
+          "raw_row": 17
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-22",
+      "clean_csv_row": 20,
+      "source_file": "PSI-22_Experimental table_ACME E-FIELD Flames.csv",
+      "source_location": "20",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 10,
+          "raw_row": 20
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-22",
+      "clean_csv_row": 24,
+      "source_file": "PSI-22_Experimental table_ACME E-FIELD Flames.csv",
+      "source_location": "24",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 10,
+          "raw_row": 24
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-22",
+      "clean_csv_row": 26,
+      "source_file": "PSI-22_Experimental table_ACME E-FIELD Flames.csv",
+      "source_location": "26",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 10,
+          "raw_row": 26
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-22",
+      "clean_csv_row": 33,
+      "source_file": "PSI-22_Experimental table_ACME E-FIELD Flames.csv",
+      "source_location": "33",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 10,
+          "raw_row": 33
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-107",
+      "clean_csv_row": 23,
+      "source_file": "PSI-107_Experimental table_Spice.csv",
+      "source_location": "23",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 9,
+          "raw_row": 23
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-107",
+      "clean_csv_row": 164,
+      "source_file": "PSI-107_Experimental table_Spice.csv",
+      "source_location": "164",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 9,
+          "raw_row": 164
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-107",
+      "clean_csv_row": 180,
+      "source_file": "PSI-107_Experimental table_Spice.csv",
+      "source_location": "180",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 9,
+          "raw_row": 180
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-107",
+      "clean_csv_row": 399,
+      "source_file": "PSI-107_Experimental table_Spice.csv",
+      "source_location": "399",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 9,
+          "raw_row": 399
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-107",
+      "clean_csv_row": 455,
+      "source_file": "PSI-107_Experimental table_Spice.csv",
+      "source_location": "455",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 9,
+          "raw_row": 455
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-10",
+      "clean_csv_row": 30,
+      "source_file": "PSI-10_Experimental table_Flame Design_Inverse Flame.csv",
+      "source_location": "30",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 14,
+          "raw_row": 30
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-10",
+      "clean_csv_row": 213,
+      "source_file": "PSI-10_Experimental table_Flame Design_Normal Flame.csv",
+      "source_location": "93",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 15,
+          "raw_row": 93
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-10",
+      "clean_csv_row": 294,
+      "source_file": "PSI-10_Experimental table_Flame Design_Normal Flame.csv",
+      "source_location": "174",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 15,
+          "raw_row": 174
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-10",
+      "clean_csv_row": 303,
+      "source_file": "PSI-10_Experimental table_Flame Design_Normal Flame.csv",
+      "source_location": "183",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 15,
+          "raw_row": 183
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-10",
+      "clean_csv_row": 308,
+      "source_file": "PSI-10_Experimental table_Flame Design_Normal Flame.csv",
+      "source_location": "188",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 15,
+          "raw_row": 188
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-21",
+      "clean_csv_row": 5,
+      "source_file": "PSI-21_Experimental table_CLD Flame.csv",
+      "source_location": "5",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 8,
+          "raw_row": 5
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-21",
+      "clean_csv_row": 10,
+      "source_file": "PSI-21_Experimental table_CLD Flame.csv",
+      "source_location": "10",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 8,
+          "raw_row": 10
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-21",
+      "clean_csv_row": 16,
+      "source_file": "PSI-21_Experimental table_CLD Flame.csv",
+      "source_location": "16",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 8,
+          "raw_row": 16
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-21",
+      "clean_csv_row": 28,
+      "source_file": "PSI-21_Experimental table_CLD Flame.csv",
+      "source_location": "28",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 8,
+          "raw_row": 28
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-21",
+      "clean_csv_row": 32,
+      "source_file": "PSI-21_Experimental table_CLD Flame.csv",
+      "source_location": "32",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 8,
+          "raw_row": 32
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-23",
+      "clean_csv_row": 5,
+      "source_file": "PSI-23_Experimental table_ACME s-Flame.csv",
+      "source_location": "5",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 9,
+          "raw_row": 5
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-23",
+      "clean_csv_row": 10,
+      "source_file": "PSI-23_Experimental table_ACME s-Flame.csv",
+      "source_location": "10",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 9,
+          "raw_row": 10
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-23",
+      "clean_csv_row": 11,
+      "source_file": "PSI-23_Experimental table_ACME s-Flame.csv",
+      "source_location": "11",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 9,
+          "raw_row": 11
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-23",
+      "clean_csv_row": 12,
+      "source_file": "PSI-23_Experimental table_ACME s-Flame.csv",
+      "source_location": "12",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 9,
+          "raw_row": 12
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-23",
+      "clean_csv_row": 18,
+      "source_file": "PSI-23_Experimental table_ACME s-Flame.csv",
+      "source_location": "18",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 9,
+          "raw_row": 18
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-106",
+      "clean_csv_row": 3,
+      "source_file": "PSI-106_Experimental table_Slice.csv",
+      "source_location": "3",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 2,
+          "raw_row": 3
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-106",
+      "clean_csv_row": 4,
+      "source_file": "PSI-106_Experimental table_Slice.csv",
+      "source_location": "4",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 2,
+          "raw_row": 4
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-106",
+      "clean_csv_row": 9,
+      "source_file": "PSI-106_Experimental table_Slice.csv",
+      "source_location": "9",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 2,
+          "raw_row": 9
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-106",
+      "clean_csv_row": 12,
+      "source_file": "PSI-106_Experimental table_Slice.csv",
+      "source_location": "12",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 2,
+          "raw_row": 12
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-106",
+      "clean_csv_row": 13,
+      "source_file": "PSI-106_Experimental table_Slice.csv",
+      "source_location": "13",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 2,
+          "raw_row": 13
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-102",
+      "clean_csv_row": 3,
+      "source_file": "PSI-102_Experimental table_SAME.csv",
+      "source_location": "3",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 5,
+          "raw_row": 3
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-102",
+      "clean_csv_row": 4,
+      "source_file": "PSI-102_Experimental table_SAME.csv",
+      "source_location": "4",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 5,
+          "raw_row": 4
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-102",
+      "clean_csv_row": 5,
+      "source_file": "PSI-102_Experimental table_SAME.csv",
+      "source_location": "5",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 5,
+          "raw_row": 5
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-102",
+      "clean_csv_row": 8,
+      "source_file": "PSI-102_Experimental table_SAME.csv",
+      "source_location": "8",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 5,
+          "raw_row": 8
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-102",
+      "clean_csv_row": 9,
+      "source_file": "PSI-102_Experimental table_SAME.csv",
+      "source_location": "9",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 5,
+          "raw_row": 9
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-101",
+      "clean_csv_row": 17,
+      "source_file": "PSI-101_Experimental table_SAME-R.csv",
+      "source_location": "17",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 10,
+          "raw_row": 17
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-101",
+      "clean_csv_row": 45,
+      "source_file": "PSI-101_Experimental table_SAME-R.csv",
+      "source_location": "45",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 10,
+          "raw_row": 45
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-101",
+      "clean_csv_row": 74,
+      "source_file": "PSI-101_Experimental table_SAME-R.csv",
+      "source_location": "74",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 10,
+          "raw_row": 74
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-101",
+      "clean_csv_row": 75,
+      "source_file": "PSI-101_Experimental table_SAME-R.csv",
+      "source_location": "75",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 10,
+          "raw_row": 75
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-101",
+      "clean_csv_row": 92,
+      "source_file": "PSI-101_Experimental table_SAME-R.csv",
+      "source_location": "92",
+      "checks": [
+        {
+          "field": "preserved_source_fields",
+          "columns": 10,
+          "raw_row": 92
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-47",
+      "clean_csv_row": 1552,
+      "source_file": "PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls",
+      "source_location": "Raw PTrak Data!row 223",
+      "checks": [
+        {
+          "field": "value",
+          "raw": "0.0",
+          "clean": "0.0",
+          "column": 12
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-47",
+      "clean_csv_row": 6635,
+      "source_file": "PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls",
+      "source_location": "Raw PTrak Data!row 1420",
+      "checks": [
+        {
+          "field": "value",
+          "raw": "12.0",
+          "clean": "12.0",
+          "column": 15
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-47",
+      "clean_csv_row": 16550,
+      "source_file": "PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls",
+      "source_location": "Raw DustTrak Data!row 1640",
+      "checks": [
+        {
+          "field": "value",
+          "raw": "0.0",
+          "clean": "0.0",
+          "column": 5
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-47",
+      "clean_csv_row": 19315,
+      "source_file": "PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls",
+      "source_location": "Raw DustTrak Data!row 2331",
+      "checks": [
+        {
+          "field": "value",
+          "raw": "0.004",
+          "clean": "0.004",
+          "column": 7
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-47",
+      "clean_csv_row": 20635,
+      "source_file": "PSI-47_Analyzed Data_DAFT Retrieved Data Summary.xls",
+      "source_location": "P-Trak vs. DustTrak Data!row 147",
+      "checks": [
+        {
+          "field": "value",
+          "raw": "19000.0",
+          "clean": "19000.0",
+          "column": 3
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-115",
+      "clean_csv_row": 129,
+      "source_file": "PSI-115_Analyzed Data_8cmGravityNS_PSD.dat",
+      "source_location": "40",
+      "checks": [
+        {
+          "field": "node_index/distribution_value",
+          "raw": [
+            "40",
+            "8732423.0227620807"
+          ],
+          "clean": [
+            "40",
+            "8732423.0227620807"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-115",
+      "clean_csv_row": 155,
+      "source_file": "PSI-115_Analyzed Data_8cmGravityPSD.dat",
+      "source_location": "21",
+      "checks": [
+        {
+          "field": "node_index/distribution_value",
+          "raw": [
+            "22",
+            "2.2806047116009802"
+          ],
+          "clean": [
+            "22",
+            "2.2806047116009802"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-115",
+      "clean_csv_row": 195,
+      "source_file": "PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat",
+      "source_location": "17",
+      "checks": [
+        {
+          "field": "node_index/distribution_value",
+          "raw": [
+            "17",
+            "8.12794803090596124E-002"
+          ],
+          "clean": [
+            "17",
+            "8.12794803090596124E-002"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-115",
+      "clean_csv_row": 219,
+      "source_file": "PSI-115_Analyzed Data_8cmNoGravityNoTF_PSD.dat",
+      "source_location": "41",
+      "checks": [
+        {
+          "field": "node_index/distribution_value",
+          "raw": [
+            "41",
+            "4547106.9891594155"
+          ],
+          "clean": [
+            "41",
+            "4547106.9891594155"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "psi_id": "PSI-115",
+      "clean_csv_row": 231,
+      "source_file": "PSI-115_Analyzed Data_8cmNoGravityPSD.dat",
+      "source_location": "8",
+      "checks": [
+        {
+          "field": "node_index/distribution_value",
+          "raw": [
+            "9",
+            "5.62504162706164018E-002"
+          ],
+          "clean": [
+            "9",
+            "5.62504162706164018E-002"
+          ]
+        }
+      ],
+      "status": "PASS",
+      "errors": []
+    }
+  ],
+  "failures": [],
+  "replay": {
+    "raw_files_compared": 69,
+    "raw_differences": [],
+    "processed_files_compared": 53,
+    "processed_differences": []
+  },
+  "data_bytes_before_verification_report": 4427169
+}

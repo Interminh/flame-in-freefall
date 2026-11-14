@@ -1,0 +1,19 @@
+experiment,test_id,platform,gravity_g,fuel,fuel_geometry,fuel_thickness_mm,o2_percent,pressure_kpa,flow_velocity_cm_s,flow_direction,outcome,spread_rate_mm_s,burning_rate,extinction_reason,source_file,source_row_or_page,evidence_type,gravity_regime,psi_id,record_kind,src_burner_size_mm,src_date,src_flames_ignited,src_fuel_bottle,src_month,src_notes,src_oxygen_conc_percent,src_year
+ACME BRE,,ISS,,100% C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,2,flight_observation,microgravity,PSI-20,campaign_summary,25,8,10,100% C2H4,Feb,Oxygen Conc. (as diluted with nitrogen on a volume basis) was varied between tests where approximate concentrations for tests that ignited are listed. The chamber pressures were also varied but are not identified in this summary table.,21; 26.5; 40,2019
+ACME BRE,,ISS,,100% C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,3,flight_observation,microgravity,PSI-20,campaign_summary,25,20,8,100% C2H4,Feb,Flames Ignited is the number ignited on that day (neglecting the day change on ISS).,26.5; 34,2019
+ACME BRE,,ISS,,50% C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,4,flight_observation,microgravity,PSI-20,campaign_summary,25,25,8,50% C2H4,Feb,,21; 26.5; 34; 40,2019
+ACME BRE,,ISS,,50% C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,5,flight_observation,microgravity,PSI-20,campaign_summary,25,4,6,50% C2H4,March,,26.5; 40,2019
+ACME BRE,,ISS,,50% C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,6,flight_observation,microgravity,PSI-20,campaign_summary,25,7,6,50% C2H4,March,,3400%,2019
+ACME BRE,,ISS,,50% C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,7,flight_observation,microgravity,PSI-20,campaign_summary,25,11,7,50% C2H4,March,,26.5; 34,2019
+ACME BRE,,ISS,,100%C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,8,flight_observation,microgravity,PSI-20,campaign_summary,25,28,8,100%C2H4,March,,26.5; 34,2019
+ACME BRE,,ISS,,100%C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,9,flight_observation,microgravity,PSI-20,campaign_summary,25,1,0,100%C2H4,April,,2100%,2019
+ACME BRE,,ISS,,100%C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,10,flight_observation,microgravity,PSI-20,campaign_summary,25,4,9,100%C2H4,April,,21; 26.5; 34,2019
+ACME BRE,,ISS,,100% C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,11,flight_observation,microgravity,PSI-20,campaign_summary,50,3,13,100% C2H4,Sept,,25; 34; 40,2020
+ACME BRE,,ISS,,100% C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,12,flight_observation,microgravity,PSI-20,campaign_summary,25,17,13,100% C2H4,Oct,,26.5; 34,2020
+ACME BRE,,ISS,,100% CH4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,13,flight_observation,microgravity,PSI-20,campaign_summary,25,5,21,100% CH4,Dec,,25; 34; 40,2020
+ACME BRE,,ISS,,100% CH4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,14,flight_observation,microgravity,PSI-20,campaign_summary,25,4,18,100% CH4,Dec,,25; 40,2020
+ACME BRE,,ISS,,50% C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,15,flight_observation,microgravity,PSI-20,campaign_summary,25,11,12,50% C2H4,Dec,,25; 40,2020
+ACME BRE,,ISS,,100% C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,16,flight_observation,microgravity,PSI-20,campaign_summary,25,17,10,100% C2H4,Dec,,34; 40,2020
+ACME BRE,,ISS,,100% C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,17,flight_observation,microgravity,PSI-20,campaign_summary,25,23,17,100% C2H4,Dec,,25; 34; 40,2020
+ACME BRE,,ISS,,100% C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,18,flight_observation,microgravity,PSI-20,campaign_summary,25,20,15,100% C2H4,Jan,,21; 26.5; 34,2021
+ACME BRE,,ISS,,100% C2H4,,,,,,,unknown,,,,PSI-20_Experimental table_ACME BRE.csv,19,flight_observation,microgravity,PSI-20,campaign_summary,50,28,13,100% C2H4,Jan,,25; 34; 40,2021

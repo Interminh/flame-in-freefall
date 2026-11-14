@@ -1,0 +1,9 @@
+experiment,test_id,platform,gravity_g,fuel,fuel_geometry,fuel_thickness_mm,o2_percent,pressure_kpa,flow_velocity_cm_s,flow_direction,outcome,spread_rate_mm_s,burning_rate,extinction_reason,source_file,source_row_or_page,evidence_type,gravity_regime,psi_id,record_kind,src_aging_duration_minutes,src_air_flow_cm_s,src_sample,src_sample_material,src_weight_loss_rate_mg_min
+SAME,1,ISS,,Teflon,,,,,5,,unknown,,,,PSI-102_Experimental table_SAME.csv,2,flight_observation,microgravity,PSI-102,smoke_test,1,5,1,Teflon,2
+SAME,2,ISS,,Teflon,,,,,5,,unknown,,,,PSI-102_Experimental table_SAME.csv,3,flight_observation,microgravity,PSI-102,smoke_test,1,5,2,Teflon,1
+SAME,3,ISS,,Teflon,,,,,5,,unknown,,,,PSI-102_Experimental table_SAME.csv,4,flight_observation,microgravity,PSI-102,smoke_test,20,5,3,Teflon,2
+SAME,4,ISS,,Teflon,,,,,10,,unknown,,,,PSI-102_Experimental table_SAME.csv,5,flight_observation,microgravity,PSI-102,smoke_test,1,10,4,Teflon,2
+SAME,5,ISS,,Kapton: same conditions as 1-4,,,,,,,unknown,,,,PSI-102_Experimental table_SAME.csv,6,flight_observation,microgravity,PSI-102,smoke_test,,,5,Kapton: same conditions as 1-4,
+SAME,6,ISS,,Silicone Rubber: same conditions as 1-4,,,,,,,unknown,,,,PSI-102_Experimental table_SAME.csv,7,flight_observation,microgravity,PSI-102,smoke_test,,,6,Silicone Rubber: same conditions as 1-4,
+SAME,7,ISS,,Lampwick: same conditions as 1-4,,,,,,,unknown,,,,PSI-102_Experimental table_SAME.csv,8,flight_observation,microgravity,PSI-102,smoke_test,,,7,Lampwick: same conditions as 1-4,
+SAME,8,ISS,,Dibutyl Phthalate: same conditions as 1-4,,,,,,,unknown,,,,PSI-102_Experimental table_SAME.csv,9,flight_observation,microgravity,PSI-102,smoke_test,,,8,Dibutyl Phthalate: same conditions as 1-4,

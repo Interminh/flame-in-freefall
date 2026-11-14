@@ -1,0 +1,110 @@
+experiment,test_id,platform,gravity_g,fuel,fuel_geometry,fuel_thickness_mm,o2_percent,pressure_kpa,flow_velocity_cm_s,flow_direction,outcome,spread_rate_mm_s,burning_rate,extinction_reason,source_file,source_row_or_page,evidence_type,gravity_regime,psi_id,record_kind,src_date,src_description,src_duration_sec,src_inlet_velocity_cm_s,src_net_aging_time_sec,src_primary_aging_time_sec,src_primary_mixing_time_sec,src_rt_r0,src_same_test,src_sample_type
+SAME-R,51,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,2,flight_observation,microgravity,PSI-101,smoke_test,21-Jul,B.L. new formula,60,8.1,38,11,8,1.38,51,Kapton
+SAME-R,51a,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,3,flight_observation,microgravity,PSI-101,smoke_test,22-Jul,B.L. new formula,60,8.1,261,,,1.38,51a,Kapton
+SAME-R,61,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,4,flight_observation,microgravity,PSI-101,smoke_test,2-Aug,Baseline Aging,60,8.1,38,11,8,1.38,61,Kapton
+SAME-R,61a,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,5,flight_observation,microgravity,PSI-101,smoke_test,2-Aug,aged,,8.1,807,,,1.38,61a,Kapton
+SAME-R,62,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,6,flight_observation,microgravity,PSI-101,smoke_test,2-Aug,High Temp aging,60,8.1,39,11,8,1.48,62,Kapton
+SAME-R,62a,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,7,flight_observation,microgravity,PSI-101,smoke_test,2-Aug,aged,,8.1,808,,,1.48,62a,Kapton
+SAME-R,70,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,8,flight_observation,microgravity,PSI-101,smoke_test,24-Aug,High temp aged STS det,60,8.1,747,720,8,1.48,70,Kapton
+SAME-R,73,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,9,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,Baseline Aging,60,8.1,33,11,8,1.38,73,Kapton
+SAME-R,73a,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,10,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,aged,,8.1,560,,,1.38,73a,Kapton
+SAME-R,75,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,11,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,Mid Temp aging (no Ptrak),60,8.1,32,11,8,1.43,75,Kapton
+SAME-R,75a,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,12,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,aged,,8.1,563,,,1.43,75a,Kapton
+SAME-R,77,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,13,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,High Temp aging,60,8.1,31,11,8,1.48,77,Kapton
+SAME-R,77a,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,14,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,aged,,8.1,559,,,1.48,77a,Kapton
+SAME-R,85,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,15,flight_observation,microgravity,PSI-101,smoke_test,30-Aug,Mid Temp aging run. Repeat 75,60,8.1,33,11,8,1.43,85,Kapton
+SAME-R,85a,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,16,flight_observation,microgravity,PSI-101,smoke_test,30-Aug,aged,,8.1,563,,,1.43,85a,Kapton
+SAME-R,90,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,17,flight_observation,microgravity,PSI-101,smoke_test,30-Aug,Mid Temp aging reburn 85,60,8.1,38,11,8,1.43,90,Kapton
+SAME-R,90a,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,18,flight_observation,microgravity,PSI-101,smoke_test,30-Aug,aged,,8.1,569,,,1.43,90a,Kapton
+SAME-R,92,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,19,flight_observation,microgravity,PSI-101,smoke_test,7-Sep,Baseline STS det,60,8.1,35,11,8,1.38,92,Kapton
+SAME-R,93,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,20,flight_observation,microgravity,PSI-101,smoke_test,7-Sep,Mid Temp aging run 75 repeat,60,8.1,36,11,8,1.43,93,Kapton
+SAME-R,93a,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,21,flight_observation,microgravity,PSI-101,smoke_test,7-Sep,aged,,8.1,568,,,1.43,93a,Kapton
+SAME-R,94,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,22,flight_observation,microgravity,PSI-101,smoke_test,7-Sep,Mid Temp aging run mid high,60,8.1,42,11,8,1.45,94,Kapton
+SAME-R,94a,ISS,,Kapton,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,23,flight_observation,microgravity,PSI-101,smoke_test,7-Sep,aged,,8.1,567,,,1.45,94a,Kapton
+SAME-R,101,ISS,,Kapton,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,24,flight_observation,microgravity,PSI-101,smoke_test,8-Sep,No flow run w/ aging,60,0,29,11,8,1.48,101,Kapton
+SAME-R,101a,ISS,,Kapton,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,25,flight_observation,microgravity,PSI-101,smoke_test,8-Sep,aged,,0,561,,,1.48,101a,Kapton
+SAME-R,102,ISS,,Kapton,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,26,flight_observation,microgravity,PSI-101,smoke_test,8-Sep,No flow run w/ aging,120,0,28,11,8,1.48,102,Kapton
+SAME-R,102a,ISS,,Kapton,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,27,flight_observation,microgravity,PSI-101,smoke_test,8-Sep,aged,,0,563,,,1.48,102a,Kapton
+SAME-R,108,ISS,,Kapton,,,,,1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,28,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,Low flow run w/aging,60,1,30,11,8,1.48,108,Kapton
+SAME-R,108a,ISS,,Kapton,,,,,1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,29,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,aged,,1,560,,,1.48,108a,Kapton
+SAME-R,114,ISS,,Kapton,,,,,2,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,30,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,low flow run w STS no Ptrak,60,2,28,11,8,1.43,114,Kapton
+SAME-R,48,ISS,,Silicone,,,,,8,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,31,flight_observation,microgravity,PSI-101,smoke_test,16-Jul,Low Temp,60,8,62,11,8,1.304,48,Silicone
+SAME-R,53,ISS,,Silicone,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,32,flight_observation,microgravity,PSI-101,smoke_test,22-Jul,HighTemp,60,8.1,52,1,8,1.35,53,Silicone
+SAME-R,59,ISS,,Silicone,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,33,flight_observation,microgravity,PSI-101,smoke_test,30-Jul,baseline aged,60,8.1,24,11,8,1.327,59,Silicone
+SAME-R,59a,ISS,,Silicone,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,34,flight_observation,microgravity,PSI-101,smoke_test,30-Jul,aged,,8.1,856,,,1.327,59a,Silicone
+SAME-R,60,ISS,,Silicone,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,35,flight_observation,microgravity,PSI-101,smoke_test,30-Jul,Htemp ageing,60,8.1,49,11,8,1.35,60,Silicone
+SAME-R,60a,ISS,,Silicone,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,36,flight_observation,microgravity,PSI-101,smoke_test,30-Jul,aged,,8.1,856,,,1.35,60a,Silicone
+SAME-R,65,ISS,,Silicone,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,37,flight_observation,microgravity,PSI-101,smoke_test,23-Aug,Baseline long aging,60,8.1,50,11,8,1.327,65,Silicone
+SAME-R,65a,ISS,,Silicone,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,38,flight_observation,microgravity,PSI-101,smoke_test,23-Aug,aged,,8.1,1923,,,1.327,65a,Silicone
+SAME-R,66,ISS,,Silicone,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,39,flight_observation,microgravity,PSI-101,smoke_test,23-Aug,High T aging,60,8.1,42,11,8,1.36,66,Silicone
+SAME-R,66a,ISS,,Silicone,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,40,flight_observation,microgravity,PSI-101,smoke_test,23-Aug,aged,,8.1,837,,,1.36,66a,Silicone
+SAME-R,67,ISS,,Silicone,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,41,flight_observation,microgravity,PSI-101,smoke_test,24-Aug,High temp aged,60,8.1,751,720,8,1.35,67,Silicone
+SAME-R,72,ISS,,Silicone,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,42,flight_observation,microgravity,PSI-101,smoke_test,25-Aug,Baseline STS det,60,8.1,42,11,8,1.327,72,Silicone
+SAME-R,86,ISS,,Silicone,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,43,flight_observation,microgravity,PSI-101,smoke_test,30-Aug,Mid temp aging,60,8.1,50,11,8,1.345,86,Silicone
+SAME-R,86a,ISS,,Silicone,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,44,flight_observation,microgravity,PSI-101,smoke_test,30-Aug,aged,,8.1,628,,,1.345,86a,Silicone
+SAME-R,91,ISS,,Silicone,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,45,flight_observation,microgravity,PSI-101,smoke_test,7-Sep,Baseline STS det,60,8.1,46,11,8,1.327,91,Silicone
+SAME-R,99,ISS,,Silicone,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,46,flight_observation,microgravity,PSI-101,smoke_test,8-Sep,No flow run w/aging,60,0,48,11,8,1.35,99,Silicone
+SAME-R,99a,ISS,,Silicone,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,47,flight_observation,microgravity,PSI-101,smoke_test,8-Sep,aged,,0,627,,,1.35,99a,Silicone
+SAME-R,103,ISS,,Silicone,,,,,1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,48,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,low flow run w/ aging,60,1,48,11,8,1.35,103,Silicone
+SAME-R,103a,ISS,,Silicone,,,,,1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,49,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,aged,,1,619,,,1.35,103a,Silicone
+SAME-R,104,ISS,,Silicone,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,50,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,No flow run w/ aging,60,0,51,11,8,1.35,104,Silicone
+SAME-R,104a,ISS,,Silicone,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,51,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,aged,,0,636,,,1.35,104a,Silicone
+SAME-R,109,ISS,,Silicone,,,,,2,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,52,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,low flow run w STS,60,2,28,11,8,1.35,109,Silicone
+SAME-R,49,ISS,,Lampwick,,,,,8,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,53,flight_observation,microgravity,PSI-101,smoke_test,19-Jul,B.L. High RT/R0,60,8,51,11,8,1.251,49,Lampwick
+SAME-R,54,ISS,,Lampwick,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,54,flight_observation,microgravity,PSI-101,smoke_test,29-Jul,Baseline,60,8.1,57,11,8,1.245,54,Lampwick
+SAME-R,55,ISS,,Lampwick,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,55,flight_observation,microgravity,PSI-101,smoke_test,29-Jul,High RT/R0 test aging,60,8.1,47,11,8,1.245,55,Lampwick
+SAME-R,55a,ISS,,Lampwick,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,56,flight_observation,microgravity,PSI-101,smoke_test,29-Jul,aged,,8.1,218,,,1.245,55a,Lampwick
+SAME-R,57,ISS,,Lampwick,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,57,flight_observation,microgravity,PSI-101,smoke_test,29-Jul,High RT/R0 reburn sample,60,8.1,n/a,11,8,1.253,57,Lampwick
+SAME-R,68,ISS,,Lampwick,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,58,flight_observation,microgravity,PSI-101,smoke_test,24-Aug,High temp aged STS det,60,8.1,747,720,8,1.28,68,Lampwick
+SAME-R,78,ISS,,Lampwick,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,59,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,Baseline aging,60,8.1,37,11,8,1.245,78,Lampwick
+SAME-R,78a,ISS,,Lampwick,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,60,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,aged,,8.1,581,,,1.245,78a,Lampwick
+SAME-R,80,ISS,,Lampwick,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,61,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,High temp aging,60,8.1,40,11,8,1.28,80,Lampwick
+SAME-R,80a,ISS,,Lampwick,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,62,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,aged,,8.1,580,,,1.28,80a,Lampwick
+SAME-R,82,ISS,,Lampwick,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,63,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,Mid temp aging,60,8.1,39,11,8,1.265,82,Lampwick
+SAME-R,82a,ISS,,Lampwick,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,64,flight_observation,microgravity,PSI-101,smoke_test,27-Aug,aged,,8.1,579,,,1.265,82a,Lampwick
+SAME-R,88,ISS,,Lampwick,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,65,flight_observation,microgravity,PSI-101,smoke_test,30-Aug,Baseline STS det,60,8.1,n/a,11,8,1.245,88,Lampwick
+SAME-R,96,ISS,,Lampwick,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,66,flight_observation,microgravity,PSI-101,smoke_test,7-Sep,No flow run w/aging,60,0,34,11,8,1.245,96,Lampwick
+SAME-R,96a,ISS,,Lampwick,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,67,flight_observation,microgravity,PSI-101,smoke_test,7-Sep,aged,,0,582,,,1.245,96a,Lampwick
+SAME-R,98,ISS,,Lampwick,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,68,flight_observation,microgravity,PSI-101,smoke_test,8-Sep,No flow run w/aging,60,0,37,11,8,1.28,98,Lampwick
+SAME-R,98a,ISS,,Lampwick,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,69,flight_observation,microgravity,PSI-101,smoke_test,8-Sep,aged,,0,585,,,1.28,98a,Lampwick
+SAME-R,106,ISS,,Lampwick,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,70,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,No flow run w/aging,60,0,30,11,8,1.28,106,Lampwick
+SAME-R,106a,ISS,,Lampwick,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,71,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,aged,,0,558,,,1.28,106a,Lampwick
+SAME-R,110,ISS,,Lampwick,,,,,2,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,72,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,low flow run w/STS,60,2,21,11,8,1.28,110,Lampwick
+SAME-R,50,ISS,,Teflon,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,73,flight_observation,microgravity,PSI-101,smoke_test,20-Jul,B.L. High RT/R0,60,8.1,33,11,8,1.452,50,Teflon
+SAME-R,56,ISS,,Teflon,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,74,flight_observation,microgravity,PSI-101,smoke_test,29-Jul,Baseline,60,8.1,41,11,8,1.445,56,Teflon
+SAME-R,57,ISS,,Teflon,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,75,flight_observation,microgravity,PSI-101,smoke_test,29-Jul,High RT/R0 reburn sample,60,8.1,n/a,11,8,1.253,57,Teflon
+SAME-R,58,ISS,,Teflon,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,76,flight_observation,microgravity,PSI-101,smoke_test,30-Jul,Baseline aging,60,8.1,34,11,8,1.445,58,Teflon
+SAME-R,58a,ISS,,Teflon,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,77,flight_observation,microgravity,PSI-101,smoke_test,30-Jul,aged,,8.1,805,,,1.445,58a,Teflon
+SAME-R,69,ISS,,Teflon,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,78,flight_observation,microgravity,PSI-101,smoke_test,24-Aug,High temp aged STS det,60,8.1,745,720,8,1.45,69,Teflon
+SAME-R,79,ISS,,Teflon,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,79,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,Baseline aging,60,8.1,33,11,8,1.445,79,Teflon
+SAME-R,79a,ISS,,Teflon,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,80,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,aged,,8.1,560,,,1.445,79a,Teflon
+SAME-R,81,ISS,,Teflon,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,81,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,High temp aging,60,8.1,30,11,8,1.45,81,Teflon
+SAME-R,81a,ISS,,Teflon,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,82,flight_observation,microgravity,PSI-101,smoke_test,27-Aug,aged,,8.1,559,,,1.45,81a,Teflon
+SAME-R,83,ISS,,Teflon,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,83,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,Mid temp aging,60,8.1,30,11,8,1.448,83,Teflon
+SAME-R,83a,ISS,,Teflon,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,84,flight_observation,microgravity,PSI-101,smoke_test,27-Aug,aged,,8.1,557,,,1.448,83a,Teflon
+SAME-R,89,ISS,,Teflon,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,85,flight_observation,microgravity,PSI-101,smoke_test,30-Aug,Baseline STS det,60,8.1,31,11,8,1.445,89,Teflon
+SAME-R,100,ISS,,Teflon,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,86,flight_observation,microgravity,PSI-101,smoke_test,8-Sep,No flow run w/ aging,60,0,29,11,8,1.45,100,Teflon
+SAME-R,100a,ISS,,Teflon,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,87,flight_observation,microgravity,PSI-101,smoke_test,8-Sep,aged,,0,560,,,1.45,100a,Teflon
+SAME-R,105,ISS,,Teflon,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,88,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,No flow run w/ aging,60,0,24,11,8,1.45,105,Teflon
+SAME-R,105a,ISS,,Teflon,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,89,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,aged,,0,559,,,1.45,105a,Teflon
+SAME-R,111,ISS,,Teflon,,,,,2,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,90,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,low flow run w/ STS,60,2,43,11,8,1.45,111,Teflon
+SAME-R,52,ISS,,Pyrell,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,91,flight_observation,microgravity,PSI-101,smoke_test,22-Jul,Baseline,60,8.1,n/a,11,8,1.22,52,Pyrell
+SAME-R,63,ISS,,Pyrell,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,92,flight_observation,microgravity,PSI-101,smoke_test,23-Aug,Baseline Aging,60,8.1,56,11,8,1.22,63,Pyrell
+SAME-R,63a,ISS,,Pyrell,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,93,flight_observation,microgravity,PSI-101,smoke_test,23-Aug,aged,,8.1,840,,,1.22,63a,Pyrell
+SAME-R,64,ISS,,Pyrell,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,94,flight_observation,microgravity,PSI-101,smoke_test,23-Aug,High Temp aging,60,8.1,47,11,8,1.23,64,Pyrell
+SAME-R,64a,ISS,,Pyrell,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,95,flight_observation,microgravity,PSI-101,smoke_test,23-Aug,aged,,8.1,842,,,1.23,64a,Pyrell
+SAME-R,71,ISS,,Pyrell,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,96,flight_observation,microgravity,PSI-101,smoke_test,24-Aug,High temp aged STS det,60,8.1,750,720,8,1.23,71,Pyrell
+SAME-R,74,ISS,,Pyrell,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,97,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,Baseline Aging,60,8.1,48,11,8,1.22,74,Pyrell
+SAME-R,74a,ISS,,Pyrell,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,98,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,aged,,8.1,623,,,1.22,74a,Pyrell
+SAME-R,76,ISS,,Pyrell,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,99,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,High Temp aging,60,8.1,51,11,8,1.23,76,Pyrell
+SAME-R,76a,ISS,,Pyrell,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,100,flight_observation,microgravity,PSI-101,smoke_test,26-Aug,aged,,8.1,625,,,1.23,76a,Pyrell
+SAME-R,84,ISS,,Pyrell,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,101,flight_observation,microgravity,PSI-101,smoke_test,30-Aug,Mid Temp aging retry,60,8.1,53,11,8,1.225,84,Pyrell
+SAME-R,84a,ISS,,Pyrell,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,102,flight_observation,microgravity,PSI-101,smoke_test,30-Aug,aged,,8.1,632,,,1.225,84a,Pyrell
+SAME-R,87,ISS,,Pyrell,,,,,8.1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,103,flight_observation,microgravity,PSI-101,smoke_test,30-Aug,Baseline STS det,60,8.1,45,11,8,1.22,87,Pyrell
+SAME-R,95,ISS,,Pyrell,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,104,flight_observation,microgravity,PSI-101,smoke_test,7-Sep,No flow run w/ aging,60,0,38,11,8,1.22,95,Pyrell
+SAME-R,95a,ISS,,Pyrell,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,105,flight_observation,microgravity,PSI-101,smoke_test,7-Sep,aged,,0,n/a,,,1.22,95a,Pyrell
+SAME-R,97,ISS,,Pyrell,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,106,flight_observation,microgravity,PSI-101,smoke_test,8-Sep,No flow run w/aging,60,0,48,11,8,1.23,97,Pyrell
+SAME-R,97a,ISS,,Pyrell,,,,,0,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,107,flight_observation,microgravity,PSI-101,smoke_test,8-Sep,aged,,0,624,,,1.23,97a,Pyrell
+SAME-R,107,ISS,,Pyrell,,,,,1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,108,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,Low flow run w/aging,60,1,32,11,8,1.23,107,Pyrell
+SAME-R,107a,ISS,,Pyrell,,,,,1,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,109,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,aged,,1,559,,,1.23,107a,Pyrell
+SAME-R,113,ISS,,Pyrell,,,,,2,,unknown,,,,PSI-101_Experimental table_SAME-R.csv,110,flight_observation,microgravity,PSI-101,smoke_test,9-Sep,low flow run w STS,60,2,31,11,8,1.23,113,Pyrell
