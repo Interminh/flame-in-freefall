@@ -1,5 +1,6 @@
 // Applies the saved theme before first paint. Storage can throw, so guard it.
+let theme = 'anthropic'
 try {
-  const saved = localStorage.getItem('theme')
-  if (saved) document.documentElement.dataset.theme = saved
+  theme = localStorage.getItem('theme') || theme
 } catch {}
+document.documentElement.dataset.theme = theme
