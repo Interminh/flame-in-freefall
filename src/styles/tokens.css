@@ -19,5 +19,10 @@
   --space-16: 64px;
   --space-24: 96px;
 
-  --radius-control: 4px;
+  --surface: #F3F6F9;
+  --paper-glass: rgba(232, 237, 241, 0.78);
+  --rule-glass: rgba(195, 204, 214, 0.6);
+  --radius-control: 980px;
+  --radius-card: 20px;
+  --shadow-soft: 0 1px 2px rgba(27, 42, 65, 0.06), 0 12px 32px rgba(27, 42, 65, 0.08);
 }
