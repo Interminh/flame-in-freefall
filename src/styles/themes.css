@@ -28,10 +28,10 @@
   --paper-glass: rgba(246, 239, 228, 0.8);
   --rule-glass: rgba(224, 213, 195, 0.7);
   --flame-gradient: linear-gradient(90deg, #FFB020, #FF6A1A, #E0301E);
-  --flame-text: linear-gradient(100deg, #B91C1C, #D9480F, #B91C1C);
+  --flame-text: linear-gradient(100deg, #B91C1C, #C2410C);
   --flame-button: linear-gradient(135deg, #B91C1C, #C2410C);
-  --flame-glow: radial-gradient(closest-side, rgba(255, 106, 26, 0.28), rgba(255, 176, 32, 0.12) 55%, transparent);
-  --shadow-soft: 0 1px 2px rgba(20, 20, 19, 0.05), 0 16px 40px rgba(194, 65, 12, 0.12);
+  --flame-glow: radial-gradient(closest-side, rgba(255, 106, 26, 0.14), rgba(255, 176, 32, 0.06) 55%, transparent);
+  --shadow-soft: 0 1px 2px rgba(20, 20, 19, 0.05), 0 16px 40px rgba(194, 65, 12, 0.06);
 }
 
 :root[data-theme='tech'] {
@@ -72,8 +72,9 @@
 :root[data-theme='anthropic'] .site-nav::after {
   content: '';
   display: block;
-  height: 3px;
+  height: 1px;
   background: var(--flame-gradient);
+  opacity: 0.7;
 }
 
 :root[data-theme='anthropic'] .hero { position: relative; }
@@ -93,33 +94,24 @@
 :root[data-theme='anthropic'] .hero .accent-blue { color: var(--blue); }
 :root[data-theme='anthropic'] .hero .accent-amber {
   background: var(--flame-text);
-  background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: flame-shift 6s ease-in-out infinite alternate;
 }
 
-@keyframes flame-shift {
-  from { background-position: 0% 0; }
-  to { background-position: 100% 0; }
-}
 
 :root[data-theme='anthropic'] .button-link { background: var(--flame-button); }
 
-:root[data-theme='anthropic'] .map-frame,
-:root[data-theme='anthropic'] .facts div { position: relative; overflow: hidden; }
-:root[data-theme='anthropic'] .map-frame::before,
-:root[data-theme='anthropic'] .facts div::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--flame-gradient);
-}
-:root[data-theme='anthropic'] .map-hatch { stroke: var(--blue); }
+
+:root[data-theme='anthropic'] .map-hatch { stroke: var(--blue); stroke-opacity: 0.7; }
 
 /* keeps the hero glow from causing sideways scroll on phones */
 :root[data-theme='anthropic'] body { overflow-x: clip; }
+
+/* Smooth, quiet transitions. Disabled globally under reduced motion. */
+:root[data-theme='anthropic'] a,
+:root[data-theme='anthropic'] .button-link,
+:root[data-theme='anthropic'] .theme-picker {
+  transition: color 240ms ease, opacity 240ms ease, background-color 240ms ease;
+}
+:root[data-theme='anthropic'] .button-link:hover { opacity: 0.88; }
