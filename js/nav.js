@@ -1,7 +1,7 @@
 // Shared nav, injected into <div id="nav"> so it is written once.
 const links = [
   { href: 'index.html', label: 'Overview' },
-  { href: 'ranking.html', label: 'Ranking' },
+  { href: 'ranking.html', label: 'List of investigations' },
   { href: 'ai.html', label: 'AI' },
   { href: 'presentation.html', label: 'Presentation' },
   { href: 'sources.html', label: 'Our sources' },
