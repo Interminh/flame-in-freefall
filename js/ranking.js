@@ -97,7 +97,7 @@
     sub.textContent = `${it.full_name} | ${it.psi_id}`
     const parts = [el('h3', { textContent: 'Summary:' }), el('p', { textContent: it.summary })]
     if (it.interpretation) {
-      parts.push(el('h3', { textContent: 'Relevance:' }), el('p', { className: 'inv-interp', textContent: it.interpretation }))
+      parts.push(el('h3', { textContent: 'Relevance:' }), el('p', { className: 'inv-interp', textContent: cap(it.interpretation) }))
     }
     parts.push(el('h3', { textContent: 'Details from the PSI record:' }), fields(it))
     if (it.caveats?.length) {
