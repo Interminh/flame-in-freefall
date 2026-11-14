@@ -2,7 +2,7 @@
 // built from data/summaries by scripts/build-investigations.mjs.
 // Wrapped so these names do not clash with nav.js, which shares the page scope.
 (() => {
-  const NOT_STATED = 'Not stated in source'
+  const NOT_STATED = 'Not stated'
 
   const list = document.getElementById('list')
   const count = document.getElementById('count')
@@ -20,7 +20,9 @@
   const psiNumber = (it) => Number(it.psi_id.replace('PSI-', ''))
   const startYear = (it) => (it.period && it.period.match(/\d{4}/)?.[0]) || NOT_STATED
   const present = (v) => v !== null && v !== undefined && v !== '' && v !== 'not stated in the source'
-  const text = (v) => (present(v) ? String(v) : NOT_STATED)
+  const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1)
+  // Some values embed the phrase, e.g. an open-ended period.
+  const text = (v) => (present(v) ? cap(String(v).replace(/not stated in the source/gi, NOT_STATED)) : NOT_STATED)
 
   function range(r, unit) {
     if (!r || (r.min == null && r.max == null)) return NOT_STATED
@@ -72,11 +74,11 @@
       ['Period', text(it.period)],
       ['Gravity', text(it.gravity)],
       ['Fuel type', text(it.fuel_type)],
-      ['Materials', it.materials?.length ? it.materials.join(', ') : NOT_STATED],
+      ['Materials', it.materials?.length ? cap(it.materials.join(', ')) : NOT_STATED],
       ['Oxygen', range(c.o2_pct, '%')],
       ['Pressure', range(c.pressure_kpa, 'kPa')],
       ['Airflow speed', range(c.flow_cm_s, 'cm/s')],
-      ['Measurements', it.measurements?.length ? it.measurements.join(', ') : NOT_STATED],
+      ['Measurements', it.measurements?.length ? cap(it.measurements.join(', ')) : NOT_STATED],
       ['Number of tests', text(it.n_tests)],
       ['License', text(it.license)],
     ]
@@ -93,22 +95,14 @@
     lastRow = row
     title.textContent = it.name
     sub.textContent = `${it.full_name} | ${it.psi_id}`
-    const parts = [el('h3', { textContent: 'Summary' }), el('p', { textContent: it.summary })]
+    const parts = [el('h3', { textContent: 'Summary:' }), el('p', { textContent: it.summary })]
     if (it.interpretation) {
-      parts.push(el('p', { className: 'inv-interp', textContent: `Interpretation: ${it.interpretation}` }))
+      parts.push(el('h3', { textContent: 'Relevance:' }), el('p', { className: 'inv-interp', textContent: it.interpretation }))
     }
-    parts.push(el('h3', { textContent: 'Details from the PSI record' }), fields(it))
+    parts.push(el('h3', { textContent: 'Details from the PSI record:' }), fields(it))
     if (it.caveats?.length) {
-      parts.push(el('h3', { textContent: 'Caveats' }), el('ul', {}, ...it.caveats.map((c) => el('li', { textContent: c }))))
+      parts.push(el('h3', { textContent: 'Caveats:' }), el('ul', {}, ...it.caveats.map((c) => el('li', { textContent: c }))))
     }
-    parts.push(
-      el('p', {
-        className: 'inv-flag',
-        textContent: it.verified
-          ? 'Checked against the PSI page by a person.'
-          : 'Not yet checked against the PSI page by a person.',
-      })
-    )
     body.replaceChildren(...parts)
     dialog.scrollTop = 0
     dialog.showModal()
