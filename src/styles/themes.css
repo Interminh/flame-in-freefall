@@ -57,15 +57,6 @@
 :root[data-theme='tech'] .hero .accent-blue,
 :root[data-theme='tech'] .hero .accent-amber { font-style: normal; }
 
-/* Theme picker in the nav */
-.theme-picker {
-  margin-left: auto;
-  background: var(--surface);
-  color: var(--ink);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius-control);
-  padding: var(--space-1) var(--space-3);
-}
 
 /* Flame accents, Anthropic theme only */
 :root[data-theme='anthropic'] .site-nav { border-bottom: 0; }
@@ -110,8 +101,7 @@
 
 /* Smooth, quiet transitions. Disabled globally under reduced motion. */
 :root[data-theme='anthropic'] a,
-:root[data-theme='anthropic'] .button-link,
-:root[data-theme='anthropic'] .theme-picker {
+:root[data-theme='anthropic'] .button-link {
   transition: color 240ms ease, opacity 240ms ease, background-color 240ms ease;
 }
 :root[data-theme='anthropic'] .button-link:hover { opacity: 0.88; }
