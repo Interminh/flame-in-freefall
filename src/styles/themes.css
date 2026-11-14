@@ -1,0 +1,117 @@
+/* Theme overrides. Default (lab sheet) lives in tokens.css. */
+
+:root[data-theme='apple'] {
+  --paper: #F5F5F7;
+  --ink: #1D1D1F;
+  --muted: #6E6E73;
+  --rule: #D2D2D7;
+  --blue: #0066CC;
+  --amber: #B34700;
+  --surface: #FBFBFD;
+  --paper-glass: rgba(245, 245, 247, 0.78);
+  --rule-glass: rgba(210, 210, 215, 0.6);
+  --font-read: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  --font-data: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05), 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Anthropic flame. Token names are legacy: --blue is the flame (flight data,
+   links, buttons) and --amber is slate blue (ground studies). */
+:root[data-theme='anthropic'] {
+  --paper: #F6EFE4;
+  --ink: #141413;
+  --muted: #66645C;
+  --rule: #E0D5C3;
+  --blue: #C2410C;
+  --amber: #3F6E9C;
+  --surface: #FCF8F1;
+  --paper-glass: rgba(246, 239, 228, 0.8);
+  --rule-glass: rgba(224, 213, 195, 0.7);
+  --flame-gradient: linear-gradient(90deg, #FFB020, #FF6A1A, #E0301E);
+  --flame-text: linear-gradient(100deg, #B91C1C, #C2410C);
+  --flame-button: linear-gradient(135deg, #B91C1C, #C2410C);
+  --flame-glow: radial-gradient(closest-side, rgba(255, 106, 26, 0.14), rgba(255, 176, 32, 0.06) 55%, transparent);
+  --shadow-soft: 0 1px 2px rgba(20, 20, 19, 0.05), 0 16px 40px rgba(194, 65, 12, 0.06);
+}
+
+:root[data-theme='tech'] {
+  color-scheme: dark;
+  --paper: #0B1118;
+  --ink: #E6EDF3;
+  --muted: #8D9BAE;
+  --rule: #223041;
+  --blue: #4DA3FF;
+  --amber: #F0A04B;
+  --surface: #111A24;
+  --paper-glass: rgba(11, 17, 24, 0.8);
+  --rule-glass: rgba(34, 48, 65, 0.8);
+  --font-read: 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --radius-card: 8px;
+  --shadow-soft: 0 0 0 1px #223041;
+}
+
+:root[data-theme='tech'] h1,
+:root[data-theme='tech'] h2 { letter-spacing: -0.01em; }
+
+:root[data-theme='tech'] .hero h1 { font-weight: 500; }
+:root[data-theme='tech'] .hero .accent-blue,
+:root[data-theme='tech'] .hero .accent-amber { font-style: normal; }
+
+/* Theme picker in the nav */
+.theme-picker {
+  margin-left: auto;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-control);
+  padding: var(--space-1) var(--space-3);
+}
+
+/* Flame accents, Anthropic theme only */
+:root[data-theme='anthropic'] .site-nav { border-bottom: 0; }
+:root[data-theme='anthropic'] .site-nav::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: var(--flame-gradient);
+  opacity: 0.7;
+}
+
+:root[data-theme='anthropic'] .hero { position: relative; }
+:root[data-theme='anthropic'] .hero::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -120px;
+  width: 640px;
+  height: 640px;
+  max-width: 100vw;
+  background: var(--flame-glow);
+  pointer-events: none;
+  z-index: -1;
+}
+
+:root[data-theme='anthropic'] .hero .accent-blue { color: var(--blue); }
+:root[data-theme='anthropic'] .hero .accent-amber {
+  background: var(--flame-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+:root[data-theme='anthropic'] .button-link { background: var(--flame-button); }
+
+
+:root[data-theme='anthropic'] .map-hatch { stroke: var(--blue); stroke-opacity: 0.7; }
+
+/* keeps the hero glow from causing sideways scroll on phones */
+:root[data-theme='anthropic'] body { overflow-x: clip; }
+
+/* Smooth, quiet transitions. Disabled globally under reduced motion. */
+:root[data-theme='anthropic'] a,
+:root[data-theme='anthropic'] .button-link,
+:root[data-theme='anthropic'] .theme-picker {
+  transition: color 240ms ease, opacity 240ms ease, background-color 240ms ease;
+}
+:root[data-theme='anthropic'] .button-link:hover { opacity: 0.88; }
