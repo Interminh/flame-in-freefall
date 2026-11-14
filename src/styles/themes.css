@@ -1,0 +1,62 @@
+/* Theme overrides. Default (lab sheet) lives in tokens.css. */
+
+:root[data-theme='apple'] {
+  --paper: #F5F5F7;
+  --ink: #1D1D1F;
+  --muted: #6E6E73;
+  --rule: #D2D2D7;
+  --blue: #0066CC;
+  --amber: #B34700;
+  --surface: #FBFBFD;
+  --paper-glass: rgba(245, 245, 247, 0.78);
+  --rule-glass: rgba(210, 210, 215, 0.6);
+  --font-read: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  --font-data: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05), 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+:root[data-theme='anthropic'] {
+  --paper: #F0EEE6;
+  --ink: #141413;
+  --muted: #66645C;
+  --rule: #D9D5C7;
+  --blue: #3F6E9C;
+  --amber: #B4492B;
+  --surface: #F7F5EF;
+  --paper-glass: rgba(240, 238, 230, 0.78);
+  --rule-glass: rgba(217, 213, 199, 0.6);
+  --shadow-soft: 0 1px 2px rgba(20, 20, 19, 0.05), 0 12px 32px rgba(20, 20, 19, 0.07);
+}
+
+:root[data-theme='tech'] {
+  color-scheme: dark;
+  --paper: #0B1118;
+  --ink: #E6EDF3;
+  --muted: #8D9BAE;
+  --rule: #223041;
+  --blue: #4DA3FF;
+  --amber: #F0A04B;
+  --surface: #111A24;
+  --paper-glass: rgba(11, 17, 24, 0.8);
+  --rule-glass: rgba(34, 48, 65, 0.8);
+  --font-read: 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --radius-card: 8px;
+  --shadow-soft: 0 0 0 1px #223041;
+}
+
+:root[data-theme='tech'] h1,
+:root[data-theme='tech'] h2 { letter-spacing: -0.01em; }
+
+:root[data-theme='tech'] .hero h1 { font-weight: 500; }
+:root[data-theme='tech'] .hero .accent-blue,
+:root[data-theme='tech'] .hero .accent-amber { font-style: normal; }
+
+/* Theme picker in the nav */
+.theme-picker {
+  margin-left: auto;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-control);
+  padding: var(--space-1) var(--space-3);
+}
