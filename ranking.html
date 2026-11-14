@@ -11,16 +11,41 @@
     <link rel="stylesheet" href="src/styles/base.css" />
     <link rel="stylesheet" href="src/styles/layout.css" />
     <link rel="stylesheet" href="src/styles/themes.css" />
+    <link rel="stylesheet" href="src/styles/ranking.css" />
   </head>
   <body>
     <div id="nav"></div>
     <main class="page">
       <section>
         <h1>Ranking</h1>
-      <p class="placeholder">Ethay uickqay ownbray oxfay umpsjay overyay ethay azylay ogday. Isthay isyay aceholderplay exttay orfay ayoutlay onlyyay.</p>
-      <p class="placeholder">Orem-lay ipsumyay olorday itsay ametyay, onsectetuercay adipiscingyay elityay.</p>
+        <p>All 24 investigations from the PSI database. No ranking order is set yet, so the list is alphabetical. Select one to read its summary.</p>
+
+        <div class="list-tools">
+          <span id="count"></span>
+          <label>Sort by
+            <select id="sort">
+              <option value="name">Name, A to Z</option>
+              <option value="psi">PSI number</option>
+            </select>
+          </label>
+        </div>
+
+        <ul class="inv-list" id="list"></ul>
       </section>
     </main>
+
+    <dialog class="inv-dialog" id="detail" aria-labelledby="detail-title">
+      <div class="inv-dialog__head">
+        <div>
+          <h2 id="detail-title"></h2>
+          <p class="inv-dialog__sub" id="detail-sub"></p>
+        </div>
+        <button type="button" class="inv-close" id="detail-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="inv-dialog__body" id="detail-body"></div>
+    </dialog>
+
     <script src="js/nav.js"></script>
+    <script src="js/ranking.js"></script>
   </body>
 </html>
