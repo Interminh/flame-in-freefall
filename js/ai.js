@@ -1,4 +1,5 @@
 // Ignis AI page. Sends the question to /api/rank and draws the ranked list.
+// Rows without a written explanation get an Explain button that calls /api/explain.
 // Everything from the server is added with textContent, never as HTML.
 (() => {
   const form = document.getElementById('ask')
@@ -18,8 +19,47 @@
     status.classList.toggle('is-error', isError)
   }
 
+  // Question that produced the list on screen. Explain requests use this, not
+  // whatever has since been typed into the box.
+  let askedQuestion = ''
+
+  function explained(text) {
+    return [
+      el('span', { className: 'rank-item__why-label', textContent: 'Why it fits:' }),
+      el('p', { className: 'rank-item__why', textContent: text }),
+    ]
+  }
+
+  // Button that asks the server to explain one investigation.
+  function explainSlot(r) {
+    const slot = el('div', { className: 'rank-item__extra' })
+    const btn = el('button', { type: 'button', className: 'link-button', textContent: 'Explain' })
+    const msg = el('span', { className: 'rank-item__error' })
+    btn.addEventListener('click', async () => {
+      btn.disabled = true
+      btn.textContent = 'Explaining...'
+      msg.textContent = ''
+      try {
+        const res = await fetch('/api/explain', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ question: askedQuestion, id: r.id }),
+        })
+        const data = await res.json().catch(() => ({}))
+        if (!res.ok) throw new Error((data.error || 'Something went wrong.') + (data.code ? ` (${data.code})` : ''))
+        slot.replaceChildren(...explained(data.text))
+      } catch (err) {
+        msg.textContent = err.message
+        btn.disabled = false
+        btn.textContent = 'Try again'
+      }
+    })
+    slot.append(btn, msg)
+    return slot
+  }
+
   function item(r, pos) {
-    const top = pos <= 3
+    const top = Boolean(r.featured)
     const li = el('li', { className: top ? 'rank-item rank-item--top' : 'rank-item' })
     li.append(
       el('span', { className: 'rank-item__pos', textContent: String(pos) }),
@@ -29,15 +69,11 @@
         el('a', { className: 'rank-item__name', href: r.psi_url, target: '_blank', rel: 'noopener', textContent: r.name }),
         el('span', { className: 'rank-item__full', textContent: ` | ${r.full_name}` })
       ),
-      el('span', { className: 'rank-item__score', textContent: `Score ${r.total} of 9` }),
+      el('span', { className: 'rank-item__score', textContent: `Score ${r.score} of 100` }),
       el('span', { className: 'rank-item__reason', textContent: `Basis: ${r.reason}` })
     )
-    if (top) {
-      li.append(
-        el('span', { className: 'rank-item__why-label', textContent: 'Why it fits (interpretation):' }),
-        el('p', { className: 'rank-item__why', textContent: r.explanation || 'Not available for this one.' })
-      )
-    }
+    if (r.explanation) li.append(...explained(r.explanation))
+    else li.append(explainSlot(r))
     return li
   }
 
@@ -47,7 +83,7 @@
       parts.push(
         el('p', {
           className: 'weak',
-          textContent: 'No investigation in this set clearly tests this question. The list shows the closest matches.',
+          textContent: 'These investigations are only loosely related to your topic. The list shows the closest matches.',
         })
       )
     }
@@ -81,6 +117,7 @@
         return
       }
       setStatus('')
+      askedQuestion = question
       render(data)
     } catch {
       setStatus('Could not reach the server. Check your connection and try again.', true)

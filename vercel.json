@@ -4,6 +4,7 @@
   "installCommand": null,
   "outputDirectory": ".",
   "functions": {
-    "api/rank.js": { "maxDuration": 30 }
+    "api/rank.js": { "maxDuration": 30 },
+    "api/explain.js": { "maxDuration": 30 }
   }
 }
