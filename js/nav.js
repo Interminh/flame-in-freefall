@@ -2,6 +2,7 @@
 const links = [
   { href: 'index.html', label: 'Overview' },
   { href: 'ranking.html', label: 'Ranking' },
+  { href: 'simulation.html', label: 'Simulation' },
   { href: 'ai.html', label: 'AI' },
   { href: 'presentation.html', label: 'Presentation' },
   { href: 'sources.html', label: 'Our sources' },
