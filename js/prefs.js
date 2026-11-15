@@ -3,7 +3,7 @@
 // The settings drawer in js/settings.js reads and writes through window.sitePrefs.
 (() => {
   const KEY = 'site-settings'
-  const DEFAULTS = { mode: 'system', size: '100', contrast: 'standard', motion: 'system', links: 'default', font: 'default' }
+  const DEFAULTS = { mode: 'light', size: '100', contrast: 'standard', motion: 'system', links: 'default', font: 'default' }
   const root = document.documentElement
   const dark = matchMedia('(prefers-color-scheme: dark)')
 

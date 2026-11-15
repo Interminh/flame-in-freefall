@@ -4,7 +4,7 @@ const links = [
   { href: 'investigations.html', label: 'Investigations' },
   { href: 'simulation.html', label: 'Simulation' },
   { href: 'ai.html', label: 'Ignis AI' },
-  { href: 'presentation.html', label: 'Presentation' },
+  { href: 'presentation.html', label: 'About' },
   { href: 'sources.html', label: 'Our sources' },
 ]
 
