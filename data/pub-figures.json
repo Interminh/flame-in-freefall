@@ -13,7 +13,17 @@
   "shows": "Each mark is one BASS-II test on a PMMA rod. The vertical axis is the final oxygen level, the horizontal axis is the stretch rate (a measure of how fast air meets the flame). Blow-off, quench, and stable-flame outcomes are marked separately.",
   "why": "Flames survive at the lowest oxygen when airflow is very slow. The authors report steady burning down to 13.6% O2 in microgravity, against 16% for the same rod in normal gravity, so a standard 1 g screening test understates the risk.",
   "alt": "Scatter plot of final oxygen concentration against stretch rate for PMMA rod tests, with blow-off, quench and stable-flame marks and a V-shaped boundary.",
-  "source": "ntrs"
+  "source": "ntrs",
+  "relations": {
+   "PSI-25": {
+    "level": "direct",
+    "how": "BASS-II’s own PMMA rod tests. Each mark is one test, with its oxygen and outcome, as in the BASS-II table."
+   },
+   "PSI-26": {
+    "level": "related",
+    "how": "BASS-II is the follow-on to BASS: the same question (when does a solid fuel burn in a slow flow) with new hardware. Read it as context, not as BASS data."
+   }
+  }
  },
  {
   "file": "saffire2-spread-vs-pressure.jpg",
@@ -22,15 +32,29 @@
   "label": "Figure 11",
   "paper": "Buoyancy Effects on Concurrent Flame Spread Over Thick PMMA",
   "psi": [
-   "PSI-98",
    "PSI-99",
+   "PSI-98",
    "PSI-100"
   ],
   "heading": "Flame spread in normal gravity against the Saffire II result",
   "shows": "Average flame spread rate over PMMA at ambient pressures of 40 to 100 kPa in normal gravity, measured two ways. The orange point is the single Saffire II microgravity result at 100 kPa.",
   "why": "The microgravity flame spread far more slowly than the normal-gravity flame at the same pressure. Buoyant flow speeds a flame up on Earth, so ground tests do not transfer directly to orbit.",
   "alt": "Plot of average flame spread rate against pressure with two rising normal-gravity series and one low orange microgravity point.",
-  "source": "ntrs"
+  "source": "ntrs",
+  "relations": {
+   "PSI-99": {
+    "level": "direct",
+    "how": "Saffire-II’s own result (the orange point) next to ground tests at different pressures."
+   },
+   "PSI-98": {
+    "level": "related",
+    "how": "Saffire-II result with ground comparisons; the same fuel type (PMMA) is not in Saffire-I."
+   },
+   "PSI-100": {
+    "level": "related",
+    "how": "Saffire-II result with ground comparisons, for context."
+   }
+  }
  },
  {
   "file": "flex-methanol-extinction.jpg",
@@ -39,13 +63,24 @@
   "label": "Figure 5",
   "paper": "Methanol Droplet Combustion in Oxygen-Inert Environments in Microgravity",
   "psi": [
-   "PSI-69"
+   "PSI-69",
+   "PSI-68"
   ],
   "heading": "How big a droplet is when its flame goes out",
   "shows": "Droplet diameter at extinction against initial droplet diameter for more than 100 FLEX tests. Marker size shows the ambient oxygen fraction, and colour shows the diluent gas.",
   "why": "Larger droplets at lower oxygen go out soon after ignition through radiative heat loss (the paper's explanation), while smaller droplets follow a roughly straight line. The extinction size depends on both oxygen level and droplet size.",
   "alt": "Bubble plot of extinction diameter against initial droplet diameter with two trend lines.",
-  "source": "ntrs"
+  "source": "ntrs",
+  "relations": {
+   "PSI-69": {
+    "level": "direct",
+    "how": "FLEX’s own tests. The plotted quantities are the “Initial droplet diameter” and “Visible flame extinction diameter” columns of the FLEX table."
+   },
+   "PSI-68": {
+    "level": "related",
+    "how": "FLEX-2 repeats FLEX droplet burning; these are FLEX results."
+   }
+  }
  },
  {
   "file": "cool-flame-extinction-o2.jpg",
@@ -54,15 +89,29 @@
   "label": "Figure 4",
   "paper": "Cool-flame Extinction During N-Alkane Droplet Combustion in Microgravity",
   "psi": [
-   "PSI-39",
    "PSI-69",
+   "PSI-39",
    "PSI-159"
   ],
   "heading": "Cool-flame extinction size against oxygen level",
   "shows": "Droplet diameter at cool-flame extinction for n-heptane, n-octane and n-decane, plotted against ambient oxygen concentration. Panel (a) is oxygen and nitrogen only, panel (b) substitutes other diluents.",
   "why": "The extinction diameter falls as oxygen rises, so the cool flame persists to smaller droplet sizes in richer atmospheres.",
   "alt": "Two log-log panels of extinction diameter against oxygen concentration for three n-alkane fuels, each with a falling dashed trend line.",
-  "source": "ntrs"
+  "source": "ntrs",
+  "relations": {
+   "PSI-69": {
+    "level": "direct",
+    "how": "FLEX droplet tests analysed by the FLEX team; the same extinction diameter as in the FLEX table."
+   },
+   "PSI-39": {
+    "level": "related",
+    "how": "CFI studies the same cool-flame extinction with the same droplet hardware."
+   },
+   "PSI-159": {
+    "level": "related",
+    "how": "CFI-G looks for the same cool flames on a gas burner."
+   }
+  }
  },
  {
   "file": "same-lampwick-particle-size.jpg",
@@ -71,14 +120,24 @@
   "label": "Figure 6",
   "paper": "Particle Morphology and Size Results from the Smoke Aerosol Measurement Experiment-2",
   "psi": [
-   "PSI-101",
-   "PSI-102"
+   "PSI-102",
+   "PSI-101"
   ],
   "heading": "Smoke particle size against air velocity",
   "shows": "Particle diameters measured from lampwick smoke at three air velocities, with least-squares lines through each statistic.",
   "why": "The authors find larger particles at low flow, and say smoke trapped in an avionics enclosure can be much larger than smoke released in ventilated areas. Detectors have to cope with that range.",
   "alt": "Plot of mean particle diameters against air velocity from 0 to 8 cm/s, with falling linear fits.",
-  "source": "ntrs"
+  "source": "ntrs",
+  "relations": {
+   "PSI-102": {
+    "level": "direct",
+    "how": "SAME’s lamp-wick samples (a sample type in the SAME and SAME-R tables), at the air speeds those tables list."
+   },
+   "PSI-101": {
+    "level": "related",
+    "how": "SAME-R repeats SAME; the paper reports the earlier SAME-2 run."
+   }
+  }
  },
  {
   "file": "bass2-co-vs-co2.jpg",
@@ -93,7 +152,17 @@
   "heading": "Carbon monoxide made against carbon dioxide made",
   "shows": "Each point is one BASS-II test: how much CO and CO2 the burn added to the glovebox air, grouped by sample shape.",
   "why": "Concurrent-flow rods made the most CO for their CO2. The report notes the CO to CO2 ratio is well above what an efficient fire gives, so these small microgravity flames burn less completely and release more toxic CO.",
-  "alt": "Carbon monoxide made against carbon dioxide made. Each point is one BASS-II test: how much CO and CO2 the burn added to the glovebox air, grouped by sample shape."
+  "alt": "Carbon monoxide made against carbon dioxide made. Each point is one BASS-II test: how much CO and CO2 the burn added to the glovebox air, grouped by sample shape.",
+  "relations": {
+   "PSI-25": {
+    "level": "direct",
+    "how": "BASS-II’s own tests. The CO and CO2 values come from the before-and-after gas readings that sit in the “Initial/Final CO” and “CO2” columns of the BASS-II table."
+   },
+   "PSI-26": {
+    "level": "related",
+    "how": "BASS-II is the follow-on to BASS: the same question (when does a solid fuel burn in a slow flow) with new hardware. Read it as context, not as BASS data."
+   }
+  }
  },
  {
   "file": "bass2-o2-vs-co2.jpg",
@@ -108,7 +177,17 @@
   "heading": "Oxygen used against carbon dioxide made",
   "shows": "Change in oxygen and in carbon dioxide over each test. The dashed line is the ratio expected from the chemistry.",
   "why": "The readings follow the expected line, which is a check that the gas sensors and the tests agree. It also lets oxygen use stand in for how much heat a flame released.",
-  "alt": "Oxygen used against carbon dioxide made. Change in oxygen and in carbon dioxide over each test. The dashed line is the ratio expected from the chemistry."
+  "alt": "Oxygen used against carbon dioxide made. Change in oxygen and in carbon dioxide over each test. The dashed line is the ratio expected from the chemistry.",
+  "relations": {
+   "PSI-25": {
+    "level": "direct",
+    "how": "BASS-II’s own tests. The oxygen and carbon dioxide changes are the “Initial/Final O2” and “CO2” columns of the BASS-II table."
+   },
+   "PSI-26": {
+    "level": "related",
+    "how": "BASS-II is the follow-on to BASS: the same question (when does a solid fuel burn in a slow flow) with new hardware. Read it as context, not as BASS data."
+   }
+  }
  },
  {
   "file": "bass2-heat-release.jpg",
@@ -123,7 +202,17 @@
   "heading": "Heat released against starting oxygen",
   "shows": "Heat release rate of each test, worked out from oxygen use, against the oxygen level at the start.",
   "why": "Heat release generally rises with oxygen but stays small for these samples. The scatter shows how much the sample shape matters.",
-  "alt": "Heat released against starting oxygen. Heat release rate of each test, worked out from oxygen use, against the oxygen level at the start."
+  "alt": "Heat released against starting oxygen. Heat release rate of each test, worked out from oxygen use, against the oxygen level at the start.",
+  "relations": {
+   "PSI-25": {
+    "level": "direct",
+    "how": "BASS-II’s own tests, plotted against the initial oxygen column of the BASS-II table."
+   },
+   "PSI-26": {
+    "level": "related",
+    "how": "BASS-II is the follow-on to BASS: the same question (when does a solid fuel burn in a slow flow) with new hardware. Read it as context, not as BASS data."
+   }
+  }
  },
  {
   "file": "bass2-rod-spread.jpg",
@@ -138,7 +227,17 @@
   "heading": "Flame spread rate against rod diameter",
   "shows": "Spread rate along black PMMA rods of three diameters, in microgravity at about 17.6 to 20.8% oxygen and in normal gravity at 19% and 21%.",
   "why": "In this comparison the microgravity flames spread faster than the normal-gravity ones at similar oxygen, and smaller rods spread faster in both. Normal-gravity results do not simply carry over.",
-  "alt": "Flame spread rate against rod diameter. Spread rate along black PMMA rods of three diameters, in microgravity at about 17.6 to 20.8% oxygen and in normal gravity at 19% and 21%."
+  "alt": "Flame spread rate against rod diameter. Spread rate along black PMMA rods of three diameters, in microgravity at about 17.6 to 20.8% oxygen and in normal gravity at 19% and 21%.",
+  "relations": {
+   "PSI-25": {
+    "level": "direct",
+    "how": "BASS-II’s own rod tests (the rod samples in the BASS-II table). Spread rates are not in the table, so this figure is where they are."
+   },
+   "PSI-26": {
+    "level": "related",
+    "how": "BASS-II is the follow-on to BASS: the same question (when does a solid fuel burn in a slow flow) with new hardware. Read it as context, not as BASS data."
+   }
+  }
  },
  {
   "file": "bass2-extinction-limits.jpg",
@@ -153,7 +252,17 @@
   "heading": "Oxygen level at which flames went out",
   "shows": "Oxygen at extinction against the flow speed just before extinction, for sheets of PMMA of different width and thickness. Circle size and number reflect sheet thickness.",
   "why": "Extinction happened between roughly 17 and 22% oxygen depending on flow and sample. There is no single safe oxygen number: it depends on the airflow past the fuel.",
-  "alt": "Oxygen level at which flames went out. Oxygen at extinction against the flow speed just before extinction, for sheets of PMMA of different width and thickness. Circle size and number reflect sheet thickness."
+  "alt": "Oxygen level at which flames went out. Oxygen at extinction against the flow speed just before extinction, for sheets of PMMA of different width and thickness. Circle size and number reflect sheet thickness.",
+  "relations": {
+   "PSI-25": {
+    "level": "direct",
+    "how": "BASS-II’s own tests: the oxygen and flow settings are the “O2” and “Fan/Air display” columns of the BASS-II table."
+   },
+   "PSI-26": {
+    "level": "related",
+    "how": "BASS-II is the follow-on to BASS: the same question (when does a solid fuel burn in a slow flow) with new hardware. Read it as context, not as BASS data."
+   }
+  }
  },
  {
   "file": "bass2-thickness.jpg",
@@ -168,7 +277,17 @@
   "heading": "Spread rate against fuel thickness",
   "shows": "Flame spread rate over PMMA from microgravity, downward-burning and other experiments, over fuel thicknesses from tens of micrometres to centimetres. Lines show the thermally thin and thermally thick limits.",
   "why": "Thin fuels spread fast and the rate falls steeply as thickness grows, then levels off for thick fuel. Fuel thickness is one of the strongest controls on how a fire spreads.",
-  "alt": "Spread rate against fuel thickness. Flame spread rate over PMMA from microgravity, downward-burning and other experiments, over fuel thicknesses from tens of micrometres to centimetres. Lines show the thermally thin and thermally thick limits."
+  "alt": "Spread rate against fuel thickness. Flame spread rate over PMMA from microgravity, downward-burning and other experiments, over fuel thicknesses from tens of micrometres to centimetres. Lines show the thermally thin and thermally thick limits.",
+  "relations": {
+   "PSI-25": {
+    "level": "direct",
+    "how": "The BASS-II report’s comparison of its thin and thick fuels with other experiments. Thickness is a column in the BASS-II table for 34 tests."
+   },
+   "PSI-26": {
+    "level": "related",
+    "how": "BASS-II is the follow-on to BASS: the same question (when does a solid fuel burn in a slow flow) with new hardware. Read it as context, not as BASS data."
+   }
+  }
  },
  {
   "file": "bass-boundary-idea.jpg",
@@ -183,7 +302,17 @@
   "heading": "What a flammability boundary is",
   "shows": "A sketch from the BASS team: oxygen fraction against flow speed. Inside the curve a fuel can burn, outside it cannot. The red band is the buoyant flow of normal gravity.",
   "why": "The curve turns up at both high and low flow, so a fuel can be safe in a breeze and flammable in still air, or the reverse. BASS tested this at constant oxygen while changing the flow.",
-  "alt": "What a flammability boundary is. A sketch from the BASS team: oxygen fraction against flow speed. Inside the curve a fuel can burn, outside it cannot. The red band is the buoyant flow of normal gravity."
+  "alt": "What a flammability boundary is. A sketch from the BASS team: oxygen fraction against flow speed. Inside the curve a fuel can burn, outside it cannot. The red band is the buoyant flow of normal gravity.",
+  "relations": {
+   "PSI-26": {
+    "level": "direct",
+    "how": "The BASS team’s own explanation of what BASS was testing: oxygen against flow, which are the main columns of the BASS table."
+   },
+   "PSI-25": {
+    "level": "related",
+    "how": "These slides report BASS, the experiment before BASS-II. The method and fuels overlap, but the numbers are from BASS."
+   }
+  }
  },
  {
   "file": "bass-thin-fuel-spread.jpg",
@@ -192,12 +321,23 @@
   "page": 25,
   "psi_home": "PSI-26",
   "psi": [
-   "PSI-26"
+   "PSI-26",
+   "PSI-25"
   ],
   "heading": "Thin fuel: spread rate against flow speed",
   "shows": "Flame spread rate over thin fabric against forced flow velocity. Negative velocities are opposed flow, positive are concurrent flow (flow in the direction of spread).",
   "why": "In concurrent flow the spread rate rises roughly linearly with flow. In opposed flow it is fastest at an intermediate speed, and the flame goes out when the flow falls too low.",
-  "alt": "Thin fuel: spread rate against flow speed. Flame spread rate over thin fabric against forced flow velocity. Negative velocities are opposed flow, positive are concurrent flow (flow in the direction of spread)."
+  "alt": "Thin fuel: spread rate against flow speed. Flame spread rate over thin fabric against forced flow velocity. Negative velocities are opposed flow, positive are concurrent flow (flow in the direction of spread).",
+  "relations": {
+   "PSI-26": {
+    "level": "direct",
+    "how": "BASS’s own thin-fuel (fabric) tests. Spread rates are not in the PSI table, so this figure is where they are."
+   },
+   "PSI-25": {
+    "level": "related",
+    "how": "These slides report BASS, the experiment before BASS-II. The method and fuels overlap, but the numbers are from BASS."
+   }
+  }
  },
  {
   "file": "bass-nitrogen.jpg",
@@ -206,12 +346,23 @@
   "page": 57,
   "psi_home": "PSI-26",
   "psi": [
-   "PSI-26"
+   "PSI-26",
+   "PSI-25"
   ],
   "heading": "Nitrogen flow on a burning sphere",
   "shows": "Image grid of a PMMA sphere burning in a wake configuration in air, with a nitrogen flow switched on and then off.",
   "why": "A nitrogen flow of 500 cc/min weakened the flame but did not put it out. Suppression by inert gas needs more than a gentle flow.",
-  "alt": "Nitrogen flow on a burning sphere. Image grid of a PMMA sphere burning in a wake configuration in air, with a nitrogen flow switched on and then off."
+  "alt": "Nitrogen flow on a burning sphere. Image grid of a PMMA sphere burning in a wake configuration in air, with a nitrogen flow switched on and then off.",
+  "relations": {
+   "PSI-26": {
+    "level": "direct",
+    "how": "BASS’s own suppression tests: the nitrogen-flow tests listed in the BASS matrix."
+   },
+   "PSI-25": {
+    "level": "related",
+    "how": "These slides report BASS, the experiment before BASS-II. The method and fuels overlap, but the numbers are from BASS."
+   }
+  }
  },
  {
   "file": "bass-candle.jpg",
@@ -220,12 +371,23 @@
   "page": 60,
   "psi_home": "PSI-26",
   "psi": [
-   "PSI-26"
+   "PSI-26",
+   "PSI-25"
   ],
   "heading": "A candle as airflow is reduced",
   "shows": "Image sequence of a candle burning in microgravity at 17% oxygen while the flow is stepped from 5 down to below 1 cm/s. Times are shown on the images.",
   "why": "The flame changes shape and size as the flow drops, which shows how sensitive a small fire is to ventilation.",
-  "alt": "A candle as airflow is reduced. Image sequence of a candle burning in microgravity at 17% oxygen while the flow is stepped from 5 down to below 1 cm/s. Times are shown on the images."
+  "alt": "A candle as airflow is reduced. Image sequence of a candle burning in microgravity at 17% oxygen while the flow is stepped from 5 down to below 1 cm/s. Times are shown on the images.",
+  "relations": {
+   "PSI-26": {
+    "level": "direct",
+    "how": "BASS’s own candle tests: the “candle” fuel in the BASS table."
+   },
+   "PSI-25": {
+    "level": "related",
+    "how": "These slides report BASS, the experiment before BASS-II. The method and fuels overlap, but the numbers are from BASS."
+   }
+  }
  },
  {
   "file": "flex-two-extinction.jpg",
@@ -241,7 +403,21 @@
   "heading": "Two ways a droplet flame goes out",
   "shows": "Droplet and flame size over time for n-heptane in 30 to 70% oxygen-helium at 1 atm, marked with radiative and diffusive extinction.",
   "why": "A flame can die because it loses heat by radiation (large droplet, low oxygen) or because it runs out of fuel and oxidiser supply (small droplet). FLEX measured both in space.",
-  "alt": "Two ways a droplet flame goes out. Droplet and flame size over time for n-heptane in 30 to 70% oxygen-helium at 1 atm, marked with radiative and diffusive extinction."
+  "alt": "Two ways a droplet flame goes out. Droplet and flame size over time for n-heptane in 30 to 70% oxygen-helium at 1 atm, marked with radiative and diffusive extinction.",
+  "relations": {
+   "PSI-69": {
+    "level": "direct",
+    "how": "FLEX’s own tests. Droplet size over time is how the “extinction diameter” and “burn time” columns of the FLEX table were measured."
+   },
+   "PSI-68": {
+    "level": "related",
+    "how": "FLEX-2 repeats FLEX droplet burning with new fuels; this shows the FLEX behaviour it builds on."
+   },
+   "PSI-39": {
+    "level": "related",
+    "how": "CFI used the same droplet hardware to study the cool flames FLEX first saw."
+   }
+  }
  },
  {
   "file": "flex-second-stage.jpg",
@@ -257,7 +433,21 @@
   "heading": "A droplet that keeps burning after the flame seems to go out",
   "shows": "Droplet size over time for three examples of second-stage (cool flame) burning: heptane in air, and in oxygen-nitrogen and oxygen-nitrogen-carbon dioxide mixes.",
   "why": "After the visible hot flame ends, the droplet keeps shrinking, because a cool flame continues burning. This was first seen in the FLEX experiments.",
-  "alt": "A droplet that keeps burning after the flame seems to go out. Droplet size over time for three examples of second-stage (cool flame) burning: heptane in air, and in oxygen-nitrogen and oxygen-nitrogen-carbon dioxide mixes."
+  "alt": "A droplet that keeps burning after the flame seems to go out. Droplet size over time for three examples of second-stage (cool flame) burning: heptane in air, and in oxygen-nitrogen and oxygen-nitrogen-carbon dioxide mixes.",
+  "relations": {
+   "PSI-69": {
+    "level": "direct",
+    "how": "FLEX’s own tests, showing the cool-flame stage that follows the “Extinction” entries in the FLEX table."
+   },
+   "PSI-39": {
+    "level": "related",
+    "how": "CFI studies the cool-flame stage that FLEX first observed."
+   },
+   "PSI-159": {
+    "level": "related",
+    "how": "CFI-G looks for the same cool flames, on a gas burner instead of a droplet."
+   }
+  }
  },
  {
   "file": "flex-model-two-stage.jpg",
@@ -267,13 +457,22 @@
   "psi_home": "PSI-69",
   "psi": [
    "PSI-69",
-   "PSI-117",
-   "PSI-142"
+   "PSI-117"
   ],
   "heading": "A model that reproduces the cool flame",
   "shows": "Computed peak flame temperature over time for an n-heptane droplet (3.91 mm) in air at 1 atm, showing a hot-flame stage, then a lower-temperature cool-flame stage, then pure evaporation.",
   "why": "Models that include low-temperature chemistry capture the second stage. The slide says how well they predict extinction is still open.",
-  "alt": "A model that reproduces the cool flame. Computed peak flame temperature over time for an n-heptane droplet (3.91 mm) in air at 1 atm, showing a hot-flame stage, then a lower-temperature cool-flame stage, then pure evaporation."
+  "alt": "A model that reproduces the cool flame. Computed peak flame temperature over time for an n-heptane droplet (3.91 mm) in air at 1 atm, showing a hot-flame stage, then a lower-temperature cool-flame stage, then pure evaporation.",
+  "relations": {
+   "PSI-69": {
+    "level": "direct",
+    "how": "Model results from the FLEX team, drawn from FLEX data. They are predictions, not rows of the table."
+   },
+   "PSI-117": {
+    "level": "related",
+    "how": "PSI-117 holds the modelling of this cool-flame behaviour; the slide shows the model it descends from."
+   }
+  }
  },
  {
   "file": "flex2-droplet-history.jpg",
@@ -282,12 +481,23 @@
   "page": 12,
   "psi_home": "PSI-68",
   "psi": [
-   "PSI-68"
+   "PSI-68",
+   "PSI-69"
   ],
   "heading": "How a burning droplet shrinks",
   "shows": "Representative data from a microgravity droplet experiment: square of droplet diameter (left axis) and of flame diameter (right axis) against time since ignition. The figure shows droplet swelling, flame contraction and different burning-rate constants (K).",
   "why": "The droplet size squared falls along nearly straight lines, and the slope is the burning rate. This is the basic measurement FLEX-2 repeats. Data in the figure are credited in the source to Aharon and Shaw (1998).",
-  "alt": "How a burning droplet shrinks. Representative data from a microgravity droplet experiment: square of droplet diameter (left axis) and of flame diameter (right axis) against time since ignition. The figure shows droplet swelling, flame contraction and different burning-rate constants (K)."
+  "alt": "How a burning droplet shrinks. Representative data from a microgravity droplet experiment: square of droplet diameter (left axis) and of flame diameter (right axis) against time since ignition. The figure shows droplet swelling, flame contraction and different burning-rate constants (K).",
+  "relations": {
+   "PSI-68": {
+    "level": "direct",
+    "how": "FLEX-2’s own science document. It explains the burning-rate constant that FLEX-2 measures for each droplet."
+   },
+   "PSI-69": {
+    "level": "related",
+    "how": "The same droplet measurement FLEX makes; shown to explain the burning rate in the FLEX table."
+   }
+  }
  },
  {
   "file": "flex2-burning-rate.jpg",
@@ -296,12 +506,23 @@
   "page": 17,
   "psi_home": "PSI-68",
   "psi": [
-   "PSI-68"
+   "PSI-68",
+   "PSI-69"
   ],
   "heading": "Burning rate against starting droplet size",
   "shows": "Measured burning rate against initial droplet diameter, with three model lines: no radiation, non-luminous radiation, and soot radiation. Points come from drop-tower tests.",
   "why": "The model that includes radiation from soot tracks the measured fall in burning rate for larger droplets. This is the kind of comparison FLEX-2 was designed to extend in space.",
-  "alt": "Burning rate against starting droplet size. Measured burning rate against initial droplet diameter, with three model lines: no radiation, non-luminous radiation, and soot radiation. Points come from drop-tower tests."
+  "alt": "Burning rate against starting droplet size. Measured burning rate against initial droplet diameter, with three model lines: no radiation, non-luminous radiation, and soot radiation. Points come from drop-tower tests.",
+  "relations": {
+   "PSI-68": {
+    "level": "direct",
+    "how": "FLEX-2’s own science document. It shows the burning rate against droplet size that FLEX-2 sets out to measure."
+   },
+   "PSI-69": {
+    "level": "related",
+    "how": "Drop-tower and model data for the same burning-rate quantity FLEX measures."
+   }
+  }
  },
  {
   "file": "cfi-cool-vs-pressure.jpg",
@@ -316,7 +537,17 @@
   "heading": "Cool-flame extinction size against pressure",
   "shows": "Droplet diameter when the cool flame went out, for n-dodecane in 21% oxygen and 79% nitrogen, against pressure. Triangles are droplets held on a fibre, circles are free floating.",
   "why": "The cool flame lasts down to small droplets at low pressure. By about 2 atm no cool-flame extinction is plotted in air.",
-  "alt": "Cool-flame extinction size against pressure. Droplet diameter when the cool flame went out, for n-dodecane in 21% oxygen and 79% nitrogen, against pressure. Triangles are droplets held on a fibre, circles are free floating."
+  "alt": "Cool-flame extinction size against pressure. Droplet diameter when the cool flame went out, for n-dodecane in 21% oxygen and 79% nitrogen, against pressure. Triangles are droplets held on a fibre, circles are free floating.",
+  "relations": {
+   "PSI-39": {
+    "level": "direct",
+    "how": "CFI’s own tests. The extinction diameter and pressure are the “Dext,cool” and “Pressure” columns of the CFI table."
+   },
+   "PSI-159": {
+    "level": "related",
+    "how": "CFI-G follows CFI in the search for cool flames, using gases."
+   }
+  }
  },
  {
   "file": "cfi-helium.jpg",
@@ -331,7 +562,17 @@
   "heading": "Does swapping helium for nitrogen change it?",
   "shows": "The same measurement for four atmospheres: 17% O2 in nitrogen, 21% O2 in nitrogen, and 21% O2 with helium in place of some nitrogen.",
   "why": "Helium-rich mixes show cool-flame extinction at pressures where the nitrogen mixes show none, so the gas that dilutes the oxygen matters as well as the oxygen level.",
-  "alt": "Does swapping helium for nitrogen change it?. The same measurement for four atmospheres: 17% O2 in nitrogen, 21% O2 in nitrogen, and 21% O2 with helium in place of some nitrogen."
+  "alt": "Does swapping helium for nitrogen change it?. The same measurement for four atmospheres: 17% O2 in nitrogen, 21% O2 in nitrogen, and 21% O2 with helium in place of some nitrogen.",
+  "relations": {
+   "PSI-39": {
+    "level": "direct",
+    "how": "CFI’s own tests with helium in the air. The mixes are the oxygen, nitrogen and helium columns of the CFI table."
+   },
+   "PSI-159": {
+    "level": "related",
+    "how": "CFI-G follows CFI in the search for cool flames, using gases."
+   }
+  }
  },
  {
   "file": "cfig-hot-cool.jpg",
@@ -345,7 +586,13 @@
   "heading": "A hot flame and a cool flame, same burner",
   "shows": "Images of an n-butane flame at test point 21174C3: (a) hot flame, (b) cool flame. The dashed circle marks the gas-fed porous sphere burner, and colours are added from grayscale.",
   "why": "The cool flame is dimmer and has a different structure. CFI-G was built to find where cool flames exist as oxygen and fuel mix change.",
-  "alt": "A hot flame and a cool flame, same burner. Images of an n-butane flame at test point 21174C3: (a) hot flame, (b) cool flame. The dashed circle marks the gas-fed porous sphere burner, and colours are added from grayscale."
+  "alt": "A hot flame and a cool flame, same burner. Images of an n-butane flame at test point 21174C3: (a) hot flame, (b) cool flame. The dashed circle marks the gas-fed porous sphere burner, and colours are added from grayscale.",
+  "relations": {
+   "PSI-159": {
+    "level": "direct",
+    "how": "An example from CFI-G’s own tests: the same burner shown with a hot flame and with a cool flame."
+   }
+  }
  },
  {
   "file": "bre-flammability-map.jpg",
@@ -359,7 +606,13 @@
   "heading": "Heat needed to gasify the fuel, in space and on Earth",
   "shows": "Preliminary flammability map from the burning-rate emulator: heat of gasification against fuel mixture mass flux, microgravity data against normal-gravity data, each with a fitted line.",
   "why": "The microgravity points sit well below the normal-gravity line, so the burner flames behave differently without buoyancy. This is the quantity needed to relate a gas burner to a burning solid.",
-  "alt": "Heat needed to gasify the fuel, in space and on Earth. Preliminary flammability map from the burning-rate emulator: heat of gasification against fuel mixture mass flux, microgravity data against normal-gravity data, each with a fitted line."
+  "alt": "Heat needed to gasify the fuel, in space and on Earth. Preliminary flammability map from the burning-rate emulator: heat of gasification against fuel mixture mass flux, microgravity data against normal-gravity data, each with a fitted line.",
+  "relations": {
+   "PSI-20": {
+    "level": "direct",
+    "how": "BRE’s own tests. The heat of gasification is not in the BRE table (it logs flames lit per day), so this figure is where that result is."
+   }
+  }
  },
  {
   "file": "bre-radiant-fraction.jpg",
@@ -373,7 +626,13 @@
   "heading": "How much of the flame heat is radiated",
   "shows": "Flame radiant fraction against fuel mixture mass flux (a) and flame height (b) for the steady tests.",
   "why": "The radiant fraction rises with flame height. A larger share of radiation means more heat reaches the surroundings, which is what ignites nearby materials.",
-  "alt": "How much of the flame heat is radiated. Flame radiant fraction against fuel mixture mass flux (a) and flame height (b) for the steady tests."
+  "alt": "How much of the flame heat is radiated. Flame radiant fraction against fuel mixture mass flux (a) and flame height (b) for the steady tests.",
+  "relations": {
+   "PSI-20": {
+    "level": "direct",
+    "how": "BRE’s own tests. Radiant fraction is not in the BRE table, so this figure is where that result is."
+   }
+  }
  },
  {
   "file": "efield-ion-current.jpg",
@@ -387,7 +646,13 @@
   "heading": "Electric current through a flame",
   "shows": "Ion current against field strength for a methane jet at 15 cm/s (left) and 19 cm/s (right), with no coflow.",
   "why": "The current rises to a peak near 1.4 to 1.5 kV/cm and then falls and levels off. It is how the experiment measures the way a flame responds to an electric field.",
-  "alt": "Electric current through a flame. Ion current against field strength for a methane jet at 15 cm/s (left) and 19 cm/s (right), with no coflow."
+  "alt": "Electric current through a flame. Ion current against field strength for a methane jet at 15 cm/s (left) and 19 cm/s (right), with no coflow.",
+  "relations": {
+   "PSI-22": {
+    "level": "direct",
+    "how": "E-FIELD’s own tests. The table logs field polarity and flames lit; the ion-current curves are not in it."
+   }
+  }
  },
  {
   "file": "efield-flame-coflow.jpg",
@@ -401,7 +666,13 @@
   "heading": "Flame shape as the field is raised, with coflow",
   "shows": "Flame images at field strengths from 0.06 to 2.00 kV/cm with a 3.1 cm/s coflow, for two methane jet speeds.",
   "why": "The yellow soot glow at the flame tip fades and the flame changes shape as the field grows, so an electric field can be used to steer how much soot a flame makes.",
-  "alt": "Flame shape as the field is raised, with coflow. Flame images at field strengths from 0.06 to 2.00 kV/cm with a 3.1 cm/s coflow, for two methane jet speeds."
+  "alt": "Flame shape as the field is raised, with coflow. Flame images at field strengths from 0.06 to 2.00 kV/cm with a 3.1 cm/s coflow, for two methane jet speeds.",
+  "relations": {
+   "PSI-22": {
+    "level": "direct",
+    "how": "E-FIELD’s own tests. The table logs the fuel and polarity; the flame images are not in it."
+   }
+  }
  },
  {
   "file": "efield-flame-nocoflow.jpg",
@@ -415,7 +686,13 @@
   "heading": "Flame shape as the field is raised, no coflow",
   "shows": "Flame images at field strengths from 0.14 to 2.60 kV/cm with no coflow.",
   "why": "Without coflow the flame is blue and changes from a wide dome to a compact shape as the field increases.",
-  "alt": "Flame shape as the field is raised, no coflow. Flame images at field strengths from 0.14 to 2.60 kV/cm with no coflow."
+  "alt": "Flame shape as the field is raised, no coflow. Flame images at field strengths from 0.14 to 2.60 kV/cm with no coflow.",
+  "relations": {
+   "PSI-22": {
+    "level": "direct",
+    "how": "E-FIELD’s own tests. The table logs the fuel and polarity; the flame images are not in it."
+   }
+  }
  },
  {
   "file": "design-inverse-flame.jpg",
@@ -429,7 +706,13 @@
   "heading": "An inverse flame in time steps",
   "shows": "Time sequence of the final Flame Design inverse flame, where oxygen flows from the burner into the surrounding fuel. The top picture is a false-colour measurement of the flame temperature using a ceramic fibre.",
   "why": "Flame Design uses inverse flames to study how soot forms and is controlled. Without gravity the flame is round and easy to measure.",
-  "alt": "An inverse flame in time steps. Time sequence of the final Flame Design inverse flame, where oxygen flows from the burner into the surrounding fuel. The top picture is a false-colour measurement of the flame temperature using a ceramic fibre."
+  "alt": "An inverse flame in time steps. Time sequence of the final Flame Design inverse flame, where oxygen flows from the burner into the surrounding fuel. The top picture is a false-colour measurement of the flame temperature using a ceramic fibre.",
+  "relations": {
+   "PSI-10": {
+    "level": "direct",
+    "how": "Flame Design’s own tests: an inverse flame, like those in the “Inverse flames” sheet of the Flame Design table."
+   }
+  }
  },
  {
   "file": "sflame-hydrogen-tests.jpg",
@@ -443,7 +726,13 @@
   "heading": "Four s-Flame tests as the fuel flow rises",
   "shows": "Flames from four tests (GMT 013) in which the hydrogen and methane fuel flow rises from left to right while the nitrogen flow stays constant, in about 19% oxygen at about 1 atm.",
   "why": "The flame grows and changes shape as the fuel flow rises, so s-Flame can follow how a nearly spherical flame responds.",
-  "alt": "Four s-Flame tests as the fuel flow rises. Flames from four tests (GMT 013) in which the hydrogen and methane fuel flow rises from left to right while the nitrogen flow stays constant, in about 19% oxygen at about 1 atm."
+  "alt": "Four s-Flame tests as the fuel flow rises. Flames from four tests (GMT 013) in which the hydrogen and methane fuel flow rises from left to right while the nitrogen flow stays constant, in about 19% oxygen at about 1 atm.",
+  "relations": {
+   "PSI-23": {
+    "level": "direct",
+    "how": "The hydrogen and methane flames of s-Flame’s own tests, as logged in the s-Flame table."
+   }
+  }
  },
  {
   "file": "sflame-methane-tests.jpg",
@@ -457,7 +746,13 @@
   "heading": "Spherical flames as the fuel supply changes",
   "shows": "Three s-Flame tests of methane (45%) burning in 30% oxygen, with the fuel flow changing between tests.",
   "why": "The flame shell shrinks and opens as fuel flow falls. This is how the experiment finds where a sooty and a soot-free flame turn into one another.",
-  "alt": "Spherical flames as the fuel supply changes. Three s-Flame tests of methane (45%) burning in 30% oxygen, with the fuel flow changing between tests."
+  "alt": "Spherical flames as the fuel supply changes. Three s-Flame tests of methane (45%) burning in 30% oxygen, with the fuel flow changing between tests.",
+  "relations": {
+   "PSI-23": {
+    "level": "direct",
+    "how": "The methane flames of s-Flame’s own tests, as logged in the s-Flame table."
+   }
+  }
  },
  {
   "file": "spice-smoke-point.jpg",
@@ -471,7 +766,13 @@
   "heading": "How long a flame is when it starts to smoke",
   "shows": "Smoke point flame length against coflow velocity for several fuels and burner sizes (0.41, 0.76 and 1.6 mm).",
   "why": "The longer the flame can get before it smokes, the less sooty the fuel. Coflow speed changes the smoke point, and the fuels separate clearly.",
-  "alt": "How long a flame is when it starts to smoke. Smoke point flame length against coflow velocity for several fuels and burner sizes (0.41, 0.76 and 1.6 mm)."
+  "alt": "How long a flame is when it starts to smoke. Smoke point flame length against coflow velocity for several fuels and burner sizes (0.41, 0.76 and 1.6 mm).",
+  "relations": {
+   "PSI-107": {
+    "level": "direct",
+    "how": "SPICE’s own tests. The fuels, burner sizes and air speeds are the SPICE table’s columns; the measured flame length is not in the table."
+   }
+  }
  },
  {
   "file": "spice-smoke-collapse.jpg",
@@ -485,7 +786,13 @@
   "heading": "One line through many fuels",
   "shows": "Smoke point length against fuel mass flow divided by the stoichiometric mixture fraction, for all the fuels and burners. A straight line through the origin is fitted (y = 1.6097x, R2 = 0.9514).",
   "why": "When the flow is scaled this way, the many fuels fall on one line, a simple rule for predicting smoke point length.",
-  "alt": "One line through many fuels. Smoke point length against fuel mass flow divided by the stoichiometric mixture fraction, for all the fuels and burners. A straight line through the origin is fitted (y = 1.6097x, R2 = 0.9514)."
+  "alt": "One line through many fuels. Smoke point length against fuel mass flow divided by the stoichiometric mixture fraction, for all the fuels and burners. A straight line through the origin is fitted (y = 1.6097x, R2 = 0.9514).",
+  "relations": {
+   "PSI-107": {
+    "level": "direct",
+    "how": "SPICE’s own tests: the fuel flow rate is a column of the SPICE table; the flame length is from the report."
+   }
+  }
  },
  {
   "file": "spice-flames.jpg",
@@ -499,7 +806,13 @@
   "heading": "Flames at four coflow speeds",
   "shows": "Photographs of a 75% propylene flame from a 1.6 mm burner at coflow speeds of 28.2, 32.9, 37.6 and 42.3 cm/s.",
   "why": "Faster coflow shortens the flame, which is how the smoke point is reached by changing air speed.",
-  "alt": "Flames at four coflow speeds. Photographs of a 75% propylene flame from a 1.6 mm burner at coflow speeds of 28.2, 32.9, 37.6 and 42.3 cm/s."
+  "alt": "Flames at four coflow speeds. Photographs of a 75% propylene flame from a 1.6 mm burner at coflow speeds of 28.2, 32.9, 37.6 and 42.3 cm/s.",
+  "relations": {
+   "PSI-107": {
+    "level": "direct",
+    "how": "SPICE’s own flames at the coflow speeds listed in the SPICE table."
+   }
+  }
  },
  {
   "file": "daft-ptrak.jpg",
@@ -513,7 +826,13 @@
   "heading": "Particle counts in the first DAFT test",
   "shows": "P-Trak particle count against time for test point 1. Marks show when the HEPA filter was on and off.",
   "why": "The counter spikes when smoke is released and falls back when the air is filtered, showing how quickly a particle detector responds on the station.",
-  "alt": "Particle counts in the first DAFT test. P-Trak particle count against time for test point 1. Marks show when the HEPA filter was on and off."
+  "alt": "Particle counts in the first DAFT test. P-Trak particle count against time for test point 1. Marks show when the HEPA filter was on and off.",
+  "relations": {
+   "PSI-47": {
+    "level": "direct",
+    "how": "DAFT’s own test: the P-Trak instrument records that the DAFT sheets hold."
+   }
+  }
  },
  {
   "file": "daft-ground.jpg",
@@ -527,7 +846,13 @@
   "heading": "Particle count against mass reading, ground test",
   "shows": "DustTrak mass concentration against P-Trak particle count, from DAFT ground tests. Each colour is one run.",
   "why": "The two readings rise together, so the count of tiny particles and the mass of larger ones can be compared to judge smoke type.",
-  "alt": "Particle count against mass reading, ground test. DustTrak mass concentration against P-Trak particle count, from DAFT ground tests. Each colour is one run."
+  "alt": "Particle count against mass reading, ground test. DustTrak mass concentration against P-Trak particle count, from DAFT ground tests. Each colour is one run.",
+  "relations": {
+   "PSI-47": {
+    "level": "direct",
+    "how": "DAFT’s own ground test, comparing the same two instruments (P-Trak and DustTrak) that are in the DAFT sheets."
+   }
+  }
  },
  {
   "file": "same-detector-types.jpg",
@@ -542,7 +867,17 @@
   "heading": "The same smoke, four different detectors",
   "shows": "Normalised mass concentration needed for an alarm, against smoke particle size, for four smoke detector technologies. The alarm level was set at 2 mg/m3 for 500 nm particles.",
   "why": "Particle counters and two other designs need very different smoke amounts as particles get bigger, while a scattering detector stays flat. Detector choice depends on the particle size a fire makes in space.",
-  "alt": "The same smoke, four different detectors. Normalised mass concentration needed for an alarm, against smoke particle size, for four smoke detector technologies. The alarm level was set at 2 mg/m3 for 500 nm particles."
+  "alt": "The same smoke, four different detectors. Normalised mass concentration needed for an alarm, against smoke particle size, for four smoke detector technologies. The alarm level was set at 2 mg/m3 for 500 nm particles.",
+  "relations": {
+   "PSI-102": {
+    "level": "direct",
+    "how": "SAME’s own conclusions about detectors, based on the smoke particle sizes it measured from the samples in the SAME table."
+   },
+   "PSI-101": {
+    "level": "related",
+    "how": "SAME-R repeats SAME with new hardware; this is the SAME conclusion it builds on."
+   }
+  }
  },
  {
   "file": "same-smoke-spread.jpg",
@@ -557,7 +892,17 @@
   "heading": "How smoke spreads through an enclosure",
   "shows": "Simulated smoke distribution 177 s after a smoke source of 8.5 mg/s was switched on at location 4 on the floor of an enclosure with obstructions.",
   "why": "Smoke takes time to reach a detector and obstructions change how long it takes. Detector placement matters as much as detector type.",
-  "alt": "How smoke spreads through an enclosure. Simulated smoke distribution 177 s after a smoke source of 8.5 mg/s was switched on at location 4 on the floor of an enclosure with obstructions."
+  "alt": "How smoke spreads through an enclosure. Simulated smoke distribution 177 s after a smoke source of 8.5 mg/s was switched on at location 4 on the floor of an enclosure with obstructions.",
+  "relations": {
+   "PSI-102": {
+    "level": "direct",
+    "how": "SAME’s own report: a simulation of how the smoke it measured would spread."
+   },
+   "PSI-101": {
+    "level": "related",
+    "how": "SAME-R repeats SAME with new hardware; this is the SAME conclusion it builds on."
+   }
+  }
  },
  {
   "file": "samer-size-distribution.jpg",
@@ -571,7 +916,13 @@
   "heading": "Aged smoke particle sizes",
   "shows": "Number and volume distributions of smoke particles from aged lamp wick, measured by two methods (SMPS and TEM).",
   "why": "The two methods give different average sizes (248 nm against 131 nm by number), so how particles are measured changes what detectors are told to look for.",
-  "alt": "Aged smoke particle sizes. Number and volume distributions of smoke particles from aged lamp wick, measured by two methods (SMPS and TEM)."
+  "alt": "Aged smoke particle sizes. Number and volume distributions of smoke particles from aged lamp wick, measured by two methods (SMPS and TEM).",
+  "relations": {
+   "PSI-101": {
+    "level": "direct",
+    "how": "SAME-R’s own aged lamp-wick smoke. Aging time is the “Net aging time” column of the SAME-R table."
+   }
+  }
  },
  {
   "file": "smokesim-size-mg-eg.jpg",
@@ -585,7 +936,13 @@
   "heading": "Simulated smoke particle sizes, with and without gravity",
   "shows": "Top: average-mass diameter fields for two simulated cases. Bottom: the particle size distributions for Case 1MG and Case 1EG. Interpretation: MG and EG appear to stand for microgravity and Earth gravity.",
   "why": "The distribution shifts between the two cases, so smoke made in space is not the same size as smoke made on the ground.",
-  "alt": "Simulated smoke particle sizes, with and without gravity. Top: average-mass diameter fields for two simulated cases. Bottom: the particle size distributions for Case 1MG and Case 1EG. Interpretation: MG and EG appear to stand for microgravity and Earth gravity."
+  "alt": "Simulated smoke particle sizes, with and without gravity. Top: average-mass diameter fields for two simulated cases. Bottom: the particle size distributions for Case 1MG and Case 1EG. Interpretation: MG and EG appear to stand for microgravity and Earth gravity.",
+  "relations": {
+   "PSI-115": {
+    "level": "direct",
+    "how": "The report behind this record’s simulation files: the size distributions match the PSD .dat files on this record."
+   }
+  }
  },
  {
   "file": "smokesim-fields.jpg",
@@ -599,7 +956,13 @@
   "heading": "Simulated smoke plumes, four cases",
   "shows": "Visualisation of simulated smoke fields for four cases (1MG, 1EG, 2MG, 2EG) behind a bluff body.",
   "why": "Without gravity the plume spreads evenly behind the body, while the gravity cases rise. The same smoke is easier or harder to detect depending on where it goes.",
-  "alt": "Simulated smoke plumes, four cases. Visualisation of simulated smoke fields for four cases (1MG, 1EG, 2MG, 2EG) behind a bluff body."
+  "alt": "Simulated smoke plumes, four cases. Visualisation of simulated smoke fields for four cases (1MG, 1EG, 2MG, 2EG) behind a bluff body.",
+  "relations": {
+   "PSI-115": {
+    "level": "direct",
+    "how": "The report behind this record’s simulation files: smoke fields for the same cases."
+   }
+  }
  },
  {
   "file": "coolflame-methanol-model.jpg",
@@ -613,7 +976,13 @@
   "heading": "Modelled methanol droplet at different oxygen levels",
   "shows": "Predicted droplet size, peak gas temperature and flame stand-off ratio over time for methanol droplets of 1 mm (top) and 2 mm (bottom) in 7%, 10% and 21% oxygen at 1 atm.",
   "why": "Less oxygen shortens the burn and lowers the peak temperature. These model results are not measurements.",
-  "alt": "Modelled methanol droplet at different oxygen levels. Predicted droplet size, peak gas temperature and flame stand-off ratio over time for methanol droplets of 1 mm (top) and 2 mm (bottom) in 7%, 10% and 21% oxygen at 1 atm."
+  "alt": "Modelled methanol droplet at different oxygen levels. Predicted droplet size, peak gas temperature and flame stand-off ratio over time for methanol droplets of 1 mm (top) and 2 mm (bottom) in 7%, 10% and 21% oxygen at 1 atm.",
+  "relations": {
+   "PSI-117": {
+    "level": "direct",
+    "how": "The dissertation hosted on this record. These model results use the same kind of droplets as the FLEX data it analyses."
+   }
+  }
  },
  {
   "file": "coolflame-fsr.jpg",
@@ -627,7 +996,13 @@
   "heading": "Flame stand-off for an n-butanol droplet",
   "shows": "Flame stand-off ratio (flame diameter over droplet diameter) against time, measured and predicted, for a 0.56 mm n-butanol droplet in air.",
   "why": "The stand-off ratio grows as the droplet shrinks, and the model follows the measurement closely until the flame goes out.",
-  "alt": "Flame stand-off for an n-butanol droplet. Flame stand-off ratio (flame diameter over droplet diameter) against time, measured and predicted, for a 0.56 mm n-butanol droplet in air."
+  "alt": "Flame stand-off for an n-butanol droplet. Flame stand-off ratio (flame diameter over droplet diameter) against time, measured and predicted, for a 0.56 mm n-butanol droplet in air.",
+  "relations": {
+   "PSI-117": {
+    "level": "direct",
+    "how": "The dissertation hosted on this record. Model against measurement for a droplet like those in the FLEX tests it analyses."
+   }
+  }
  },
  {
   "file": "coolflame-ozone.jpg",
@@ -641,7 +1016,13 @@
   "heading": "Adding ozone to a droplet flame",
   "shows": "Predicted droplet size and peak gas temperature for n-heptane droplets with 1 to 7% ozone added, for 0.1 mm and 0.5 mm droplets.",
   "why": "Ozone speeds up ignition and changes the cool-flame stage. This is a model result for tiny droplets, not a measurement.",
-  "alt": "Adding ozone to a droplet flame. Predicted droplet size and peak gas temperature for n-heptane droplets with 1 to 7% ozone added, for 0.1 mm and 0.5 mm droplets."
+  "alt": "Adding ozone to a droplet flame. Predicted droplet size and peak gas temperature for n-heptane droplets with 1 to 7% ozone added, for 0.1 mm and 0.5 mm droplets.",
+  "relations": {
+   "PSI-117": {
+    "level": "direct",
+    "how": "The dissertation hosted on this record. A model result for the ozone effect, not a measurement."
+   }
+  }
  },
  {
   "file": "saffire-fabric-spread.jpg",
@@ -657,7 +1038,21 @@
   "heading": "Saffire-I: flame spread over fabric",
   "shows": "Left: flame base and pyrolysis front position over time, in concurrent and opposed flow. Right: spread rate against air flow speed for fabric samples of two widths.",
   "why": "This is the first large (40 cm by 94 cm) fabric fire burned in space. Concurrent-flow flames spread faster as flow rose, and quenched at low flow.",
-  "alt": "Saffire-I: flame spread over fabric. Left: flame base and pyrolysis front position over time, in concurrent and opposed flow. Right: spread rate against air flow speed for fabric samples of two widths."
+  "alt": "Saffire-I: flame spread over fabric. Left: flame base and pyrolysis front position over time, in concurrent and opposed flow. Right: spread rate against air flow speed for fabric samples of two widths.",
+  "relations": {
+   "PSI-98": {
+    "level": "direct",
+    "how": "Saffire-I’s own results: the fabric sample listed in the Saffire-I table."
+   },
+   "PSI-99": {
+    "level": "related",
+    "how": "Saffire-II burned different samples in the same module; this is the Saffire-I fabric result."
+   },
+   "PSI-100": {
+    "level": "related",
+    "how": "Saffire-III reuses the Saffire design; this is the Saffire-I fabric result."
+   }
+  }
  },
  {
   "file": "saffire-oxygen.jpg",
@@ -673,7 +1068,21 @@
   "heading": "Saffire-I: oxygen during the burn",
   "shows": "Oxygen measured during the Saffire-I burns, plotted against time with several instrument traces.",
   "why": "Oxygen was one of the module's own measurements of the fire. The axis values are small at this size, so open the slides for the detail.",
-  "alt": "Saffire-I: oxygen during the burn. Oxygen measured during the Saffire-I burns, plotted against time with several instrument traces."
+  "alt": "Saffire-I: oxygen during the burn. Oxygen measured during the Saffire-I burns, plotted against time with several instrument traces.",
+  "relations": {
+   "PSI-98": {
+    "level": "direct",
+    "how": "Saffire-I’s own measurements from the same flight."
+   },
+   "PSI-99": {
+    "level": "related",
+    "how": "Same module and instruments flew on Saffire-II; this is the Saffire-I record."
+   },
+   "PSI-100": {
+    "level": "related",
+    "how": "Same module and instruments flew on Saffire-III; this is the Saffire-I record."
+   }
+  }
  },
  {
   "file": "saffire-montage.jpg",
@@ -689,7 +1098,21 @@
   "heading": "Saffire-I: a 40 cm wide flame, frame by frame",
   "shows": "Montage of images from the 40.6 cm wide concurrent-flow test, with each image 40 s apart, compared with concurrent and opposed images.",
   "why": "The flame grew slowly and steadily across the sample over several minutes, a pattern that small tests cannot reproduce.",
-  "alt": "Saffire-I: a 40 cm wide flame, frame by frame. Montage of images from the 40.6 cm wide concurrent-flow test, with each image 40 s apart, compared with concurrent and opposed images."
+  "alt": "Saffire-I: a 40 cm wide flame, frame by frame. Montage of images from the 40.6 cm wide concurrent-flow test, with each image 40 s apart, compared with concurrent and opposed images.",
+  "relations": {
+   "PSI-98": {
+    "level": "direct",
+    "how": "Saffire-I’s own images from the same flight."
+   },
+   "PSI-99": {
+    "level": "related",
+    "how": "Saffire-II used smaller samples in the same module; this is the Saffire-I flame."
+   },
+   "PSI-100": {
+    "level": "related",
+    "how": "Saffire-III reuses the Saffire design; this is the Saffire-I flame."
+   }
+  }
  },
  {
   "file": "slice-soot-temperature.jpg",
@@ -703,6 +1126,12 @@
   "heading": "Soot in a flame with and without gravity",
   "shows": "Measured soot temperature and soot volume fraction for matching methane flames in normal gravity and microgravity, with computed results.",
   "why": "The microgravity flame is wider and taller, produces about eight times more peak soot, and runs about 200 K cooler than the normal-gravity flame.",
-  "alt": "Soot in a flame with and without gravity. Measured soot temperature and soot volume fraction for matching methane flames in normal gravity and microgravity, with computed results."
+  "alt": "Soot in a flame with and without gravity. Measured soot temperature and soot volume fraction for matching methane flames in normal gravity and microgravity, with computed results.",
+  "relations": {
+   "PSI-106": {
+    "level": "direct",
+    "how": "SLICE’s own flames; the table lists only their dates and fuels."
+   }
+  }
  }
 ]

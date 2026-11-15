@@ -221,6 +221,119 @@ N = [
 ]
 
 
+
+# How each figure connects to each investigation it appears on.
+# direct  = results, hardware or analysis from that investigation itself
+# related = from a sister, predecessor or follow-on experiment, shown for context
+D, R = 'direct', 'related'
+BASS2_ON_BASS = 'BASS-II is the follow-on to BASS: the same question (when does a solid fuel burn in a slow flow) with new hardware. Read it as context, not as BASS data.'
+BASS_ON_BASS2 = 'These slides report BASS, the experiment before BASS-II. The method and fuels overlap, but the numbers are from BASS.'
+REL = {
+ 'bass2-co-vs-co2': {'PSI-25': (D, 'From the BASS-II Summary Report, which reports this investigation’s own tests.'), 'PSI-26': (R, BASS2_ON_BASS)},
+ 'bass2-o2-vs-co2': {'PSI-25': (D, 'From the BASS-II Summary Report, which reports this investigation’s own tests.'), 'PSI-26': (R, BASS2_ON_BASS)},
+ 'bass2-heat-release': {'PSI-25': (D, 'From the BASS-II Summary Report, which reports this investigation’s own tests.'), 'PSI-26': (R, BASS2_ON_BASS)},
+ 'bass2-rod-spread': {'PSI-25': (D, 'From the BASS-II Summary Report, which reports this investigation’s own tests.'), 'PSI-26': (R, BASS2_ON_BASS)},
+ 'bass2-extinction-limits': {'PSI-25': (D, 'From the BASS-II Summary Report, which reports this investigation’s own tests.'), 'PSI-26': (R, BASS2_ON_BASS)},
+ 'bass2-thickness': {'PSI-25': (D, 'From the BASS-II Summary Report, which reports this investigation’s own tests.'), 'PSI-26': (R, BASS2_ON_BASS)},
+ 'bass2-flammability-boundary': {'PSI-25': (D, 'Poster by the BASS-II team showing BASS-II rod tests.'), 'PSI-26': (R, BASS2_ON_BASS)},
+ 'bass-boundary-idea': {'PSI-26': (D, 'From the BASS team’s own overview slides.'), 'PSI-25': (R, BASS_ON_BASS2)},
+ 'bass-thin-fuel-spread': {'PSI-26': (D, 'From the BASS team’s own overview slides.'), 'PSI-25': (R, BASS_ON_BASS2)},
+ 'bass-nitrogen': {'PSI-26': (D, 'From the BASS team’s own overview slides.'), 'PSI-25': (R, BASS_ON_BASS2)},
+ 'bass-candle': {'PSI-26': (D, 'From the BASS team’s own overview slides.'), 'PSI-25': (R, BASS_ON_BASS2)},
+ 'flex-two-extinction': {'PSI-69': (D, 'From the FLEX science team’s slides on FLEX results.'), 'PSI-68': (R, 'FLEX-2 repeats FLEX droplet burning with new fuels; this shows the FLEX behaviour it builds on.'), 'PSI-39': (R, 'CFI used the same droplet hardware to study the cool flames FLEX first saw.')},
+ 'flex-second-stage': {'PSI-69': (D, 'From the FLEX science team’s slides on FLEX results.'), 'PSI-39': (R, 'CFI studies the cool-flame stage that FLEX first observed.'), 'PSI-159': (R, 'CFI-G looks for the same cool flames, on a gas burner instead of a droplet.')},
+ 'flex-model-two-stage': {'PSI-69': (D, 'From the FLEX science team’s slides on FLEX results.'), 'PSI-117': (R, 'PSI-117 holds the modelling of this cool-flame behaviour; the slide shows the model it descends from.')},
+ 'flex2-droplet-history': {'PSI-68': (D, 'From the FLEX-2 science requirements document.'), 'PSI-69': (R, 'The same droplet measurement FLEX makes; shown to explain the burning rate in the FLEX table.')},
+ 'flex2-burning-rate': {'PSI-68': (D, 'From the FLEX-2 science requirements document.'), 'PSI-69': (R, 'Drop-tower and model data for the same burning-rate quantity FLEX measures.')},
+ 'cfi-cool-vs-pressure': {'PSI-39': (D, 'From the CFI Science Final Report.'), 'PSI-159': (R, 'CFI-G follows CFI in the search for cool flames, using gases.')},
+ 'cfi-helium': {'PSI-39': (D, 'From the CFI Science Final Report.'), 'PSI-159': (R, 'CFI-G follows CFI in the search for cool flames, using gases.')},
+ 'cfig-hot-cool': {'PSI-159': (D, 'From the CFI-G Final Report: test point 21174C3.')},
+ 'bre-flammability-map': {'PSI-20': (D, 'From the BRE Final Report.')},
+ 'bre-radiant-fraction': {'PSI-20': (D, 'From the BRE Final Report.')},
+ 'efield-ion-current': {'PSI-22': (D, 'From the E-FIELD Flames Final Report.')},
+ 'efield-flame-coflow': {'PSI-22': (D, 'From the E-FIELD Flames Final Report.')},
+ 'efield-flame-nocoflow': {'PSI-22': (D, 'From the E-FIELD Flames Final Report.')},
+ 'design-inverse-flame': {'PSI-10': (D, 'From the Flame Design Final Report.')},
+ 'sflame-hydrogen-tests': {'PSI-23': (D, 'From the s-Flame Final Report.')},
+ 'sflame-methane-tests': {'PSI-23': (D, 'From the s-Flame Final Report.')},
+ 'spice-smoke-point': {'PSI-107': (D, 'From the SPICE Final Report.')},
+ 'spice-smoke-collapse': {'PSI-107': (D, 'From the SPICE Final Report.')},
+ 'spice-flames': {'PSI-107': (D, 'From the SPICE Final Report.')},
+ 'daft-ptrak': {'PSI-47': (D, 'From the DAFT 30-day post-flight report.')},
+ 'daft-ground': {'PSI-47': (D, 'From the DAFT 30-day post-flight report (ground test data).')},
+ 'same-detector-types': {'PSI-102': (D, 'From the SAME Final Science Report.'), 'PSI-101': (R, 'SAME-R repeats SAME with new hardware; this is the SAME conclusion it builds on.')},
+ 'same-smoke-spread': {'PSI-102': (D, 'From the SAME Final Science Report.'), 'PSI-101': (R, 'SAME-R repeats SAME with new hardware; this is the SAME conclusion it builds on.')},
+ 'same-lampwick-particle-size': {'PSI-102': (D, 'From the SAME-2 results paper; the SAME samples include lamp wick.'), 'PSI-101': (R, 'SAME-R repeats SAME; the paper reports the earlier SAME-2 run.')},
+ 'samer-size-distribution': {'PSI-101': (D, 'From the SAME-R Final Report.')},
+ 'smokesim-size-mg-eg': {'PSI-115': (D, 'From the final report behind this simulation record.')},
+ 'smokesim-fields': {'PSI-115': (D, 'From the final report behind this simulation record.')},
+ 'coolflame-methanol-model': {'PSI-117': (D, 'From the dissertation hosted on this record; the model results are not measurements.')},
+ 'coolflame-fsr': {'PSI-117': (D, 'From the dissertation hosted on this record; the model results are not measurements.')},
+ 'coolflame-ozone': {'PSI-117': (D, 'From the dissertation hosted on this record; the model results are not measurements.')},
+ 'saffire-fabric-spread': {'PSI-98': (D, 'Saffire-I results, from NASA’s large-scale flammability test slides.'), 'PSI-99': (R, 'Saffire-II burned different samples in the same module; this is the Saffire-I fabric result.'), 'PSI-100': (R, 'Saffire-III reuses the Saffire design; this is the Saffire-I fabric result.')},
+ 'saffire-oxygen': {'PSI-98': (D, 'Saffire-I measurements, from NASA’s large-scale flammability test slides.'), 'PSI-99': (R, 'Same module and instruments flew on Saffire-II; this is the Saffire-I record.'), 'PSI-100': (R, 'Same module and instruments flew on Saffire-III; this is the Saffire-I record.')},
+ 'saffire-montage': {'PSI-98': (D, 'Saffire-I images, from NASA’s large-scale flammability test slides.'), 'PSI-99': (R, 'Saffire-II used smaller samples in the same module; this is the Saffire-I flame.'), 'PSI-100': (R, 'Saffire-III reuses the Saffire design; this is the Saffire-I flame.')},
+ 'saffire2-spread-vs-pressure': {'PSI-99': (D, 'Includes the Saffire-II flight point, with ground tests at several pressures.'), 'PSI-98': (R, 'Saffire-II result with ground comparisons; the same fuel type (PMMA) is not in Saffire-I.'), 'PSI-100': (R, 'Saffire-II result with ground comparisons, for context.')},
+ 'flex-methanol-extinction': {'PSI-69': (D, 'Paper built on FLEX droplet tests.'), 'PSI-68': (R, 'FLEX-2 repeats FLEX droplet burning; these are FLEX results.')},
+ 'cool-flame-extinction-o2': {'PSI-69': (D, 'Paper built on FLEX droplet tests.'), 'PSI-39': (R, 'CFI studies the same cool-flame extinction with the same droplet hardware.'), 'PSI-159': (R, 'CFI-G looks for the same cool flames on a gas burner.')},
+ 'slice-soot-temperature': {'PSI-106': (D, 'Paper on the SLICE flames and models.')},
+}
+
+# For figures from this experiment, say which part of the PSI data they line up with.
+DIRECT_HOW = {
+ 'bass2-co-vs-co2': 'BASS-II’s own tests. The CO and CO2 values come from the before-and-after gas readings that sit in the “Initial/Final CO” and “CO2” columns of the BASS-II table.',
+ 'bass2-o2-vs-co2': 'BASS-II’s own tests. The oxygen and carbon dioxide changes are the “Initial/Final O2” and “CO2” columns of the BASS-II table.',
+ 'bass2-heat-release': 'BASS-II’s own tests, plotted against the initial oxygen column of the BASS-II table.',
+ 'bass2-rod-spread': 'BASS-II’s own rod tests (the rod samples in the BASS-II table). Spread rates are not in the table, so this figure is where they are.',
+ 'bass2-extinction-limits': 'BASS-II’s own tests: the oxygen and flow settings are the “O2” and “Fan/Air display” columns of the BASS-II table.',
+ 'bass2-thickness': 'The BASS-II report’s comparison of its thin and thick fuels with other experiments. Thickness is a column in the BASS-II table for 34 tests.',
+ 'bass2-flammability-boundary': 'BASS-II’s own PMMA rod tests. Each mark is one test, with its oxygen and outcome, as in the BASS-II table.',
+ 'bass-boundary-idea': 'The BASS team’s own explanation of what BASS was testing: oxygen against flow, which are the main columns of the BASS table.',
+ 'bass-thin-fuel-spread': 'BASS’s own thin-fuel (fabric) tests. Spread rates are not in the PSI table, so this figure is where they are.',
+ 'bass-nitrogen': 'BASS’s own suppression tests: the nitrogen-flow tests listed in the BASS matrix.',
+ 'bass-candle': 'BASS’s own candle tests: the “candle” fuel in the BASS table.',
+ 'flex-two-extinction': 'FLEX’s own tests. Droplet size over time is how the “extinction diameter” and “burn time” columns of the FLEX table were measured.',
+ 'flex-second-stage': 'FLEX’s own tests, showing the cool-flame stage that follows the “Extinction” entries in the FLEX table.',
+ 'flex-model-two-stage': 'Model results from the FLEX team, drawn from FLEX data. They are predictions, not rows of the table.',
+ 'flex2-droplet-history': 'FLEX-2’s own science document. It explains the burning-rate constant that FLEX-2 measures for each droplet.',
+ 'flex2-burning-rate': 'FLEX-2’s own science document. It shows the burning rate against droplet size that FLEX-2 sets out to measure.',
+ 'cfi-cool-vs-pressure': 'CFI’s own tests. The extinction diameter and pressure are the “Dext,cool” and “Pressure” columns of the CFI table.',
+ 'cfi-helium': 'CFI’s own tests with helium in the air. The mixes are the oxygen, nitrogen and helium columns of the CFI table.',
+ 'cfig-hot-cool': 'An example from CFI-G’s own tests: the same burner shown with a hot flame and with a cool flame.',
+ 'bre-flammability-map': 'BRE’s own tests. The heat of gasification is not in the BRE table (it logs flames lit per day), so this figure is where that result is.',
+ 'bre-radiant-fraction': 'BRE’s own tests. Radiant fraction is not in the BRE table, so this figure is where that result is.',
+ 'efield-ion-current': 'E-FIELD’s own tests. The table logs field polarity and flames lit; the ion-current curves are not in it.',
+ 'efield-flame-coflow': 'E-FIELD’s own tests. The table logs the fuel and polarity; the flame images are not in it.',
+ 'efield-flame-nocoflow': 'E-FIELD’s own tests. The table logs the fuel and polarity; the flame images are not in it.',
+ 'design-inverse-flame': 'Flame Design’s own tests: an inverse flame, like those in the “Inverse flames” sheet of the Flame Design table.',
+ 'sflame-hydrogen-tests': 'The hydrogen and methane flames of s-Flame’s own tests, as logged in the s-Flame table.',
+ 'sflame-methane-tests': 'The methane flames of s-Flame’s own tests, as logged in the s-Flame table.',
+ 'spice-smoke-point': 'SPICE’s own tests. The fuels, burner sizes and air speeds are the SPICE table’s columns; the measured flame length is not in the table.',
+ 'spice-smoke-collapse': 'SPICE’s own tests: the fuel flow rate is a column of the SPICE table; the flame length is from the report.',
+ 'spice-flames': 'SPICE’s own flames at the coflow speeds listed in the SPICE table.',
+ 'daft-ptrak': 'DAFT’s own test: the P-Trak instrument records that the DAFT sheets hold.',
+ 'daft-ground': 'DAFT’s own ground test, comparing the same two instruments (P-Trak and DustTrak) that are in the DAFT sheets.',
+ 'same-detector-types': 'SAME’s own conclusions about detectors, based on the smoke particle sizes it measured from the samples in the SAME table.',
+ 'same-smoke-spread': 'SAME’s own report: a simulation of how the smoke it measured would spread.',
+ 'same-lampwick-particle-size': 'SAME’s lamp-wick samples (a sample type in the SAME and SAME-R tables), at the air speeds those tables list.',
+ 'samer-size-distribution': 'SAME-R’s own aged lamp-wick smoke. Aging time is the “Net aging time” column of the SAME-R table.',
+ 'smokesim-size-mg-eg': 'The report behind this record’s simulation files: the size distributions match the PSD .dat files on this record.',
+ 'smokesim-fields': 'The report behind this record’s simulation files: smoke fields for the same cases.',
+ 'coolflame-methanol-model': 'The dissertation hosted on this record. These model results use the same kind of droplets as the FLEX data it analyses.',
+ 'coolflame-fsr': 'The dissertation hosted on this record. Model against measurement for a droplet like those in the FLEX tests it analyses.',
+ 'coolflame-ozone': 'The dissertation hosted on this record. A model result for the ozone effect, not a measurement.',
+ 'saffire-fabric-spread': 'Saffire-I’s own results: the fabric sample listed in the Saffire-I table.',
+ 'saffire-oxygen': 'Saffire-I’s own measurements from the same flight.',
+ 'saffire-montage': 'Saffire-I’s own images from the same flight.',
+ 'saffire2-spread-vs-pressure': 'Saffire-II’s own result (the orange point) next to ground tests at different pressures.',
+ 'flex-methanol-extinction': 'FLEX’s own tests. The plotted quantities are the “Initial droplet diameter” and “Visible flame extinction diameter” columns of the FLEX table.',
+ 'cool-flame-extinction-o2': 'FLEX droplet tests analysed by the FLEX team; the same extinction diameter as in the FLEX table.',
+ 'slice-soot-temperature': 'SLICE’s own flames; the table lists only their dates and fuels.',
+}
+
+LEVEL_NOTE = {D: 'From this experiment', R: 'From a related experiment'}
+
+
 def render(pdf_path, page, crop, trim, out):
     d = fitz.open(pdf_path)
     pg = d[page - 1]
@@ -257,17 +370,21 @@ def render(pdf_path, page, crop, trim, out):
     im.save(out, quality=86)
 
 
+def rels(fn):
+    return {p: {'level': lv, 'how': DIRECT_HOW.get(fn, how) if lv == D else how} for p, (lv, how) in REL[fn].items()}
+
+
 def main():
     manifest = []
     for doc, page, crop, trim, psi, fn, heading, shows, why in F:
         path, title, home = PSI_DOCS[doc]
         render(os.path.join(RAW, path), page, crop, trim, os.path.join(OUT, fn + '.jpg'))
-        manifest.append({'file': fn + '.jpg', 'source': 'psi', 'paper': title, 'page': page, 'psi_home': home, 'psi': psi,
-                         'heading': heading, 'shows': shows, 'why': why, 'alt': heading + '. ' + shows})
+        manifest.append({'file': fn + '.jpg', 'source': 'psi', 'paper': title, 'page': page, 'psi_home': home, 'psi': list(REL[fn]),
+                         'heading': heading, 'shows': shows, 'why': why, 'alt': heading + '. ' + shows, 'relations': rels(fn)})
     for nid, page, crop, trim, psi, fn, heading, shows, why in N:
         render(os.path.join(NTRS, nid + '.pdf'), page, crop, trim, os.path.join(OUT, fn + '.jpg'))
-        manifest.append({'file': fn + '.jpg', 'source': 'ntrs', 'ntrs_id': nid, 'paper': NTRS_DOCS[nid], 'page': page, 'psi': psi,
-                         'heading': heading, 'shows': shows, 'why': why, 'alt': heading + '. ' + shows})
+        manifest.append({'file': fn + '.jpg', 'source': 'ntrs', 'ntrs_id': nid, 'paper': NTRS_DOCS[nid], 'page': page, 'psi': list(REL[fn]),
+                         'heading': heading, 'shows': shows, 'why': why, 'alt': heading + '. ' + shows, 'relations': rels(fn)})
     # Figures added earlier by hand from NTRS papers are kept as they are.
     path = os.path.join(ROOT, 'data', 'pub-figures.json')
     old = json.load(open(path)) if os.path.exists(path) else []
@@ -275,6 +392,9 @@ def main():
     keep = [o for o in old if o['file'] not in new_files and o.get('ntrs_id')]
     for o in keep:
         o.setdefault('source', 'ntrs')
+        stem = o['file'][:-4]
+        o['psi'] = list(REL[stem])
+        o['relations'] = rels(stem)
     json.dump(keep + manifest, open(path, 'w'), indent=1, ensure_ascii=False)
     print(len(keep), 'kept,', len(manifest), 'built')
 

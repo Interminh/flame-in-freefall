@@ -4,7 +4,7 @@ Why: the harmonised atlas tables drop many columns that are useful on their own 
 flame temperature, CO levels, test-day logs, modelled time series). The investigation page
 reads these files so it can chart and show the raw tables.
 
-Usage: python3 scripts/build_inv_data.py <raw-dir> <psi-publications.json>
+Usage: python3 scripts/build_inv_data.py <raw-dir> <psi-publications.json> [crossref-years.json]
   raw-dir: folder holding PSI-*/ subfolders with the files downloaded from PSI (see data/DOWNLOAD_PLAN.md)
   psi-publications.json: publication lists copied from each PSI investigation page
 Needs pandas, openpyxl, xlrd (local tooling only, not part of the site).
@@ -171,6 +171,15 @@ def main():
             rows.append({'title': title, 'authors': p.get('au'), 'year': int(year.group(1)) if year else (n or {}).get('year'),
                          'url': url, 'doi': doi, 'pubmed': p.get('pm'), 'ntrs_id': str(n['id']) if n else None})
         out[psi] = rows
+    # Optional: year and journal from Crossref, as {doi: {year, venue}} (argv[3]).
+    if len(sys.argv) > 3 and os.path.exists(sys.argv[3]):
+        cr = json.load(open(sys.argv[3]))
+        for items in out.values():
+            for p in items:
+                r = cr.get(p['doi']) if p['doi'] else None
+                if r:
+                    p['year'] = r.get('year') or p['year']
+                    p['venue'] = r.get('venue')
     json.dump(out, open(os.path.join(OUT, 'publications.json'), 'w'), indent=1, ensure_ascii=False)
     print('publications', sum(len(v) for v in out.values()), 'with link', sum(1 for v in out.values() for p in v if p['url']), 'ntrs', sum(1 for v in out.values() for p in v if p['ntrs_id']))
 
