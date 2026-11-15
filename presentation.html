@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="img/logo.png" />
-    <title>Presentation | Flame in freefall</title>
+    <title>About | Flame in freefall</title>
     <script src="js/prefs.js"></script>
     <link rel="stylesheet" href="fonts/fonts.css" />
     <link rel="stylesheet" href="src/styles/tokens.css" />
@@ -17,9 +17,26 @@
     <div id="nav"></div>
     <main class="page">
       <section>
-        <h1>Presentation</h1>
-      <p class="placeholder">Ethay uickqay ownbray oxfay umpsjay overyay ethay azylay ogday. Isthay isyay aceholderplay exttay orfay ayoutlay onlyyay.</p>
-      <p class="placeholder">Orem-lay ipsumyay olorday itsay ametyay, onsectetuercay adipiscingyay elityay.</p>
+        <p class="eyebrow">NASA Space Apps 2026 · Flame in Freefall</p>
+        <h1>About <span class="hl">Ignis-0G</span></h1>
+        <p>Ignis-0G is our entry for the Flame in Freefall challenge. It summarizes NASA's microgravity combustion investigations from the PSI database and ranks them for fire safety, for technical readers who are short on time.</p>
+
+        <h2 class="about-h">What is in it</h2>
+        <dl class="facts">
+          <div><dt><a href="investigations.html">Investigations</a></dt><dd>All 24 PSI investigations. Each opens to a summary, graphs drawn from its PSI data, figures from NASA papers, the raw tables and every publication PSI lists for it.</dd></div>
+          <div><dt><a href="simulation.html">Simulation</a></dt><dd>Estimates whether a solid fuel keeps burning at 0 g, on the Moon, on Mars or on Earth, using the BASS-II tests. It is an estimate with a range, not a prediction.</dd></div>
+          <div><dt><a href="ai.html">Ignis AI</a></dt><dd>Ranks the 24 investigations against your question and explains the top three, using only fields from our investigation data.</dd></div>
+        </dl>
+
+        <h2 class="about-h">How to read the results</h2>
+        <ul class="about-list">
+          <li><strong>Measured.</strong> Tests and tables are shown as NASA recorded them in PSI. Where the record states no result, the page says so.</li>
+          <li><strong>Estimated.</strong> The Simulation is a simplified model. Every test used to fit it flew in microgravity, so results at other gravity levels are extrapolations tied to published NASA numbers. It is not NASA-endorsed.</li>
+          <li><strong>Interpretation.</strong> Notes marked as interpretation, Ignis AI scores and the help chat are our reading or AI output, not results from the investigations. They can be wrong, so check each against its PSI record.</li>
+        </ul>
+
+        <h2 class="about-h">Where the material comes from</h2>
+        <p>Investigation data comes from NASA Physical Sciences Informatics (PSI). Reports and figures come from NASA's technical reports server and from documents hosted on the PSI records. Photos come from the NASA Image and Video Library and show related hardware or sessions, not results. <a href="sources.html">Our sources</a> cites all of it.</p>
       </section>
     </main>
     <script src="js/nav.js"></script>
