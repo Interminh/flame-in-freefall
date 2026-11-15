@@ -1,4 +1,4 @@
-// Live Ignis-0G sphere. Draws the same look as img/logo.png (see scripts/make-logo.py) in a fragment shader,
+// Live Ignis_ØG sphere. Draws the same look as img/logo.png (see scripts/make-logo.py) in a fragment shader,
 // so it can be turned in real time. Moving the mouse over it spins it the way the mouse moves, and it keeps
 // turning a little after you stop. It idles very slowly. Add data-sphere to a box that holds the still <img>:
 //   <div class="logo-sphere" data-sphere><img src="img/logo.png" alt=""></div>

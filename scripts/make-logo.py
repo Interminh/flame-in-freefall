@@ -1,4 +1,4 @@
-"""Renders the still Ignis-0G logo: a blue sphere with light-blue ribbons and a fine surface grain.
+"""Renders the still Ignis_ØG logo: a blue sphere with light-blue ribbons and a fine surface grain.
 
 It is a procedural render (3D noise for the ribbons and the grain, then diffuse, soft specular and rim lighting),
 so there is no photo or outside asset behind it. js/logo-sphere.js draws the same look live in the browser for the
