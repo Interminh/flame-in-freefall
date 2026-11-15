@@ -1,6 +1,6 @@
 // Vercel function: ranks the 24 investigations for a researcher's question.
 // The model only scores. Sorting, validation and the top picks are done here in code.
-import { investigations, IDS, BY_ID, MODEL, guard, compact, callModel, explainMany, sendModelError } from './_shared.js'
+import { investigations, IDS, BY_ID, MODEL, guard, compact, callModel, explainMany, sendModelError, cacheKey, cacheGet, cacheSet } from './_shared.js'
 
 // How many of the top results get a written explanation up front.
 const TOP_N = 5
@@ -51,8 +51,12 @@ async function scoreAll(question) {
 }
 
 export default async function handler(req, res) {
-  const question = guard(req, res, 3)
+  const key = (q) => cacheKey('rank', q)
+  const question = guard(req, res, 3, (q) => cacheGet(key(q)) !== undefined)
   if (question === null) return
+
+  const cached = cacheGet(key(question))
+  if (cached) return res.status(200).json(cached)
 
   try {
     const scores = await scoreAll(question)
@@ -79,12 +83,15 @@ export default async function handler(req, res) {
       explanationsFailed = true
     }
 
-    return res.status(200).json({
+    const body = {
       results: ranked,
       weak: ranked[0].score < 40,
       explanationsFailed,
       model: MODEL,
-    })
+    }
+    // A partial answer is not cached, so a retry can fill in the explanations.
+    if (!explanationsFailed) cacheSet(key(question), body)
+    return res.status(200).json(body)
   } catch (err) {
     return sendModelError(res, err, 'rank failed:')
   }
