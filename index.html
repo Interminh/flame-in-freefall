@@ -3,31 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Overview | Flame in freefall</title>
-    <script src="js/mode.js"></script>
+    <title>Ignis-0G | Flame in Freefall</title>
+    <script src="js/prefs.js"></script>
     <link rel="stylesheet" href="fonts/fonts.css" />
     <link rel="stylesheet" href="src/styles/tokens.css" />
     <link rel="stylesheet" href="src/styles/base.css" />
     <link rel="stylesheet" href="src/styles/layout.css" />
     <link rel="stylesheet" href="src/styles/themes.css" />
     <link rel="stylesheet" href="src/styles/landing.css" />
+    <link rel="stylesheet" href="src/styles/home.css" />
     <link rel="stylesheet" href="src/styles/brutal.css" />
   </head>
   <body>
     <div id="nav"></div>
-    <main class="page">
-      <section id="summary" class="hero">
-        <img class="hero__burst" src="img/starburst.svg" alt="" width="190" height="190" />
-        <p class="eyebrow">NASA Space Apps 2026 · PSI microgravity combustion</p>
-        <h1>Ethay <span class="accent-blue">ameflay</span> inyay <span class="accent-amber">eefallfray</span></h1>
-        <p class="hero__lede">Ethay uickqay ownbray oxfay umpsjay overyay ethay azylay ogday.</p>
-        <div class="actions">
+
+    <section id="summary" class="masthead" aria-labelledby="title">
+      <img class="masthead__img" src="img/nasa/hero-iss040e086481.jpg" alt="" fetchpriority="high" />
+      <div class="masthead__inner">
+        <p class="eyebrow">NASA Space Apps 2026 · Flame in Freefall</p>
+        <h1 id="title">Ignis-0G</h1>
+        <p class="masthead__lede">NASA's microgravity combustion investigations, summarized and ranked for fire safety.</p>
+        <div class="masthead__actions">
           <a class="button-link" href="ranking.html">Show list of investigations</a>
-          <a href="sources.html">Read sources</a>
+          <a class="button-ghost" href="sources.html">Read sources</a>
         </div>
+      </div>
+      <a class="masthead__credit" href="https://images.nasa.gov/details/iss040e086481" target="_blank" rel="noopener">Photo: NASA / Reid Wiseman, BASS-II flame test, 2014</a>
+    </section>
+
+    <main class="page">
+      <section class="explore" aria-labelledby="explore-h">
+        <h2 id="explore-h">Explore</h2>
+        <div class="tiles">
+          <a class="tile" href="investigations.html">
+            <img src="img/nasa/iss058e026380.jpg" alt="" loading="lazy" />
+            <h3>Investigations</h3>
+            <p>All 24 NASA PSI investigations, with photos and data at a glance.</p>
+            <span class="tile__go">Open →</span>
+          </a>
+          <a class="tile" href="ranking.html">
+            <img src="img/nasa/iss030e128918.jpg" alt="" loading="lazy" />
+            <h3>List</h3>
+            <p>Browse the full list and open a short summary of each one.</p>
+            <span class="tile__go">Open →</span>
+          </a>
+          <a class="tile" href="simulation.html">
+            <img src="img/nasa/jsc2023e046631.jpg" alt="" loading="lazy" />
+            <h3>Simulation</h3>
+            <p>Estimate whether a solid fuel keeps burning at Moon, Mars or Earth gravity. An estimate, not a prediction.</p>
+            <span class="tile__go">Open →</span>
+          </a>
+          <a class="tile tile--art" href="ai.html">
+            <img class="tile__burst" src="img/starburst.svg" alt="" />
+            <h3>Ignis AI</h3>
+            <p>AI-assisted scoring of the investigations against your question.</p>
+            <span class="tile__go">Open →</span>
+          </a>
+        </div>
+        <p class="photos__note">Photos are from the NASA Image and Video Library. They show hardware and sessions, not results.</p>
       </section>
 
-      <figure class="map-frame">
+      <figure class="map-frame section">
         <svg viewBox="0 0 720 360" role="img" aria-label="Placeholder flammability map with sample markers">
           <defs>
             <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
@@ -53,29 +89,6 @@
         </ul>
         <figcaption>Aceholderplay apmay. Ethay ealray apmay omescay ateray.</figcaption>
       </figure>
-
-      <section class="photos" aria-labelledby="photos-h">
-        <h2 id="photos-h">From the <span class="hl">station</span></h2>
-        <div class="photos__grid">
-          <figure class="photo">
-            <img src="img/nasa/iss040e086481.jpg" alt="A blue flame wraps the end of a dark fuel sample inside the BASS-II chamber." loading="lazy" width="1280" height="850" />
-            <figcaption><b>BASS-II flame test</b>NASA / Reid Wiseman, 2014 · <a href="https://images.nasa.gov/details/iss040e086481" target="_blank" rel="noopener">NASA image</a></figcaption>
-          </figure>
-          <figure class="photo">
-            <img src="img/nasa/GRC-2016-C-05051.jpg" alt="An engineer looks through the ACME insert hardware, with a thin gas-jet burner tube in front of them." loading="lazy" width="1280" height="960" />
-            <figcaption><b>ACME chamber insert</b>NASA / GRC / Marvin Smith, 2016 · <a href="https://images.nasa.gov/details/GRC-2016-C-05051" target="_blank" rel="noopener">NASA image</a></figcaption>
-          </figure>
-          <figure class="photo">
-            <img src="img/nasa/iss030e128918.jpg" alt="An astronaut works with the SLICE hardware at the Microgravity Science Glovebox." loading="lazy" width="1280" height="850" />
-            <figcaption><b>SLICE at the glovebox</b>NASA, 2012 · <a href="https://images.nasa.gov/details/iss030e128918" target="_blank" rel="noopener">NASA image</a></figcaption>
-          </figure>
-          <figure class="photo">
-            <img src="img/nasa/iss051e039882.jpg" alt="White cargo bags strapped down inside a Cygnus spacecraft, with yellow Saffire do-not-remove labels." loading="lazy" width="1279" height="851" />
-            <figcaption><b>Saffire cargo in Cygnus</b>NASA / Thomas Pesquet, 2017 · <a href="https://images.nasa.gov/details/iss051e039882" target="_blank" rel="noopener">NASA image</a></figcaption>
-          </figure>
-        </div>
-        <p class="photos__note">Photos are from the NASA Image and Video Library. They show hardware and sessions, not results. <a href="investigations.html">See every investigation</a>.</p>
-      </section>
 
       <section id="edge" class="section">
         <h2>Our edge</h2>

@@ -1,0 +1,131 @@
+/* Landing page: full-bleed photo masthead and photo tiles. Loaded before brutal.css. */
+.masthead {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(520px, 82vh, 860px);
+  color: #fff;
+  background: #05070f;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.masthead__img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% 40%;
+}
+
+/* Darkens the photo where the text sits so the title always reads. */
+.masthead::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to top, rgba(5, 7, 15, 0.82) 0%, rgba(5, 7, 15, 0.4) 38%, rgba(5, 7, 15, 0) 70%),
+    linear-gradient(to right, rgba(5, 7, 15, 0.5), transparent 55%);
+}
+
+.masthead__inner {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: var(--space-16) var(--space-4) var(--space-12);
+}
+
+.masthead .eyebrow { color: rgba(255, 255, 255, 0.85); margin-bottom: var(--space-2); }
+
+.masthead h1 {
+  margin: 0 0 0.24em;
+  font-family: var(--font-brand);
+  font-weight: 400;
+  font-size: clamp(72px, 19vw, 300px);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+  color: #fff;
+}
+
+.masthead__lede {
+  max-width: 36ch;
+  margin: 0 0 var(--space-8);
+  font-size: clamp(18px, 2vw, 26px);
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.masthead__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4); }
+.masthead .button-link { color: #111; background: var(--yellow); border-color: #fff; }
+.masthead .button-link:hover { background: var(--yellow); color: #111; }
+
+.button-ghost, .button-ghost:hover {
+  display: inline-block;
+  padding: var(--space-3) var(--space-6);
+  color: #fff;
+  background: transparent;
+  border: var(--bw) solid #fff;
+  border-radius: var(--radius-control);
+  font-family: var(--font-data);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.button-ghost:hover { background: rgba(255, 255, 255, 0.16); }
+
+.masthead__credit {
+  position: absolute;
+  right: var(--space-4);
+  bottom: var(--space-3);
+  max-width: calc(100% - 32px);
+  padding: 3px var(--space-3);
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: var(--radius-control);
+  font-family: var(--font-data);
+  font-size: 11px;
+  text-decoration: none;
+}
+.masthead__credit:hover { color: #fff; background: rgba(0, 0, 0, 0.75); }
+
+/* Photo tiles that link to the main pages */
+.explore { padding-top: var(--space-4); }
+.tiles { display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); margin-top: var(--space-6); }
+
+.tile, .tile:hover {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  aspect-ratio: 4 / 5;
+  padding: var(--space-6);
+  color: #fff;
+  background: #0b0f1c;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  isolation: isolate;
+  text-decoration: none;
+}
+
+.tile img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
+.tile::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(5, 7, 15, 0.92), rgba(5, 7, 15, 0.2) 65%); }
+.tile:hover img { transform: scale(1.05); }
+.tile h3 { margin: 0 0 var(--space-2); font-family: var(--font-brand); font-weight: 400; font-size: 26px; letter-spacing: -0.01em; color: #fff; }
+.tile p { margin: 0; font-size: 16px; line-height: 1.4; color: rgba(255, 255, 255, 0.92); }
+.tile__go { margin-top: var(--space-3); font-family: var(--font-data); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* Flat colour tile for a page with no photo */
+.tile--art, .tile--art:hover { color: var(--on-accent); background: var(--pink); }
+.tile--art::after { display: none; }
+.tile--art h3, .tile--art p { color: var(--on-accent); }
+.tile--art .tile__burst { inset: auto; top: var(--space-6); right: var(--space-6); z-index: -1; width: 46%; height: auto; object-fit: contain; }
+
+@media (max-width: 720px) {
+  .masthead { min-height: 78vh; }
+  .masthead__inner { padding-bottom: var(--space-12); }
+  .tile { aspect-ratio: 16 / 10; }
+}
