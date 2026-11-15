@@ -21,3 +21,33 @@
   font-display: swap;
   src: url('./ibm-plex-sans-condensed-latin-500-normal.woff2') format('woff2');
 }
+
+/* Neo-brutalist theme. Latin subsets from @fontsource (SIL OFL 1.1, licenses in this folder). */
+@font-face {
+  font-family: 'Grandstander';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('./grandstander-latin-800-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Itim';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./itim-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./jetbrains-mono-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./jetbrains-mono-latin-500-normal.woff2') format('woff2');
+}
