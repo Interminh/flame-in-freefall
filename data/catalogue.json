@@ -1,0 +1,867 @@
+{
+ "vars": [
+  "Fuel",
+  "Geometry",
+  "Thickness",
+  "O₂",
+  "Pressure",
+  "Flow speed",
+  "Flow direction",
+  "Gravity",
+  "Outcome"
+ ],
+ "items": [
+  {
+   "psi_id": "PSI-20",
+   "name": "ACME BRE",
+   "full_name": "Advanced Combustion via Microgravity Experiments - Burning Rate Emulator",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-20",
+   "pillar": "prevention",
+   "hardware": "ACME in CIR",
+   "fuel_type": "gas",
+   "summary": "The Burning Rate Emulator used porous circular gas burners, 25 mm and 50 mm across, to imitate burning solid fuels in the Combustion Integrated Rack on the International Space Station. Methane and ethylene mixed with nitrogen were burned in still air at several pressures and oxygen levels, including 21% at 14.7 psia, 26.5% at 10.2 psia and 34% at 8.2 psia. Carbon dioxide ambients and extinction limits were also planned. The record says quasi-steady burning was observed without airflow, notably in elevated-oxygen atmospheres.",
+   "tags": [
+    "burner",
+    "quiescent",
+    "oxygen",
+    "pressure",
+    "extinction limit",
+    "condensed-fuel emulation"
+   ],
+   "materials": [
+    "CH4/N2 mixtures",
+    "C2H4/N2 mixtures"
+   ],
+   "kind": "table",
+   "rows": 18,
+   "harmonised": 0,
+   "out": 0,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "empty",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-159",
+   "name": "ACME CFI-G",
+   "full_name": "Advanced Combustion via Microgravity Experiments / Cool Flames Investigation with Gases",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-159",
+   "pillar": "context",
+   "hardware": "ACME in CIR",
+   "fuel_type": "gas",
+   "summary": "ACME CFI-G studied cool diffusion flames, which burn at low temperature, using gas fuels on spherical porous burners in the Combustion Integrated Rack on the International Space Station. Planned fuels were propane, n-butane and n-pentane, with normal and inverse flames and many reactant dilutions, flow rates and pressures. Cameras, radiometers, photomultiplier tubes and thermocouples observed the flames, and CFD and kinetics modeling support the tests. The hypotheses are that steady cool flames can be shown for the first time, with extinction when flow drops and a transition to hot flames when it rises. The record gives no numerical results.",
+   "tags": [
+    "cool flames",
+    "diffusion flame",
+    "kinetics",
+    "inverse flame"
+   ],
+   "materials": [
+    "propane",
+    "n-butane",
+    "n-pentane"
+   ],
+   "kind": "table",
+   "rows": 332,
+   "harmonised": 332,
+   "out": 271,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "constant",
+    "Thickness": "empty",
+    "O₂": "varies",
+    "Pressure": "empty",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "varies"
+   }
+  },
+  {
+   "psi_id": "PSI-21",
+   "name": "ACME CLD Flame",
+   "full_name": "Advanced Combustion via Microgravity Experiments / Coflow Laminar Diffusion Flame",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-21",
+   "pillar": "context",
+   "hardware": "ACME in CIR",
+   "fuel_type": "gas",
+   "summary": "ACME CLD Flame studied weak coflow diffusion flames of methane and ethylene in microgravity on the International Space Station, to give computer models benchmark data. It varied coflow velocity and fuel dilution, and measured flame shape, lift-off height, temperatures and extinction limits for dilute flames. For sooting flames it measured soot luminosity, soot temperatures and soot volume fractions, using OH* and CH* chemiluminescence, thin-filament pyrometry and laser extinction. The results are meant to improve models, including soot sub-models, across low to high soot loading. The record text states no numerical results.",
+   "tags": [
+    "coflow",
+    "diffusion flame",
+    "soot",
+    "model validation"
+   ],
+   "materials": [
+    "methane",
+    "ethylene"
+   ],
+   "kind": "table",
+   "rows": 32,
+   "harmonised": 0,
+   "out": 0,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "empty",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-22",
+   "name": "ACME E-FIELD Flames",
+   "full_name": "Advanced Combustion via Microgravity Experiments Electric-Field Effects on Laminar Diffusion Flames",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-22",
+   "pillar": "context",
+   "hardware": "ACME in CIR",
+   "fuel_type": "gas",
+   "summary": "ACME E-FIELD Flames examined how electric fields change laminar gas-fuel diffusion flames in microgravity on the International Space Station, where buoyancy does not mask the effect. A voltage of up to 10 kV was applied between the burner and a mesh above it, with and without a weak air coflow. The team measured ion current through the flame and how fast the flame responds, and studied soot and stabilized near-limit lifted flames. The hypothesis is that electric fields can control flame stability and soot. The record says the work is not meant for space applications and gives no numerical results.",
+   "tags": [
+    "electric field",
+    "diffusion flame",
+    "soot",
+    "ion current"
+   ],
+   "materials": [
+    "gas fuels (not named in the text)"
+   ],
+   "kind": "table",
+   "rows": 32,
+   "harmonised": 0,
+   "out": 0,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "empty",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-23",
+   "name": "ACME s-Flame",
+   "full_name": "Advanced Combustion via Microgravity Experiments-Structure and Response of Spherical Diffusion Flames",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-23",
+   "pillar": "context",
+   "hardware": "ACME in CIR",
+   "fuel_type": "gas",
+   "summary": "ACME s-Flame studied spherical diffusion flames in microgravity on the International Space Station. Gas fuel and diluent mixtures were fed through a spherical porous burner into an oxidizing environment: hydrogen, methane and diluent mixtures for flames without soot, and ethylene and diluent mixtures for sooty flames. Measurements included spectrally resolved images, flame and burner temperatures and radiative flux, compared with detailed simulations. Goals were transient flame structure, extinction limits at low and high Damköhler numbers, and pulsating instabilities. The record text is written in proposal form and gives no numerical results.",
+   "tags": [
+    "spherical flame",
+    "extinction limit",
+    "Damkohler number",
+    "model validation"
+   ],
+   "materials": [
+    "hydrogen",
+    "methane",
+    "ethylene"
+   ],
+   "kind": "table",
+   "rows": 18,
+   "harmonised": 0,
+   "out": 0,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "empty",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-10",
+   "name": "ACME/Flame Design",
+   "full_name": "Advanced Combustion via Microgravity Experiments / Flame Design",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-10",
+   "pillar": "context",
+   "hardware": "ACME in CIR",
+   "fuel_type": "gas",
+   "summary": "ACME Flame Design studied spherical diffusion flames of ethylene and methane, in normal and inverse form, in drop towers and on the International Space Station. The team varied flow rate, Zst, nitrogen or carbon dioxide dilution and pressure, observing with cameras, radiometers, photomultiplier tubes and thermocouples. Goals were soot-inception limits, extinction limits, and flame temperature, size, color and soot volume. Hypotheses: soot needs a minimum carbon-to-oxygen ratio and temperature, microgravity spherical flames extinguish when peak temperature falls below 1130 K, and steady spherical flames are possible. The record gives no numerical results.",
+   "tags": [
+    "soot",
+    "extinction limit",
+    "spherical flame",
+    "inverse flame"
+   ],
+   "materials": [
+    "C2H4",
+    "CH4"
+   ],
+   "kind": "table",
+   "rows": 327,
+   "harmonised": 327,
+   "out": 0,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "constant",
+    "Thickness": "empty",
+    "O₂": "varies",
+    "Pressure": "varies",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-26",
+   "name": "BASS",
+   "full_name": "Burning and Suppression of Solids",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-26",
+   "pillar": "prevention",
+   "hardware": "MSG flow duct",
+   "fuel_type": "solid",
+   "summary": "BASS ran fire tests on solid materials aboard the International Space Station in the Microgravity Science Glovebox. It had two goals: compare normal-gravity material screening with real microgravity burning, including flames behind obstacles, and test how well an inert gas extinguishing agent puts out flames. Samples included a cotton and fiberglass fabric (75% and 25% by mass), Nomex and Ultem, plus spheres and cylinders. Air flowed along the samples at up to 40 cm/s, with or against flame spread. Flame size, shape, color, spread rate and possible quenching were recorded. The record text states no numerical results.",
+   "tags": [
+    "solid fuels",
+    "fabric",
+    "airflow",
+    "extinguishing agent",
+    "NASA-STD-6001 gap"
+   ],
+   "materials": [
+    "cotton and fiberglass fabric (75% cotton, 25% fiberglass by mass)",
+    "Nomex fabric",
+    "Ultem"
+   ],
+   "kind": "table",
+   "rows": 121,
+   "harmonised": 121,
+   "out": 68,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "varies",
+    "Thickness": "empty",
+    "O₂": "varies",
+    "Pressure": "varies",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "varies"
+   }
+  },
+  {
+   "psi_id": "PSI-25",
+   "name": "BASS-II",
+   "full_name": "Burning and Suppression of Solids - II",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25",
+   "pillar": "prevention",
+   "hardware": "MSG flow duct",
+   "fuel_type": "solid",
+   "summary": "BASS-II tested how solid materials burn in microgravity aboard the International Space Station. Samples in rod, spherical, slab, film and fabric-sheet shapes sat in a small wind tunnel inside the Microgravity Science Glovebox, with airflow up to 40 cm/s either with or against flame spread. Oxygen was lowered below 21% by adding nitrogen. The team tracked ignition, flame growth, spread rate and extinction limits. It tests the hypothesis that materials burn as well as or better than in normal gravity under the same conditions. The record text states no numerical results.",
+   "tags": [
+    "solid fuels",
+    "airflow",
+    "oxygen",
+    "extinction limit",
+    "NASA-STD-6001 gap"
+   ],
+   "materials": [
+    "not stated in the source"
+   ],
+   "kind": "table",
+   "rows": 129,
+   "harmonised": 129,
+   "out": 74,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "varies",
+    "Thickness": "varies",
+    "O₂": "varies",
+    "Pressure": "empty",
+    "Flow speed": "empty",
+    "Flow direction": "varies",
+    "Gravity": "empty",
+    "Outcome": "varies"
+   }
+  },
+  {
+   "psi_id": "PSI-39",
+   "name": "CFI",
+   "full_name": "Cool Flames Investigation",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
+   "pillar": "context",
+   "hardware": "MDCA in CIR",
+   "fuel_type": "droplet",
+   "summary": "CFI burned fuel droplets at low temperature, producing cool flames, in the Multi-User Droplet Combustion Apparatus inside the Combustion Integrated Rack on the International Space Station. Fuels were n-dodecane, n-dodecane and iso-dodecane mixtures, and farnesane, diluted with oxygen, nitrogen and helium. Droplets hung between needles or on silicon-carbide fibers and were lit with a hot wire. Cameras, including an ultraviolet camera for OH* emission, and radiometers tracked droplet size and flame behavior. Goals were droplet extinction diameters, pressure and helium effects, and soot. The record gives pressures of 0.25 to 5 atm in the objectives but 0.25 to 0.5 atm in the approach, and no numerical results.",
+   "tags": [
+    "cool flames",
+    "droplet",
+    "helium dilution",
+    "extinction diameter",
+    "low-temperature chemistry"
+   ],
+   "materials": [
+    "n-dodecane",
+    "n-dodecane/iso-dodecane mixtures",
+    "farnesane"
+   ],
+   "kind": "table",
+   "rows": 226,
+   "harmonised": 226,
+   "out": 0,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "constant",
+    "Thickness": "empty",
+    "O₂": "varies",
+    "Pressure": "varies",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-117",
+   "name": "Cool flame CFD",
+   "full_name": "Effect of External Thermo-Convective Perturbation on Cool Flame Dynamics: A Multidimensional Multi-Physics CFD Analysis",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-117",
+   "pillar": "context",
+   "hardware": "Ground and modeling",
+   "fuel_type": "droplet",
+   "summary": "This ground study used a 3-D CFD model, built in OpenFOAM and checked against ISS FLEX measurements, to see how outside heating and drifting airflow affect established cool flames around n-alkane droplets in microgravity. It tested convection alone, heat flux alone, and both together, for droplets of 1 to 4 mm and about 0.5 mm, sweeping forcing strength, ambient composition including ozone-assisted cases, and pressure. The outputs are stability maps for ignition, oscillation, transition to hot ignition and extinction. It also aims to explain run-to-run variability in the flight data. The record gives no numerical results.",
+   "tags": [
+    "cool flames",
+    "CFD",
+    "FLEX",
+    "droplet",
+    "stability map"
+   ],
+   "materials": [
+    "n-alkane droplets"
+   ],
+   "kind": "series",
+   "rows": 23882,
+   "harmonised": 0,
+   "out": 0,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "empty",
+    "Thickness": "empty",
+    "O₂": "varies",
+    "Pressure": "varies",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-142",
+   "name": "Cool flame transitions",
+   "full_name": "Quantitative Studies of Cool Flame Transitions at Radiation / Stretch Extinction Using Counterflow Flames",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-142",
+   "pillar": "context",
+   "hardware": "Ground and modeling",
+   "fuel_type": "gas",
+   "summary": "This ground study used the FLEX flight data plus new simulations and laboratory experiments on ozone-sensitized counterflow flames to map when cool flames, hot flames and the warm flames between them can exist. Aims were a new diagram of cool-flame flammability limits shaped by radiation, diffusion and convection, links to hot-flame extinction limits, and new extinction, temperature and species data to test kinetic and radiation models. Simulations covered n-heptane/air and dimethyl ether flames, up to 20 atm. The record says warm flames have a double reaction zone and matter in the transition between cool and hot flames.",
+   "tags": [
+    "cool flames",
+    "warm flames",
+    "counterflow",
+    "extinction limit",
+    "FLEX"
+   ],
+   "materials": [
+    "n-heptane/air",
+    "dimethyl ether (DME)/air"
+   ],
+   "kind": "series",
+   "rows": 13478,
+   "harmonised": 0,
+   "out": 0,
+   "fp": {
+    "Fuel": "empty",
+    "Geometry": "empty",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-47",
+   "name": "DAFT / DAFT-2",
+   "full_name": "Dust and Aerosol Measurement Feasibility Test / Dust and Aerosol Measurement Feasibility Test-2",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-47",
+   "pillar": "detection",
+   "hardware": "Smoke instruments",
+   "fuel_type": "not applicable (aerosol standard, not a fuel)",
+   "summary": "DAFT and DAFT-2 were instrument tests on the International Space Station, not fire tests. They checked that a modified TSI P-Trak particle counter works in microgravity, to reduce risk for the SAME smoke experiment. The original counter relies on gravity to recycle isopropyl alcohol, so it was redesigned to use capillary action and its orientation switch was removed. Arizona Red Dust, dispersed with nitrogen into 15-liter Mylar bags, served as the test aerosol, and the P-Trak was compared with a DustTrak counter. It was hypothesized that the unmodified counter could clog or over-count. The record states no numerical results.",
+   "tags": [
+    "instrument test",
+    "aerosol",
+    "fire detection",
+    "feasibility"
+   ],
+   "materials": [
+    "Arizona Red Dust aerosol, dispersed with nitrogen"
+   ],
+   "kind": "series",
+   "rows": 23009,
+   "harmonised": 0,
+   "out": 0,
+   "fp": {
+    "Fuel": "empty",
+    "Geometry": "empty",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-62",
+   "name": "Flame spread modeling",
+   "full_name": "Concurrent Flame Spread Modeling using Flamelet Generated Manifolds in Microgravity with Comparison to BASS Experiments using Two-Color Tomography",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-62",
+   "pillar": "prevention",
+   "hardware": "Ground and modeling",
+   "fuel_type": "solid",
+   "summary": "This modeling study built and tested a flamelet generated manifold method, a way of simplifying flame chemistry in computer simulations, for flames spreading in the same direction as the airflow in microgravity. It was tested on BASS geometries: flat sheets, spheres, PMMA rods and wax cylinders. Images from the BASS and BASS-II experiments were processed with new two-color tomography using DSLR cameras to reconstruct soot and temperature fields for comparison. Model checks included flame geometry, temperature, soot volume fraction and flame spread rate, with focus on the 'Goldilocks' flammability zone. The stated aim is a screening tool for material flammability limits. The record gives no numerical results.",
+   "tags": [
+    "modeling",
+    "concurrent flame spread",
+    "BASS",
+    "tomography",
+    "Goldilocks zone"
+   ],
+   "materials": [
+    "PMMA",
+    "wax"
+   ],
+   "kind": "empty",
+   "rows": 0,
+   "harmonised": 0,
+   "out": 0,
+   "fp": {
+    "Fuel": "empty",
+    "Geometry": "empty",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-69",
+   "name": "FLEX",
+   "full_name": "Flame Extinguishment Experiment",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+   "pillar": "suppression",
+   "hardware": "MDCA in CIR",
+   "fuel_type": "droplet",
+   "summary": "FLEX burned large liquid fuel droplets, about 3 mm for the basic tests, in the Multi-user Droplet Combustion Apparatus on the International Space Station. Its main goal was to find the Limiting Oxygen Index, the lowest oxygen level that sustains a flame, as a function of pressure (0.5 to 1.5 atm) and to see how gaseous suppressants such as carbon dioxide, helium and SF6 change it. It also measured burning rates, extinction behavior, radiation, soot and temperature. The hypothesis is that missing buoyant flow changes flammability limits and suppressant effectiveness. The record text gives no numerical results.",
+   "tags": [
+    "droplet",
+    "limiting oxygen index",
+    "suppressant",
+    "extinction limit",
+    "pressure"
+   ],
+   "materials": [
+    "not stated in the source"
+   ],
+   "kind": "table",
+   "rows": 274,
+   "harmonised": 274,
+   "out": 186,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "constant",
+    "Thickness": "empty",
+    "O₂": "varies",
+    "Pressure": "varies",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "constant"
+   }
+  },
+  {
+   "psi_id": "PSI-68",
+   "name": "FLEX-2",
+   "full_name": "Flame Extinguishment Experiment - 2",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+   "pillar": "suppression",
+   "hardware": "MDCA in CIR",
+   "fuel_type": "droplet",
+   "summary": "FLEX-2 extended FLEX to fuels and conditions closer to real combustors, using the Multi-user Droplet Combustion Apparatus on the International Space Station. Chamber pressure ranged from 0.5 to 3.0 atm and oxygen from 0.1 to 0.4 mole fraction, with a diluent gas as the balance. Droplets were placed on a support fiber or freely deployed, and could be moved to create a flow. Goals included how liquid-phase mixing affects bi-component droplets, extinction mechanisms, soot formation and droplet arrays, all to benchmark numerical models. The record text states no numerical results.",
+   "tags": [
+    "droplet",
+    "bi-component fuel",
+    "extinction",
+    "soot",
+    "pressure",
+    "oxygen"
+   ],
+   "materials": [
+    "bi-component fuel droplets (components not named in the text)"
+   ],
+   "kind": "table",
+   "rows": 8,
+   "harmonised": 0,
+   "out": 0,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "constant",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-98",
+   "name": "SAFFIRE-I",
+   "full_name": "Spacecraft Fire Safety Experiment-I",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-98",
+   "pillar": "prevention",
+   "hardware": "Saffire (Cygnus)",
+   "fuel_type": "solid",
+   "summary": "SAFFIRE-I burned a large fabric sample, about 0.94 m by 0.4 m, inside an enclosure on a Cygnus cargo vehicle after it left the International Space Station. The sample was Sibal, 75% cotton and 25% fiberglass by weight. Air flowed through a duct at 20 cm/s. Two cameras, thermocouples, radiometers, and sensors for pressure, carbon dioxide, oxygen and flow recorded the burn. The goals were to learn how fast a large fire grows in low gravity and to compare low-gravity flammability limits with NASA's normal-gravity screening test. The record text states no numerical results.",
+   "tags": [
+    "large-scale fire",
+    "fabric",
+    "Cygnus",
+    "flammability limit"
+   ],
+   "materials": [
+    "Sibal (75% cotton, 25% fiberglass by weight)"
+   ],
+   "kind": "table",
+   "rows": 2,
+   "harmonised": 2,
+   "out": 0,
+   "fp": {
+    "Fuel": "constant",
+    "Geometry": "constant",
+    "Thickness": "constant",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "constant",
+    "Flow direction": "varies",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-99",
+   "name": "SAFFIRE-II",
+   "full_name": "Spacecraft Fire Experiment-II",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-99",
+   "pillar": "prevention",
+   "hardware": "Saffire (Cygnus)",
+   "fuel_type": "solid",
+   "summary": "SAFFIRE-II followed SAFFIRE-I on a Cygnus cargo vehicle that had left the International Space Station. A sample card held nine samples, each 5 cm by 29 cm, made from Sibal, silicone, structural PMMA, flat PMMA, and PMMA with Nomex. Depending on the material, air flowed at 20 or 30 cm/s, with or against flame spread. Cameras, thermocouples, radiometers and sensors for pressure, carbon dioxide, oxygen and flow recorded each burn. The goals match SAFFIRE-I: how fast a large fire grows and how low-gravity flammability limits compare with NASA's normal-gravity screening test. The record text states no numerical results.",
+   "tags": [
+    "large-scale fire",
+    "multiple materials",
+    "Cygnus",
+    "airflow",
+    "flammability limit"
+   ],
+   "materials": [
+    "Sibal",
+    "silicone",
+    "structure PMMA",
+    "flat PMMA",
+    "PMMA with Nomex"
+   ],
+   "kind": "table",
+   "rows": 18,
+   "harmonised": 18,
+   "out": 0,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "empty",
+    "Thickness": "varies",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "constant",
+    "Flow direction": "varies",
+    "Gravity": "constant",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-100",
+   "name": "SAFFIRE-III",
+   "full_name": "Spacecraft Fire Experiment-III",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-100",
+   "pillar": "prevention",
+   "hardware": "Saffire (Cygnus)",
+   "fuel_type": "solid",
+   "summary": "SAFFIRE-III followed SAFFIRE-I on a Cygnus cargo vehicle after it left the International Space Station, and also burned Sibal fabric, a cotton and fiberglass composite. The change was a faster air flow of 30 cm/s instead of 20 cm/s, with the flow either with or against flame spread. Cameras, thermocouples, radiometers and pressure, carbon dioxide, oxygen and flow sensors recorded the burns, and the data were compressed and downlinked. Goals were fire growth rate and low-gravity flammability limits compared with NASA's normal-gravity screening test. The record text states no numerical results.",
+   "tags": [
+    "large-scale fire",
+    "fabric",
+    "Cygnus",
+    "airflow"
+   ],
+   "materials": [
+    "Sibal"
+   ],
+   "kind": "table",
+   "rows": 2,
+   "harmonised": 2,
+   "out": 0,
+   "fp": {
+    "Fuel": "constant",
+    "Geometry": "constant",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "constant",
+    "Flow direction": "varies",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-102",
+   "name": "SAME",
+   "full_name": "Smoke and Aerosol Measurement Experiment",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-102",
+   "pillar": "detection",
+   "hardware": "Smoke instruments",
+   "fuel_type": "smoke",
+   "summary": "SAME measured the smoke particles produced by overheated spacecraft materials in microgravity on the International Space Station. Crew set up hardware in the Glovebox, ran an igniter for 15 to 60 seconds, each event lasting about 2 minutes, and sampled smoke with thermophoretic probes. Particles were later examined with a transmission electron microscope, and two smoke detectors were checked. The hypothesis is that without buoyancy, smoke particles grow larger than in normal gravity. A prediction code and data for future spacecraft fire detectors were the stated aims. The record text gives no numerical results.",
+   "tags": [
+    "smoke",
+    "particle size",
+    "fire detection",
+    "thermophoretic sampling"
+   ],
+   "materials": [
+    "overheated spacecraft materials (not itemized in the text)"
+   ],
+   "kind": "table",
+   "rows": 8,
+   "harmonised": 0,
+   "out": 0,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "empty",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "varies",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-115",
+   "name": "SAME data modeling",
+   "full_name": "Utilization of the Smoke Aerosol Measurement Experiment Data for Advanced Modeling and Simulation of Smoke Generation in Micro-Gravity",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-115",
+   "pillar": "detection",
+   "hardware": "Smoke instruments",
+   "fuel_type": "smoke",
+   "summary": "This ground modeling study used numerical simulation to compare how smoke particles grow in microgravity and in Earth gravity. It simulated dibutyl-phthalate (DBP) particles from pyrolysis vapor released by a heated sample, in a geometry similar to the SAME experiments, using direct numerical simulation at two low cross-flow velocities. It examined how thermophoresis, particle settling and flow geometry shape particle size distributions, and how buoyancy changes the wake. The stated hypothesis is that without buoyancy, mixing and heat transfer fall and the smoke composition changes. The record gives no numerical results.",
+   "tags": [
+    "smoke",
+    "modeling",
+    "direct numerical simulation",
+    "buoyancy"
+   ],
+   "materials": [
+    "dibutyl-phthalate (DBP) particles"
+   ],
+   "kind": "table",
+   "rows": 266,
+   "harmonised": 0,
+   "out": 0,
+   "fp": {
+    "Fuel": "empty",
+    "Geometry": "empty",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "constant",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-101",
+   "name": "SAME-R",
+   "full_name": "Smoke Aerosol Measurement Experiment-Reflight",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-101",
+   "pillar": "detection",
+   "hardware": "Smoke instruments",
+   "fuel_type": "smoke",
+   "summary": "SAME-R repeated the SAME smoke experiment on the International Space Station after the first flight's electron-microscope grids were found contaminated and unusable. It used the same hardware with changes: a new test material, Pyrell (an intumescent fire-retardant foam), replaced DBP samples, heating temperatures went higher and included no-flow heating, and a new in-house instrument, M-pass, replaced one detector enclosure. Flight tests ran from 16 July to 9 September 2010 and completed 66 test points. Post-flight ground tests checked the data reduction. The record text gives no numerical particle results.",
+   "tags": [
+    "smoke",
+    "particle size",
+    "fire detection",
+    "reflight"
+   ],
+   "materials": [
+    "Pyrell (intumescent fire-retardant foam)",
+    "DBP samples (replaced)"
+   ],
+   "kind": "table",
+   "rows": 109,
+   "harmonised": 0,
+   "out": 0,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "empty",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "varies",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-106",
+   "name": "SLICE",
+   "full_name": "Structure and Liftoff In Combustion Experiment",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-106",
+   "pillar": "context",
+   "hardware": "MSG flow duct",
+   "fuel_type": "gas",
+   "summary": "SLICE studied the structure and stability of laminar gas diffusion flames in microgravity on the International Space Station. A fan-driven flow duct with exchangeable burner tubes and sensors was used with methane, ethylene and nitrogen-diluted mixtures, ignited manually in a controlled coflow of air. More than 4,000 high-resolution images were taken across 13 experiments. Goals included liftoff velocity limits for different fuels and burner sizes, the effect of nitrogen dilution on soot and stability, flame length and radiative heat loss, and validating models. The hypothesis is that burner diameter, coflow velocity and fuel composition strongly affect these flames. The record gives no numerical results.",
+   "tags": [
+    "diffusion flame",
+    "liftoff",
+    "stability",
+    "soot"
+   ],
+   "materials": [
+    "methane",
+    "ethylene",
+    "nitrogen-diluted mixtures"
+   ],
+   "kind": "table",
+   "rows": 12,
+   "harmonised": 0,
+   "out": 0,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "empty",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-107",
+   "name": "SPICE",
+   "full_name": "Smoke Point In Co-flow Experiment",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-107",
+   "pillar": "context",
+   "hardware": "MSG flow duct",
+   "fuel_type": "gas",
+   "summary": "SPICE looked for the smoke point, where a flame starts emitting soot, of laminar gas jet flames in microgravity inside the Microgravity Science Glovebox on the International Space Station. Fuels were methane, ethylene, propane, propylene and propylene mixtures, burned from 0.41, 0.76 and 1.6 mm burners in an air coflow of 5.4 to 65 cm/s. Fuel flow was adjusted to find the smoke point, and cameras recorded flame lengths and heights, with radiative heat losses also measured. In total 526 flames were studied. The record states no numerical smoke-point results.",
+   "tags": [
+    "smoke point",
+    "soot",
+    "coflow",
+    "jet flame"
+   ],
+   "materials": [
+    "methane",
+    "ethylene",
+    "propane",
+    "propylene",
+    "propylene mixtures"
+   ],
+   "kind": "table",
+   "rows": 469,
+   "harmonised": 469,
+   "out": 0,
+   "fp": {
+    "Fuel": "varies",
+    "Geometry": "constant",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "varies",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  },
+  {
+   "psi_id": "PSI-60",
+   "name": "SPICE data analysis",
+   "full_name": "Computational and Experimental Analysis of SPICE Data Sets",
+   "psi_url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-60",
+   "pillar": "context",
+   "hardware": "Ground and modeling",
+   "fuel_type": "gas",
+   "summary": "This ground study reanalyzed SPICE images to understand why soot formation differs between normal-gravity and microgravity flames. More than 1,600 raw DSLR images were decoded and analyzed with color-ratio pyrometry to get soot temperature fields, then calibrated light measurements gave soot volume fractions. A soot model including radiation re-absorption and aggregate growth was run for Yale and ACME burner setups under normal and microgravity conditions. Comparisons guided tests of how sensitive the results are to model parameters. The hypothesis is that microgravity flames are longer, more diffuse, cooler and sootier. The record gives no numerical results.",
+   "tags": [
+    "image analysis",
+    "soot",
+    "SPICE",
+    "modeling"
+   ],
+   "materials": [
+    "not stated in the source"
+   ],
+   "kind": "empty",
+   "rows": 0,
+   "harmonised": 0,
+   "out": 0,
+   "fp": {
+    "Fuel": "empty",
+    "Geometry": "empty",
+    "Thickness": "empty",
+    "O₂": "empty",
+    "Pressure": "empty",
+    "Flow speed": "empty",
+    "Flow direction": "empty",
+    "Gravity": "empty",
+    "Outcome": "empty"
+   }
+  }
+ ]
+}

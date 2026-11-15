@@ -1,0 +1,97 @@
+.cat-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin: var(--space-8) 0 var(--space-4);
+  font-family: var(--font-data);
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.cat-tools select,
+.cat-tools input {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-control);
+  padding: var(--space-1) var(--space-3);
+  font: inherit;
+}
+
+.cat-tools input { min-width: 240px; }
+
+.cat-wrap {
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  overflow-x: auto;
+}
+
+.cat {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-data);
+  font-size: 14px;
+}
+
+.cat th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--muted);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--rule);
+  white-space: nowrap;
+}
+
+.cat td {
+  padding: var(--space-3) var(--space-4);
+  vertical-align: top;
+}
+
+.cat tr + tr td { border-top: 1px solid var(--rule); }
+.cat tbody tr:hover td { background: var(--paper); }
+.cat td:nth-child(2) { min-width: 280px; }
+
+.cat .small { font-size: 13px; }
+.cat .muted { color: var(--muted); }
+.cat .mono { font-variant-numeric: tabular-nums; color: var(--muted); }
+
+.chip {
+  display: inline-block;
+  margin-top: var(--space-1);
+  padding: 1px var(--space-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-control);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.chip.prevention { color: #9A4A0C; border-color: #9A4A0C; }
+.chip.detection { color: #2455C3; border-color: #2455C3; }
+.chip.suppression { color: #1F6B4F; border-color: #1F6B4F; }
+
+.dots { display: inline-flex; gap: 3px; }
+.dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--rule); }
+.dots i.varies { background: #1F6B4F; }
+.dots i.constant { background: #C98A1B; }
+
+.fillbar {
+  display: inline-block;
+  width: 80px;
+  height: 6px;
+  margin-right: var(--space-2);
+  border-radius: 3px;
+  background: var(--rule);
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.fillbar i { display: block; height: 100%; background: var(--blue); }
+
+.cat-note {
+  margin-top: var(--space-3);
+  font-family: var(--font-data);
+  font-size: 13px;
+  color: var(--muted);
+}
