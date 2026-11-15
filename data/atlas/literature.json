@@ -1,0 +1,791 @@
+[
+ {
+  "id": "19960008395",
+  "title": "The effects of detailed chemistry and transport on microgravity droplet combustion",
+  "year": 1995,
+  "center": "Legacy CDMS",
+  "pages": 6,
+  "url": "https://ntrs.nasa.gov/citations/19960008395",
+  "investigations": [
+   "PSI-69"
+  ]
+ },
+ {
+  "id": "20000007141",
+  "title": "Large Diameter, Radiative Extinction Experiments with Decane Droplets in Microgravity",
+  "year": 1999,
+  "center": "Legacy CDMS",
+  "pages": 4,
+  "url": "https://ntrs.nasa.gov/citations/20000007141",
+  "investigations": [
+   "PSI-69"
+  ]
+ },
+ {
+  "id": "20050195844",
+  "title": "Flame Design: A Novel Approach Developed to Produce Clean, Efficient Diffusion Flames",
+  "year": 2000,
+  "center": "Glenn Research Center",
+  "pages": 3,
+  "url": "https://ntrs.nasa.gov/citations/20050195844",
+  "investigations": [
+   "PSI-10"
+  ]
+ },
+ {
+  "id": "20050195845",
+  "title": "Cool Flames and Autoignition: Thermal-Ignition Theory of Combustion Experimentally Validated in Microgravity",
+  "year": 2000,
+  "center": "Glenn Research Center",
+  "pages": 3,
+  "url": "https://ntrs.nasa.gov/citations/20050195845",
+  "investigations": [
+   "PSI-39",
+   "PSI-159"
+  ]
+ },
+ {
+  "id": "20010074032",
+  "title": "Effects of Flame Structure and Hydrodynamics on Soot Particle Inception and Flame Extinction in Diffusion Flames",
+  "year": 2001,
+  "center": "Glenn Research Center",
+  "pages": 4,
+  "url": "https://ntrs.nasa.gov/citations/20010074032",
+  "investigations": [
+   "PSI-10"
+  ]
+ },
+ {
+  "id": "20010074072",
+  "title": "The Cool Flames Experiment",
+  "year": 2001,
+  "center": "Glenn Research Center",
+  "pages": 4,
+  "url": "https://ntrs.nasa.gov/citations/20010074072",
+  "investigations": [
+   "PSI-39",
+   "PSI-159"
+  ]
+ },
+ {
+  "id": "20010074099",
+  "title": "Cool Flame Quenching",
+  "year": 2001,
+  "center": "Glenn Research Center",
+  "pages": 4,
+  "url": "https://ntrs.nasa.gov/citations/20010074099",
+  "investigations": [
+   "PSI-39",
+   "PSI-159"
+  ]
+ },
+ {
+  "id": "20040053550",
+  "title": "Particle Effects On The Extinction And Ignition Of Flames In Normal- And Micro-Gravity",
+  "year": 2003,
+  "center": "Glenn Research Center",
+  "pages": 4,
+  "url": "https://ntrs.nasa.gov/citations/20040053550",
+  "investigations": [
+   "PSI-39",
+   "PSI-159"
+  ]
+ },
+ {
+  "id": "20040053551",
+  "title": "Combustion Of Metals In Reduced Gravity And Extraterrestrial Environments",
+  "year": 2003,
+  "center": "Glenn Research Center",
+  "pages": 4,
+  "url": "https://ntrs.nasa.gov/citations/20040053551",
+  "investigations": [
+   "PSI-69"
+  ]
+ },
+ {
+  "id": "20040053556",
+  "title": "Cool Flames in Propane-Oxygen Premixtures at Low and Intermediate Temperatures at Reduced-Gravity",
+  "year": 2003,
+  "center": "Glenn Research Center",
+  "pages": 4,
+  "url": "https://ntrs.nasa.gov/citations/20040053556",
+  "investigations": [
+   "PSI-39",
+   "PSI-159"
+  ]
+ },
+ {
+  "id": "20040053569",
+  "title": "Analysis Of MSL-1 Measurements Of Heptane Droplet Combustion",
+  "year": 2003,
+  "center": "Glenn Research Center",
+  "pages": 4,
+  "url": "https://ntrs.nasa.gov/citations/20040053569",
+  "investigations": [
+   "PSI-69"
+  ]
+ },
+ {
+  "id": "20040053573",
+  "title": "Oscillatory Extinction Of Spherical Diffusion Flames",
+  "year": 2003,
+  "center": "Glenn Research Center",
+  "pages": 4,
+  "url": "https://ntrs.nasa.gov/citations/20040053573",
+  "investigations": [
+   "PSI-69"
+  ]
+ },
+ {
+  "id": "20040142357",
+  "title": "Space Experiment Concepts: Cup-Burner Flame Extinguishment",
+  "year": 2004,
+  "center": "Glenn Research Center",
+  "pages": 20,
+  "url": "https://ntrs.nasa.gov/citations/20040142357",
+  "investigations": [
+   "PSI-69",
+   "PSI-68"
+  ]
+ },
+ {
+  "id": "20040142387",
+  "title": "Research Plan for Fire Signatures and Detection",
+  "year": 2004,
+  "center": "Glenn Research Center",
+  "pages": 15,
+  "url": "https://ntrs.nasa.gov/citations/20040142387",
+  "investigations": [
+   "PSI-47"
+  ]
+ },
+ {
+  "id": "20070031686",
+  "title": "Particle and Smoke Detection on ISS for Next Generation Smoke Detectors",
+  "year": 2007,
+  "center": "Glenn Research Center",
+  "pages": 31,
+  "url": "https://ntrs.nasa.gov/citations/20070031686",
+  "investigations": [
+   "PSI-101",
+   "PSI-102",
+   "PSI-47"
+  ]
+ },
+ {
+  "id": "20090014812",
+  "title": "Multi-User Droplet Combustion Apparatus - Flame Extinguishment Experiment",
+  "year": 2009,
+  "center": "Johnson Space Center",
+  "pages": 4,
+  "url": "https://ntrs.nasa.gov/citations/20090014812",
+  "investigations": [
+   "PSI-69",
+   "PSI-68"
+  ]
+ },
+ {
+  "id": "20090014827",
+  "title": "Smoke Point in Co-flow Experiment",
+  "year": 2009,
+  "center": "Johnson Space Center",
+  "pages": 4,
+  "url": "https://ntrs.nasa.gov/citations/20090014827",
+  "investigations": [
+   "PSI-107"
+  ]
+ },
+ {
+  "id": "20120015928",
+  "title": "FLEX: A Decisive Step Forward in NASA's Combustion Research Program",
+  "year": 2012,
+  "center": "Glenn Research Center",
+  "pages": 0,
+  "url": "https://ntrs.nasa.gov/citations/20120015928",
+  "investigations": [
+   "PSI-69"
+  ]
+ },
+ {
+  "id": "20130000422",
+  "title": "Particle Morphology and Size Results from the Smoke Aerosol Measurement Experiment-2",
+  "year": 2012,
+  "center": "Glenn Research Center",
+  "pages": 13,
+  "url": "https://ntrs.nasa.gov/citations/20130000422",
+  "investigations": [
+   "PSI-101",
+   "PSI-102"
+  ]
+ },
+ {
+  "id": "20130010979",
+  "title": "Dynamics of Water Absorption and Evaporation During Methanol Droplet Combustion in Microgravity",
+  "year": 2012,
+  "center": "Glenn Research Center",
+  "pages": 15,
+  "url": "https://ntrs.nasa.gov/citations/20130010979",
+  "investigations": [
+   "PSI-69"
+  ]
+ },
+ {
+  "id": "20130014061",
+  "title": "Methanol Droplet Combustion in Oxygen-Inert Environments in Microgravity",
+  "year": 2013,
+  "center": "Glenn Research Center",
+  "pages": 11,
+  "url": "https://ntrs.nasa.gov/citations/20130014061",
+  "investigations": [
+   "PSI-69"
+  ]
+ },
+ {
+  "id": "20140006584",
+  "title": "Unmanned Vehicle Material Flammability Test",
+  "year": 2013,
+  "center": "Glenn Research Center",
+  "pages": 1,
+  "url": "https://ntrs.nasa.gov/citations/20140006584",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20140011099",
+  "title": "Thickness and Fuel Preheating Effects on Material Flammability in Microgravity from the BASS Experiment",
+  "year": 2013,
+  "center": "Glenn Research Center",
+  "pages": 51,
+  "url": "https://ntrs.nasa.gov/citations/20140011099",
+  "investigations": [
+   "PSI-25",
+   "PSI-26"
+  ]
+ },
+ {
+  "id": "20140006750",
+  "title": "Cool-flame Extinction During N-Alkane Droplet Combustion in Microgravity",
+  "year": 2014,
+  "center": "Glenn Research Center",
+  "pages": 9,
+  "url": "https://ntrs.nasa.gov/citations/20140006750",
+  "investigations": [
+   "PSI-69",
+   "PSI-39",
+   "PSI-159"
+  ]
+ },
+ {
+  "id": "20140009169",
+  "title": "Gaseous Non-Premixed Flame Research Planned for the International Space Station",
+  "year": 2014,
+  "center": "Glenn Research Center",
+  "pages": 13,
+  "url": "https://ntrs.nasa.gov/citations/20140009169",
+  "investigations": [
+   "PSI-10"
+  ]
+ },
+ {
+  "id": "20140017780",
+  "title": "An Experimental and Computational Study on Soot Formation in a Coflow Jet Flame Under Microgravity and Normal Gravity",
+  "year": 2014,
+  "center": "Glenn Research Center",
+  "pages": 21,
+  "url": "https://ntrs.nasa.gov/citations/20140017780",
+  "investigations": [
+   "PSI-106"
+  ]
+ },
+ {
+  "id": "20150000894",
+  "title": "Large-Scale Spacecraft Fire Safety Tests",
+  "year": 2014,
+  "center": "Glenn Research Center",
+  "pages": 1,
+  "url": "https://ntrs.nasa.gov/citations/20150000894",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20150002322",
+  "title": "A Computational and Experimental Study of Coflow Laminar Methane/Air Diffusion Flames: Effects of Fuel Dilution, Inlet Velocity, and Gravity",
+  "year": 2014,
+  "center": "Glenn Research Center",
+  "pages": 7,
+  "url": "https://ntrs.nasa.gov/citations/20150002322",
+  "investigations": [
+   "PSI-106"
+  ]
+ },
+ {
+  "id": "20160000593",
+  "title": "Combustion of Solids in Microgravity: Results from the BASS-II Experiment",
+  "year": 2014,
+  "center": "Glenn Research Center",
+  "pages": 20,
+  "url": "https://ntrs.nasa.gov/citations/20160000593",
+  "investigations": [
+   "PSI-25",
+   "PSI-26"
+  ]
+ },
+ {
+  "id": "20150008961",
+  "title": "Microgravity Flammability of PMMA Rods in Concurrent Flow",
+  "year": 2015,
+  "center": "Glenn Research Center",
+  "pages": 10,
+  "url": "https://ntrs.nasa.gov/citations/20150008961",
+  "investigations": [
+   "PSI-25",
+   "PSI-26"
+  ]
+ },
+ {
+  "id": "20150008962",
+  "title": "Concurrent Flame Growth, Spread and Extinction over Composite Fabric Samples in Low Speed Purely Forced Flow in Microgravity",
+  "year": 2015,
+  "center": "Glenn Research Center",
+  "pages": 9,
+  "url": "https://ntrs.nasa.gov/citations/20150008962",
+  "investigations": [
+   "PSI-25",
+   "PSI-26"
+  ]
+ },
+ {
+  "id": "20150011070",
+  "title": "A Numerical and Experimental Study of Coflow Laminar Diffusion Flames: Effects of Gravity and Inlet Velocity",
+  "year": 2015,
+  "center": "Glenn Research Center",
+  "pages": 8,
+  "url": "https://ntrs.nasa.gov/citations/20150011070",
+  "investigations": [
+   "PSI-106"
+  ]
+ },
+ {
+  "id": "20150018397",
+  "title": "Combustion Characteristics in a Non-Premixed Cool-Flame Regime of n-Heptane in Microgravity",
+  "year": 2015,
+  "center": "Glenn Research Center",
+  "pages": 10,
+  "url": "https://ntrs.nasa.gov/citations/20150018397",
+  "investigations": [
+   "PSI-69",
+   "PSI-39",
+   "PSI-159"
+  ]
+ },
+ {
+  "id": "20150019858",
+  "title": "Results from On-Board CSA-CP and CDM Sensor Readings During the Burning and Suppression of Solids II (BASS-II) Experiment in the Microgravity Science Glovebox (MSG)",
+  "year": 2015,
+  "center": "Glenn Research Center",
+  "pages": 9,
+  "url": "https://ntrs.nasa.gov/citations/20150019858",
+  "investigations": [
+   "PSI-25",
+   "PSI-26"
+  ]
+ },
+ {
+  "id": "20150021283",
+  "title": "Modeling and Analysis of Realistic Fire Scenarios in Spacecraft",
+  "year": 2015,
+  "center": "Glenn Research Center",
+  "pages": 15,
+  "url": "https://ntrs.nasa.gov/citations/20150021283",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20150022123",
+  "title": "Buoyant Effects on the Flammability of Silicone Samples Planned for the Spacecraft Fire Experiment (Saffire)",
+  "year": 2015,
+  "center": "Glenn Research Center",
+  "pages": 40,
+  "url": "https://ntrs.nasa.gov/citations/20150022123",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20150022421",
+  "title": "Buoyant Effects on the Flammability of Silicone Samples Planned for the Spacecraft Fire Experiment (Saffire)",
+  "year": 2015,
+  "center": "Glenn Research Center",
+  "pages": 11,
+  "url": "https://ntrs.nasa.gov/citations/20150022421",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20150023100",
+  "title": "NASA Microgravity Combustion Program",
+  "year": 2015,
+  "center": "Glenn Research Center",
+  "pages": 38,
+  "url": "https://ntrs.nasa.gov/citations/20150023100",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100",
+   "PSI-39",
+   "PSI-159"
+  ]
+ },
+ {
+  "id": "20150023456",
+  "title": "Detailed Results from the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011",
+  "year": 2015,
+  "center": "Glenn Research Center",
+  "pages": 309,
+  "url": "https://ntrs.nasa.gov/citations/20150023456",
+  "investigations": [
+   "PSI-69",
+   "PSI-68"
+  ]
+ },
+ {
+  "id": "20160000344",
+  "title": "Aspects of Cool-Flame Supported Droplet Combustion in Microgravity",
+  "year": 2015,
+  "center": "Glenn Research Center",
+  "pages": 20,
+  "url": "https://ntrs.nasa.gov/citations/20160000344",
+  "investigations": [
+   "PSI-69",
+   "PSI-68",
+   "PSI-39",
+   "PSI-159"
+  ]
+ },
+ {
+  "id": "20160010073",
+  "title": "A Burning Rate Emulator (BRE) for Study in Microgravity",
+  "year": 2015,
+  "center": "Glenn Research Center",
+  "pages": 15,
+  "url": "https://ntrs.nasa.gov/citations/20160010073",
+  "investigations": [
+   "PSI-20"
+  ]
+ },
+ {
+  "id": "20160010264",
+  "title": "Quantitative Measurements of Electronically Excited CH Concentration in Normal Gravity and Microgravity Coflow Laminar Diffusion Flames",
+  "year": 2015,
+  "center": "Glenn Research Center",
+  "pages": 16,
+  "url": "https://ntrs.nasa.gov/citations/20160010264",
+  "investigations": [
+   "PSI-106"
+  ]
+ },
+ {
+  "id": "20160012298",
+  "title": "Quantitative Measurements of CH* Concentration in Normal Gravity and Microgravity Coflow Laminar Diffusion Flames",
+  "year": 2015,
+  "center": "Glenn Research Center",
+  "pages": 2,
+  "url": "https://ntrs.nasa.gov/citations/20160012298",
+  "investigations": [
+   "PSI-106"
+  ]
+ },
+ {
+  "id": "20160010292",
+  "title": "Spacecraft Fire Safety Demonstration",
+  "year": 2016,
+  "center": "Glenn Research Center",
+  "pages": 18,
+  "url": "https://ntrs.nasa.gov/citations/20160010292",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20160012691",
+  "title": "Correlation of Normal Gravity Mixed Convection Blowoff Limits with Microgravity Forced Flow Blowoff Limits",
+  "year": 2016,
+  "center": "Glenn Research Center",
+  "pages": 9,
+  "url": "https://ntrs.nasa.gov/citations/20160012691",
+  "investigations": [
+   "PSI-25",
+   "PSI-26"
+  ]
+ },
+ {
+  "id": "20170000230",
+  "title": "Operation and Development Status of the Spacecraft Fire Experiments (Saffire)",
+  "year": 2016,
+  "center": "Glenn Research Center",
+  "pages": 9,
+  "url": "https://ntrs.nasa.gov/citations/20170000230",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20170001636",
+  "title": "The Spacecraft Fire Experiment (Saffire) - Objectives, Development and Status",
+  "year": 2016,
+  "center": "Glenn Research Center",
+  "pages": 6,
+  "url": "https://ntrs.nasa.gov/citations/20170001636",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20170002628",
+  "title": "Operation and Development Status of the Spacecraft Fire Experiment (Saffire)",
+  "year": 2016,
+  "center": "Glenn Research Center",
+  "pages": 25,
+  "url": "https://ntrs.nasa.gov/citations/20170002628",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20170007283",
+  "title": "Spacecraft Fire Safety Research at NASA Glenn Research Center",
+  "year": 2016,
+  "center": "Glenn Research Center",
+  "pages": 48,
+  "url": "https://ntrs.nasa.gov/citations/20170007283",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100",
+   "PSI-101",
+   "PSI-102"
+  ]
+ },
+ {
+  "id": "20170006615",
+  "title": "Mixed Convection Blowoff Limits as a Function of Oxygen Concentration and Upward Forced Stretch Rate for Burning Pmma Rods of Various Sizes",
+  "year": 2017,
+  "center": "Glenn Research Center",
+  "pages": 8,
+  "url": "https://ntrs.nasa.gov/citations/20170006615",
+  "investigations": [
+   "PSI-25",
+   "PSI-26"
+  ]
+ },
+ {
+  "id": "20170008805",
+  "title": "Results of Large-Scale Spacecraft Flammability Tests",
+  "year": 2017,
+  "center": "Glenn Research Center",
+  "pages": 36,
+  "url": "https://ntrs.nasa.gov/citations/20170008805",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20170009141",
+  "title": "Emulation of Condensed Fuel Flames Using a Burning Rate Emulator (BRE) in Microgravity",
+  "year": 2017,
+  "center": "Glenn Research Center",
+  "pages": 6,
+  "url": "https://ntrs.nasa.gov/citations/20170009141",
+  "investigations": [
+   "PSI-20"
+  ]
+ },
+ {
+  "id": "20170009863",
+  "title": "NASA Microgravity Combustion: ISS Results and Future Plans",
+  "year": 2017,
+  "center": "Glenn Research Center",
+  "pages": 11,
+  "url": "https://ntrs.nasa.gov/citations/20170009863",
+  "investigations": [
+   "PSI-26",
+   "PSI-98",
+   "PSI-99",
+   "PSI-100",
+   "PSI-69",
+   "PSI-68",
+   "PSI-39",
+   "PSI-159",
+   "PSI-101",
+   "PSI-102",
+   "PSI-47",
+   "PSI-107",
+   "PSI-106"
+  ]
+ },
+ {
+  "id": "20180005168",
+  "title": "Saffire: A Novel Approach to Study of Spacecraft Fire Safety Using Un-Manned Spacecraft",
+  "year": 2017,
+  "center": "Glenn Research Center",
+  "pages": 32,
+  "url": "https://ntrs.nasa.gov/citations/20180005168",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20190002838",
+  "title": "Three Stage Cool Flame Droplet Burning Behavior of n-Alkane Droplets at Elevated Pressure Conditions: Hot, Warm and Cool Flame",
+  "year": 2018,
+  "center": "Glenn Research Center",
+  "pages": 9,
+  "url": "https://ntrs.nasa.gov/citations/20190002838",
+  "investigations": [
+   "PSI-39",
+   "PSI-159"
+  ]
+ },
+ {
+  "id": "20200000557",
+  "title": "Buoyancy Effects on Concurrent Flame Spread Over Thick PMMA",
+  "year": 2018,
+  "center": "Glenn Research Center",
+  "pages": 25,
+  "url": "https://ntrs.nasa.gov/citations/20200000557",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20200000361",
+  "title": "Solid Fuel Ignition and Extinction (SoFIE) Project on ISS",
+  "year": 2019,
+  "center": "Glenn Research Center",
+  "pages": 21,
+  "url": "https://ntrs.nasa.gov/citations/20200000361",
+  "investigations": [
+   "PSI-69",
+   "PSI-10"
+  ]
+ },
+ {
+  "id": "20200000365",
+  "title": "Hazardous Product Detection and Environmental Clean-up Removal in Spacecraft Vehicles from Fire Induced Li-Ion Fires",
+  "year": 2019,
+  "center": "Glenn Research Center",
+  "pages": 28,
+  "url": "https://ntrs.nasa.gov/citations/20200000365",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100",
+   "PSI-69",
+   "PSI-68"
+  ]
+ },
+ {
+  "id": "20210012108",
+  "title": "The Combustion Product Monitor instrument for the spacecraft fire safety demonstration project",
+  "year": 2019,
+  "center": "Jet Propulsion Laboratory",
+  "pages": 0,
+  "url": "https://ntrs.nasa.gov/citations/20210012108",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20205008167",
+  "title": "An Overview of Smoke Detection and Spacecraft Fire Safety in Low Gravity",
+  "year": 2020,
+  "center": "Glenn Research Center",
+  "pages": 16,
+  "url": "https://ntrs.nasa.gov/citations/20205008167",
+  "investigations": [
+   "PSI-25",
+   "PSI-26"
+  ]
+ },
+ {
+  "id": "20220001449",
+  "title": "Miniaturized Laser Absorption Spectrometer for Combustion Calorimetry and Process Monitoring",
+  "year": 2020,
+  "center": "Jet Propulsion Laboratory",
+  "pages": 0,
+  "url": "https://ntrs.nasa.gov/citations/20220001449",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20210011385",
+  "title": "Burning and Suppression of Solids–II  (BASS-II) Summary Report",
+  "year": 2021,
+  "center": "Glenn Research Center",
+  "pages": 137,
+  "url": "https://ntrs.nasa.gov/citations/20210011385",
+  "investigations": [
+   "PSI-25",
+   "PSI-26"
+  ]
+ },
+ {
+  "id": "20240002981",
+  "title": "Preliminary Results from the Saffire VI Experiment",
+  "year": 2024,
+  "center": "Glenn Research Center",
+  "pages": 7,
+  "url": "https://ntrs.nasa.gov/citations/20240002981",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ },
+ {
+  "id": "20240007488",
+  "title": "Preliminary Results from the Saffire VI Experiment",
+  "year": 2024,
+  "center": "Glenn Research Center",
+  "pages": 21,
+  "url": "https://ntrs.nasa.gov/citations/20240007488",
+  "investigations": [
+   "PSI-98",
+   "PSI-99",
+   "PSI-100"
+  ]
+ }
+]

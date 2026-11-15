@@ -1,0 +1,80 @@
+.chips { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); margin: var(--space-4) 0; }
+
+.btn {
+  display: inline-block;
+  padding: var(--space-1) var(--space-4);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-data);
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--paper); }
+
+.callout {
+  margin: var(--space-4) 0;
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid var(--amber);
+  background: var(--surface);
+  border-radius: 0 var(--radius-control) var(--radius-control) 0;
+  font-family: var(--font-data);
+  font-size: 14px;
+}
+.callout b { display: block; margin-bottom: var(--space-1); }
+
+.tabs { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-6) 0 var(--space-4); border-bottom: 1px solid var(--rule); padding-bottom: var(--space-3); }
+.tabs button, .subtabs button {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  padding: var(--space-1) var(--space-4);
+  font-family: var(--font-data);
+  font-size: 14px;
+  cursor: pointer;
+}
+.tabs button[aria-selected="true"], .subtabs button.active { background: var(--surface); color: var(--ink); border-color: var(--rule); }
+.subtabs { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-4); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6); }
+.stat { background: var(--surface); border-radius: var(--radius-card); box-shadow: var(--shadow-soft); padding: var(--space-4) var(--space-6); font-family: var(--font-data); }
+.stat__k { color: var(--muted); font-size: 13px; }
+.stat__v { font-size: 26px; font-weight: 500; margin: var(--space-1) 0; }
+.stat__n { color: var(--muted); font-size: 13px; }
+
+.inshort, .panel { background: var(--surface); border-radius: var(--radius-card); padding: var(--space-4) var(--space-6); margin-bottom: var(--space-6); font-family: var(--font-data); font-size: 14px; }
+.inshort ul, .plain { list-style: none; margin: var(--space-2) 0 0; padding: 0; }
+.inshort li { padding: 2px 0; }
+.inshort li span { display: inline-block; width: 120px; color: var(--muted); }
+.panel h3 { margin: 0 0 var(--space-3); font-size: 17px; }
+.caps { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.cap { padding: 2px var(--space-3); border: 1px solid var(--rule); border-radius: var(--radius-control); }
+.cap.yes { color: #1F6B4F; border-color: #1F6B4F; }
+.cap.no { color: var(--muted); }
+.cap .mark { margin-right: 6px; }
+
+.val { margin-right: var(--space-3); }
+.chip.tiny { font-size: 11px; margin-left: var(--space-2); }
+.raw { margin-top: var(--space-4); }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-4); }
+.plain li { padding: 3px 0; }
+
+.toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+.toolbar__btns { display: flex; gap: var(--space-2); }
+th.sortable { cursor: pointer; }
+.cat.data td { white-space: nowrap; max-width: 280px; overflow: hidden; text-overflow: ellipsis; }
+
+.charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: var(--space-4); }
+.chart-card { background: var(--surface); border-radius: var(--radius-card); box-shadow: var(--shadow-soft); padding: var(--space-4); min-width: 0; font-family: var(--font-data); }
+.chart-card.wide { grid-column: 1 / -1; }
+.chart-card h4 { margin: 0; font-size: 16px; }
+.chart-card .sub { color: var(--muted); font-size: 13px; }
+.chart-card footer { display: flex; flex-direction: column; gap: 2px; margin-top: var(--space-2); color: var(--muted); font-size: 12px; }
+.plot { height: 340px; }
+.plot.tall { height: 480px; }
+@media (max-width: 480px) { .charts { grid-template-columns: 1fr; } }
