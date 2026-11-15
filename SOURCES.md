@@ -2,7 +2,7 @@
 
 | Name | Link | License | Use |
 | --- | --- | --- | --- |
-| Newsreader (@fontsource/newsreader) | https://fontsource.org/fonts/newsreader | SIL OFL 1.1 | Reading text and headings |
+| Newsreader (@fontsource/newsreader) | https://fontsource.org/fonts/newsreader | SIL OFL 1.1 | Headings, including the 700 weight added for the final theme |
 | IBM Plex Sans Condensed (@fontsource/ibm-plex-sans-condensed) | https://fontsource.org/fonts/ibm-plex-sans-condensed | SIL OFL 1.1 | Tables, numbers, controls |
 | React | https://react.dev | MIT | UI |
 | React Router | https://reactrouter.com | MIT | Page routing |
@@ -18,8 +18,8 @@
 | NTRS 20190030735: Ferkul. SoFIE Design/Status (2019) | https://ntrs.nasa.gov/citations/20190030735 | Hosted on NTRS. Some authors are at universities or contractors. Distribution notice not checked on each record | Reduced-gravity flows of 5 to 20 cm/s, margin of 1.4% O2. Quotes and pages in `data/derived/nasa_1g_anchors.csv` |
 | NTRS 20200000557: Buoyancy Effects on Concurrent Flame Spread Over Thick PMMA | https://ntrs.nasa.gov/citations/20200000557 | Hosted on NTRS. Some authors are at universities or contractors. Distribution notice not checked on each record | Mixed-flow rule combining forced and buoyant flow (Eq. 6). Quotes and pages in `data/derived/nasa_1g_anchors.csv` |
 | NTRS 20130012832: Ferkul. Flammability Aspects of a Cotton-Fiberglass Fabric in Opposed and Concurrent Airflow in Microgravity (2013) | https://ntrs.nasa.gov/citations/20130012832 | Hosted on NTRS. Some authors are at universities or contractors. Distribution notice not checked on each record | Downward spread over SIBAL not possible in 1 g air. Quotes and pages in `data/derived/nasa_1g_anchors.csv` |
-| Grandstander (@fontsource/grandstander) | https://fontsource.org/fonts/grandstander | SIL OFL 1.1 | Headings. Local copy in `fonts/` |
-| Itim (@fontsource/itim) | https://fontsource.org/fonts/itim | SIL OFL 1.1 | Body text. Local copy in `fonts/` |
+| Grandstander (@fontsource/grandstander) | https://fontsource.org/fonts/grandstander | SIL OFL 1.1 | Not used after the Lilac and Newsreader choice. Files are still in `fonts/`, pending a decision to delete |
+| Itim (@fontsource/itim) | https://fontsource.org/fonts/itim | SIL OFL 1.1 | Not used after the Lilac and Newsreader choice. Files are still in `fonts/`, pending a decision to delete |
 | JetBrains Mono (@fontsource/jetbrains-mono) | https://fontsource.org/fonts/jetbrains-mono | SIL OFL 1.1 | Labels, nav, numbers. Local copy in `fonts/` |
 | NASA Image and Video Library | https://images.nasa.gov | NASA media, generally not copyrighted. Usage guidelines: https://www.nasa.gov/nasa-brand-center/images-and-media/ . Per-image rights not checked beyond that | Source of the 24 photos in `img/nasa/`, found with the public search API |
 | NASA photo iss040e086481, BASS-II Experiment (NASA / Reid Wiseman, 2014) | https://images.nasa.gov/details/iss040e086481 | NASA media | PSI-25 card |

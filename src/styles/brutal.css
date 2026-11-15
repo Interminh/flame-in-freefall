@@ -2,34 +2,34 @@
    Token names are legacy: --blue is the burning/accent colour, --amber is the
    cool "extinguishes" colour. Both carry cream text, so keep them dark enough. */
 :root[data-theme='brutal'] {
-  --paper: #FFF9E0;
+  --paper: #EFE9FF;
   --surface: #FFFFFF;
-  --ink: #111111;
-  --muted: #4A4638;
-  --rule: #D9D1AC;
-  --blue: #C73512;
-  --amber: #1B5FA8;
+  --ink: #15101F;
+  --muted: #4B4560;
+  --rule: #CFC4EE;
+  --blue: #B3261E;
+  --amber: #3A4FC4;
 
-  --yellow: #FFE04A;
-  --sky: #9EE3FF;
-  --pink: #F7B2DA;
+  --yellow: #FFE45E;
+  --sky: #A8E6FF;
+  --pink: #FFB3E6;
 
-  --font-display: 'Grandstander', 'Itim', system-ui, sans-serif;
-  --font-read: 'Itim', 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-read: 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
   --font-data: 'JetBrains Mono', ui-monospace, Consolas, monospace;
 
-  --radius-control: 6px;
-  --radius-card: 0;
+  --radius-control: 24px;
+  --radius-card: 24px;
   --on-accent: #111111; /* text on yellow, sky and pink fills, dark in every palette */
   --hl-yellow: var(--yellow);
   --hl-pink: var(--pink);
 
   --bw: 2px; /* border width */
-  --so: 6px; /* shadow offsets: large, medium, small, extra small, dialog */
-  --so-m: 4px;
-  --so-s: 3px;
-  --so-xs: 2px;
-  --so-l: 10px;
+  --so: 0px; /* shadow offsets: large, medium, small, extra small, dialog */
+  --so-m: 0px;
+  --so-s: 0px;
+  --so-xs: 0px;
+  --so-l: 0px;
   /* The first ring acts as the border, the second as the hard drop shadow. */
   --shadow-soft: 0 0 0 var(--bw) var(--ink), var(--so) var(--so) 0 var(--bw) var(--ink);
   --shadow-small: 0 0 0 var(--bw) var(--ink), var(--so-s) var(--so-s) 0 var(--bw) var(--ink);
@@ -38,10 +38,46 @@
   --rule-glass: var(--ink);
 }
 
+/* Dark mode: follows the system setting unless the toggle sets data-mode. */
+:root[data-theme='brutal'][data-mode='dark'] {
+  --paper: #0E1630;
+  --surface: #16224A;
+  --ink: #F2F5FF;
+  --muted: #AAB6DA;
+  --rule: #2B3A70;
+  --blue: #FF8A5C;
+  --amber: #6CC4FF;
+  --yellow: #FFE066;
+  --sky: #6FD3FF;
+  --pink: #FF8FC7;
+  --hl-yellow: rgba(255, 224, 102, 0.4);
+  --hl-pink: rgba(255, 143, 199, 0.4);
+  --scrim: rgba(0, 0, 0, 0.7);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-theme='brutal']:not([data-mode='light']) {
+    --paper: #0E1630;
+    --surface: #16224A;
+    --ink: #F2F5FF;
+    --muted: #AAB6DA;
+    --rule: #2B3A70;
+    --blue: #FF8A5C;
+    --amber: #6CC4FF;
+    --yellow: #FFE066;
+    --sky: #6FD3FF;
+    --pink: #FF8FC7;
+    --hl-yellow: rgba(255, 224, 102, 0.4);
+    --hl-pink: rgba(255, 143, 199, 0.4);
+    --scrim: rgba(0, 0, 0, 0.7);
+    color-scheme: dark;
+  }
+}
+
 :root[data-theme='brutal'] body { font-size: 18px; overflow-x: clip; }
 
 /* Type */
-h1, h2, h3 { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.01em; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.01em; }
 h1 { font-size: clamp(36px, 6vw, 60px); line-height: 1.08; }
 h2 { font-size: clamp(26px, 3.4vw, 34px); line-height: 1.15; }
 h3 { font-size: 21px; line-height: 1.2; }
@@ -84,7 +120,7 @@ a:hover { background: var(--yellow); }
   align-items: center;
   gap: var(--space-2);
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 22px;
   text-decoration: none;
   white-space: nowrap;
@@ -178,7 +214,7 @@ input[type='range'] { accent-color: var(--blue); border: 0; }
 .facts div:nth-child(1) { background: var(--yellow); }
 .facts div:nth-child(2) { background: var(--sky); }
 .facts div:nth-child(3) { background: var(--pink); }
-.facts dt { font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--ink); margin-bottom: var(--space-2); }
+.facts dt { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--ink); margin-bottom: var(--space-2); }
 .facts dd { max-width: none; }
 
 .section { padding-top: var(--space-16); }
@@ -197,13 +233,13 @@ input[type='range'] { accent-color: var(--blue); border: 0; }
 
 /* Ranking list and detail window */
 .list-tools { color: var(--ink); }
-.inv-list { background: var(--surface); overflow: visible; }
+.inv-list { background: var(--surface); overflow: hidden; }
 .inv-list li + li { border-top: var(--bw) solid var(--ink); }
 .inv-row { transition: background-color 120ms ease; }
 .inv-row, .inv-row:hover { box-shadow: none; transform: none; border: 0; }
 .inv-row { background: var(--surface); }
 .inv-row:hover { background: var(--yellow); }
-.inv-row__name { font-family: var(--font-display); font-weight: 800; font-size: 16px; }
+.inv-row__name { font-family: var(--font-display); font-weight: 700; font-size: 16px; }
 .inv-row__snippet, .inv-row__meta { color: var(--muted); }
 
 .inv-dialog { border: 3px solid var(--ink); box-shadow: var(--so-l) var(--so-l) 0 var(--ink); border-radius: 0; background: var(--surface); transform: translateY(16px) rotate(-0.4deg) scale(0.98); }
@@ -237,7 +273,7 @@ input[type='range'] { accent-color: var(--blue); border: 0; }
 .sim-chip[data-label='burns'] { background: var(--blue); border-color: var(--ink); color: var(--paper); }
 .sim-chip[data-label='extinguishes'] { background: var(--amber); border-color: var(--ink); color: var(--paper); }
 .sim-linkbtn { background: var(--yellow); color: var(--ink); border: var(--bw) solid var(--ink); box-shadow: none; }
-.sim-how summary { font-family: var(--font-display); font-weight: 800; }
+.sim-how summary { font-family: var(--font-display); font-weight: 700; }
 .sim-how code { background: var(--yellow); border: 1px solid var(--ink); border-radius: 0; }
 .sim-rb-track { border: var(--bw) solid var(--ink); background: var(--surface); }
 .sim-how .sim-tablewrap { border: var(--bw) solid var(--ink); box-shadow: none; }
@@ -251,7 +287,6 @@ th { font-family: var(--font-data); font-weight: 500; }
   body { font-size: 17px; }
   .site-nav__links a { font-size: 12px; padding: 2px var(--space-2); }
   .hero__burst { display: none; }
-  :root[data-theme='brutal'] { --so: 4px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -273,3 +308,7 @@ a:hover, .site-nav__links a:hover, .site-nav__links a[aria-current='page'], butt
 .cat-tools, .map-frame, .facts div, .ask, .weak, .rank-list, .inv-list, .sim-card, .sim-map, .sim-banner,
 .sim-how details, .sim-tablewrap, .inv-dialog { border-radius: var(--radius-card); }
 .map-frame > svg { border-radius: var(--radius-control); }
+
+/* Light and dark switch in the nav */
+.mode-toggle { padding: 3px var(--space-3); font-size: 13px; color: var(--ink); background: var(--surface); }
+.mode-toggle:hover:not([disabled]) { background: var(--sky); }
