@@ -9,6 +9,7 @@
 | Vite | https://vite.dev | MIT | Dev server and build |
 | PSI-25 BASS-II experimental table | https://psi.nasa.gov/physci/repo/data/investigations/PSI-25 | CC0-1.0 | Test outcomes and crew notes behind `data/derived/bass2_flow_points.csv`, which fits the Simulation model |
 | PSI-26 BASS experimental data | https://psi.nasa.gov/physci/repo/data/investigations/PSI-26 | CC0-1.0 | Only the recorded pressure range (98.3 to 102.2 kPa), used for the pressure warning |
+| PSI-99 SAFFIRE-II | https://psi.nasa.gov/physci/repo/data/investigations/PSI-99 | CC0-1.0 | Ground comparison results used as a 1 g check in `data/derived/saffire2_ground_checks.csv` |
 | Link et al. 2018, Scientific Reports | https://link.springer.com/10.1038/s41598-017-18398-4 | Not checked | Not used. Not NASA-hosted, so outside the agreed scope. Kept in `literature_loc_checks.csv` for the record |
 | Halli and Tien, downward-burning limit for PMMA rods | Not found (named in a search excerpt) | Not checked | Not used. Not NASA-hosted, so outside the agreed scope |
 | NTRS 20170006615: Marcum, Ferkul, Olson. Mixed convection blowoff limits for burning PMMA rods (ICES-2017-370) | https://ntrs.nasa.gov/citations/20170006615 | Hosted on NTRS. Some authors are at universities or contractors. Distribution notice not checked on each record | 1 g buoyant flow, linear blow-off boundary, 13.4% O2 limit, linear flow rule. Quotes and pages in `data/derived/nasa_1g_anchors.csv` |

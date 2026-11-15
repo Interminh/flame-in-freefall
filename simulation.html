@@ -17,21 +17,19 @@
     <div id="nav"></div>
     <main class="page">
       <section>
-        <h1>Simulation</h1>
+        <div class="sim-head">
+          <h1>Simulation</h1>
+          <div class="sim-views" role="group" aria-label="View">
+            <button type="button" id="view-sim-btn" aria-pressed="true">Simulator</button>
+            <button type="button" id="view-fm2-btn" aria-pressed="false">FM2 predictions</button>
+            <button type="button" id="view-how-btn" aria-pressed="false">How it works and limits</button>
+          </div>
+        </div>
         <p class="sim-banner" role="note">
           <strong>Estimate from a simplified model; not a prediction of a real fire; not NASA-endorsed.</strong>
+          Every test used to fit the model flew in microgravity, so other gravity levels are extrapolations tied to
+          published NASA numbers. <a href="#how" id="how-link">How it works and where it falls short</a>.
         </p>
-        <p>
-          Will a solid fuel keep burning, or go out? Set oxygen, airflow, material and gravity and compare the Moon
-          and Mars with Earth gravity and microgravity. Every test behind the model flew in microgravity, so the
-          other gravity levels are extrapolations, tied to published NASA numbers for Earth gravity. <a href="#how" id="how-link">How it works and where it falls short</a>.
-        </p>
-
-        <div class="sim-views" role="group" aria-label="View">
-          <button type="button" id="view-sim-btn" aria-pressed="true">Simulator</button>
-          <button type="button" id="view-fm2-btn" aria-pressed="false">FM2 predictions</button>
-          <button type="button" id="view-how-btn" aria-pressed="false">How it works and limits</button>
-        </div>
 
         <div id="status" class="sim-status" role="status">Loading the model.</div>
 
@@ -96,40 +94,83 @@
               </div>
             </form>
 
-            <div class="sim-card sim-result" aria-live="polite">
-              <h2>Result</h2>
-              <p class="sim-big"><span id="pburn">-</span> <span class="sim-chip" id="label">-</span></p>
-              <p class="sim-sub" id="pband"></p>
-              <p class="sim-flag" id="hidden" hidden></p>
-              <dl class="sim-dl">
-                <dt>Buoyant flow</dt><dd id="ub">-</dd>
-                <dt>Effective flow</dt><dd id="ueff">-</dd>
-                <dt>Limiting oxygen here</dt><dd id="loc">-</dd>
-                <dt>Limiting oxygen at 1 g</dt><dd id="loc1g">-</dd>
-                <dt>Margin versus 1 g</dt><dd id="margin">-</dd>
-              </dl>
-              <ul class="sim-warnings" id="warnings"></ul>
+            <div class="sim-center">
+              <h2 class="sim-maph" id="map-h">Flammability map for your inputs</h2>
+              <p class="sim-mapsum" id="map-summary"></p>
+              <p class="sim-badge" id="map-badge"></p>
+              <ul class="sim-key" id="line-key" aria-label="Key to the lines"></ul>
+              <div class="sim-mapwrap">
+                <figure class="sim-map" id="map-fig">
+                  <svg id="map" viewBox="0 0 640 390" role="img" aria-labelledby="map-summary"></svg>
+                  <figcaption id="map-caption"></figcaption>
+                </figure>
+                <aside class="sim-inspector" id="inspector" aria-live="polite" aria-labelledby="insp-h">
+                  <h2 id="insp-h">Real experiment details</h2>
+                  <p class="sim-insp-hint" id="insp-hint">Click a dot or a table row to see the test it came from.</p>
+                  <div id="inspector-body"></div>
+                </aside>
+              </div>
+            </div>
+
+            <div class="sim-right">
+              <div class="sim-card sim-result" aria-live="polite">
+                <h2>Result</h2>
+                <p class="sim-big"><span id="pburn">-</span> <span class="sim-chip" id="label">-</span></p>
+                <p class="sim-sub" id="pband"></p>
+                <div class="sim-rb" id="rangebar" role="img" aria-label="Range for the chance of burning">
+                  <div class="sim-rb-track">
+                    <span class="sim-rb-tick" id="rb-t1"></span>
+                    <span class="sim-rb-tick" id="rb-t2"></span>
+                    <span class="sim-rb-band" id="rb-band"></span>
+                    <span class="sim-rb-mean" id="rb-mean"></span>
+                  </div>
+                  <div class="sim-rb-scale"><span>0%</span><span id="rb-l1"></span><span id="rb-l2"></span><span>100%</span></div>
+                </div>
+                <p class="sim-rb-note">Bar: 5 to 95% range across 200 refits. Line: average. Ticks: the label cut-offs.</p>
+                <dl class="sim-dl">
+                  <dt>Buoyant flow</dt><dd id="ub">-</dd>
+                  <dt>Effective flow</dt><dd id="ueff">-</dd>
+                  <dt>Limiting oxygen here</dt><dd id="loc">-</dd>
+                  <dt>Limiting oxygen at 1 g</dt><dd id="loc1g">-</dd>
+                  <dt>Margin versus 1 g</dt><dd id="margin">-</dd>
+                </dl>
+              </div>
+
             </div>
           </div>
 
-          <h2 class="sim-h2">Flammability map</h2>
-          <p class="sim-note">
-            Shading is the chance the flame keeps burning. The line is the limiting oxygen level and the band is its
-            5 to 95% range. Above the line burns. Hatched areas are outside the BASS-II data. The ring is your input.
-            Gravity changes the effective flow, so the same forced airflow lands differently in each panel.
-          </p>
-          <div class="sim-maps" id="maps"></div>
+          <section class="sim-card sim-warnpanel sim-warnwide" id="warnings-panel" aria-labelledby="warn-h">
+            <h2 id="warn-h">Warnings for these inputs <span class="sim-count" id="warn-count"></span></h2>
+            <ul class="sim-warnlist" id="warnings"></ul>
+            <p class="sim-standing">
+              Always true: these are model estimates, not measurements. The flow values were read by hand from crew
+              notes, and a second person has not yet checked them.
+            </p>
+          </section>
+
+          <h3 class="sim-h3">How to read the map</h3>
+          <ul class="sim-legend" id="map-legend">
+            <li><svg viewBox="0 0 28 14" aria-hidden="true"><rect x="1" y="1" width="26" height="12" class="sim-cell" fill-opacity="0.7"/></svg><span><strong>Shading</strong>: chance the flame keeps burning at your gravity. Darker is higher.</span></li>
+            <li><svg viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7H28" class="sim-median"/></svg><span><strong>Solid line</strong>: limiting oxygen at your gravity. Above it burns, below it goes out.</span></li>
+            <li><svg viewBox="0 0 28 14" aria-hidden="true"><rect x="0" y="3" width="28" height="8" class="sim-band"/></svg><span><strong>Wide band</strong>: 5 to 95% range of the solid line.</span></li>
+            <li><svg viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7H28" class="sim-ref" stroke-dasharray="7 3"/></svg><span><strong>Dashed lines</strong>: the same limit at 0 g, Moon, Mars and 1 g, for comparison, named in the key above the map. Each is the middle estimate, with no band.</span></li>
+            <li><svg viewBox="0 0 28 14" aria-hidden="true"><rect x="0" y="0" width="28" height="14" fill="url(#hatch-legend)"/><defs><pattern id="hatch-legend" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="sim-hatch" x1="0" y1="0" x2="0" y2="7"/></pattern></defs></svg><span><strong>Hatched</strong>: outside the oxygen and flow range of the BASS-II data.</span></li>
+            <li><svg viewBox="0 0 28 14" aria-hidden="true"><circle cx="14" cy="7" r="6" class="sim-marker"/><circle cx="14" cy="7" r="1.8" class="sim-marker-dot"/></svg><span><strong>Ring</strong>: your input.</span></li>
+            <li><svg viewBox="0 0 70 14" aria-hidden="true"><circle cx="8" cy="7" r="4.5" class="sim-pt-burn"/><circle cx="26" cy="7" r="4.5" class="sim-pt-out"/><path d="M44 2L49 7L44 12L39 7Z" class="sim-pt-out"/><path d="M60 3L66 11M60 11L66 3" class="sim-pt-skip"/></svg><span><strong>Real microgravity tests</strong>, for this material: filled burned, open circle went out, open diamond blown off, grey cross left out of the fit. Compare them with the dashed 0 g line, whatever gravity you chose. A dark ring means the 0 g model disagrees with that test.</span></li>
+            <li><svg viewBox="0 0 28 14" aria-hidden="true"><circle cx="9" cy="7" r="3.5" class="sim-pt-burn"/><circle cx="9" cy="7" r="6.2" class="sim-near"/></svg><span><strong>Dashed ring</strong>: the five closest tests, listed in the table below. The test shown in the details box has a thick ring.</span></li>
+          </ul>
           <p class="sim-fit" id="fit-line"></p>
 
           <h2 class="sim-h2">Nearest real experiments</h2>
           <p class="sim-note">
-            Flow values were read from the crew notes in the PSI-25 experimental table, quoted below. A person has not
-            yet checked every reading against the source. Points left out of the fit are not listed here.
+            The five closest tests of this material by oxygen, flow, direction and thickness. Flow values were read from
+            the crew notes in the PSI-25 experimental table, quoted in the details. A person has not yet checked every
+            reading against the source. Click a row to see the details above.
           </p>
           <div class="sim-tablewrap">
-            <table class="sim-table" id="evidence">
+            <table class="sim-table sim-pick" id="evidence">
               <thead>
-                <tr><th>Test</th><th>Material</th><th>Thickness mm</th><th>Oxygen %</th><th>Flow cm/s</th><th>Direction</th><th>Observed</th><th>Quote from the notes</th></tr>
+                <tr><th>Details</th><th>Test</th><th>Material</th><th>Thickness mm</th><th>Oxygen %</th><th>Flow cm/s</th><th>Direction</th><th>Observed</th><th>Quote from the notes</th></tr>
               </thead>
               <tbody></tbody>
             </table>
@@ -140,7 +181,7 @@
             <ul>
               <li>Gravity enters only through the buoyant flow. Radiation, ignition, sample size and geometry are ignored.</li>
               <li>Solid-fuel flame spread only. No droplets, gases or smoke.</li>
-              <li>All outcome data is microgravity from BASS-II. The 0.165, 0.38 and 1 g panels are estimated, with no direct measurements. They rest on published NASA numbers for PMMA rods (a 1 g limit of 16% oxygen, a buoyant flow of about 20 cm/s), not on a 1 g outcome table.</li>
+              <li>All fitted outcome data is microgravity from BASS-II. Results and map lines at 0.165, 0.38 and 1 g are estimated, with no direct measurements. They rest on published NASA numbers for PMMA rods (a 1 g limit of 16% oxygen, a buoyant flow of about 20 cm/s). They are checked against one set of 1 g ground tests (SAFFIRE-II, concurrent flow at 20 cm/s and about 22% oxygen), not fitted to them.</li>
               <li>Those rod numbers are applied to all four materials, which is an assumption.</li>
               <li>BASS-II recorded no pressure. The fit assumes about 101.3 kPa.</li>
               <li>Only four materials have flow-linked outcomes. Nomex, Ultem and wax appear in the data but without usable flow readings, so they are not offered.</li>
@@ -244,8 +285,9 @@
               <li><strong>5 to 95% range.</strong> The spread across the 200 refits. It does not include the model being the wrong shape.</li>
               <li><strong>Limiting oxygen here and at 1 g.</strong> Lower means the flame survives with less oxygen. The margin is the difference.</li>
               <li><strong>Hidden risk.</strong> Shown when the condition burns at the chosen gravity but would not at 1 g.</li>
-              <li><strong>Maps.</strong> Shading is the chance of burning. The black line is the 50% oxygen level at each airflow, and the grey-orange band is its 5 to 95% range. Hatched areas are outside the oxygen and flow range of the data.</li>
-              <li><strong>Dots on the 0 g map.</strong> Real BASS-II observations. Filled means the flame burned, open means it went out or blew off. A dark ring means the dot is on the wrong side of the line. A grey cross was read from the notes but left out of the fit, and hovering shows why.</li>
+              <li><strong>The map.</strong> One map for exactly the inputs you set. Shading is the chance of burning, the solid line is the 50% oxygen level at each airflow for your gravity, and the wide band around it is its 5 to 95% range. Dashed lines show the middle estimate of the same line at 0 g, Moon, Mars and 1 g. Hatched areas are outside the oxygen and flow range of the data.</li>
+              <li><strong>Dots on the map.</strong> Real BASS-II observations in microgravity, for the chosen material. Filled means the flame burned, an open circle means it went out, an open diamond means it was blown off. A dark ring means the 0 g model is on the wrong side of that test. A grey cross was read from the notes but left out of the fit. Click a dot for the quote, how the flow was read, and why it was or was not used.</li>
+              <li><strong>Warnings.</strong> The warnings box lists everything that applies to the exact inputs: outside the data, extrapolated gravity, known misses, weak fits, wide ranges, no clear difference from 1 g and hidden risk. It is never empty of caveats.</li>
               <li><strong>Nearest real experiments.</strong> The closest observations by oxygen, flow, material, direction and thickness, each with the quote it was read from.</li>
             </ul>
           </details>
@@ -283,9 +325,7 @@
               not. Each point has the quote it came from, and a test checks every quote against the raw table.
             </p>
             <p>
-              For Earth gravity the repo has no table of outcomes. The model instead uses numbers published in NASA-hosted
-              documents, mainly for PMMA rods. A search of NASA sources found no tabulated 1 g outcomes for the other three
-              materials, so the rod numbers are applied to all of them.
+              For Earth gravity the model uses numbers published in NASA-hosted documents, mainly for PMMA rods, and applies them to all four materials. The only 1 g outcomes found are the SAFFIRE-II ground comparisons in PSI-99, at one condition (concurrent flow at 20 cm/s and about 22% oxygen) where SIBAL and PMMA burned the whole sample. They are used as a check, not to fit the model.
             </p>
             <p><strong>Points left out of the fit, and why:</strong></p>
             <ul id="how-excluded"></ul>
@@ -325,11 +365,11 @@
           <details open>
             <summary>Limitations</summary>
             <ul>
-              <li><strong>No outcome data above 0 g.</strong> The Moon, Mars and 1 g results are extrapolations. They rest on published NASA numbers for PMMA rods, not on a 1 g outcome table.</li>
+              <li><strong>Almost no outcome data above 0 g.</strong> The Moon, Mars and 1 g results are extrapolations. They rest on published NASA numbers for PMMA rods. The only 1 g outcomes are SAFFIRE-II ground tests at one condition, used as a check.</li>
               <li><strong>Gravity is reduced to one idea.</strong> Only the buoyant flow changes with gravity. How gravity affects radiation, ignition, soot and the shape of the flame is not modelled.</li>
               <li><strong>The blow-off line and the buoyant flow come from rods.</strong> The 16% limit and the 20 cm/s buoyant flow are NASA numbers for PMMA rods in stagnation flow. They are applied to film, slab and fabric, where they have not been checked. The 1 g and Moon answers depend on them heavily.</li>
               <li><strong>NASA papers disagree on how flows combine.</strong> One derives a fourth-power rule, another uses a plain sum. The bands cover both, but not a third rule.</li>
-              <li><strong>One 1 g check fails.</strong> NASA reports that downward (opposed-flow) flame spread over SIBAL fabric is not possible in normal air. The model gives a high chance of burning. This is a direct sign that gravity acting only through buoyant flow is too simple, at least for thin fabric.</li>
+              <li><strong>One 1 g check fails.</strong> NASA reports that downward (opposed-flow) flame spread over SIBAL fabric is not possible in normal air. The model gives a high chance of burning. This is a direct sign that gravity acting only through buoyant flow is too simple, at least for thin fabric. The model does match the SAFFIRE-II 1 g ground tests, but those are concurrent flow near 22% oxygen, where nearly everything burns.</li>
               <li><strong>The 1 g limit is built in, not tested.</strong> The 16% figure was used to place the blow-off line, so the model matches it by construction. The checks that were not used are listed under How well it matches the data.</li>
               <li id="lim-data"><strong>Small data.</strong></li>
               <li><strong>Burns were long and changing.</strong> Many tests ran 10 to 30 minutes while the sample heated and shrank. The model treats each observation as a steady condition.</li>
