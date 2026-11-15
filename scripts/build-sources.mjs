@@ -19,7 +19,7 @@ const investigations = invs.map((i) => {
   const title = i.full_name.endsWith(i.name) || i.full_name.includes(`(${i.name})`) ? i.full_name : `${i.full_name} (${i.name})`
   return {
     sort: title,
-    html: `"${esc(title)}." <i>NASA Physical Sciences Informatics</i>, NASA, ${psiDate(i.psi_record_modified)}, ${link('https://doi.org/' + i.doi)}..`,
+    html: `"${esc(title)}." <i>NASA Physical Sciences Informatics</i>, NASA, ${psiDate(i.psi_record_modified)}, ${link('https://doi.org/' + i.doi)}.`,
   }
 })
 
@@ -33,24 +33,24 @@ const reports = [
   ['Ferkul, Paul V., et al.', 'Flammability Aspects of a Cotton-Fiberglass Fabric in Opposed and Concurrent Airflow in Microgravity', '28 Nov. 2012', '20130012832'],
 ].map(([a, t, d, id]) => ({
   sort: a + t,
-  html: `${esc(a.replace(/\.$/, ''))}. "${esc(t)}." <i>NASA Technical Reports Server</i>, NASA, ${d}, ${link('https://ntrs.nasa.gov/citations/' + id)}..`,
+  html: `${esc(a.replace(/\.$/, ''))}. "${esc(t)}." <i>NASA Technical Reports Server</i>, NASA, ${d}, ${link('https://ntrs.nasa.gov/citations/' + id)}.`,
 }))
 
 const tools = [
-  ['@fontsource/newsreader', `"Newsreader." Version 5.3.0, <i>Fontsource</i>, ${link('https://fontsource.org/fonts/newsreader')}..`],
-  ['@fontsource/ibm-plex', `"IBM Plex Sans Condensed." Version 5.3.0, <i>Fontsource</i>, ${link('https://fontsource.org/fonts/ibm-plex-sans-condensed')}..`],
-  ['React', `<i>React</i>. Version 19.3.1, Meta Platforms, ${link('https://react.dev')}..`],
-  ['React Router', `<i>React Router</i>. Version 7.18.5, ${link('https://reactrouter.com')}..`],
-  ['Vite', `<i>Vite</i>. Version 8.3.8, ${link('https://vite.dev')}..`],
-  ['Plotly', `<i>Plotly.js</i>. Version 4.3.0, Plotly, ${link('https://plotly.com/javascript/')}..`],
+  ['@fontsource/newsreader', `"Newsreader." Version 5.3.0, <i>Fontsource</i>, ${link('https://fontsource.org/fonts/newsreader')}.`],
+  ['@fontsource/ibm-plex', `"IBM Plex Sans Condensed." Version 5.3.0, <i>Fontsource</i>, ${link('https://fontsource.org/fonts/ibm-plex-sans-condensed')}.`],
+  ['React', `<i>React</i>. Version 19.3.1, Meta Platforms, ${link('https://react.dev')}.`],
+  ['React Router', `<i>React Router</i>. Version 7.18.5, ${link('https://reactrouter.com')}.`],
+  ['Vite', `<i>Vite</i>. Version 8.3.8, ${link('https://vite.dev')}.`],
+  ['Plotly', `<i>Plotly.js</i>. Version 4.3.0, Plotly, ${link('https://plotly.com/javascript/')}.`],
 ].map(([sort, html]) => ({ sort, html }))
 
 const ai = [
-  ['Claude Code', `<i>Claude Code</i>. Anthropic, ${link('https://claude.com/claude-code')}..`],
-  ['gpt-oss-120b', `<i>gpt-oss-120b</i>. OpenAI, <i>Hugging Face</i>, ${link('https://huggingface.co/openai/gpt-oss-120b')}..`],
-  ['Groq', `<i>Groq</i>. Groq, ${link('https://groq.com')}..`],
-  ['Ollama', `<i>Ollama</i>. Ollama, ${link('https://ollama.com')}..`],
-  ['Vercel', `<i>Vercel</i>. Vercel, ${link('https://vercel.com')}..`],
+  ['Claude Code', `<i>Claude Code</i>. Anthropic, ${link('https://claude.com/claude-code')}.`],
+  ['gpt-oss-120b', `<i>gpt-oss-120b</i>. OpenAI, <i>Hugging Face</i>, ${link('https://huggingface.co/openai/gpt-oss-120b')}.`],
+  ['Groq', `<i>Groq</i>. Groq, ${link('https://groq.com')}.`],
+  ['Ollama', `<i>Ollama</i>. Ollama, ${link('https://ollama.com')}.`],
+  ['Vercel', `<i>Vercel</i>. Vercel, ${link('https://vercel.com')}.`],
 ].map(([sort, html]) => ({ sort, html }))
 
 const list = (items) =>
