@@ -34,9 +34,34 @@ function limited(ip, cost) {
   return recent.reduce((sum, h) => sum + h.cost, 0) > MAX_POINTS_PER_WINDOW
 }
 
+// Answers are cached per server instance so repeat questions skip the model.
+// Instances do not share memory, so this is best-effort. It mainly protects the
+// provider's per-minute token limit during a demo.
+const CACHE_TTL_MS = 60 * 60_000
+const CACHE_MAX = 200
+const cache = new Map()
+
+export const cacheKey = (...parts) => parts.map((p) => String(p).trim().toLowerCase().replace(/\s+/g, ' ')).join('|')
+
+export function cacheGet(key) {
+  const hit = cache.get(key)
+  if (!hit) return undefined
+  if (Date.now() - hit.t > CACHE_TTL_MS) {
+    cache.delete(key)
+    return undefined
+  }
+  return hit.value
+}
+
+export function cacheSet(key, value) {
+  if (cache.size >= CACHE_MAX) cache.delete(cache.keys().next().value)
+  cache.set(key, { t: Date.now(), value })
+}
+
 // Common checks for both endpoints. Sends the error itself and returns null on
-// failure, otherwise returns the cleaned question.
-export function guard(req, res, cost) {
+// failure, otherwise returns the cleaned question. A request that is already
+// cached (isCached) costs nothing, so it skips the rate limit.
+export function guard(req, res, cost, isCached) {
   res.setHeader('Cache-Control', 'no-store')
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
@@ -52,6 +77,7 @@ export function guard(req, res, cost) {
     res.status(400).json({ error: `Ask a question between ${MIN_QUESTION} and ${MAX_QUESTION} characters.` })
     return null
   }
+  if (isCached?.(question)) return question
   const ip = String(req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown').split(',')[0].trim()
   if (limited(ip, cost)) {
     res.status(429).json({ error: 'Too many requests. Wait a minute and try again.' })
@@ -66,7 +92,6 @@ export function brief(i) {
   return {
     id: i.psi_id,
     name: i.name,
-    full_name: i.full_name,
     gravity: i.gravity,
     fuel_type: i.fuel_type,
     materials: i.materials,
@@ -79,7 +104,6 @@ export function brief(i) {
       note: c.note,
     },
     measurements: i.measurements,
-    tags: i.tags,
     caveats: i.caveats,
     summary: i.summary,
   }
@@ -110,8 +134,7 @@ export function compact(i) {
     pressure: range(c.pressure_kpa, 'kPa'),
     flow: range(c.flow_cm_s, 'cm/s'),
     measured: i.measurements?.length ? i.measurements : undefined,
-    tags: i.tags?.length ? i.tags : undefined,
-    summary: firstSentences(i.summary, 200),
+    summary: firstSentences(i.summary, 130),
   }
 }
 

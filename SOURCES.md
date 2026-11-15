@@ -52,3 +52,4 @@
 | Groq | https://groq.com | Service terms | Hosts the model for the Ignis AI function |
 | Ollama | https://ollama.com | MIT | Runs the model on a laptop for local testing and as a demo backup |
 | Vercel | https://vercel.com | Service terms | Hosts the site and the Ignis AI function |
+| Plotly.js (plotly.js-dist-min 4.3.0) | https://plotly.com/javascript/ | MIT | Charts on the investigation pages. Loaded from the jsDelivr CDN at runtime |
