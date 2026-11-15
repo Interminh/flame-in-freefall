@@ -28,3 +28,6 @@ document.getElementById('nav').outerHTML = `
     </ul>
   </nav>
 </header>`
+
+// TEMPORARY: theme lab for tuning the style. Delete this line and js/theme-lab.js to remove it.
+document.body.append(Object.assign(document.createElement('script'), { src: 'js/theme-lab.js' }))
