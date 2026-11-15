@@ -4,7 +4,7 @@
 import investigations from '../data/investigations.json' with { type: 'json' }
 
 const BASE_URL = process.env.LLM_BASE_URL || 'https://api.groq.com/openai/v1'
-const MODEL = process.env.LLM_MODEL || 'llama-3.3-70b-versatile'
+const MODEL = process.env.LLM_MODEL || 'openai/gpt-oss-120b'
 const API_KEY = process.env.LLM_API_KEY
 const IS_LOCAL = /\/\/(localhost|127\.0\.0\.1)/.test(BASE_URL)
 
@@ -71,7 +71,13 @@ async function callModel(messages) {
         messages,
       }),
     })
-    if (!res.ok) throw new Error(`model_http_${res.status}`)
+    if (!res.ok) {
+      // The provider's error text says why (for example an unknown model name).
+      // It does not include our key or the question.
+      const detail = await res.text().catch(() => '')
+      console.error('model error body:', detail.slice(0, 300))
+      throw new Error(`model_http_${res.status}`)
+    }
     const data = await res.json()
     return JSON.parse(data.choices[0].message.content)
   } finally {
@@ -192,6 +198,7 @@ export default async function handler(req, res) {
   } catch (err) {
     // Log the error type only. Never the question, the key or the model text.
     console.error('rank failed:', err.message)
-    return res.status(502).json({ error: 'The AI service could not answer. Try again in a moment.' })
+    // The short code (for example model_http_404) is safe to show and helps debugging.
+    return res.status(502).json({ error: 'The AI service could not answer. Try again in a moment.', code: err.message })
   }
 }
