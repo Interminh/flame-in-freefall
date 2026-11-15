@@ -53,6 +53,36 @@ function brief(i) {
   }
 }
 
+// Shorter version for scoring all 24 at once. The full text is too big for the
+// per-request token limit on a free plan (Groq answered 413).
+function firstSentences(text, max) {
+  let out = ''
+  for (const s of String(text || '').split(/(?<=[.!?])\s+/)) {
+    if (out && (out + ' ' + s).length > max) break
+    out = out ? `${out} ${s}` : s
+  }
+  return out.slice(0, max + 80)
+}
+
+const range = (r, unit) => (r && (r.min != null || r.max != null) ? `${r.min}-${r.max} ${unit}` : undefined)
+
+function compact(i) {
+  const c = i.conditions || {}
+  return {
+    id: i.psi_id,
+    name: i.name,
+    gravity: i.gravity,
+    fuel: i.fuel_type,
+    materials: i.materials?.length ? i.materials : undefined,
+    o2: range(c.o2_pct, '%'),
+    pressure: range(c.pressure_kpa, 'kPa'),
+    flow: range(c.flow_cm_s, 'cm/s'),
+    measured: i.measurements?.length ? i.measurements : undefined,
+    tags: i.tags?.length ? i.tags : undefined,
+    summary: firstSentences(i.summary, 300),
+  }
+}
+
 async function callModel(messages) {
   const ctrl = new AbortController()
   const timer = setTimeout(() => ctrl.abort(), 25_000)
@@ -122,7 +152,7 @@ function validateScores(raw) {
 }
 
 async function scoreAll(question) {
-  const user = `Question: ${JSON.stringify(question)}\n\nInvestigations:\n${JSON.stringify(investigations.map(brief))}`
+  const user = `Question: ${JSON.stringify(question)}\n\nInvestigations:\n${JSON.stringify(investigations.map(compact))}`
   const messages = [
     { role: 'system', content: SCORE_SYSTEM },
     { role: 'user', content: user },
