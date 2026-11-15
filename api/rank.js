@@ -71,7 +71,13 @@ async function callModel(messages) {
         messages,
       }),
     })
-    if (!res.ok) throw new Error(`model_http_${res.status}`)
+    if (!res.ok) {
+      // The provider's error text says why (for example an unknown model name).
+      // It does not include our key or the question.
+      const detail = await res.text().catch(() => '')
+      console.error('model error body:', detail.slice(0, 300))
+      throw new Error(`model_http_${res.status}`)
+    }
     const data = await res.json()
     return JSON.parse(data.choices[0].message.content)
   } finally {
