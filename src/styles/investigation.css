@@ -76,5 +76,5 @@
 /* A short chart in a tall card row keeps a white panel instead of showing the card colour. */
 .plot { flex: 1 0 auto; background: #FFFFFF; }
 
-.inv-photo--none { background: linear-gradient(160deg, #120F3A, #2A1B7A 70%, #3B1F8F); }
+.inv-photo--none { background: #141A4A; }
 .inv-photo--none img { width: 40%; }

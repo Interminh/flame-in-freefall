@@ -170,5 +170,5 @@
 .card__credit, .card__links a { position: relative; z-index: 2; }
 .card__credit { position: absolute; }
 
-.card__media--none { background: linear-gradient(160deg, #120F3A, #2A1B7A 70%, #3B1F8F); }
+.card__media--none { background: #141A4A; }
 .card__media--none img { width: 44%; max-width: 150px; }

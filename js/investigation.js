@@ -129,7 +129,7 @@ async function main() {
     const media = photo
       ? el('figure', { className: 'inv-photo' }, el('img', { src: `img/nasa/${photo.file}`, alt: photo.alt, width: 1280, height: 800 }),
         el('figcaption', {}, ext(`https://images.nasa.gov/details/${photo.id}`, photo.credit), ' · NASA Image and Video Library'))
-      : el('figure', { className: 'inv-photo inv-photo--none' }, el('img', { src: 'img/logo.svg', alt: '' }))
+      : el('figure', { className: 'inv-photo inv-photo--none' }, el('img', { className: 'logo__anim', src: 'img/logo-256.webp', alt: '' }), el('img', { className: 'logo__still', src: 'img/logo.png', alt: '' }))
 
     const links = el('div', { className: 'inv-links' }, ext(inv.psi_url, 'PSI record on NASA ↗'), inv.doi && ext(`https://doi.org/${inv.doi}`, `DOI ${inv.doi} ↗`))
     const head = el('div', { className: 'inv-head' },

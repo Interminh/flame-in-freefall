@@ -31,7 +31,7 @@ document.getElementById('nav').outerHTML = `
 </div>
 <header class="site-nav">
   <nav class="site-nav__inner" aria-label="Main">
-    <a href="index.html" class="site-nav__brand"><img src="img/logo.svg" alt="" width="40" height="40" />Ignis-0G</a>
+    <a href="index.html" class="site-nav__brand"><img class="logo__anim" src="img/logo-96.webp" alt="" width="40" height="40" /><img class="logo__still" src="img/logo.png" alt="" width="40" height="40" />Ignis-0G</a>
     <ul class="site-nav__links">
       ${items}
     </ul>
