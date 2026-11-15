@@ -39,7 +39,7 @@
   --rule-glass: var(--ink);
 }
 
-/* Dark mode: follows the system setting unless the toggle sets data-mode. */
+/* Dark mode: light is the default. js/prefs.js sets data-mode="dark" when it is chosen, or when System is chosen and the device is dark. */
 :root[data-theme='brutal'][data-mode='dark'] {
   --paper: #0E1630;
   --surface: #16224A;
@@ -55,24 +55,6 @@
   --hl-pink: rgba(255, 143, 199, 0.4);
   --scrim: rgba(0, 0, 0, 0.7);
   color-scheme: dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root[data-theme='brutal']:not([data-mode='light']) {
-    --paper: #0E1630;
-    --surface: #16224A;
-    --ink: #F2F5FF;
-    --muted: #AAB6DA;
-    --rule: #2B3A70;
-    --blue: #FF8A5C;
-    --amber: #6CC4FF;
-    --yellow: #FFE066;
-    --sky: #6FD3FF;
-    --pink: #FF8FC7;
-    --hl-yellow: rgba(255, 224, 102, 0.4);
-    --hl-pink: rgba(255, 143, 199, 0.4);
-    --scrim: rgba(0, 0, 0, 0.7);
-    color-scheme: dark;
-  }
 }
 
 :root[data-theme='brutal'] body { font-size: 18px; overflow-x: clip; }
@@ -429,3 +411,22 @@ a:hover, button, .button-link,
 :root .chat-form { border-top: 1px solid var(--rule); }
 :root .chat-input { color: var(--ink); background: var(--surface); border: var(--bw) solid var(--ink); border-radius: 16px; }
 :root .chat-note { color: var(--muted); }
+
+/* Works cited: the long publications list sits in a fold. */
+.works-fold { margin: var(--space-4) 0 var(--space-8); background: var(--surface); border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
+.works-fold > summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-4) var(--space-6); cursor: pointer; list-style: none; }
+.works-fold > summary::-webkit-details-marker { display: none; }
+.works-fold > summary::after { content: '+'; flex: none; font-family: var(--font-data); font-size: 22px; line-height: 1; color: var(--muted); }
+.works-fold[open] > summary::after { content: '\2212'; }
+.works-fold > summary h3 { margin: 0; font-size: 20px; }
+.works-fold > summary:focus-visible { outline: 3px solid var(--blue); outline-offset: -3px; border-radius: var(--radius-card); }
+.works-fold .works-cited { margin: 0; padding: 0 var(--space-6) var(--space-6); }
+
+/* About page */
+.about-h { margin-top: var(--space-12); }
+.about-list { max-width: 70ch; padding-left: var(--space-6); }
+.about-list li + li { margin-top: var(--space-3); }
+
+/* Fact cards on every page, not only the home page (landing.css) */
+.facts { display: grid; }
+.facts dd { margin: 0; }
