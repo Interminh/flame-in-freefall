@@ -13,14 +13,13 @@ const psiDate = (s) => {
 }
 const iso = (s) => fmt(+s.slice(0, 4), +s.slice(5, 7), +s.slice(8, 10))
 const link = (url) => `<a href="${url}">${esc(url.replace(/^https?:\/\//, ''))}</a>`
-const ACCESSED = '15 Nov. 2026'
 
 const invs = JSON.parse(readFileSync('data/atlas/investigations.json', 'utf8'))
 const investigations = invs.map((i) => {
   const title = i.full_name.endsWith(i.name) || i.full_name.includes(`(${i.name})`) ? i.full_name : `${i.full_name} (${i.name})`
   return {
     sort: title,
-    html: `"${esc(title)}." <i>NASA Physical Sciences Informatics</i>, NASA, ${psiDate(i.psi_record_modified)}, ${link('https://doi.org/' + i.doi)}. Accessed 14 Nov. 2026.`,
+    html: `"${esc(title)}." <i>NASA Physical Sciences Informatics</i>, NASA, ${psiDate(i.psi_record_modified)}, ${link('https://doi.org/' + i.doi)}..`,
   }
 })
 
@@ -34,24 +33,24 @@ const reports = [
   ['Ferkul, Paul V., et al.', 'Flammability Aspects of a Cotton-Fiberglass Fabric in Opposed and Concurrent Airflow in Microgravity', '28 Nov. 2012', '20130012832'],
 ].map(([a, t, d, id]) => ({
   sort: a + t,
-  html: `${esc(a.replace(/\.$/, ''))}. "${esc(t)}." <i>NASA Technical Reports Server</i>, NASA, ${d}, ${link('https://ntrs.nasa.gov/citations/' + id)}. Accessed ${ACCESSED}.`,
+  html: `${esc(a.replace(/\.$/, ''))}. "${esc(t)}." <i>NASA Technical Reports Server</i>, NASA, ${d}, ${link('https://ntrs.nasa.gov/citations/' + id)}..`,
 }))
 
 const tools = [
-  ['@fontsource/newsreader', `"Newsreader." Version 5.3.0, <i>Fontsource</i>, ${link('https://fontsource.org/fonts/newsreader')}. Accessed ${ACCESSED}.`],
-  ['@fontsource/ibm-plex', `"IBM Plex Sans Condensed." Version 5.3.0, <i>Fontsource</i>, ${link('https://fontsource.org/fonts/ibm-plex-sans-condensed')}. Accessed ${ACCESSED}.`],
-  ['React', `<i>React</i>. Version 19.3.1, Meta Platforms, ${link('https://react.dev')}. Accessed ${ACCESSED}.`],
-  ['React Router', `<i>React Router</i>. Version 7.18.5, ${link('https://reactrouter.com')}. Accessed ${ACCESSED}.`],
-  ['Vite', `<i>Vite</i>. Version 8.3.8, ${link('https://vite.dev')}. Accessed ${ACCESSED}.`],
-  ['Plotly', `<i>Plotly.js</i>. Version 4.3.0, Plotly, ${link('https://plotly.com/javascript/')}. Accessed ${ACCESSED}.`],
+  ['@fontsource/newsreader', `"Newsreader." Version 5.3.0, <i>Fontsource</i>, ${link('https://fontsource.org/fonts/newsreader')}..`],
+  ['@fontsource/ibm-plex', `"IBM Plex Sans Condensed." Version 5.3.0, <i>Fontsource</i>, ${link('https://fontsource.org/fonts/ibm-plex-sans-condensed')}..`],
+  ['React', `<i>React</i>. Version 19.3.1, Meta Platforms, ${link('https://react.dev')}..`],
+  ['React Router', `<i>React Router</i>. Version 7.18.5, ${link('https://reactrouter.com')}..`],
+  ['Vite', `<i>Vite</i>. Version 8.3.8, ${link('https://vite.dev')}..`],
+  ['Plotly', `<i>Plotly.js</i>. Version 4.3.0, Plotly, ${link('https://plotly.com/javascript/')}..`],
 ].map(([sort, html]) => ({ sort, html }))
 
 const ai = [
-  ['Claude Code', `<i>Claude Code</i>. Anthropic, ${link('https://claude.com/claude-code')}. Accessed ${ACCESSED}.`],
-  ['gpt-oss-120b', `<i>gpt-oss-120b</i>. OpenAI, <i>Hugging Face</i>, ${link('https://huggingface.co/openai/gpt-oss-120b')}. Accessed ${ACCESSED}.`],
-  ['Groq', `<i>Groq</i>. Groq, ${link('https://groq.com')}. Accessed ${ACCESSED}.`],
-  ['Ollama', `<i>Ollama</i>. Ollama, ${link('https://ollama.com')}. Accessed ${ACCESSED}.`],
-  ['Vercel', `<i>Vercel</i>. Vercel, ${link('https://vercel.com')}. Accessed ${ACCESSED}.`],
+  ['Claude Code', `<i>Claude Code</i>. Anthropic, ${link('https://claude.com/claude-code')}..`],
+  ['gpt-oss-120b', `<i>gpt-oss-120b</i>. OpenAI, <i>Hugging Face</i>, ${link('https://huggingface.co/openai/gpt-oss-120b')}..`],
+  ['Groq', `<i>Groq</i>. Groq, ${link('https://groq.com')}..`],
+  ['Ollama', `<i>Ollama</i>. Ollama, ${link('https://ollama.com')}..`],
+  ['Vercel', `<i>Vercel</i>. Vercel, ${link('https://vercel.com')}..`],
 ].map(([sort, html]) => ({ sort, html }))
 
 const list = (items) =>
@@ -75,7 +74,7 @@ const html = `<!doctype html>
     <main class="page">
       <section>
         <h1>Our sources</h1>
-        <p>Works cited in MLA format. Investigation entries cite the NASA PSI record, with the date PSI last modified it. Dates after "Accessed" are when we retrieved the page. Authors are left out where the PSI record does not list one.</p>
+        <p>Works cited in MLA format. Investigation entries cite the NASA PSI record, with the date PSI last modified it. Authors are left out where the PSI record does not list one.</p>
 
         <h2>NASA investigations</h2>
         ${list(investigations)}
