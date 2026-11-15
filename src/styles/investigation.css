@@ -78,3 +78,13 @@
 
 .inv-photo--none { background: #141A4A; }
 .inv-photo--none img { width: 40%; }
+
+.subtabs { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0 0 var(--space-4); }
+.subtabs button { padding: var(--space-1) var(--space-3); font-size: 13px; background: var(--surface); box-shadow: 2px 2px 0 var(--ink); }
+.subtabs button[aria-selected='true'] { background: var(--yellow); }
+.small { font-family: var(--font-data); font-size: 12px; color: var(--muted); max-width: none; margin: 0 0 var(--space-3); }
+.pub__main { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-1) var(--space-2); }
+.pub__au { flex-basis: 100%; font-family: var(--font-data); font-size: 12px; color: var(--muted); }
+.tag--link { text-decoration: none; background: var(--sky); color: var(--ink); }
+.inv-links a[href^='#'] { background: var(--surface); }
+.inv-sec { scroll-margin-top: 80px; }

@@ -20,6 +20,8 @@
 
   let data
   const photos = new Map()
+  let pubs = {}
+  const figCount = new Map()
 
   // One card per investigation. A photo is shown only where we have a NASA image for it.
   function card(it) {
@@ -64,7 +66,9 @@
       outcome.append(bar, `${pct}% (${it.out} of ${it.harmonised})`)
     }
 
+    const np = (pubs[it.psi_id] || []).length, nf = figCount.get(it.psi_id) || 0
     const stats = el('dl', { className: 'card__stats' },
+      el('dt', { textContent: 'Papers' }), el('dd', { textContent: `${np} on PSI${nf ? `, ${nf} figure${nf === 1 ? '' : 's'} shown` : ''}` }),
       el('dt', { textContent: 'Data' }), el('dd', { textContent: [KIND[it.kind], size].filter(Boolean).join(', ') }),
       el('dt', { textContent: 'Varied' }), el('dd', {}, dots, ` ${list}`),
       el('dt', { textContent: 'Outcome' }), outcome)
@@ -114,8 +118,10 @@
   const getJson = (u) => fetch(u).then((r) => { if (!r.ok) throw new Error(r.status); return r.json() })
 
   // The photo manifest is optional: the page still works without it.
-  Promise.all([getJson('data/catalogue.json'), getJson('img/nasa/images.json').catch(() => [])])
-    .then(([d, imgs]) => {
+  Promise.all([getJson('data/catalogue.json'), getJson('img/nasa/images.json').catch(() => []), getJson('data/publications.json').catch(() => ({})), getJson('data/pub-figures.json').catch(() => [])])
+    .then(([d, imgs, pb, figs]) => {
+      pubs = pb
+      for (const f of figs) for (const k of f.psi) figCount.set(k, (figCount.get(k) || 0) + 1)
       for (const p of imgs) for (const id of p.psi) photos.set(id, p)
       init(d)
     })

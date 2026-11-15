@@ -370,3 +370,62 @@ a:hover, button, .button-link,
 @media (max-width: 720px) { .settings-tab { display: none; } }
 
 .site-nav__brand img { border-radius: 50%; }
+
+/* New investigation page parts: section tabs, sub-tabs and link tags. */
+:root .inv-links a[href^='#'] { color: var(--ink); background: var(--surface); }
+:root .inv-links a[href^='#']:hover { color: var(--on-accent); background: var(--yellow); }
+:root .subtabs button { color: var(--ink); background: var(--surface); box-shadow: none; }
+:root .subtabs button:hover:not([disabled]) { background: var(--sky); color: var(--on-accent); transform: none; box-shadow: none; }
+:root .subtabs button[aria-selected='true'] { color: var(--on-accent); background: var(--yellow); }
+:root .tag--link { color: var(--on-accent); background: var(--sky); border-radius: var(--radius-control); }
+
+/* Notice on the Ignis AI page: the same quiet left-rule note as the Simulation page. */
+:root .page h1 + .note {
+  max-width: 70ch;
+  margin: 0 0 var(--space-6);
+  padding: var(--space-1) 0 var(--space-1) var(--space-4);
+  border-left: 4px solid var(--blue);
+  font-family: var(--font-read);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* Help bot (js/chat.js and src/styles/chat.css from main), themed to match the site.
+   The :root prefix wins over chat.css, which loads later, so main's file stays untouched. */
+:root .chat-launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px 18px 8px 10px;
+  font: 500 14px var(--font-data);
+  color: var(--on-accent);
+  background: var(--yellow);
+  border: var(--bw) solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+:root .chat-launcher::before { content: ''; flex: none; width: 26px; height: 26px; background: url('../../img/logo.png') center / contain no-repeat; }
+:root .chat-launcher:hover { background: var(--sky); color: var(--on-accent); }
+
+:root .chat-panel {
+  overflow: hidden;
+  border: var(--bw) solid var(--ink);
+  border-radius: var(--radius-card);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3);
+}
+:root .chat-head { color: var(--on-accent); background: var(--yellow); border-bottom: var(--bw) solid var(--ink); padding: var(--space-3) var(--space-4); }
+:root .chat-head strong { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--font-display); font-size: 19px; font-weight: 700; }
+:root .chat-head strong::before { content: ''; width: 24px; height: 24px; background: url('../../img/logo.png') center / contain no-repeat; }
+:root .chat-close, :root .chat-send { font: 500 13px var(--font-data); color: var(--ink); background: var(--surface); border: var(--bw) solid var(--ink); border-radius: var(--radius-control); box-shadow: none; }
+:root .chat-send { color: var(--on-accent); background: var(--yellow); }
+:root .chat-close:hover, :root .chat-send:hover:not(:disabled) { background: var(--sky); color: var(--on-accent); }
+:root .chat-msg { border: 1px solid var(--ink); border-radius: 16px; }
+:root .chat-msg--user { color: var(--on-accent); background: var(--sky); border-bottom-right-radius: 4px; }
+:root .chat-msg--assistant { color: var(--ink); background: var(--paper); border-bottom-left-radius: 4px; }
+:root .chat-msg.is-error { color: var(--on-accent); background: var(--pink); }
+:root .chat-msg a { color: inherit; }
+:root .chat-sources { border-top: 1px solid currentColor; }
+:root .chat-form { border-top: 1px solid var(--rule); }
+:root .chat-input { color: var(--ink); background: var(--surface); border: var(--bw) solid var(--ink); border-radius: 16px; }
+:root .chat-note { color: var(--muted); }
