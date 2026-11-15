@@ -115,6 +115,7 @@ const html = `<!doctype html>
       </section>
     </main>
     <script src="js/nav.js"></script>
+    <script defer src="js/chat.js"></script>
   </body>
 </html>
 `
