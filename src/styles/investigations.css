@@ -159,3 +159,16 @@
 .cat-credit { margin-top: var(--space-2); font-family: var(--font-data); font-size: 12px; color: var(--muted); max-width: none; }
 
 .card__links { margin: var(--space-3) 0 0; font-family: var(--font-data); font-size: 13px; }
+
+/* The whole card opens the investigation page. The title link stretches over the card,
+   and the photo credit and PSI record links sit above it so they still work. */
+.card { position: relative; }
+.card h3 a::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+.card:hover { cursor: pointer; }
+.card:focus-within { outline: 3px solid var(--blue); outline-offset: 4px; }
+.card h3 a:focus-visible { outline: none; }
+.card__credit, .card__links a { position: relative; z-index: 2; }
+.card__credit { position: absolute; }
+
+.card__media--none { background: linear-gradient(160deg, #120F3A, #2A1B7A 70%, #3B1F8F); }
+.card__media--none img { width: 44%; max-width: 150px; }
