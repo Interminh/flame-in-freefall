@@ -5,6 +5,7 @@
   "outputDirectory": ".",
   "functions": {
     "api/rank.js": { "maxDuration": 30 },
-    "api/explain.js": { "maxDuration": 30 }
+    "api/explain.js": { "maxDuration": 30 },
+    "api/chat.js": { "maxDuration": 30 }
   }
 }

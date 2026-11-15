@@ -106,7 +106,7 @@ const html = `<!doctype html>
         ${list(tools)}
 
         <h2>AI tools and hosting</h2>
-        <p>AI summaries were checked by a person against the PSI record.</p>
+        <p>Claude supported the development of this project through coding and analysis. AI work was reviewed by people on our team, and AI summaries were checked against the PSI record.</p>
         ${list(ai)}
 
         <h2>Images</h2>
@@ -115,6 +115,7 @@ const html = `<!doctype html>
       </section>
     </main>
     <script src="js/nav.js"></script>
+    <script defer src="js/chat.js"></script>
   </body>
 </html>
 `
