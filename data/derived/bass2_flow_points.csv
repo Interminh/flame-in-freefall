@@ -1,0 +1,60 @@
+point_id,test_id,psi_id,material_class,material_text,thickness_mm,thickness_source,o2_percent,flow_direction,flow_cm_s,flow_basis,label,censored,event,use_in_fit,reading_note,evidence
+f01,B6,PSI-25,pmma_film,PMMA film,0.1,sample_text,21,opposed,3,notes,burn,,burning_sustained,yes,,obs:Steady burning at 3 and 5 cm/s
+f02,B6,PSI-25,pmma_film,PMMA film,0.1,sample_text,21,opposed,5,notes,burn,,burning_sustained,yes,,obs:Steady burning at 3 and 5 cm/s
+f03,B8,PSI-25,pmma_film,PMMA film,0.2,sample_text,21,opposed,10,notes,burn,,burning_sustained,yes,,obs:Spread at 10 cm/s
+f04,B15,PSI-25,pmma_film,PMMA film,0.1,sample_text,21,opposed,10,notes,burn,,burning_sustained,yes,,obs:Spread at 10 cm/s
+f05,B9,PSI-25,pmma_film,PMMA film,0.1,sample_text,21,opposed,2,notes,burn,,burning_sustained,yes,,obs:Steady burning at 2 cm/s
+f06,B9,PSI-25,pmma_film,PMMA film,0.1,sample_text,21,opposed,0.5,air_display,extinguish,zero_reading,quench_ramp_down,yes,Air display read 0 or under 1 at the last step of a stepped reduction.,air:2 <1
+f07,B22,PSI-25,pmma_film,PMMA film,0.2,table,20.7,opposed,5,notes,burn,,burning_sustained,yes,,obs:Ignition at 5 cm/s then decreased flow in step
+f08,B22,PSI-25,pmma_film,PMMA film,0.2,table,20.7,opposed,2,air_display,burn,,burning_sustained,yes,,air:5 2 0
+f09,B22,PSI-25,pmma_film,PMMA film,0.2,table,20.7,opposed,0.5,air_display,extinguish,zero_reading,quench_ramp_down,yes,Air display read 0 or under 1 at the last step of a stepped reduction.,air:5 2 0
+f10,B18,PSI-25,pmma_film,PMMA film,0.2,table,17.4,opposed,10,air_display,burn,,burning_sustained,yes,,air:10 blowoff
+f11,B19,PSI-25,pmma_film,PMMA film,0.1,table,17.3,opposed,10,air_display,burn,,burning_sustained,yes,,air:10 blowoff
+s01,M2,PSI-25,pmma_slab,PMMA slab,3,table,22.2,opposed,15,notes,burn,,burning_sustained,yes,,obs:turn down to 15 cm/s after spread away from igniter; seemed steady
+s02,M2,PSI-25,pmma_slab,PMMA slab,3,table,22.2,opposed,14,notes,extinguish,,extinct_not_flow_limited,no,Flame was already very dim and flow was raised to 14 before it went out. Not a flow-reduction limit.,"obs:increased flow to 14 cm/s, but it self- extinguished"
+s03,M3,PSI-25,pmma_slab,PMMA slab,5,table,20.8,opposed,18,notes,extinguish,,extinct_not_flow_limited,no,"Air display reads 10, 20, 18. Flow rose before the flame went out, and the notes do not say starvation or blow-off.",obs:Extinguished at 18 cm/s
+s04,M5,PSI-25,pmma_slab,PMMA slab,3,table,22.2,opposed,10,notes,burn,,burning_sustained,yes,,"obs:turned down to 10 cm/s, then further down in increments to 5 cm/s"
+s05,M5,PSI-25,pmma_slab,PMMA slab,3,table,22.2,opposed,5,notes,extinguish,,quench_ramp_down,yes,Air-display sequence falls to this value and the flame goes out.,obs:extinguished at 5 cm/s after prolonged flashing
+s06,M9,PSI-25,pmma_slab,PMMA slab,3,table,18,opposed,10,notes,burn,,burning_at_ignition,no,Only the ignition flow is stated. The flame later looked weak and flow was raised.,"obs:Ignited at 10 cm/s, photographs every 5 s or so"
+s07,M9,PSI-25,pmma_slab,PMMA slab,3,table,18,opposed,14,notes,extinguish,,extinct_not_flow_limited,no,"Flow was raised because the flame looked weak, then it died after 15 minutes. Not a flow-reduction limit.",obs:died after 15 min at 14 cm/s
+s08,M10,PSI-25,pmma_slab,PMMA slab,4,table,20.1,opposed,17,notes,burn,,burning_sustained,yes,,obs:flame big at 17
+s09,M10,PSI-25,pmma_slab,PMMA slab,4,table,20.1,opposed,8,notes,extinguish,,quench_ramp_down,yes,Air-display sequence falls to this value and the flame goes out.,obs:flame self-extinguished at 8 cm/s
+s10,M11,PSI-25,pmma_slab,PMMA slab,5,table,20,opposed,12,notes,extinguish,,quench_ramp_down,yes,Air-display sequence falls to this value and the flame goes out.,obs:extinguished at 12 cm/s
+s11,M14,PSI-25,pmma_slab,PMMA slab,2,table,22.2,opposed,9,notes,extinguish,,quench_ramp_down,yes,Air-display sequence falls to this value and the flame goes out.,obs:flame self-extinguished at an air reading of 9 cm/s
+s12,M14,PSI-25,pmma_slab,PMMA slab,2,table,22.2,opposed,10,air_display,burn,,burning_sustained,yes,,obs:spread steadily
+s13,M15,PSI-25,pmma_slab,PMMA slab,4,sample_text,21,opposed,20,notes,burn,,burning_sustained,yes,,obs:turned flow up to 20 cm/s and got steady spreading there
+s14,M16,PSI-25,pmma_slab,PMMA slab,1,table,19.2,opposed,1,notes,burn,,burning_sustained,yes,,"obs:Burned at decreasing flow down to 1 cm/s or so, still fine"
+s15,M16,PSI-25,pmma_slab,PMMA slab,1,table,19.2,opposed,10,notes,burn,,burning_sustained,yes,,obs:turned up flow to 10 cm/s and flame got really long
+s16,M18,PSI-25,pmma_slab,PMMA slab,3,table,17.9,opposed,15,notes,burn,,burning_sustained,yes,,obs:flow briefly at 15 cm/s but flame was too strong
+s17,M18,PSI-25,pmma_slab,PMMA slab,3,table,17.9,opposed,8,notes,extinguish,,quench_ramp_down,yes,Air-display sequence falls to this value and the flame goes out.,obs:extinguished 8 cm/s
+s18,M19,PSI-25,pmma_slab,PMMA slab,4,table,19,opposed,5,notes,extinguish,,quench_ramp_down,yes,Air-display sequence falls to this value and the flame goes out.,obs:went out on its own at 5 cm/s
+s19,M20,PSI-25,pmma_slab,PMMA slab,5,table,18,opposed,10,notes,burn,,burning_sustained,yes,,obs:ignition at 10 cm/s (left 8 min)
+s20,M20,PSI-25,pmma_slab,PMMA slab,5,table,18,opposed,8,notes,extinguish,,quench_ramp_down,yes,Air-display sequence falls to this value and the flame goes out.,obs:flow down to 8 cm/s (flame out after 3 more minutes)
+r01,O3a,PSI-25,pmma_rod,1/4 in clear rod,,,18,concurrent,5,notes,burn,,burning_sustained,yes,,obs:flame sooty at 5 cm/s
+r02,O3a,PSI-25,pmma_rod,1/4 in clear rod,,,18,concurrent,3,air_display,extinguish,,quench_ramp_down,yes,Notes say the operator probably overshot when turning flow down.,obs:Flame extinguished as soon as he turned flow down
+r03,O2,PSI-25,pmma_rod,1/4 in clear rod,,,22.2,,2,notes,burn,,burning_sustained,yes,,"obs:Ignited at 2 cm/s, and got dim flame"
+r04,O15a,PSI-25,pmma_rod,3/8 in clear rod,,,17.1,,5,notes,burn,,burning_sustained,yes,,obs:1.5 min at 5 cm/s
+r05,O15a,PSI-25,pmma_rod,3/8 in clear rod,,,17.1,,0.5,air_display,extinguish,zero_reading,quench_ramp_down,yes,Air display read 0 at the last step of a stepped reduction.,air:5 0
+r06,O15b,PSI-25,pmma_rod,3/8 in clear rod,,,16.7,,5,notes,burn,,burning_sustained,yes,,obs:1 min 5 cm/s
+r07,O15b,PSI-25,pmma_rod,3/8 in clear rod,,,16.7,,0.5,air_display,extinguish,zero_reading,quench_ramp_down,yes,Air display read 0 at the last step of a stepped reduction.,air:5 0
+r08,O18,PSI-25,pmma_rod,1/4 in clear rod,,,15.2,,2,air_display,burn,,burning_sustained,yes,,obs:got it to restabilize
+r09,O18,PSI-25,pmma_rod,1/4 in clear rod,,,15.2,,0.5,air_display,extinguish,zero_reading,quench_ramp_down,yes,Air display read 0 at the last step of a stepped reduction.,obs:extinguished after multiple oscillations at pot 1.0
+r10,O14,PSI-25,pmma_rod,1/4 in black rod,,,16.3,concurrent,5,notes,burn,,burning_sustained,yes,,obs:Ignition at 5 cm/s then slow pot decreases
+r11,O19,PSI-25,pmma_rod,1/4 in clear rod,,,15.3,concurrent,5,notes,burn,,burning_sustained,yes,,obs:Ignition at 5 cm/s then slow pot decreases
+r12,P5,PSI-25,pmma_rod,0.5 in black rod,,,19.3,opposed,5,notes,burn,,burning_sustained,yes,,obs:(flame persisted for all)
+r13,P13a,PSI-25,pmma_rod,0.5 in black rod,,,20.7,opposed,5,notes,burn,,burning_sustained,yes,,obs:Fan pot 1.1 (5 cm/s)
+r14,P13b,PSI-25,pmma_rod,0.5 in black rod,,,20.6,opposed,5,notes,burn,,burning_sustained,yes,,obs:Fan pot 1.3 (5 cm/s)
+r15,P17,PSI-25,pmma_rod,1/4 in black rod,,,16.8,opposed,2,notes,burn,,burning_sustained,yes,,obs:turned back down to 2 cm/s
+r16,P17,PSI-25,pmma_rod,1/4 in black rod,,,16.8,opposed,22,air_display,burn,,burning_sustained,yes,,obs:tried blowoff without success
+r17,P21a,PSI-25,pmma_rod,1/4 in black rod,,,16.3,opposed,5,notes,extinguish,,extinct_not_flow_limited,no,Flame went out when the sample end flattened. No flow reduction is described.,obs:self-extinguished at 5 cm/s
+b01,T14,PSI-25,sibal,SIBAL,,,16.9,concurrent,3,notes,extinguish,,quench_ramp_down,yes,,obs:Extinguished as we reduced flow below 3 cm/s
+b02,T14,PSI-25,sibal,SIBAL,,,16.9,concurrent,5,air_display,burn,,burning_sustained,yes,,air:5 3
+b03,T15,PSI-25,sibal,SIBAL,,,18.7,,9,notes,burn,,burning_sustained,yes,,obs:actual airspeed is about 9 cm/s
+b04,T15,PSI-25,sibal,SIBAL,,,18.7,,29,notes,burn,,burning_sustained,yes,,obs:flow only maxed out to 29 cm/s; no blowoff attained
+b05,T16,PSI-25,sibal,SIBAL,,,17.6,concurrent,3,notes,burn,,burning_sustained,yes,,obs:flame spread whole sample at 3 cm/s
+b06,T20,PSI-25,sibal,SIBAL,,,17.2,concurrent,3,notes,extinguish,,quench_ramp_down,yes,,obs:Quick extinction when we turned air down to 3 cm/s
+b07,T20,PSI-25,sibal,SIBAL,,,17.2,concurrent,11,air_display,burn,,burning_sustained,yes,,air:11 3
+b08,T21,PSI-25,sibal,SIBAL,,,17.2,concurrent,47,air_display,blowoff,,blowoff,yes,"Blow-off at an air display of 47, which is not calibrated. Informs the blow-off side only.",obs:Successful blowoff!
+b09,T25,PSI-25,sibal,SIBAL,,,20.8,concurrent,2.5,notes,burn,,burning_sustained,yes,,obs:decrease to 2.5 cm/s and hold constant
+b10,T26,PSI-25,sibal,SIBAL,,,20.8,concurrent,2.5,notes,burn,,burning_sustained,yes,,obs:decrease to 2.5 cm/s and hold constant
+b11,T27,PSI-25,sibal,SIBAL,,,20.7,concurrent,2,notes,burn,,burning_sustained,yes,,obs:then quickly to 2 cm/s
