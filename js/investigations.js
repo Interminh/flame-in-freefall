@@ -98,7 +98,7 @@
 
   function init(d) {
     data = d
-    $('lede').textContent = `All ${d.items.length} NASA PSI investigations on one page. Read across a row to see what an investigation studied, what data it has, which variables it changed, and how many of its tests state an outcome. Select a name to open its PSI page.`
+    $('lede').textContent = `All ${d.items.length} NASA PSI investigations on one page. Read across a row to see what an investigation studied, what data it has, which variables it changed, and how many of its tests state an outcome. Select a name for its summary, charts and data.`
     $('pillar').replaceChildren(el('option', { value: 'all', textContent: 'All pillars' }),
       ...Object.entries(PILLARS).map(([k, label]) => el('option', { value: k, textContent: label })))
     const hws = [...new Set(d.items.map((i) => i.hardware).filter(Boolean))]
