@@ -98,15 +98,18 @@
               <h2 class="sim-maph" id="map-h">Flammability map for your inputs</h2>
               <p class="sim-mapsum" id="map-summary"></p>
               <p class="sim-badge" id="map-badge"></p>
-              <figure class="sim-map" id="map-fig">
-                <svg id="map" viewBox="0 0 720 440" role="img" aria-labelledby="map-summary"></svg>
-                <figcaption id="map-caption"></figcaption>
-              </figure>
-              <aside class="sim-card sim-inspector" id="inspector" aria-live="polite" aria-labelledby="insp-h">
-                <h2 id="insp-h">Real experiment details</h2>
-                <p class="sim-insp-hint" id="insp-hint">Click a dot on the map, or a row in the table below, to see the test it came from.</p>
-                <div id="inspector-body"></div>
-              </aside>
+              <ul class="sim-key" id="line-key" aria-label="Key to the lines"></ul>
+              <div class="sim-mapwrap">
+                <figure class="sim-map" id="map-fig">
+                  <svg id="map" viewBox="0 0 640 390" role="img" aria-labelledby="map-summary"></svg>
+                  <figcaption id="map-caption"></figcaption>
+                </figure>
+                <aside class="sim-inspector" id="inspector" aria-live="polite" aria-labelledby="insp-h">
+                  <h2 id="insp-h">Real experiment details</h2>
+                  <p class="sim-insp-hint" id="insp-hint">Click a dot or a table row to see the test it came from.</p>
+                  <div id="inspector-body"></div>
+                </aside>
+              </div>
             </div>
 
             <div class="sim-right">
@@ -133,27 +136,28 @@
                 </dl>
               </div>
 
-              <section class="sim-card sim-warnpanel" id="warnings-panel" aria-labelledby="warn-h">
-                <h2 id="warn-h">Warnings for these inputs <span class="sim-count" id="warn-count"></span></h2>
-                <ul class="sim-warnlist" id="warnings"></ul>
-                <p class="sim-standing">
-                  Always true: these are model estimates, not measurements. The flow values were read by hand from crew
-                  notes, and a second person has not yet checked them.
-                </p>
-              </section>
             </div>
           </div>
+
+          <section class="sim-card sim-warnpanel sim-warnwide" id="warnings-panel" aria-labelledby="warn-h">
+            <h2 id="warn-h">Warnings for these inputs <span class="sim-count" id="warn-count"></span></h2>
+            <ul class="sim-warnlist" id="warnings"></ul>
+            <p class="sim-standing">
+              Always true: these are model estimates, not measurements. The flow values were read by hand from crew
+              notes, and a second person has not yet checked them.
+            </p>
+          </section>
 
           <h3 class="sim-h3">How to read the map</h3>
           <ul class="sim-legend" id="map-legend">
             <li><svg viewBox="0 0 28 14" aria-hidden="true"><rect x="1" y="1" width="26" height="12" class="sim-cell" fill-opacity="0.7"/></svg><span><strong>Shading</strong>: chance the flame keeps burning at your gravity. Darker is higher.</span></li>
             <li><svg viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7H28" class="sim-median"/></svg><span><strong>Solid line</strong>: limiting oxygen at your gravity. Above it burns, below it goes out.</span></li>
             <li><svg viewBox="0 0 28 14" aria-hidden="true"><rect x="0" y="3" width="28" height="8" class="sim-band"/></svg><span><strong>Wide band</strong>: 5 to 95% range of the solid line.</span></li>
-            <li><svg viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7H28" class="sim-ref" stroke-dasharray="7 3"/></svg><span><strong>Dashed lines</strong>: the same limit at 0 g, Moon, Mars and 1 g, for comparison. Each is the middle estimate, with no band.</span></li>
+            <li><svg viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7H28" class="sim-ref" stroke-dasharray="7 3"/></svg><span><strong>Dashed lines</strong>: the same limit at 0 g, Moon, Mars and 1 g, for comparison, named in the key above the map. Each is the middle estimate, with no band.</span></li>
             <li><svg viewBox="0 0 28 14" aria-hidden="true"><rect x="0" y="0" width="28" height="14" fill="url(#hatch-legend)"/><defs><pattern id="hatch-legend" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="sim-hatch" x1="0" y1="0" x2="0" y2="7"/></pattern></defs></svg><span><strong>Hatched</strong>: outside the oxygen and flow range of the BASS-II data.</span></li>
             <li><svg viewBox="0 0 28 14" aria-hidden="true"><circle cx="14" cy="7" r="6" class="sim-marker"/><circle cx="14" cy="7" r="1.8" class="sim-marker-dot"/></svg><span><strong>Ring</strong>: your input.</span></li>
             <li><svg viewBox="0 0 70 14" aria-hidden="true"><circle cx="8" cy="7" r="4.5" class="sim-pt-burn"/><circle cx="26" cy="7" r="4.5" class="sim-pt-out"/><path d="M44 2L49 7L44 12L39 7Z" class="sim-pt-out"/><path d="M60 3L66 11M60 11L66 3" class="sim-pt-skip"/></svg><span><strong>Real microgravity tests</strong>, for this material: filled burned, open circle went out, open diamond blown off, grey cross left out of the fit. Compare them with the dashed 0 g line, whatever gravity you chose. A dark ring means the 0 g model disagrees with that test.</span></li>
-            <li><svg viewBox="0 0 28 14" aria-hidden="true"><circle cx="14" cy="7" r="6.5" class="sim-num-bg"/><text x="14" y="10.5" text-anchor="middle" class="sim-num">1</text></svg><span><strong>Numbers</strong>: the five closest tests, matching the table below. The test shown in the details box has a thick ring.</span></li>
+            <li><svg viewBox="0 0 28 14" aria-hidden="true"><circle cx="9" cy="7" r="3.5" class="sim-pt-burn"/><circle cx="9" cy="7" r="6.2" class="sim-near"/></svg><span><strong>Dashed ring</strong>: the five closest tests, listed in the table below. The test shown in the details box has a thick ring.</span></li>
           </ul>
           <p class="sim-fit" id="fit-line"></p>
 
@@ -166,7 +170,7 @@
           <div class="sim-tablewrap">
             <table class="sim-table sim-pick" id="evidence">
               <thead>
-                <tr><th>#</th><th>Test</th><th>Material</th><th>Thickness mm</th><th>Oxygen %</th><th>Flow cm/s</th><th>Direction</th><th>Observed</th><th>Quote from the notes</th></tr>
+                <tr><th>Details</th><th>Test</th><th>Material</th><th>Thickness mm</th><th>Oxygen %</th><th>Flow cm/s</th><th>Direction</th><th>Observed</th><th>Quote from the notes</th></tr>
               </thead>
               <tbody></tbody>
             </table>

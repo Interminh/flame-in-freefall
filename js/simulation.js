@@ -16,12 +16,11 @@ const REFS = [
 ]
 const FLOW_MAX = 50
 const O2_MIN = 10
-const O2_MAX = 40
+const O2_MAX = 30
 const NX = 48
 const NY = 40
-const W = 720, H = 440
-// The right margin holds the labels of the lines.
-const M = { l: 48, r: 108, t: 12, b: 44 }
+const W = 640, H = 390
+const M = { l: 54, r: 14, t: 10, b: 48 }
 const PW = W - M.l - M.r
 const PH = H - M.t - M.b
 const xOf = (f) => M.l + (Math.min(f, FLOW_MAX) / FLOW_MAX) * PW
@@ -228,7 +227,7 @@ function renderInspector(inp, near) {
   body.replaceChildren(
     verdict,
     html('dl', { className: 'sim-dl sim-insp-dl' },
-      ...row('Test', html('a', { href: `https://psi.nasa.gov/physci/repo/data/investigations/${pt.psiId}`, target: '_blank', rel: 'noopener', textContent: `${pt.psiId} test ${pt.testId}` }), rank >= 0 ? ` (dot ${rank + 1} of the 5 nearest)` : ''),
+      ...row('Test', html('a', { href: `https://psi.nasa.gov/physci/repo/data/investigations/${pt.psiId}`, target: '_blank', rel: 'noopener', textContent: `${pt.psiId} test ${pt.testId}` }), rank >= 0 ? ` (one of the 5 nearest)` : ''),
       ...row('Material', `${pt.materialText}${pt.thickness ? `, ${pt.thickness} mm` : ', thickness not stated in the source'}`),
       ...row('Direction', pt.direction || 'not recorded'),
       ...row('What happened', EVENT[pt.event] ?? pt.event),
@@ -239,9 +238,9 @@ function renderInspector(inp, near) {
 }
 
 function renderEvidence(near) {
-  const rows = near.map(({ pt }, i) => {
+  const rows = near.map(({ pt }) => {
     const tr = html('tr', {},
-      html('td', {}, html('button', { type: 'button', className: 'sim-linkbtn', textContent: String(i + 1), 'aria-label': `Show details for test ${pt.testId}` })),
+      html('td', {}, html('button', { type: 'button', className: 'sim-linkbtn', textContent: 'View', 'aria-label': `Show details for test ${pt.testId}` })),
       html('td', {}, html('a', { href: `https://psi.nasa.gov/physci/repo/data/investigations/${pt.psiId}`, target: '_blank', rel: 'noopener', textContent: `${pt.psiId} ${pt.testId}` })),
       html('td', { textContent: pt.materialText }),
       html('td', { textContent: pt.thickness ?? '' }),
@@ -263,17 +262,17 @@ function buildMap() {
   const axes = svg('g')
   for (let f = 0; f <= FLOW_MAX; f += 10) {
     axes.append(svg('line', { class: 'sim-axis', x1: xOf(f), x2: xOf(f), y1: yOf(O2_MIN), y2: yOf(O2_MIN) + 4 }))
-    axes.append(svg('text', { class: 'sim-tick', x: xOf(f), y: yOf(O2_MIN) + 16, 'text-anchor': 'middle' }, String(f)))
+    axes.append(svg('text', { class: 'sim-tick', x: xOf(f), y: yOf(O2_MIN) + 19, 'text-anchor': 'middle' }, String(f)))
   }
   for (let o = O2_MIN; o <= O2_MAX; o += 10) {
     axes.append(svg('line', { class: 'sim-axis', x1: M.l - 4, x2: M.l, y1: yOf(o), y2: yOf(o) }))
-    axes.append(svg('text', { class: 'sim-tick', x: M.l - 7, y: yOf(o) + 3, 'text-anchor': 'end' }, String(o)))
+    axes.append(svg('text', { class: 'sim-tick', x: M.l - 7, y: yOf(o) + 5, 'text-anchor': 'end' }, String(o)))
   }
   axes.append(
     svg('line', { class: 'sim-axis', x1: M.l, x2: M.l + PW, y1: yOf(O2_MIN), y2: yOf(O2_MIN) }),
     svg('line', { class: 'sim-axis', x1: M.l, x2: M.l, y1: M.t, y2: yOf(O2_MIN) }),
     svg('text', { class: 'sim-axis-label', x: M.l + PW / 2, y: H - 6, 'text-anchor': 'middle' }, 'Forced airflow (cm/s)'),
-    svg('text', { class: 'sim-axis-label', transform: `translate(12 ${M.t + PH / 2}) rotate(-90)`, 'text-anchor': 'middle' }, 'Oxygen (%)'))
+    svg('text', { class: 'sim-axis-label', transform: `translate(14 ${M.t + PH / 2}) rotate(-90)`, 'text-anchor': 'middle' }, 'Oxygen (%)'))
 
   const hatch = svg('g')
   const [a, b] = ranges.o2
@@ -285,29 +284,27 @@ function buildMap() {
 
   Object.assign(mapEls, {
     cells: svg('g'), band: svg('path', { class: 'sim-band' }), refs: svg('g'), median: svg('path', { class: 'sim-median' }),
-    pts: svg('g'), labels: svg('g'),
+    pts: svg('g'),
     marker: svg('g', { class: 'sim-marker-group' },
       svg('circle', { class: 'sim-marker', r: 9 }), svg('circle', { class: 'sim-marker-dot', r: 2 }),
-      svg('text', { class: 'sim-marker-label sim-halo', y: -16, 'text-anchor': 'middle' }, 'Your input'),
       svg('text', { class: 'sim-miss-label sim-halo', y: 25, 'text-anchor': 'middle', display: 'none' }, 'Known miss')),
   })
   chart.append(
     svg('defs', {}, svg('pattern', { id: 'hatch-map', width: 7, height: 7, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, svg('line', { class: 'sim-hatch', x1: 0, y1: 0, x2: 0, y2: 7 }))),
-    mapEls.cells, hatch, mapEls.band, mapEls.refs, mapEls.median, axes, mapEls.pts, mapEls.labels, mapEls.marker)
+    mapEls.cells, hatch, mapEls.band, mapEls.refs, mapEls.median, axes, mapEls.pts, mapEls.marker)
+}
+
+// The key above the map names every line, so the plot itself carries no text labels.
+function buildKey() {
+  const item = (swatch, text, id) => html('li', {}, swatch, html('span', id ? { id, textContent: text } : { textContent: text }))
+  const line = (cls, dash) => svg('svg', { viewBox: '0 0 30 10', 'aria-hidden': 'true' }, svg('path', { class: cls, d: 'M0 5H30', ...(dash ? { 'stroke-dasharray': dash } : {}) }))
+  $('line-key').replaceChildren(
+    item(line('sim-median'), '', 'key-own'),
+    ...REFS.map((r) => item(line('sim-ref', r.dash), r.name)),
+    item(svg('svg', { viewBox: '0 0 30 10', 'aria-hidden': 'true' }, svg('circle', { class: 'sim-marker', cx: 15, cy: 5, r: 4.5 }), svg('circle', { class: 'sim-marker-dot', cx: 15, cy: 5, r: 1.3 })), 'Your input'))
 }
 
 const pathOf = (a) => a.map(([x, y], k) => `${k ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`).join('')
-
-// Keep right-edge labels at least minGap apart and inside the plot, in order of position.
-function spreadLabels(items, minGap, lo, hi) {
-  items.sort((p, q) => p.y - q.y)
-  items.forEach((it) => { it.ly = Math.min(hi, Math.max(lo, it.y)) })
-  for (let i = 1; i < items.length; i++) if (items[i].ly - items[i - 1].ly < minGap) items[i].ly = items[i - 1].ly + minGap
-  if (items.length && items.at(-1).ly > hi) {
-    items.at(-1).ly = hi
-    for (let i = items.length - 2; i >= 0; i--) if (items[i + 1].ly - items[i].ly < minGap) items[i].ly = items[i + 1].ly - minGap
-  }
-}
 
 function paintCells(inp) {
   const cw = PW / NX, ch = PH / NY
@@ -342,32 +339,12 @@ function paintOwnLine(inp) {
   const { lo, mid, hi } = limitLine(inp, inp.g, boundaryDraws, 2)
   mapEls.band.setAttribute('d', `${pathOf(lo)}${[...hi].reverse().map(([x, y]) => `L${x.toFixed(1)} ${y.toFixed(1)}`).join('')}Z`)
   mapEls.median.setAttribute('d', pathOf(mid))
-  mapEls.ownEnd = mid.at(-1)[1]
 }
 
 // Reference lines do not depend on the gravity slider, so they are cached on everything else.
 function paintRefLines(inp) {
-  const lines = []
-  const ends = []
-  for (const r of REFS) {
-    const { mid } = limitLine(inp, r.g, refDraws, 2)
-    lines.push(svg('path', { class: 'sim-ref', d: pathOf(mid), 'stroke-dasharray': r.dash }))
-    ends.push({ name: r.name, y: mid.at(-1)[1], dash: r.dash })
-  }
+  const lines = REFS.map((r) => svg('path', { class: 'sim-ref', d: pathOf(limitLine(inp, r.g, refDraws, 2).mid), 'stroke-dasharray': r.dash }))
   mapEls.refs.replaceChildren(...lines)
-  mapEls.refEnds = ends
-}
-
-function paintLineLabels(inp) {
-  const items = [...mapEls.refEnds.map((e) => ({ ...e })), { name: `Your ${inp.g} g`, y: mapEls.ownEnd, own: true }]
-  spreadLabels(items, 13, M.t + 6, yOf(O2_MIN) - 2)
-  const x0 = M.l + PW
-  const out = []
-  for (const it of items) {
-    out.push(svg('path', { class: it.own ? 'sim-leader sim-leader-own' : 'sim-leader', d: `M${x0} ${it.y.toFixed(1)}L${x0 + 6} ${it.ly.toFixed(1)}` }))
-    out.push(svg('text', { class: it.own ? 'sim-line-label sim-line-label-own' : 'sim-line-label', x: x0 + 9, y: (it.ly + 3.5).toFixed(1) }, it.name))
-  }
-  mapEls.labels.replaceChildren(...out)
 }
 
 // A dot per real test of the chosen material. Click or Enter selects it. The five nearest carry their table number.
@@ -385,17 +362,16 @@ function shapeFor(pt, cx, cy) {
 }
 
 function paintPoints(inp, near) {
-  const rank = new Map(near.map((n, i) => [n.pt.idx, i + 1]))
+  const nearSet = new Set(near.map((n) => n.pt.idx))
   const out = []
   for (const pt of points.filter((x) => x.material === inp.material)) {
     const cx = xOf(pt.flow), cy = yOf(pt.o2)
     const name = `${pt.testId}: ${OBSERVED[pt.label]} at ${flowText(pt)}, ${pt.o2}% oxygen${pt.useInFit ? '' : ', left out of the fit'}. Click for details.`
     const g = svg('g', { class: 'sim-dot', tabindex: 0, role: 'button', 'aria-label': name }, svg('title', {}, name))
     if (pt.idx === selectedIdx) g.append(svg('circle', { class: 'sim-pt-sel', cx, cy, r: 10 }))
+    if (nearSet.has(pt.idx)) g.append(svg('circle', { class: 'sim-near', cx, cy, r: 8.5 }))
     g.append(svg('circle', { class: 'sim-hit', cx, cy, r: 10 }), shapeFor(pt, cx, cy))
     if (pt.useInFit && pt.wrong) g.append(svg('circle', { class: 'sim-pt-wrong', cx, cy, r: 7.5 }))
-    const n = rank.get(pt.idx)
-    if (n) g.append(svg('circle', { class: 'sim-num-bg', cx: cx + 8, cy: cy - 8, r: 6.5 }), svg('text', { class: 'sim-num', x: cx + 8, y: cy - 4.6, 'text-anchor': 'middle' }, String(n)))
     g.addEventListener('click', () => select(pt.idx, true))
     g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(pt.idx, true) } })
     out.push(g)
@@ -408,14 +384,10 @@ function paintPoints(inp, near) {
 function paintMarker(inp, items) {
   const x = xOf(inp.uForced), y = yOf(clampO2(inp.o2))
   mapEls.marker.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)})`)
-  const [label, miss] = mapEls.marker.querySelectorAll('text')
-  // Keep the labels inside the plot near the edges.
-  const flip = y < M.t + 34
-  label.setAttribute('y', flip ? 28 : -16)
-  miss.setAttribute('y', flip ? 40 : 25)
-  const anchor = x > M.l + PW - 60 ? 'end' : x < M.l + 40 ? 'start' : 'middle'
-  label.setAttribute('text-anchor', anchor)
-  miss.setAttribute('text-anchor', anchor)
+  const miss = mapEls.marker.querySelector('text')
+  const flip = y < M.t + 30
+  miss.setAttribute('y', flip ? 26 : -15)
+  miss.setAttribute('text-anchor', x > M.l + PW - 50 ? 'end' : x < M.l + 40 ? 'start' : 'middle')
   miss.setAttribute('display', items.some((w) => w.id === 'known-miss') ? 'inline' : 'none')
 }
 
@@ -441,7 +413,7 @@ function renderMap(inp, res) {
   const ck = `${nk}|${inp.g}`
   if (nk !== refKey) { refKey = nk; paintRefLines(inp); renderFitLine(inp) }
   if (ck !== cellKey) { cellKey = ck; paintCells(inp); paintOwnLine(inp) }
-  paintLineLabels(inp)
+  $('key-own').textContent = `Your gravity, ${inp.g} g`
 
   const sameMaterial = usedByMaterial(inp.material)
   const near = nearestPoints(inp, sameMaterial, 5)
@@ -455,7 +427,7 @@ function renderMap(inp, res) {
   $('map-badge').textContent = inp.g === 0
     ? 'Fitted to microgravity data for this material. Still an estimate.'
     : 'Estimated, no direct measurements at this gravity. The dots are microgravity tests.'
-  $('map-caption').textContent = `At your inputs: ${pct(res.here.mean)} chance of burning, ${LABEL[res.label].toLowerCase()}. Effective flow ${res.u.toFixed(1)} cm/s.`
+  $('map-caption').textContent = `At your inputs: ${pct(res.here.mean)} chance of burning, ${LABEL[res.label].toLowerCase()}. Effective flow ${res.u.toFixed(1)} cm/s.${inp.o2 > O2_MAX ? ` The map shows oxygen up to ${O2_MAX}%, so the ring is held at the top edge.` : ''}${inp.uForced > FLOW_MAX ? ' Airflow is off the right edge.' : ''}`
 }
 
 const usedCache = {}
@@ -662,6 +634,7 @@ async function boot() {
   window.addEventListener('hashchange', () => showView(viewFromHash()))
 
   buildMap()
+  buildKey()
   syncGravity()
   renderValidation()
   renderHow()

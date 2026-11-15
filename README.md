@@ -217,10 +217,10 @@ slab. The O2 sensitivity is 0.15 per percentage point.
 The Simulator view takes the inputs and shows the chance of burning with its 5 to 95% range bar, warning labels, and one
 flammability map drawn for exactly those inputs (the gravity from the slider, not a fixed set of panels). Shading is the
 chance of burning, the solid line is the limiting oxygen at your gravity with its 5 to 95% band, and dashed lines show
-the middle estimate of the same line at 0 g, Moon, Mars and 1 g for comparison. Hatching marks the area outside the
+the middle estimate of the same line at 0 g, Moon, Mars and 1 g for comparison. A key above the map names each line, so the plot itself has no text labels, and the oxygen axis stops at 30%. Hatching marks the area outside the
 BASS-II oxygen and flow range. Every real microgravity test of the chosen material is a dot: filled for burned, open
 circle for went out, open diamond for blown off, a dark ring where the 0 g model is on the wrong side, and a grey cross
-for points that were read but left out. Clicking a dot (or a row of the nearest-experiments table) opens a details box
+for points that were read but left out. Clicking a dot (or a row of the nearest-experiments table) fills a small details box beside the map
 with the PSI link, conditions, what happened, how the flow was read, the quote, whether it was used in the fit and what
 the 0 g model says. A fit-quality sentence for the chosen material sits under the map.
 
