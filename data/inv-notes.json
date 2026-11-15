@@ -1,0 +1,483 @@
+{
+ "PSI-10": {
+  "goal": "Burn ball-shaped (spherical) ethylene and methane flames on the ISS, both normal (fuel from the burner) and inverse (oxygen from the burner), and change oxygen, inert gas and pressure to find where soot starts to form and where the flame goes out.",
+  "use": [
+   "Seeing which atmospheres give soot-free flames and which do not.",
+   "Checking models of soot formation and radiative extinction of small gas flames."
+  ],
+  "interp": "Our reading: this is flame-chemistry data on gas flames. It helps with smoke and soot production and with when a small flame cannot sustain itself, which feeds detection and suppression thinking. It does not say how readily a solid spacecraft material burns.",
+  "limits": [
+   "The table lists test conditions and a calculated flame temperature (Tad); it records no outcome for any test.",
+   "Fuels are gas burners (ethylene and propane in the table), so there is no solid material.",
+   "Tad is calculated by the investigators, not measured, and oxygen and pressure are set points.",
+   "The soot and extinction results are in the final report and papers, not in the table."
+  ],
+  "papers": "33 papers, mostly journal articles on spherical and jet diffusion flames: radiative extinction, soot formation, flame temperature measurement and the effect of diluting the fuel. A few earlier microgravity and ground studies are listed as background.",
+  "reuse": {}
+ },
+ "PSI-20": {
+  "goal": "Burn gas flames from flat round burners (25 and 50 mm) in still air on the ISS, so that they behave like a burning solid, and see whether a steady flame exists across oxygen levels and pressures including the atmospheres NASA considers for crewed missions.",
+  "use": [
+   "Learning whether a fire in still air can burn steadily, and at which oxygen and pressure.",
+   "Calibrating models that treat a burning solid as a gas source."
+  ],
+  "interp": "Our reading: the strongest fire-safety link in the ACME group. The PSI record says steady burning was seen in still air in elevated-oxygen atmospheres, which is the situation after ventilation is switched off. Because the burner is a gas stand-in for a solid, treat it as a model of a solid fire rather than as a solid.",
+  "limits": [
+   "The table is a log of flames lit per test day with the oxygen levels tried; it does not give oxygen or pressure for each flame.",
+   "The burner emulates a condensed fuel; it is not PMMA or any real spacecraft material.",
+   "Objectives and hypotheses are written in planning language and pressures are the planned ones.",
+   "Heat-flux and flammability-map results are in the final report, not in the table."
+  ],
+  "papers": "16 papers, from instrument design (the burning rate emulator) to results on radiative extinction, ignition and extinction, heat flux to a porous burner, and flammability maps. A mix of flight analyses and earlier flat-wick and gas-burner studies.",
+  "reuse": {}
+ },
+ "PSI-21": {
+  "goal": "Burn weak coflow methane and ethylene flames with more and more nitrogen in the fuel, and record flame shape, lift-off, temperature, soot tendency and extinction limits, to give models a hard test at the extremes of dilution.",
+  "use": [
+   "Benchmark data for computer models of laminar gas flames.",
+   "Seeing how diluting a fuel changes a flame's stability."
+  ],
+  "interp": "Our reading: model-validation data for gas flames, with little direct bearing on how solids burn. Useful mainly to anyone building or checking a flame simulation.",
+  "limits": [
+   "The table is a log of flames lit per day with fuel-dilution ranges; the measured shapes and temperatures are not in it.",
+   "The fuel bottle labels are hard to interpret (for example '40% CH5') without the notes column.",
+   "Text is written in planning form and no numerical results are stated in the PSI record.",
+   "No publications are mapped to this investigation in our literature set."
+  ],
+  "papers": "18 papers, on coflow diffusion flames: computer models checked against microgravity and normal-gravity experiments, soot measurement and laser diagnostics, and thermocouple calibration methods. Many were written before or around the flights.",
+  "reuse": {}
+ },
+ "PSI-22": {
+  "goal": "Put an electric field across small methane and ethylene flames on the ISS and measure the current through the flame and how its shape and soot change as the field is raised, with and without a weak air coflow.",
+  "use": [
+   "Seeing how an electric field steers a flame when gravity does not.",
+   "Testing models of ion-driven flow in flames."
+  ],
+  "interp": "Our reading: this is basic flame physics with Earth uses (cleaner burners, soot control). The record itself says it is not meant for space applications. Its fire-safety value is indirect.",
+  "limits": [
+   "The table is a test-day log of flames lit by polarity and fuel; voltage-current curves and images are in the report and papers.",
+   "Fuel concentration is a bottle label, not a measured value.",
+   "No outcomes are stated per test.",
+   "Written for gas flames with a metal mesh above the burner, a set-up that does not resemble a spacecraft fire."
+  ],
+  "papers": "25 papers from one research group on how electric fields change small diffusion flames: ion current, flame shape, impinging flames, carbon monoxide release and power-supply effects, plus the flight paper on the ISS results. Several predate the ISS flights.",
+  "reuse": {
+   "related": [
+    "PSI-23"
+   ]
+  }
+ },
+ "PSI-23": {
+  "goal": "Light nearly spherical flames of hydrogen, methane and ethylene mixes on the ISS, first diluted with nitrogen then helium, and follow how they grow, settle and go out to compare with detailed models.",
+  "use": [
+   "Testing flame models in the simplest geometry, with no buoyancy.",
+   "Seeing how helium in place of nitrogen changes a flame's stability."
+  ],
+  "interp": "Our reading: model-validation data for gas flames. Fire-safety value is indirect: the extinction behaviour and the helium-dilution rounds say something about how an atmosphere changes a flame.",
+  "limits": [
+   "The table is a log of flames lit per day with the atmosphere used; the measurements of structure are not in it.",
+   "Fuels are gas mixes with hydrogen, which is not a typical spacecraft fuel.",
+   "Test day uses a YYDDD code (year and day of year).",
+   "The investigation is planned in terms of flame structure; no outcome per test is recorded."
+  ],
+  "papers": "44 papers, mostly theory and experiments on spherical, cylindrical and premixed flames, extinction mechanisms, radiation and flame instabilities, and reaction mechanism development. A long reading list, much of it older theory.",
+  "reuse": {
+   "related": [
+    "PSI-22"
+   ]
+  }
+ },
+ "PSI-25": {
+  "goal": "Burn solid materials (PMMA rods, thin sheets, fabrics, candle wick) in a small wind tunnel inside the ISS glovebox, change airflow and oxygen, and find when they ignite, spread and go out, plus the gases they release.",
+  "use": [
+   "Finding the lowest oxygen at which common solids keep burning in slow flows.",
+   "Seeing how fuel thickness and shape change flammability.",
+   "Estimating CO and CO2 released by small fires."
+  ],
+  "interp": "Our reading: the most directly useful dataset here for spacecraft fire safety. It is real solids, in the real station, across oxygen and airflow. It supports the point that normal-gravity screening alone can understate the risk, because flames survived at lower oxygen in slow flows than in normal gravity.",
+  "limits": [
+   "More than 40% of tests state no outcome in the table (about 55 of 129 are 'unknown').",
+   "Only about a quarter of tests record thickness, so thickness comparisons rest on a few tests.",
+   "Many different people ran tests with different sample names, so materials are not standardised.",
+   "Flow is a fan setting, not a measured speed, so airflow comparisons are approximate."
+  ],
+  "papers": "17 papers: the BASS-II summary report and conference papers on the PMMA rod flammability boundary, concurrent spread over fabric, thin-fuel opposed spread and smoke sensor readings, plus later modelling and ground comparison studies. Recent work uses these tests to check flame-spread models.",
+  "reuse": {
+   "used_by": [
+    "PSI-62"
+   ]
+  }
+ },
+ "PSI-26": {
+  "goal": "The first of the two glovebox flame-spread experiments. Burn spheres, flat slabs and candles at low flows to see how materials burn in microgravity compared with NASA's normal-gravity screening test, and test whether inert gas can suppress the flame.",
+  "use": [
+   "Comparing how solids of different shapes burn near air composition.",
+   "Seeing how a nitrogen flow affects a flame."
+  ],
+  "interp": "Our reading: useful for the question 'does normal-gravity material screening predict microgravity?'. It is less decisive than BASS-II because oxygen and pressure barely vary.",
+  "limits": [
+   "Oxygen and pressure span a narrow band near air, so it says little about low-oxygen limits.",
+   "Nearly half of tests state no outcome in the table.",
+   "The table lists mostly the test plan; as-run settings are in the matrix spreadsheet.",
+   "Sample names are inconsistent (for example '2 cm sphere' and 'pmma sphere 2 cm')."
+  ],
+  "papers": "10 papers on opposed-flow flame spread over thin and thick fuels: radiation, boundary-layer effects, narrow-channel ground tests that imitate low gravity, and the glovebox as a research platform. Much of this is theory and ground work built around the BASS results.",
+  "reuse": {
+   "used_by": [
+    "PSI-62"
+   ],
+   "related": [
+    "PSI-25"
+   ]
+  }
+ },
+ "PSI-39": {
+  "goal": "Burn single droplets of n-dodecane (and mixes) at 0.25 to 5 atm on the ISS and measure burning rates, flame size and when the faint 'cool flame' takes over after the hot flame ends, including with helium in the air.",
+  "use": [
+   "Seeing how long a droplet flame survives at each pressure.",
+   "Testing chemistry that works at low temperatures."
+  ],
+  "interp": "Our reading: this is fuel chemistry. The suppression-relevant part is that a fire can continue as a faint cool flame after the visible flame has gone, and can re-ignite. That is a risk for a fire thought to be out, but it is for liquid droplets, not spacecraft solids.",
+  "limits": [
+   "Droplet fuels only; no solid materials.",
+   "Outcome is not stated as a category in the table: the useful columns are burning rates, extinction diameters and burn times.",
+   "Cool-flame values are missing for about half of the tests (119 of 226 have a cool extinction diameter).",
+   "Oxygen is 21% (17% in a few) so oxygen effects are not covered."
+  ],
+  "papers": "7 papers on cool-flame droplet burning: whether cool flames can support steady burning, a partial-burning regime, asymptotic theory for n-heptane, and low-temperature dodecane results from the ISS. All are tightly tied to the FLEX droplet hardware.",
+  "reuse": {
+   "related": [
+    "PSI-69",
+    "PSI-68",
+    "PSI-159"
+   ]
+  }
+ },
+ "PSI-47": {
+  "goal": "Check on the ISS that a modified TSI P-Trak particle counter and a DustTrak still work in microgravity (the original relies on gravity to recycle its alcohol), using test aerosols, ahead of the SAME smoke experiment.",
+  "use": [
+   "Showing that a particle counter is reliable in orbit.",
+   "Seeing how smoke-sensor readings relate to each other."
+  ],
+  "interp": "Our reading: a hardware-qualification dataset. It matters for fire detection because it shows the smoke measurements in SAME can be trusted, but it does not describe real fire smoke.",
+  "limits": [
+   "Test aerosols were dust (Arizona Road Dust), not smoke from burning materials.",
+   "The pairing of P-Trak and DustTrak readings is by position and the sheet gives no units.",
+   "Zero-filled values appear where one instrument started later.",
+   "Only two test sessions are described in the table."
+  ],
+  "papers": "Two papers: a 2004 research plan for fire detection and prevention in crewed exploration, and a paper on detecting smoke from microgravity fires. The data's main use has been to support SAME.",
+  "reuse": {
+   "related": [
+    "PSI-101",
+    "PSI-102"
+   ]
+  }
+ },
+ "PSI-60": {
+  "goal": "A ground study that reanalysed more than 1,600 raw photographs from SPICE to work out flame temperature and soot volume in microgravity flames, and used the results to improve soot models.",
+  "use": [
+   "Showing how flight images can be turned into temperature and soot maps.",
+   "Checking soot models against microgravity flames."
+  ],
+  "interp": "Our reading: a worked example of reusing a flight dataset. It does not add new flight data, but its method is how PSI data are meant to be used.",
+  "limits": [
+   "The PSI record has no data tables for this investigation.",
+   "It depends on the SPICE image set (PSI-107), which we hold only as a summary table.",
+   "One publication is listed, so the findings are thinly documented."
+  ],
+  "papers": "One paper (2022), a combined experimental and computational study of soot formation in normal gravity and microgravity flames.",
+  "reuse": {
+   "uses": [
+    "PSI-107"
+   ]
+  }
+ },
+ "PSI-62": {
+  "goal": "A ground study that built new flame-spread models (flamelet generated manifolds) for fire spreading in the same direction as the airflow, and compared them to the BASS experiments.",
+  "use": [
+   "Predicting where a spreading fire will go out, from a model rather than a test.",
+   "Checking a model against BASS flight tests."
+  ],
+  "interp": "Our reading: this is where flight data become predictions. It points to a way of screening materials without flying them, which matters for choosing spacecraft materials.",
+  "limits": [
+   "The PSI record has no data tables for this investigation.",
+   "The model results are not measurements.",
+   "It leans on BASS and BASS-II (PSI-26, PSI-25), whose own outcome fields are incomplete."
+  ],
+  "papers": "4 papers (2017 to 2023): the PMMA rod flammability boundary in stagnation flow, radiative flamelet manifolds for flame spread, theoretical flammability bounds for thin fuels, and two-colour pyrometry for flame-to-fuel heat flux.",
+  "reuse": {
+   "uses": [
+    "PSI-26",
+    "PSI-25"
+   ]
+  }
+ },
+ "PSI-68": {
+  "goal": "Burn single and paired droplets of real-fuel mixtures (including gasoline and butanol blends) in different gases on the ISS, to extend the FLEX results to fuels closer to real engines and give benchmark data for models.",
+  "use": [
+   "Benchmark burning-rate data for fuel blends.",
+   "Seeing how droplets interact when burning side by side."
+  ],
+  "interp": "Our reading: engine-fuel science. It adds to understanding of how liquid fuels burn and go out, with indirect relevance to spacecraft fuel handling rather than to cabin fires.",
+  "limits": [
+   "Only 8 rows are in the PSI table (fuel, droplet size, gas mix, oxygen, pressure, temperature, flow).",
+   "No outcomes or burning rates are in the table.",
+   "Real results are in the 48 listed papers and the science requirements document."
+  ],
+  "papers": "48 papers, the longest list here: droplet combustion experiments on the ISS and in drop towers, numerical modelling of supported and unsupported droplets, support-fibre effects, multi-component fuels (butanol, gasoline, heptane blends) and cool-flame behaviour. A very active modelling community uses FLEX-style data.",
+  "reuse": {
+   "related": [
+    "PSI-69"
+   ]
+  }
+ },
+ "PSI-69": {
+  "goal": "Burn methanol and heptane droplets on the ISS in air diluted with CO2, helium or nitrogen to map when droplet flames go out, how well different gases suppress them, and to find out how much oxygen is needed to sustain a flame.",
+  "use": [
+   "Seeing how much oxygen and which diluent gas is needed to put a flame out.",
+   "Checking droplet burning models."
+  ],
+  "interp": "Our reading: the strongest suppression data here. The oxygen level at which a flame dies for each gas mix is the quantity a suppression system needs, and the cool flame discovery is a warning that a flame can persist after it seems out. The fuels are liquids, so it informs principles rather than solids.",
+  "limits": [
+   "About a third of tests state no outcome (88 of 274 are 'unknown'), and the rest are all extinctions: no 'kept burning' tests are in the table.",
+   "Liquid droplets (methanol, heptane) only.",
+   "Droplet size is a measurement from video, with the uncertainties the papers discuss.",
+   "Pressure values include data-entry oddities (some zeros) in the raw table."
+  ],
+  "papers": "51 papers, the busiest group: FLEX results papers on methanol and heptane extinction, cool flames and two-stage burning, theory (activation-energy asymptotics, quasi-steady droplet theory) and many modelling studies. Ground investigations PSI-117 and PSI-142 reuse FLEX data to study cool flames further.",
+  "reuse": {
+   "used_by": [
+    "PSI-117",
+    "PSI-142"
+   ],
+   "related": [
+    "PSI-68",
+    "PSI-39"
+   ]
+  }
+ },
+ "PSI-98": {
+  "goal": "Burn a large (40 by 94 cm) fabric sample in an uncrewed Cygnus cargo ship after it left the station, to see how fast a large fire grows in space and how that compares with NASA's normal-gravity flammability test.",
+  "use": [
+   "Seeing how a fire grows over a large sample.",
+   "Setting the scale of a real spacecraft fire against small tests."
+  ],
+  "interp": "Our reading: the only dataset in our set that is a fire on the scale of a real compartment. It carries large weight in a fire-safety ranking even though the PSI table holds only a few rows.",
+  "limits": [
+   "The table has only a few rows; most of the data are in image logs and papers.",
+   "The spreadsheet on PSI is a log of image downlink, not measurements.",
+   "The test used one fabric type (a cotton-fibreglass blend) at about 21.7% oxygen.",
+   "No outcome field is recorded; the results are in the papers."
+  ],
+  "papers": "6 papers: Saffire objectives and status, silicone flammability on the ground, large-fabric flame growth in concurrent flow and a review of flame spread and scale. Saffire results are also described in NASA slide decks and later Saffire papers listed under the other two records.",
+  "reuse": {
+   "related": [
+    "PSI-99",
+    "PSI-100"
+   ]
+  }
+ },
+ "PSI-99": {
+  "goal": "Burn nine samples (silicone, cotton-fibreglass, thick PMMA and a PMMA-Nomex composite) in the Cygnus ship at 20 cm/s, with ground tests alongside, to see which materials burn in low gravity.",
+  "use": [
+   "Comparing flight and ground tests of the same materials.",
+   "Seeing whether silicone, thick PMMA and Nomex ignite in a slow flow."
+  ],
+  "interp": "Our reading: a rare same-sample flight and ground comparison. The report that silicone samples did not burn in orbit even though they were expected to is surprising and is the main reason it is worth reading.",
+  "limits": [
+   "The PSI table has only 15 rows, half of them ground comparison rows.",
+   "Spread-rate numbers exist for only 2 samples.",
+   "Burn lengths are written as text ('Complete', '~0', '7.6 cm') and cannot be plotted without interpretation.",
+   "The spreadsheet on PSI is an image downlink log."
+  ],
+  "papers": "7 papers: Saffire objectives, silicone flammability, thick PMMA concurrent spread (including the Saffire II result), large-fabric spread and a paper on gas and particle sensors for fire emissions. The thick PMMA paper uses Saffire-II as a benchmark.",
+  "reuse": {
+   "related": [
+    "PSI-98",
+    "PSI-100"
+   ]
+  }
+ },
+ "PSI-100": {
+  "goal": "Third flight of the Saffire large-fire experiment in a Cygnus cargo ship, to build up the Saffire results.",
+  "use": [
+   "Repeatability of large-fire tests.",
+   "Comparing with Saffire-I and II."
+  ],
+  "interp": "Our reading: adds repeat information to Saffire but the PSI record holds little data (two sample rows).",
+  "limits": [
+   "Only two sample rows in the PSI table and no spread or burn-length values.",
+   "The spreadsheet on PSI is an image downlink log.",
+   "Three papers are listed, all general Saffire papers."
+  ],
+  "papers": "3 papers: Saffire objectives, silicone flammability on the ground, and the operations and development status. Results for Saffire-III are mostly in NASA slide decks.",
+  "reuse": {
+   "related": [
+    "PSI-98",
+    "PSI-99"
+   ]
+  }
+ },
+ "PSI-101": {
+  "goal": "Reflight of SAME: smoulder small samples of spacecraft materials in the glovebox and measure the sizes of smoke particles in low gravity, to help design better detectors for long missions.",
+  "use": [
+   "Seeing what size smoke particles a material makes at each air speed.",
+   "Selecting detectors for a smoke particle size range."
+  ],
+  "interp": "Our reading: central for the detection side of fire safety. The key result is that low-gravity smoke can have different sizes from smoke on Earth, which detectors tuned on Earth smoke may not see.",
+  "limits": [
+   "The table is a test log (material, air speed, duration, aging times), with no particle size values.",
+   "All outcomes are 'unknown' because the experiment measured particles, not whether a flame survived.",
+   "The Rt/R0 column is not explained in the table.",
+   "Smoke is from heated materials with no open flame, so it describes overheating rather than flaming fires."
+  ],
+  "papers": "6 papers: SAME-2 particle size and morphology, flight against ground comparison, low-gravity smoke for detection, a reflight paper and detector performance evaluation. A consistent line of work on detector design.",
+  "reuse": {
+   "related": [
+    "PSI-102",
+    "PSI-47",
+    "PSI-115"
+   ]
+  }
+ },
+ "PSI-102": {
+  "goal": "Smoulder small samples (Teflon, Kapton, lamp wick, silicone, Pyrell) in the glovebox and measure smoke particle size and amount in microgravity, to help design smoke detectors.",
+  "use": [
+   "Seeing the mass of smoke a heated material gives off.",
+   "Designing alarm thresholds."
+  ],
+  "interp": "Our reading: the first SAME results behind SAME-R. Useful for detection requirements, with weight loss rate the best number in the table.",
+  "limits": [
+   "The table has 8 rows and only 4 weight-loss values.",
+   "Particle sizes are in the papers, not the table.",
+   "Smoke from heated samples only, no flame.",
+   "Outcomes are 'unknown'."
+  ],
+  "papers": "16 papers: smoke particle size in low gravity, smoke properties and transport, a model of smoke detection in the station's Destiny laboratory, and detector design implications. Heavily cited in spacecraft fire detection work.",
+  "reuse": {
+   "related": [
+    "PSI-101",
+    "PSI-47",
+    "PSI-115"
+   ]
+  }
+ },
+ "PSI-106": {
+  "goal": "Burn small coflow methane flames on the ISS with different burner sizes, air speeds and nitrogen dilution to see how long, hot and sooty microgravity flames are compared with flames on Earth.",
+  "use": [
+   "Testing soot and heat-loss models for gas flames."
+  ],
+  "interp": "Our reading: soot science. It tells us that microgravity flames are taller and make more soot, which relates to smoke yield, but it is not about solids.",
+  "limits": [
+   "The PSI table is just 12 dates and fuel types.",
+   "All measurements are in images and papers.",
+   "No outcomes are recorded."
+  ],
+  "papers": "5 papers (2014 onwards): experimental and computational studies of soot, CH* emission and heat release in coflow methane flames with and without gravity, and effects of fuel dilution. The microgravity flames make about eight times more soot in one of the papers.",
+  "reuse": {
+   "related": [
+    "PSI-60",
+    "PSI-107"
+   ]
+  }
+ },
+ "PSI-107": {
+  "goal": "Find the 'smoke point' (the flame length at which it starts to smoke) of coflow flames of ethylene, propane and propylene mixes in microgravity, varying burner size and air speed.",
+  "use": [
+   "Ranking fuels by how sooty they are.",
+   "Predicting smoke production of a gas flame."
+  ],
+  "interp": "Our reading: gives a clean measure of how smoky a flame is, which is a hazard in itself. The result that flame length scales with fuel flow gives a quick rule for estimating smoke from small gas fires.",
+  "limits": [
+   "The table records fuel flow and air speed for each test but not the measured flame length.",
+   "About 8 rows have negative air speeds in the source and were not corrected.",
+   "Outcome is 'unknown' for every row.",
+   "Gas flames from a nozzle; not a burning solid."
+  ],
+  "papers": "9 papers on laminar smoke points in microgravity and normal gravity, flame shape theory, flame lengths in elevated gravity and the glovebox as a platform. Ground investigation PSI-60 reuses the SPICE images.",
+  "reuse": {
+   "used_by": [
+    "PSI-60"
+   ]
+  }
+ },
+ "PSI-115": {
+  "goal": "A ground computer study of how smoke particles form and grow behind a heated body with and without gravity, to explain how microgravity smoke differs.",
+  "use": [
+   "Predicting smoke particle size for detector design."
+  ],
+  "interp": "Our reading: a model that complements SAME. It supports the idea that smoke particle sizes differ in microgravity, but it is a simulation.",
+  "limits": [
+   "The data are model output files; the units of the distribution value are not established in the source.",
+   "Matching of diameters to nodes is by position and not confirmed.",
+   "No publications are listed on the PSI page."
+  ],
+  "papers": "No papers are listed on PSI. The final report hosted on the record describes the simulation of smoke fields and particle size distributions for microgravity and Earth gravity cases.",
+  "reuse": {
+   "related": [
+    "PSI-101",
+    "PSI-102"
+   ]
+  }
+ },
+ "PSI-117": {
+  "goal": "A ground study that took FLEX flight data and used computer models to see how outside heating and drifting air change cool flames on droplets: when they ignite, oscillate, turn into hot flames or go out.",
+  "use": [
+   "Explaining run-to-run scatter in FLEX results.",
+   "Mapping stable cool-flame conditions."
+  ],
+  "interp": "Our reading: shows how much of the scatter in the FLEX data may come from small convective drifts, which affects how far the FLEX numbers can be trusted.",
+  "limits": [
+   "Most data are model outputs, not measurements.",
+   "The tables mix model and experiment columns in one sheet, with blank columns.",
+   "Droplet fuels only.",
+   "Results depend on a dissertation hosted on the record."
+  ],
+  "papers": "10 papers (2017 to 2023) from one research group on cool-flame droplet combustion: oscillatory cool flames, extinction characteristics, preferential vaporisation in multi-component fuels and jet fuel surrogates.",
+  "reuse": {
+   "uses": [
+    "PSI-69"
+   ]
+  }
+ },
+ "PSI-142": {
+  "goal": "A ground study that used ozone-sensitised counterflow flames to map when hot flames turn into cool flames and where each goes out, building on FLEX observations.",
+  "use": [
+   "Comparing extinction limits of hot and cool flames.",
+   "Checking chemical kinetics at low temperatures."
+  ],
+  "interp": "Our reading: helps to explain the cool flames FLEX saw. It matters for suppression only in that a cool flame can survive conditions that put out a hot flame.",
+  "limits": [
+   "The spreadsheets hold raw sheets per figure in the papers with no uniform units.",
+   "Counterflow flames are not droplets or solids.",
+   "Results are specific to ozone-sensitised mixtures."
+  ],
+  "papers": "12 papers on cool and warm diffusion flames in counterflow: extinction limits, premixed cool flame propagation at elevated pressure and multistage flames of n-alkanes and dimethyl ether.",
+  "reuse": {
+   "uses": [
+    "PSI-69"
+   ]
+  }
+ },
+ "PSI-159": {
+  "goal": "Light spherical gas flames of propane, butane and ethane (normal and inverse) on the ISS at varying oxygen and pressure to find where cool diffusion flames, which burn at low temperature, can exist.",
+  "use": [
+   "Mapping where cool flames can exist."
+  ],
+  "interp": "Our reading: a map of conditions for cool flames on gas burners. Important because cool flames can persist where a hot flame would not, and are faint, but there is no solid-material link.",
+  "limits": [
+   "Pressure values are approximate in the source.",
+   "Some columns are only filled in for part of the tests (for example the cool-flame flag for 8 tests).",
+   "About 20% of tests state no outcome.",
+   "Gas burner; not a solid."
+  ],
+  "papers": "2 papers: spherical gas-fuelled cool diffusion flames and cool diffusion flames in stratified stagnation flow. Related droplet work in PSI-39 and PSI-69 gives wider context.",
+  "reuse": {
+   "related": [
+    "PSI-39",
+    "PSI-69"
+   ]
+  }
+ }
+}

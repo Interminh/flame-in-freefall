@@ -68,7 +68,7 @@
 
     const np = (pubs[it.psi_id] || []).length, nf = figCount.get(it.psi_id) || 0
     const stats = el('dl', { className: 'card__stats' },
-      el('dt', { textContent: 'Papers' }), el('dd', { textContent: `${np} on PSI${nf ? `, ${nf} figure${nf === 1 ? '' : 's'} shown` : ''}` }),
+      el('dt', { textContent: 'Papers' }), el('dd', { textContent: `${np} on PSI${nf ? `, ${nf} figure${nf === 1 ? '' : 's'} from it` : ''}` }),
       el('dt', { textContent: 'Data' }), el('dd', { textContent: [KIND[it.kind], size].filter(Boolean).join(', ') }),
       el('dt', { textContent: 'Varied' }), el('dd', {}, dots, ` ${list}`),
       el('dt', { textContent: 'Outcome' }), outcome)
@@ -121,7 +121,7 @@
   Promise.all([getJson('data/catalogue.json'), getJson('img/nasa/images.json').catch(() => []), getJson('data/publications.json').catch(() => ({})), getJson('data/pub-figures.json').catch(() => [])])
     .then(([d, imgs, pb, figs]) => {
       pubs = pb
-      for (const f of figs) for (const k of f.psi) figCount.set(k, (figCount.get(k) || 0) + 1)
+      for (const f of figs) for (const k of f.psi) if (f.relations?.[k]?.level === 'direct') figCount.set(k, (figCount.get(k) || 0) + 1)
       for (const p of imgs) for (const id of p.psi) photos.set(id, p)
       init(d)
     })

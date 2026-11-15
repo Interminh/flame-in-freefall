@@ -62,7 +62,7 @@ function scatterBy(rows, xk, yk, gk, o) {
   return {
     title: o.title, why: o.why, n: use.length, foot: note(use.length, rows.length, o.foot),
     data: groups.map(([g, rs], i) => ({ type: 'scatter', mode: 'markers', name: String(g), x: rs.map((r) => r[xk]), y: rs.map((r) => r[yk]), marker: { color: PALETTE[i % PALETTE.length], size: o.size || 8, opacity: 0.75, line: OUTLINE } })),
-    layout: { xaxis: { title: o.xt, ...(o.xlog ? { type: 'log' } : {}) }, yaxis: { title: o.yt, ...(o.ylog ? { type: 'log' } : {}) }, showlegend: !!gk },
+    layout: { xaxis: { title: o.xt, ...(o.xlog ? { type: 'log' } : {}) }, yaxis: { title: o.yt, ...(o.ylog ? { type: 'log', ...(o.ytick ? { tickvals: o.ytick, ticktext: o.ytick.map(String) } : {}) } : {}) }, showlegend: !!gk },
   }
 }
 
@@ -72,7 +72,7 @@ function boxBy(rows, vk, gk, o) {
   return {
     title: o.title, why: o.why, n: use.length, foot: note(use.length, rows.length, o.foot),
     data: groups.map(([g, rs], i) => ({ type: 'box', name: String(g).slice(0, 24), y: rs.map((r) => r[vk]), marker: { color: PALETTE[i % PALETTE.length] }, line: { color: '#111', width: 1.5 }, boxpoints: 'all', jitter: 0.4, pointpos: 0, opacity: 0.9 })),
-    layout: { yaxis: { title: o.yt, ...(o.ylog ? { type: 'log' } : {}) }, showlegend: false, xaxis: { tickangle: -20, automargin: true } },
+    layout: { yaxis: { title: o.yt, ...(o.ylog ? { type: 'log', ...(o.ytick ? { tickvals: o.ytick, ticktext: o.ytick.map(String) } : {}) } : {}) }, showlegend: false, xaxis: { tickangle: -20, automargin: true } },
   }
 }
 
@@ -106,7 +106,7 @@ const SPEC = {
           title: 'Fuel thickness against oxygen', why: 'Thin fuels preheat faster, so thickness moves the flammability limit. Each point is one test with a stated outcome and a recorded thickness.', n: use.length,
           foot: note(use.length, rows.length, 'only tests with a recorded thickness and a stated outcome'),
           data: levels(use).map((l) => ({ type: 'scatter', mode: 'markers', name: LABEL[l], x: use.filter((r) => r.outcome === l).map((r) => r.o2_percent), y: use.filter((r) => r.outcome === l).map((r) => r.fuel_thickness_mm), text: use.filter((r) => r.outcome === l).map((r) => r.test_id), hovertemplate: '%{text}<br>O₂ %{x}%<br>%{y} mm<extra></extra>', marker: { color: COLORS[l], size: 11, line: OUTLINE } })),
-          layout: { xaxis: { title: 'Oxygen (% by volume)' }, yaxis: { title: 'Fuel thickness (mm)', type: 'log' } },
+          layout: { xaxis: { title: 'Oxygen (% by volume)' }, yaxis: { title: 'Fuel thickness (mm)', type: 'log', tickvals: [0.1, 0.2, 0.5, 1, 2, 5], ticktext: ['0.1', '0.2', '0.5', '1', '2', '5'] } },
         }
       })(),
     ]
@@ -114,7 +114,7 @@ const SPEC = {
     if (g.length) {
       const mat = col(g, /Fuel Sample Material/i), c0 = col(g, /Initial CO \(ppm\)/i), c1 = col(g, /Final CO \(ppm\)/i)
       const d = g.map((r) => ({ ...r, dCO: isNum(r[c0]) && isNum(r[c1]) ? r[c1] - r[c0] : null }))
-      out.push(boxBy(d, 'dCO', mat, { title: 'Carbon monoxide added, by material', yt: 'CO added to the glovebox air (ppm)', why: 'Each test measured CO before and after the burn. This shows which materials released the most toxic gas, which matters for crew exposure after a real fire.', foot: 'CO after the test minus CO before; the 8 most-tested materials' }))
+      out.push(boxBy(d, 'dCO', mat, { title: 'Carbon monoxide added, by material', yt: 'CO added (ppm)', why: 'Each test measured CO before and after the burn. This shows which materials released the most toxic gas, which matters for crew exposure after a real fire.', foot: 'CO after the test minus CO before; the 8 most-tested materials' }))
     }
     return out
   },
@@ -124,17 +124,6 @@ const SPEC = {
       o2Outcome(rows, { title: 'Oxygen level and what the flame did', why: 'BASS tested fuels in a narrow band around air. This shows how close to 21% O₂ flames still went out.' }),
       outcomeBy(rows, 'fuel_geometry', { title: 'Outcome by fuel shape', xLabel: 'Fuel shape', why: 'Compares spheres, candles and slabs, so you can see whether the fuel shape changes how often a flame survives.' }),
     ]
-    const m = asRows(pick(raw, /as-run/i) || { cols: [], rows: [] })
-    const mk = col(m, /^material$/i)
-    if (mk) {
-      const counts = [...groupBy(m.filter((r) => r[mk]), (r) => String(r[mk]).toLowerCase().trim()).entries()].sort((a, b) => b[1].length - a[1].length).slice(0, 12)
-      out.push({
-        title: 'What BASS burned', why: 'Number of test points scheduled for each sample material in the as-run test matrix, which is a record of the plan rather than of outcomes.', n: counts.reduce((a, [, r]) => a + r.length, 0),
-        foot: 'Material names as written in the as-run matrix; the 12 most frequent.',
-        data: [{ type: 'bar', orientation: 'h', y: counts.map(([k]) => k.slice(0, 34)).reverse(), x: counts.map(([, r]) => r.length).reverse(), marker: { color: '#1B5FA8', line: OUTLINE } }],
-        layout: { xaxis: { title: 'Test points' }, margin: { l: 220 }, showlegend: false },
-      })
-    }
     return out
   },
 
@@ -149,18 +138,8 @@ const SPEC = {
     const n = asRows(pick(raw, /normal/i) || { cols: [], rows: [] }), v = asRows(pick(raw, /inverse/i) || { cols: [], rows: [] })
     const bt = (r) => r['burn time (sec)']
     const all = [...n.map((r) => ({ ...r, cfg: 'Normal flame', o2: r['XO2 before test'] })), ...v.map((r) => ({ ...r, cfg: 'Inverse flame', o2: r['XO2'] }))].map((r) => ({ ...r, bt: bt(r), tad: r['Tad (K)'] }))
-    const s = scatterBy(all, 'o2', 'bt', 'cfg', { title: 'How long each flame lasted', xt: 'Oxygen fraction', yt: 'Burn time (s)', ylog: true, size: 7, why: 'Burn time shows how long each flame stayed lit. Normal flames have air outside and fuel inside; inverse flames the reverse.', foot: 'normal and inverse flame tables combined' })
+    const s = scatterBy(all, 'o2', 'bt', 'cfg', { title: 'How long each flame lasted', xt: 'Oxygen fraction', yt: 'Burn time (s)', ylog: true, ytick: [1, 3, 10, 30, 100, 300], size: 7, why: 'Burn time shows how long each flame stayed lit. Normal flames have air outside and fuel inside; inverse flames the reverse.', foot: 'normal and inverse flame tables combined' })
     if (s.n > 5) out.push(s)
-    const cf = n.filter((r) => r['Cool flame?'] != null)
-    if (cf.length > 3) {
-      const g = [...groupBy(cf, (r) => r['Fuel']).entries()]
-      const yes = (r) => /^y/i.test(String(r['Cool flame?']))
-      out.push({
-        title: 'Which fuels showed a cool flame', why: 'A cool flame is a faint, low-temperature flame that can persist where a normal flame has gone out. This counts the normal-flame tests logged for each fuel.', n: cf.length, foot: `Only ${cf.length} of ${n.length} normal-flame tests have the "Cool flame?" field filled in.`,
-        data: [{ type: 'bar', name: 'Cool flame seen', x: g.map(([k]) => k), y: g.map(([, rs]) => rs.filter(yes).length), marker: { color: '#1B5FA8', line: OUTLINE } }, { type: 'bar', name: 'No cool flame', x: g.map(([k]) => k), y: g.map(([, rs]) => rs.filter((r) => !yes(r)).length), marker: { color: '#E3A400', line: OUTLINE } }],
-        layout: { barmode: 'stack', yaxis: { title: 'Tests' }, xaxis: { tickangle: -20, automargin: true } },
-      })
-    }
     return out
   },
 
@@ -179,11 +158,11 @@ const SPEC = {
     const fuel = new Map(m.map((r) => [r['Flex Number'], r.Fuel]))
     const all = d.map((r) => ({ ...r, fuel: fuel.get(r['Flex Number']) ?? 'not stated', kh: r['khot ( mm^2/s )'], kc: r['kcool ( mm^2/s )'], p: r['Pressure (atm)'], d0: r['D0 ( mm )'], dh: r['Dext, hot ( mm )'], bt: r['HF Burn Time'], dc: r['Dext,cool ( mm )'] }))
     const out = []
-    const a = scatterBy(all, 'kh', 'kc', 'fuel', { title: 'Burning rate: cool flame against hot flame', xt: 'Hot-flame burning-rate constant (mm²/s)', yt: 'Cool-flame burning-rate constant (mm²/s)', why: 'In many tests the droplet burned first with a hot flame and then with a cool flame. Points near the diagonal burned at the same speed in both stages.', foot: 'tests with both rates' })
+    const a = scatterBy(all, 'kh', 'kc', 'fuel', { title: 'Burning rate: cool flame against hot flame', xt: 'Hot-flame rate (mm²/s)', yt: 'Cool-flame rate (mm²/s)', why: 'In many tests the droplet burned first with a hot flame and then with a cool flame. Points near the diagonal burned at the same speed in both stages.', foot: 'tests with both rates' })
     a.data.push({ type: 'scatter', mode: 'lines', name: 'Equal rates', x: [0, 1], y: [0, 1], line: { color: '#111', dash: 'dash', width: 2 }, hoverinfo: 'skip' })
     out.push(a)
     out.push(scatterBy(all, 'p', 'bt', 'fuel', { title: 'How long the hot flame lasted against pressure', xt: 'Pressure (atm)', yt: 'Hot-flame burn time (s)', why: 'How long the visible (hot) flame lasted in each test, at each pressure.', foot: 'tests with a hot-flame burn time' }))
-    out.push(scatterBy(all, 'd0', 'dh', 'fuel', { title: 'Droplet size when the hot flame went out', xt: 'Starting droplet diameter (mm)', yt: 'Hot-flame extinction diameter (mm)', why: 'How large the droplet still was when its hot flame went out, for each starting size.', foot: 'tests with both diameters' }))
+    out.push(scatterBy(all, 'd0', 'dh', 'fuel', { title: 'Droplet size when the hot flame went out', xt: 'Starting droplet diameter (mm)', yt: 'Hot extinction diameter (mm)', why: 'How large the droplet still was when its hot flame went out, for each starting size.', foot: 'tests with both diameters' }))
     const reign = all.filter((r) => isNum(r.Reignitions))
     if (reign.length > 5) {
       const g = [...groupBy(reign, (r) => r.Reignitions).entries()].sort((a, b) => a[0] - b[0])
@@ -226,24 +205,15 @@ const SPEC = {
       layout: { barmode: 'stack', xaxis: { title: 'Material' }, yaxis: { title: 'Tests' } },
     }]
     const t = asRows(pick(raw, /Experimental/i) || { cols: [], rows: [] })
-    out.push(boxBy(t, 'Net aging time (sec)', 'Sample Type', { title: 'How long the smoke aged before it was measured', yt: 'Net aging time (s)', ylog: true, why: 'SAME-R varied how long the smoke aged before it was measured, because aged smoke has different particle sizes (see the aged-smoke figure below).', foot: 'tests with a net aging time' }))
+    out.push(boxBy(t, 'Net aging time (sec)', 'Sample Type', { title: 'How long the smoke aged before it was measured', yt: 'Net aging time (s)', ylog: true, ytick: [1, 3, 10, 30, 100, 300, 1000], why: 'SAME-R varied how long the smoke aged before it was measured, because aged smoke has different particle sizes (see the aged-smoke figure below).', foot: 'tests with a net aging time' }))
     return out
-  },
-
-  'PSI-102': (rows, ds, raw) => {
-    const t = asRows(pick(raw, /Experimental/i) || { cols: [], rows: [] })
-    const use = t.filter((r) => isNum(r['Weight loss rate (mg/min)']))
-    return [{
-      title: 'How fast each sample lost mass while smoking', why: 'The mass the material loses per minute is the rate the smoke is made. Air speed is shown in the label.', n: use.length, foot: 'the eight SAME samples',
-      data: [{ type: 'bar', x: use.map((r) => `${r['Sample Material']}${isNum(r['Air Flow (cm/s)']) ? `, ${r['Air Flow (cm/s)']} cm/s` : ''}`), y: use.map((r) => r['Weight loss rate (mg/min)']), marker: { color: '#C73512', line: OUTLINE } }],
-      layout: { yaxis: { title: 'Weight loss rate (mg/min)' }, xaxis: { tickangle: -25, automargin: true }, showlegend: false },
-    }]
   },
 
   'PSI-107': (rows, ds, raw) => {
     const t = asRows(pick(raw, /Experimental/i) || { cols: [], rows: [] })
-    const out = [scatterBy(t, 'Air Rate (cm/s)', 'HC Fuel Rate (mg/s)', 'Fuel', { title: 'Fuel flow and air speed for every test', xt: 'Coflow air speed (cm/s)', yt: 'Hydrocarbon fuel rate (mg/s)', size: 6, why: 'SPICE looked for the point where a flame starts to smoke. Each test is one fuel flow and air speed; the SPICE report relates flame length at the smoke point to these two settings.', foot: 'tests with both values' })]
-    const air = rows.filter((r) => r.flow_velocity_cm_s != null)
+    const tt = t.filter((r) => !isNum(r['Air Rate (cm/s)']) || r['Air Rate (cm/s)'] >= 0)
+    const out = [scatterBy(tt, 'Air Rate (cm/s)', 'HC Fuel Rate (mg/s)', 'Fuel', { title: 'Fuel flow and air speed for every test', xt: 'Coflow air speed (cm/s)', yt: 'Hydrocarbon fuel rate (mg/s)', size: 6, why: 'SPICE looked for the point where a flame starts to smoke. Each test is one fuel flow and air speed; the SPICE report relates flame length at the smoke point to these two settings.', foot: 'tests with both values; a few rows with a negative air speed in the source are left out' })]
+    const air = rows.filter((r) => r.flow_velocity_cm_s != null && r.flow_velocity_cm_s >= 0)
     const g = [...groupBy(air, (r) => r.fuel).entries()].sort((a, b) => b[1].length - a[1].length)
     out.push({ title: 'Air speeds run for each fuel', why: 'How widely airspeed was varied for each fuel.', n: air.length, foot: note(air.length, rows.length, 'the smoke-point result itself is not in this table'), data: g.map(([k, rs], i) => ({ type: 'box', name: k, y: rs.map((r) => r.flow_velocity_cm_s), marker: { color: PALETTE[i % PALETTE.length] }, line: { color: '#111', width: 1.5 }, boxpoints: 'outliers' })), layout: { yaxis: { title: 'Air speed (cm/s)' }, showlegend: false, xaxis: { tickangle: -20, automargin: true } } })
     return out
@@ -255,7 +225,8 @@ const SPEC = {
   },
   'PSI-21': (rows, ds, raw) => {
     const t = asRows(pick(raw, /Experimental/i) || { cols: [], rows: [] })
-    return [logBars(t, (r) => dayLabel(r['Test Day']), 'Flames ignited', 'Fuel Bottle', { title: 'Flames lit on each test day', xt: 'Test day (from the YYDDD code)', yt: 'Flames ignited', why: 'The CLD Flame log counts how many coflow flames were lit each day, by fuel mix. The fuel concentration was lowered during tests to find where the flame went out.', foot: 'campaign summary; the notes column gives the fuel-dilution range for each day' })]
+    const tc = t.map((r) => ({ ...r, conc: (String(r['Fuel Bottle'] || '').match(/^\d+%/) || ['not stated'])[0] + ' fuel' }))
+    return [logBars(tc, (r) => dayLabel(r['Test Day']), 'Flames ignited', 'conc', { title: 'Flames lit on each test day', xt: 'Test day (from the YYDDD code)', yt: 'Flames ignited', why: 'The CLD Flame log counts how many coflow flames were lit each day, by fuel mix. The fuel concentration was lowered during tests to find where the flame went out.', foot: 'campaign summary; the notes column gives the fuel-dilution range for each day' })]
   },
   'PSI-22': (rows, ds, raw) => {
     const t = asRows(pick(raw, /Experimental/i) || { cols: [], rows: [] })
@@ -268,20 +239,21 @@ const SPEC = {
   'PSI-23': (rows, ds, raw) => {
     const t = asRows(pick(raw, /Experimental/i) || { cols: [], rows: [] })
     const fk = col(t, /Flames Ignited/i), dk = col(t, /Test Day/i), ak = col(t, /Atmosphere/i)
-    return [logBars(t, (r) => dayLabel(r[dk]), fk, 'Fuel Bottle', { title: 'Flames lit on each test day', xt: 'Test day (from the YYDDD code)', yt: 'Flames ignited', why: 'The s-Flame log counts how many nearly spherical flames were lit each day, for hydrogen, methane and ethylene mixes. Later days switch from nitrogen to helium dilution.', foot: `campaign summary; atmosphere column: ${[...new Set(t.map((r) => r[ak]).filter(Boolean))].slice(0, 3).join('; ')}` })]
+    const ta = t.map((r) => ({ ...r, dil: /\bHe\b/.test(r['Fuel Bottle'] || '') ? 'Helium dilution' : /N[23]\b/.test(r['Fuel Bottle'] || '') ? 'Nitrogen dilution' : 'Undiluted or other' }))
+    return [logBars(ta, (r) => dayLabel(r[dk]), fk, 'dil', { title: 'Flames lit on each test day', xt: 'Test day (from the YYDDD code)', yt: 'Flames ignited', why: 'The s-Flame log counts how many nearly spherical flames were lit each day, for hydrogen, methane and ethylene mixes. Later days switch from nitrogen to helium dilution.', foot: `campaign summary; atmosphere column: ${[...new Set(t.map((r) => r[ak]).filter(Boolean))].slice(0, 3).join('; ')}` })]
   },
 
   'PSI-47': (rows, ds, raw) => {
     const t = pick(raw, /P-Trak against/i)
     if (!t) return []
     const pts = []
-    for (const r of t.rows.slice(1)) for (let b = 0; b < 3; b++) { const x = r[b * 2], y = r[b * 2 + 1]; if (isNum(x) && isNum(y) && (x > 0 || y > 0)) pts.push({ bag: `Bag ${b + 1}`, x, y }) }
+    for (const r of t.rows.slice(1)) for (let b = 0; b < 3; b++) { const x = r[b * 2], y = r[b * 2 + 1]; if (isNum(x) && isNum(y) && x > 0 && y > 0) pts.push({ bag: `Bag ${b + 1}`, x, y }) }
     const g = [...groupBy(pts, (p) => p.bag).entries()]
     return [{
       title: 'Particle count against particle mass', why: 'The P-Trak counts tiny particles and the DustTrak weighs larger ones. Plotting one against the other shows whether the smoke from a test was mostly small particles or a few big ones.', n: pts.length,
-      foot: 'Readings paired by position for each sample bag; points where both are zero are left out. The source does not label units on this sheet.',
+      foot: 'Readings paired by position for each sample bag; points where either reading is zero are left out so both axes can be logarithmic. The source does not label units on this sheet.',
       data: g.map(([k, ps], i) => ({ type: 'scatter', mode: 'markers', name: k, x: ps.map((p) => p.x), y: ps.map((p) => p.y), marker: { color: PALETTE[i], size: 7, opacity: 0.7, line: OUTLINE } })),
-      layout: { xaxis: { title: 'P-Trak reading' }, yaxis: { title: 'DustTrak reading' } },
+      layout: { xaxis: { title: 'P-Trak reading', type: 'log' }, yaxis: { title: 'DustTrak reading', type: 'log' } },
     }]
   },
 
@@ -294,7 +266,7 @@ const SPEC = {
       title: 'Modelled smoke particle size, by case', why: 'The simulation computed how many smoke particles of each size form behind a heated body, with and without gravity (the case names carry Gravity and NoGravity). Compare the two kinds of curve to see how gravity changes the size distribution.', n: use.length,
       foot: 'Diameter is paired with nodes by position, which the source does not confirm; the units of the distribution value are not established. Read the shape, not the numbers.',
       data: g.map(([k, rs], i) => ({ type: 'scatter', mode: 'lines', name: k, x: rs.map((r) => r[dk]), y: rs.map((r) => r[vk]), line: { color: PALETTE[i % PALETTE.length], width: 2.5, dash: /NoGravity/.test(k) ? 'solid' : 'dash' } })),
-      layout: { xaxis: { title: 'Particle diameter (m)', type: 'log' }, yaxis: { title: 'Distribution value (units not established)', type: 'log' } },
+      layout: { xaxis: { title: 'Particle diameter (m)', type: 'log' }, yaxis: { title: 'Distribution (units not set)', type: 'log' } },
     }]
   },
 
@@ -308,7 +280,7 @@ const SPEC = {
         { name: 'Hot flame, model', x: c(2), y: c(3), color: '#C73512', dash: 'dash' },
         { name: 'Cool flame, experiment', x: c(4), y: c(5), mode: 'lines+markers', color: '#1B5FA8' },
         { name: 'Cool flame, model', x: c(6), y: c(7), color: '#1B5FA8', dash: 'dash' },
-      ], { title: 'Droplet size at extinction against pressure, n-dodecane', xt: 'Pressure (atm)', yt: 'Droplet diameter at extinction (mm)', foot: 'Experiment from the FLEX tests; model from the investigators’ simulation', why: 'The measured and modelled size at which the hot and cool flames go out. Where the model line follows the measured line, the model can be trusted to predict extinction.' }))
+      ], { title: 'Droplet size at extinction against pressure, n-dodecane', xt: 'Pressure (atm)', yt: 'Extinction diameter (mm)', foot: 'Experiment from the FLEX tests; model from the investigators’ simulation', why: 'The measured and modelled size at which the hot and cool flames go out. Where the model line follows the measured line, the model can be trusted to predict extinction.' }))
     }
     const st = pick(raw, /Stable Cool/i), os = pick(raw, /Oscillatory/i)
     if (st && os) {
@@ -316,7 +288,7 @@ const SPEC = {
       out.push(lineSets([
         { name: 'Stable cool flame', x: get(st, 0), y: get(st, 6), color: '#1B5FA8' },
         { name: 'Oscillatory cool flame', x: get(os, 0), y: get(os, 6), color: '#C73512' },
-      ], { title: 'Droplet size over time, two cool-flame behaviours', xt: 'Time (s)', yt: 'Droplet diameter squared, relative to the start', foot: 'Computed results for a 0.5 mm n-heptane droplet; not measurements', why: 'The cool flame can burn steadily or flicker. The computed droplet shrinks differently in the two cases.' }))
+      ], { title: 'Droplet size over time, two cool-flame behaviours', xt: 'Time (s)', yt: 'Diameter squared (relative)', foot: 'Computed results for a 0.5 mm n-heptane droplet; not measurements', why: 'The cool flame can burn steadily or flicker. The computed droplet shrinks differently in the two cases.' }))
       out.push(lineSets([
         { name: 'Stable cool flame', x: get(st, 0), y: get(st, 3), color: '#1B5FA8' },
         { name: 'Oscillatory cool flame', x: get(os, 0), y: get(os, 3), color: '#C73512' },
