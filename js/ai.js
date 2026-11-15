@@ -29,12 +29,12 @@
         el('a', { className: 'rank-item__name', href: r.psi_url, target: '_blank', rel: 'noopener', textContent: r.name }),
         el('span', { className: 'rank-item__full', textContent: ` | ${r.full_name}` })
       ),
-      el('span', { className: 'rank-item__score', textContent: `Score ${r.total} of 9` }),
+      el('span', { className: 'rank-item__score', textContent: `Score ${r.score} of 100` }),
       el('span', { className: 'rank-item__reason', textContent: `Basis: ${r.reason}` })
     )
     if (top) {
       li.append(
-        el('span', { className: 'rank-item__why-label', textContent: 'Why it fits (interpretation):' }),
+        el('span', { className: 'rank-item__why-label', textContent: 'Why it fits:' }),
         el('p', { className: 'rank-item__why', textContent: r.explanation || 'Not available for this one.' })
       )
     }
@@ -47,7 +47,7 @@
       parts.push(
         el('p', {
           className: 'weak',
-          textContent: 'No investigation in this set clearly tests this question. The list shows the closest matches.',
+          textContent: 'These investigations are only loosely related to your topic. The list shows the closest matches.',
         })
       )
     }
