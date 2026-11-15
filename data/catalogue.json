@@ -294,6 +294,10 @@
     "Flow direction": "varies",
     "Gravity": "empty",
     "Outcome": "varies"
+   },
+   "rod_check": {
+    "n": 54,
+    "min_o2": 13.6
    }
   },
   {
