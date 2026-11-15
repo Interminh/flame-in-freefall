@@ -198,6 +198,7 @@ export default async function handler(req, res) {
   } catch (err) {
     // Log the error type only. Never the question, the key or the model text.
     console.error('rank failed:', err.message)
-    return res.status(502).json({ error: 'The AI service could not answer. Try again in a moment.' })
+    // The short code (for example model_http_404) is safe to show and helps debugging.
+    return res.status(502).json({ error: 'The AI service could not answer. Try again in a moment.', code: err.message })
   }
 }

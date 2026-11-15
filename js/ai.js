@@ -76,7 +76,7 @@
         // Live Server has no /api route, so say how to run it properly.
         const msg = res.status === 404
           ? 'The AI function is not running here. Use "vercel dev" or the deployed site.'
-          : data.error || 'Something went wrong. Try again.'
+          : (data.error || 'Something went wrong. Try again.') + (data.code ? ` (${data.code})` : '')
         setStatus(msg, true)
         return
       }
