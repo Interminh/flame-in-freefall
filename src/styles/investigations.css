@@ -6,8 +6,8 @@
   margin: var(--space-6) 0 var(--space-8);
   padding: var(--space-4);
   background: var(--sky);
-  border: 2px solid var(--ink);
-  box-shadow: 4px 4px 0 var(--ink);
+  border: var(--bw) solid var(--ink);
+  box-shadow: var(--so-m) var(--so-m) 0 var(--ink);
   font-family: var(--font-data);
   font-size: 14px;
 }
@@ -37,13 +37,13 @@
   transition: transform 140ms ease, box-shadow 140ms ease;
 }
 
-.card:hover { transform: translate(-3px, -3px); box-shadow: 0 0 0 2px #111, 9px 9px 0 2px #111; }
+.card:hover { transform: translate(-3px, -3px); box-shadow: 0 0 0 var(--bw) var(--ink), calc(var(--so) + 3px) calc(var(--so) + 3px) 0 var(--bw) var(--ink); }
 
 .card__media {
   position: relative;
   margin: 0;
   aspect-ratio: 16 / 10;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: var(--bw) solid var(--ink);
   overflow: hidden;
   background: var(--ink);
 }
@@ -57,8 +57,8 @@
   max-width: 100%;
   padding: 2px var(--space-2);
   background: var(--yellow);
-  border-top: 2px solid var(--ink);
-  border-right: 2px solid var(--ink);
+  border-top: var(--bw) solid var(--ink);
+  border-right: var(--bw) solid var(--ink);
   font-family: var(--font-data);
   font-size: 11px;
   color: var(--ink);
@@ -115,7 +115,7 @@
 .chip {
   display: inline-block;
   padding: 1px var(--space-3);
-  border: 2px solid var(--ink);
+  border: var(--bw) solid var(--ink);
   border-radius: 999px;
   font-family: var(--font-data);
   font-size: 11px;
@@ -131,7 +131,7 @@
 .chip.suppression { background: var(--pink); color: var(--ink); border-color: var(--ink); }
 
 .dots { display: inline-flex; gap: 3px; }
-.dots i { width: 11px; height: 11px; border: 2px solid var(--ink); border-radius: 50%; background: var(--surface); }
+.dots i { width: 11px; height: 11px; border: var(--bw) solid var(--ink); border-radius: 50%; background: var(--surface); }
 .dots i.varies { background: #3DBE7E; }
 .dots i.constant { background: var(--yellow); }
 
@@ -140,7 +140,7 @@
   width: 80px;
   height: 12px;
   margin-right: var(--space-2);
-  border: 2px solid var(--ink);
+  border: var(--bw) solid var(--ink);
   background: var(--surface);
   vertical-align: middle;
   overflow: hidden;
