@@ -8,11 +8,11 @@ function baseLayout() {
   const ink = cssVar('--ink-2') || '#454b55', grid = cssVar('--line') || '#e2dfd6'
   return {
     paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
-    font: { family: 'IBM Plex Sans, system-ui, sans-serif', size: 12, color: ink },
-    margin: { l: 56, r: 18, t: 14, b: 48 },
+    font: { family: 'IBM Plex Sans Condensed, Arial Narrow, system-ui, sans-serif', size: 12, color: ink },
+    margin: { l: 56, r: 18, t: 34, b: 48 },
     xaxis: { gridcolor: grid, zerolinecolor: grid, linecolor: grid, automargin: true },
     yaxis: { gridcolor: grid, zerolinecolor: grid, linecolor: grid, automargin: true },
-    legend: { orientation: 'h', y: -0.22, font: { size: 11 } },
+    legend: { orientation: 'h', x: 0, y: 1.02, yanchor: 'bottom', font: { size: 11 } },
     hoverlabel: { font: { family: 'IBM Plex Mono, monospace', size: 11 } },
   }
 }

@@ -10,7 +10,7 @@
 import { writeFileSync } from 'node:fs'
 import { readCsvObjects, rng, nelderMead } from './lib.mjs'
 import {
-  MATERIALS, PARAMS, P_REF_KPA, THICKNESS_MATERIALS, O2_REF, makeTheta, burnProbability, summarizeLOC, locO2, quantile,
+  MATERIALS, PARAMS, P_REF_KPA, THICKNESS_MATERIALS, O2_REF, makeTheta, burnProbability, summarizeLOC, summarizeProbability, locO2, quantile,
   buoyantVelocity, gravitySigma, blowoffFlow, blowoffSlope,
 } from '../../src/sim/model.js'
 
@@ -205,6 +205,8 @@ const draws = Array.from({ length: DRAWS }, () => {
 //   film blow-off : 40 cm/s lies between the model blow-off flow at 18% and at 21% O2
 //   three notes   : the central model gets each BASS-II blow-off note right
 //   SIBAL at 1 g  : NASA says downward (opposed) spread over SIBAL is not possible in normal air, so the central model chance of burning is below 0.5
+//   SAFFIRE-II    : the whole sample burned in each case in data/derived/saffire2_ground_checks.csv, so the mean chance of burning is at least 0.5.
+//                   This rule was written after a first look at the model's numbers, so it is weaker evidence than the others.
 const fin = (x) => (Number.isFinite(x) ? round(x, 2) : '>60')
 const qs = (arr) => { const s = [...arr].sort((a, b) => a - b); return { median: quantile(s, 0.5), q05: quantile(s, 0.05), q95: quantile(s, 0.95) } }
 const FLOW_GRID = Array.from({ length: 70 }, (_, i) => 0.2 * 1.09 ** i) // about 0.2 to 75 cm/s
@@ -232,6 +234,17 @@ const notes = notePts.map((c) => ({
   share_of_draws_correct: round(draws.filter((d) => consistent(d, c)).length / draws.length),
 }))
 
+const s2g = readCsvObjects('data/derived/saffire2_ground_checks.csv').map((r) => {
+  const inp = { o2: Number(r.o2_percent_used), p: P_REF_KPA, uForced: Number(r.forced_flow_cm_s), direction: r.flow_direction, g: Number(r.gravity_g), material: r.material_class, thickness: null }
+  const s = summarizeProbability(inp, draws)
+  return {
+    check: r.check_id, test: r.test_id, material: r.material_class, gravity_g: Number(r.gravity_g), o2_percent: Number(r.o2_percent_used),
+    observed: r.observed_outcome, observed_text: r.observed_text,
+    model_central_p_burn: round(burnProbability(inp, thetaCentral)), model_mean_p_burn: round(s.mean), q05: round(s.q05), q95: round(s.q95),
+    pass: (s.mean >= 0.5) === (r.observed_outcome === 'burn'),
+  }
+})
+
 const sibal1g = { o2: 21, p: P_REF_KPA, uForced: 0, direction: 'opposed', g: 1, material: 'sibal', thickness: null }
 const sibal1gP = burnProbability(sibal1g, thetaCentral)
 const sibal1gMean = draws.reduce((a, d) => a + burnProbability(sibal1g, d), 0) / draws.length
@@ -258,6 +271,12 @@ const nasaChecks = {
     pass: filmBo(18) <= 40 && 40 <= filmBo(21),
   },
   bass2_notes_on_blowoff_side: notes,
+  saffire2_ground: {
+    source: 'SAFFIRE-II ground comparisons, PSI-99, concurrent flow at 20 cm/s and about 22% O2',
+    rule: 'Mean chance of burning at least 0.5 where the whole sample burned. Written after a first look at the numbers.',
+    cases: s2g,
+    pass: s2g.every((c) => c.pass),
+  },
   sibal_opposed_1g_in_air: {
     nasa: 'no sustained downward spread in normal air (anchor H7)', model_central_p_burn: round(sibal1gP), model_mean_p_burn: round(sibal1gMean),
     pass: sibal1gP < 0.5,

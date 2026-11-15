@@ -6,12 +6,32 @@ import { spearman } from './stats.js'
 const isSrc = (k) => k.startsWith('src_')
 const numCols = (ds) => ds.columns.filter((c) => c.type === 'num' && c.nuniq > 3 && c.n >= 8).sort((a, b) => isSrc(a.key) - isSrc(b.key) || b.n - a.n)
 const catCols = (ds) => ds.columns.filter((c) => c.type === 'cat' && c.nuniq >= 2 && c.nuniq <= 24 && c.n >= 8).sort((a, b) => isSrc(a.key) - isSrc(b.key))
-const label = (c) => `${c.label}${c.unit ? ` (${c.unit})` : ''}`
+const sub2 = (t) => String(t).replace(/\bO2\b/g, 'O₂')
+const label = (c) => sub2(`${c.label}${c.unit ? ` (${c.unit})` : ''}`)
 const has = (ds, k) => ds.columns.find((c) => c.key === k && c.n > 2)
 const groupBy = (rows, f) => { const m = new Map(); for (const r of rows) { const k = f(r); if (!m.has(k)) m.set(k, []); m.get(k).push(r) } return m }
 const colorFor = (name, i) => OUTCOME_COLORS[name] || OKABE[i % OKABE.length]
 
+export const GROUPS = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'relations', label: 'Relationships' },
+  { id: 'distributions', label: 'Distributions' },
+  { id: 'quality', label: 'Data quality' },
+]
+const OVERVIEW_MAX = 4
+const groupOf = (id) => (id === 'outcome-fuel' || id.startsWith('map-') || id === 'series') ? 'overview' : (id.startsWith('pair-') || id === 'corr') ? 'relations' : (id.startsWith('hist-') || id.startsWith('cat-') || id.startsWith('series-')) ? 'distributions' : 'quality'
+
+// Tags each chart with a group; overview is capped so the first screen stays readable and the rest moves to Relationships.
+function grouped(list) {
+  let n = 0
+  return list.map((c) => { let g = groupOf(c.id); if (g === 'overview' && ++n > OVERVIEW_MAX) g = 'relations'; return { ...c, title: sub2(c.title), group: g } })
+}
+
 export function autoCharts(ds, rows) {
+  return grouped(build(ds, rows))
+}
+
+function build(ds, rows) {
   if (ds.kind === 'series') return seriesCharts(ds)
   if (!rows.length) return []
   const out = []
@@ -24,7 +44,7 @@ export function autoCharts(ds, rows) {
     const levels = [...new Set(rows.map((r) => r.outcome).filter(Boolean))]
     const fuels = [...groupBy(rows, (r) => r[fuelCol] ?? 'n/a').entries()].sort((a, b) => b[1].length - a[1].length).slice(0, 14)
     out.push({ id: 'outcome-fuel', title: 'Outcome by fuel', sub: 'Counts of rows by reported outcome', notes: 'Outcome labels follow the conservative rules in data/DATA_DICTIONARY.md. "unknown" means the source did not state one.',
-      data: levels.map((lv, i) => ({ type: 'bar', name: lv, x: fuels.map(([f]) => String(f).slice(0, 28)), y: fuels.map(([, rs]) => rs.filter((r) => r.outcome === lv).length), marker: { color: colorFor(lv, i) } })), layout: { barmode: 'stack', yaxis: { title: 'Rows' }, xaxis: { tickangle: -30 } } })
+      data: levels.map((lv, i) => ({ type: 'bar', name: lv, x: fuels.map(([f]) => String(f).slice(0, 28)), y: fuels.map(([, rs]) => rs.filter((r) => r.outcome === lv).length), marker: { color: colorFor(lv, i) } })), layout: { barmode: 'stack', yaxis: { title: 'Rows' }, xaxis: { title: sub2(ds.columns.find((c) => c.key === fuelCol).label), tickangle: -30 }, margin: { b: 110 } } })
   }
   // 2. Condition maps coloured by outcome or fuel
   const mapPairs = [['o2_percent', 'pressure_kpa'], ['o2_percent', 'flow_velocity_cm_s'], ['flow_velocity_cm_s', 'fuel_thickness_mm'], ['o2_percent', 'fuel_thickness_mm']]
@@ -68,19 +88,19 @@ export function autoCharts(ds, rows) {
   for (const c of cats.slice(0, 3)) {
     const top = c.top.slice(0, 14)
     out.push({ id: `cat-${c.key}`, title: `${c.label}: most common values`, sub: `${c.nuniq} distinct values across ${c.n} rows`,
-      data: [{ type: 'bar', orientation: 'h', y: top.map((t) => String(t[0]).slice(0, 34)).reverse(), x: top.map((t) => t[1]).reverse(), marker: { color: OKABE[2] } }], layout: { xaxis: { title: 'Rows' }, margin: { l: 190 } } })
+      data: [{ type: 'bar', orientation: 'h', y: top.map((t) => String(t[0]).slice(0, 34)).reverse(), x: top.map((t) => t[1]).reverse(), marker: { color: OKABE[2] } }], layout: { xaxis: { title: 'Rows' }, yaxis: { title: sub2(c.label) }, margin: { l: 190 } } })
   }
   // 6. Rank-correlation matrix
   if (pool.length >= 4) {
     const k = pool.slice(0, 12)
     const z = k.map((a) => k.map((b) => { const xs = [], ys = []; for (const r of rows) if (r[a.key] != null && r[b.key] != null) { xs.push(r[a.key]); ys.push(r[b.key]) } return xs.length >= 10 ? spearman(xs, ys) : null }))
     out.push({ id: 'corr', title: 'Rank-correlation matrix', sub: 'Spearman rho over pairwise-complete rows (blank if fewer than 10 pairs)',
-      data: [{ type: 'heatmap', x: k.map((c) => c.label), y: k.map((c) => c.label), z, zmin: -1, zmax: 1, colorscale: [[0, '#0072B2'], [0.5, '#F7F6F2'], [1, '#D55E00']], hovertemplate: '%{x}<br>%{y}<br>rho %{z:.2f}<extra></extra>' }], layout: { margin: { l: 150, b: 130 }, xaxis: { tickangle: -40 } }, size: 'tall' })
+      data: [{ type: 'heatmap', x: k.map((c) => c.label), y: k.map((c) => c.label), z, zmin: -1, zmax: 1, colorscale: [[0, '#0072B2'], [0.5, '#F7F6F2'], [1, '#D55E00']], colorbar: { title: { text: 'Spearman rho', side: 'right' }, thickness: 10 }, hovertemplate: '%{x}<br>%{y}<br>rho %{z:.2f}<extra></extra>' }], layout: { margin: { l: 150, b: 130 }, xaxis: { title: 'Column', tickangle: -40 }, yaxis: { title: 'Column' } }, size: 'tall' })
   }
   // 7. Completeness
   const comp = [...ds.columns].filter((c) => !isSrc(c.key) || ds.columns.length < 18).sort((a, b) => b.n - a.n).slice(0, 26)
   out.push({ id: 'complete', title: 'Column completeness', sub: 'Share of rows with a value, per column', notes: 'Low completeness is why some analyses are impossible on this dataset.',
-    data: [{ type: 'bar', orientation: 'h', y: comp.map((c) => c.label).reverse(), x: comp.map((c) => (100 * c.n) / ds.rows).reverse(), marker: { color: OKABE[5] } }], layout: { xaxis: { title: 'Rows with a value (%)', range: [0, 100] }, margin: { l: 190 } }, size: 'tall' })
+    data: [{ type: 'bar', orientation: 'h', y: comp.map((c) => c.label).reverse(), x: comp.map((c) => (100 * c.n) / ds.rows).reverse(), marker: { color: OKABE[5] } }], layout: { xaxis: { title: 'Rows with a value (%)', range: [0, 100] }, yaxis: { title: 'Column' }, margin: { l: 190 } }, size: 'tall' })
   return out
 }
 
@@ -89,7 +109,7 @@ function seriesCharts(ds) {
   const pick = [...ser].sort((a, b) => b.n - a.n).slice(0, 8)
   const out = []
   if (pick.length) out.push({ id: 'series', title: 'Largest series', sub: `${pick.length} of ${ds.series.length} series; large series are min-max decimated to at most 240 points`, notes: 'x is the stored index, y the first value column. Units are in each series meta record.',
-    data: pick.map((s, i) => ({ type: 'scatter', mode: 'lines', name: `${s.id.split('-series-')[1]} (${s.meta?.quantity_original || 'y'})`, x: s.x, y: s.y, line: { color: OKABE[i % OKABE.length], width: 1.5 } })), layout: { xaxis: { title: 'Index' }, yaxis: { title: 'Value' } }, size: 'tall' })
+    data: pick.map((s, i) => ({ type: 'scatter', mode: 'lines', name: `${s.id.split('-series-')[1]} (${s.meta?.quantity_original || 'y'})`, x: s.x, y: s.y, line: { color: OKABE[i % OKABE.length], width: 1.5 } })), layout: { xaxis: { title: 'Point index within the series' }, yaxis: { title: new Set(pick.map((s) => s.meta?.quantity_original)).size === 1 ? pick[0].meta.quantity_original : 'Value (quantity in the legend)' } }, size: 'tall' })
   const sizes = ds.series.map((s) => s.n)
   out.push({ id: 'series-len', title: 'Series length distribution', sub: `${ds.series.length} series`, data: [{ type: 'histogram', x: sizes, marker: { color: OKABE[0] } }], layout: { xaxis: { title: 'Points per series', type: 'log' }, yaxis: { title: 'Series' } } })
   const meds = ds.series.filter((s) => s.stats).map((s) => s.stats.mean)

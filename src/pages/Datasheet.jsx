@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { getInvestigations, getDataset, datasetRows, getLiterature, getAnchors, getTests, getAnalytics } from '../lib/data.js'
-import { autoCharts } from '../lib/autoCharts.js'
-import { ChartCard, PageHead, PillarChip, Tabs, useAsync, Loading, Stat } from '../components/ui.jsx'
+import { autoCharts, GROUPS } from '../lib/autoCharts.js'
+import DatasetSummary from '../components/DatasetSummary.jsx'
+import { ChartCard, PageHead, PillarChip, Tabs, useAsync, Loading } from '../components/ui.jsx'
 
-const FP_COLOR = { varies: 'ok', constant: 'warn', empty: 'bad' }
 
 function DataTable({ ds, rows }) {
   const cols = ds.columns.filter((c) => !c.key.startsWith('src_')).slice(0, 14)
@@ -49,7 +49,8 @@ function Benchmarks({ id, docs, anchors, tests }) {
 export default function Datasheet() {
   const { id } = useParams()
   const st = useAsync(() => Promise.all([getInvestigations(), getDataset(id), getLiterature(), getAnchors(), getTests(), getAnalytics()]), [id])
-  const [tab, setTab] = useState('charts')
+  const [tab, setTab] = useState('summary')
+  const [grp, setGrp] = useState('overview')
   const { inv, ds, docs, anchors, tests, fp, rows, charts } = useMemo(() => {
     if (!st.data) return {}
     const [invs, d, lit, anch, t, an] = st.data
@@ -58,23 +59,21 @@ export default function Datasheet() {
   }, [st.data, id])
   if (st.loading) return <Loading />
   if (st.error || !inv) return <div className="callout bad">Investigation {id} was not found.</div>
-  const tabs = [{ id: 'charts', label: `Charts (${charts.length})` }, { id: 'table', label: 'Data' }, { id: 'lit', label: `Literature (${docs.length})` }, { id: 'prov', label: 'Provenance' }]
+  const shownGroup = charts.some((c) => c.group === grp) ? grp : (charts[0]?.group || 'overview')
+  const tabs = [{ id: 'summary', label: 'Summary' }, { id: 'charts', label: `Charts (${charts.length})` }, { id: 'table', label: 'Data' }, { id: 'lit', label: `Literature (${docs.length})` }, { id: 'prov', label: 'Provenance' }]
   return (
     <>
-      <PageHead eyebrow={`${inv.psi_id} · ${inv.facility || ''}`} title={inv.name} lede={inv.summary}>
-        <div className="row"><PillarChip pillar={inv.pillar} />{inv.hardware && <span className="chip">{inv.hardware}</span>}<span className="chip">{inv.platform}</span><span className="chip">{inv.period}</span><span className="chip">{inv.license}</span>
-          <a className="btn sm" href={inv.psi_url} target="_blank" rel="noreferrer">PSI record</a><a className="btn sm" href={`https://doi.org/${inv.doi}`} target="_blank" rel="noreferrer">DOI {inv.doi}</a><button className="btn sm primary" onClick={() => window.faAsk(`What do we know from ${inv.name} (${inv.psi_id})?`)}>Ask about this</button></div>
+      <PageHead eyebrow={[inv.psi_id, /not stated/i.test(inv.facility || '') ? null : (inv.facility || '').split(',')[0]].filter(Boolean).join(' · ')} title={inv.name} lede={inv.summary}>
+        <div className="row"><PillarChip pillar={inv.pillar} />{inv.hardware && !/not stated/i.test(inv.hardware) && <span className="chip">{inv.hardware}</span>}{inv.platform && !/not stated/i.test(inv.platform) && <span className="chip">{inv.platform}</span>}<span className="chip">{inv.period}</span>{inv.license && !/not stated/i.test(inv.license) && <span className="chip">{inv.license}</span>}
+          <a className="btn sm" href={inv.psi_url} target="_blank" rel="noreferrer">PSI record</a><a className="btn sm" href={`https://doi.org/${inv.doi}`} target="_blank" rel="noreferrer">DOI {inv.doi}</a>{tests.some((t) => t.psi_id === inv.psi_id) && <Link className="btn sm" to={`/explore?q=${inv.psi_id}`}>Explore its {tests.filter((t) => t.psi_id === inv.psi_id).length} harmonised tests</Link>}<button className="btn sm primary" onClick={() => window.faAsk(`What do we know from ${inv.name} (${inv.psi_id})?`)}>Ask about this</button></div>
       </PageHead>
-      <div className="grid g4" style={{ marginBottom: 18 }}>
-        <Stat k="Rows" v={(ds.rows || 0).toLocaleString()} n={ds.kind === 'series' ? `${ds.series?.length} series` : `${ds.columns.length} columns`} />
-        <Stat k="Publications on PSI" v={inv.publications_listed_on_psi_page ?? 'n/a'} n="as listed" />
-        <Stat k="Linked NTRS reports" v={docs.length} n="in the Atlas corpus" />
-        <Stat k="Materials" v={(inv.materials || []).length} n={(inv.materials || []).slice(0, 3).join(', ')} />
-      </div>
-      {fp && <div className="card flat" style={{ marginBottom: 18 }}><h4>Variable fingerprint</h4><div className="row" style={{ gap: 6 }}>{Object.entries(fp).map(([k, v]) => <span key={k} className={`chip ${FP_COLOR[v.status]}`} title={`${v.n_unique} distinct values`}>{k}: {v.status}</span>)}</div><p className="small" style={{ marginTop: 6 }}>varies = more than one value recorded; constant = one value; empty = not recorded in this table. This is what a table can and cannot answer.</p></div>}
       {inv.caveats?.length > 0 && <div className="callout neutral"><b>Caveats recorded for this investigation</b>{inv.caveats.map((c, i) => <div key={i}>{c}</div>)}</div>}
       <Tabs tabs={tabs} value={tab} onChange={setTab} />
-      {tab === 'charts' && (charts.length ? <div className="grid g2">{charts.map((c) => <ChartCard key={c.id} {...c} source={`${inv.psi_id} table`} />)}</div> : <div className="card">This investigation has no tabular rows in the repository; see its summary and the literature tab.</div>)}
+      {tab === 'summary' && <DatasetSummary ds={ds} inv={inv} fp={fp} docs={docs.length} rowCount={ds.rows || 0} />}
+      {tab === 'charts' && (charts.length ? <>
+        <div className="subtabs">{GROUPS.filter((g) => charts.some((c) => c.group === g.id)).map((g) => <button key={g.id} className={(shownGroup === g.id) ? 'active' : ''} onClick={() => setGrp(g.id)}>{g.label} <span>{charts.filter((c) => c.group === g.id).length}</span></button>)}</div>
+        <div className="grid g2">{charts.filter((c) => c.group === shownGroup).map((c) => <ChartCard key={c.id} {...c} source={`${inv.psi_id} table`} />)}</div>
+      </> : <div className="card">This investigation has no tabular rows to chart.</div>)}
       {tab === 'table' && (rows.length ? <DataTable ds={ds} rows={rows} /> : <div className="card">No table to show.</div>)}
       {tab === 'lit' && (
         <>

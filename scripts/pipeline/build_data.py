@@ -22,6 +22,8 @@ import glob
 import numpy as np
 import pandas as pd
 
+import config as C
+
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA = os.path.join(ROOT, 'data')
 OUT = os.path.join(ROOT, 'public', 'data')
@@ -480,10 +482,9 @@ def main():
     json.dump(out_inv, open(os.path.join(OUT, 'investigations.json'), 'w'), separators=(',', ':'))
 
     both = d.dropna(subset=['o2_percent', 'pressure_kpa'])
-    cabin = both[(both.o2_percent >= 26) & (both.pressure_kpa <= 75)]
-    solids = d[d.experiment.isin(['BASS', 'BASS-II', 'SAFFIRE-I', 'SAFFIRE-II', 'SAFFIRE-III'])]
-    scen = {'earth_air': (20.9, 101.325), 'moon_cabin_10p2psi': (30.0, 70.33), 'moon_cabin_8p2psi': (34.0, 56.54),
-            'suit_4p3psi': (100.0, 29.65)}
+    cabin = both[(both.o2_percent >= C.CABIN_BOX['o2_min_percent']) & (both.pressure_kpa <= C.CABIN_BOX['pressure_max_kpa'])]
+    solids = d[d.experiment.isin(C.SOLID_EXPERIMENTS)]
+    scen = {x['id']: (x['o2_percent'], x['pressure_kpa']) for x in C.SCENARIOS}
     analytics = {
         'facts': {
             'rows_total': int(len(d)), 'rows_with_o2_and_pressure': int(len(both)),
@@ -494,7 +495,7 @@ def main():
             'solid_pressure_min_kpa': sig(float(solids.pressure_kpa.min())),
             'solid_pressure_max_kpa': sig(float(solids.pressure_kpa.max())),
             'solid_rows_at_or_above_24pct_o2': int((solids.o2_percent >= 24).sum()),
-            'cabin_box_definition': 'O2 >= 26% and total pressure <= 75 kPa',
+            'cabin_box_definition': f"O2 >= {C.CABIN_BOX['o2_min_percent']:g}% and total pressure <= {C.CABIN_BOX['pressure_max_kpa']:g} kPa",
             'distinct_raw_fuel_labels': int(d.fuel.nunique()),
         },
         'scenarios': {k: {'o2_percent': v[0], 'pressure_kpa': v[1], 'ppo2_kpa': sig(v[0] * v[1] / 100, 4)} for k, v in scen.items()},

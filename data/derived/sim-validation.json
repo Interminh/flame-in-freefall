@@ -297,6 +297,55 @@
         "share_of_draws_correct": 1
       }
     ],
+    "saffire2_ground": {
+      "source": "SAFFIRE-II ground comparisons, PSI-99, concurrent flow at 20 cm/s and about 22% O2",
+      "rule": "Mean chance of burning at least 0.5 where the whole sample burned. Written after a first look at the numbers.",
+      "cases": [
+        {
+          "check": "S2G-1",
+          "test": "2-5 / ground comparison",
+          "material": "sibal",
+          "gravity_g": 1,
+          "o2_percent": 22.1,
+          "observed": "burn",
+          "observed_text": "Complete",
+          "model_central_p_burn": 0.929,
+          "model_mean_p_burn": 0.844,
+          "q05": 0.614,
+          "q95": 0.979,
+          "pass": true
+        },
+        {
+          "check": "S2G-2",
+          "test": "2-5",
+          "material": "sibal",
+          "gravity_g": 0,
+          "o2_percent": 22.1,
+          "observed": "burn",
+          "observed_text": "29 cm",
+          "model_central_p_burn": 0.952,
+          "model_mean_p_burn": 0.926,
+          "q05": 0.798,
+          "q95": 0.991,
+          "pass": true
+        },
+        {
+          "check": "S2G-3",
+          "test": "2-8 / ground comparison",
+          "material": "pmma_slab",
+          "gravity_g": 1,
+          "o2_percent": 22,
+          "observed": "burn",
+          "observed_text": "Complete",
+          "model_central_p_burn": 0.84,
+          "model_mean_p_burn": 0.723,
+          "q05": 0.001,
+          "q95": 0.951,
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
     "sibal_opposed_1g_in_air": {
       "nasa": "no sustained downward spread in normal air (anchor H7)",
       "model_central_p_burn": 0.935,

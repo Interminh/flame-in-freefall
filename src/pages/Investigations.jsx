@@ -1,48 +1,55 @@
 import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { getInvestigations, getDatasetIndex, PILLARS, pillarColor } from '../lib/data.js'
-import { PageHead, PillarChip, useAsync, Loading, ChartCard } from '../components/ui.jsx'
+import { Link, useNavigate } from 'react-router-dom'
+import { getInvestigations, getDatasetIndex, getTests, getAnalytics, PILLARS } from '../lib/data.js'
+import { structure } from '../lib/structure.js'
+import { PageHead, PillarChip, useAsync, Loading } from '../components/ui.jsx'
+
+const firstSentence = (t = '', n = 130) => { const s = (t.match(/^.*?[.!?](\s|$)/)?.[0] || t).trim(); return s.length > n ? `${s.slice(0, n - 1).trimEnd()}…` : s }
+const KIND = { table: 'Table', series: 'Series', empty: 'No data file' }
 
 export default function Investigations() {
-  const st = useAsync(() => Promise.all([getInvestigations(), getDatasetIndex()]))
+  const st = useAsync(() => Promise.all([getInvestigations(), getDatasetIndex(), getTests(), getAnalytics()]))
   const [q, setQ] = useState('')
   const [pillar, setPillar] = useState('all')
   const [hw, setHw] = useState('all')
-  const [sort, setSort] = useState('rows')
-  const [invs, idx] = st.data || []
-  const rowsById = useMemo(() => Object.fromEntries((idx || []).map((d) => [d.id, d.rows])), [idx])
-  const hws = useMemo(() => [...new Set((invs || []).map((i) => i.hardware).filter(Boolean))], [invs])
+  const [sort, setSort] = useState('id')
+  const nav = useNavigate()
+  const S = useMemo(() => (st.data ? structure({ invs: st.data[0], idx: st.data[1], tests: st.data[2], analytics: st.data[3] }) : null), [st.data])
+  const hws = useMemo(() => [...new Set((S?.items || []).map((i) => i.inv.hardware).filter(Boolean))], [S])
   const list = useMemo(() => {
-    if (!invs) return []
+    if (!S) return []
     const t = q.toLowerCase()
-    return invs.filter((i) => (pillar === 'all' || i.pillar === pillar) && (hw === 'all' || i.hardware === hw) && (!t || JSON.stringify([i.name, i.full_name, i.summary, i.tags, i.materials]).toLowerCase().includes(t)))
-      .sort((a, b) => sort === 'rows' ? (rowsById[b.psi_id] || 0) - (rowsById[a.psi_id] || 0) : sort === 'year' ? (a.year_start || 9999) - (b.year_start || 9999) : a.psi_id.localeCompare(b.psi_id, undefined, { numeric: true }))
-  }, [invs, q, pillar, hw, sort, rowsById])
+    const num = (i) => parseInt(i.inv.psi_id.slice(4))
+    return S.items.filter((i) => (pillar === 'all' || i.inv.pillar === pillar) && (hw === 'all' || i.inv.hardware === hw) && (!t || JSON.stringify([i.inv.name, i.inv.full_name, i.inv.summary, i.inv.tags, i.inv.materials]).toLowerCase().includes(t)))
+      .sort((a, b) => sort === 'rows' ? b.rows - a.rows : sort === 'varied' ? b.varied.length - a.varied.length : num(a) - num(b))
+  }, [S, q, pillar, hw, sort])
   if (st.loading) return <Loading />
-  const bar = [...invs].sort((a, b) => (rowsById[b.psi_id] || 0) - (rowsById[a.psi_id] || 0))
+  if (!S) return <div className="callout bad">Could not load investigations.</div>
   return (
     <>
-      <PageHead eyebrow="Catalogue" title="Investigations" lede="All 24 NASA PSI microgravity combustion investigations, organised by the three fire-safety pillars. Open one for its datasheet: every dataset has an auto-generated chart suite, the raw table, provenance, and the literature that cites it." />
-      <ChartCard title="Rows of data per investigation" sub="Series datasets (PSI-47, PSI-117, PSI-142) count stored numeric cells" size="short"
-        data={[{ type: 'bar', x: bar.map((i) => i.psi_id), y: bar.map((i) => rowsById[i.psi_id] || 0), text: bar.map((i) => i.name), hovertemplate: '%{text}<br>%{y} rows<extra></extra>', marker: { color: bar.map((i) => pillarColor(i.pillar)) } }]}
-        layout={{ yaxis: { title: 'Rows', type: 'log' }, xaxis: { tickangle: -50 }, margin: { b: 70 } }} source="public/data/datasets/index.json" />
-      <div className="row" style={{ margin: '18px 0' }}>
+      <PageHead eyebrow="Catalogue" title="Investigations" lede={`All ${S.items.length} NASA PSI investigations on one page. Read across a row to see what an investigation studied, what data it has, which variables it changed, and how many of its tests state an outcome. Click a row for its datasheet.`} />
+      <div className="row" style={{ margin: '0 0 14px' }}>
         <input type="search" placeholder="Search name, material, tag..." value={q} onChange={(e) => setQ(e.target.value)} style={{ maxWidth: 280 }} />
         <select value={pillar} onChange={(e) => setPillar(e.target.value)} style={{ width: 'auto' }}><option value="all">All pillars</option>{Object.entries(PILLARS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}</select>
         <select value={hw} onChange={(e) => setHw(e.target.value)} style={{ width: 'auto' }}><option value="all">All hardware</option>{hws.map((h) => <option key={h}>{h}</option>)}</select>
-        <select value={sort} onChange={(e) => setSort(e.target.value)} style={{ width: 'auto' }}><option value="rows">Most rows</option><option value="id">PSI id</option><option value="year">Earliest</option></select>
+        <select value={sort} onChange={(e) => setSort(e.target.value)} style={{ width: 'auto' }}><option value="id">PSI id</option><option value="rows">Most data</option><option value="varied">Most variables changed</option></select>
         <span className="small">{list.length} shown</span>
       </div>
-      <div className="grid g3">
-        {list.map((i) => (
-          <Link key={i.psi_id} to={`/i/${i.psi_id}`} className="card" style={{ color: 'inherit', textDecoration: 'none' }}>
-            <div className="card-head"><h3>{i.name}</h3><span className="mono small">{i.psi_id}</span></div>
-            <div className="row" style={{ gap: 6, marginBottom: 8 }}><PillarChip pillar={i.pillar} />{i.hardware && <span className="chip">{i.hardware}</span>}{i.year_start && <span className="chip">{i.year_start}&ndash;{i.year_end || ''}</span>}</div>
-            <p className="small" style={{ color: 'var(--ink-2)' }}>{(i.summary || '').slice(0, 190)}{(i.summary || '').length > 190 ? '...' : ''}</p>
-            <div className="small num">{(rowsById[i.psi_id] || 0).toLocaleString()} rows</div>
-          </Link>
-        ))}
-      </div>
+      <div className="tbl-wrap catalogue"><table>
+        <thead><tr><th>Investigation</th><th>What it studied</th><th>Data</th><th title="Variables that take more than one value in the table">Variables changed</th><th title="Share of harmonised rows that state an outcome">Outcome stated</th></tr></thead>
+        <tbody>{list.map((i) => {
+          const share = i.harmonised ? i.out / i.harmonised : null
+          return (
+            <tr key={i.inv.psi_id} onClick={() => nav(`/i/${i.inv.psi_id}`)} className="click">
+              <td><Link to={`/i/${i.inv.psi_id}`} onClick={(e) => e.stopPropagation()}><b>{i.inv.name}</b></Link><div className="small mono">{i.inv.psi_id}</div><PillarChip pillar={i.inv.pillar} /></td>
+              <td className="small">{firstSentence(i.inv.summary)}<div className="muted">{[i.inv.hardware, i.inv.fuel_type].filter(Boolean).join(' · ')}</div></td>
+              <td className="small"><b>{KIND[i.kind]}</b><div className="num">{i.rows ? `${i.rows.toLocaleString()} ${i.kind === 'series' ? 'cells' : 'rows'}` : ''}</div></td>
+              <td><span className="dots">{S.vars.map((v) => <i key={v} className={i.fp[v]?.status || 'empty'} title={`${v}: ${i.fp[v]?.status || 'not recorded'}`} />)}</span><div className="small muted">{i.varied.length ? i.varied.slice(0, 3).join(', ') + (i.varied.length > 3 ? ` +${i.varied.length - 3}` : '') : 'none'}</div></td>
+              <td className="small">{share == null ? <span className="muted">not in harmonised table</span> : <><span className="fillbar wide"><i style={{ width: `${Math.round(share * 100)}%` }} /></span> {Math.round(share * 100)}%<div className="muted">{i.out} of {i.harmonised}</div></>}</td>
+            </tr>
+          )
+        })}</tbody></table></div>
+      <p className="small" style={{ marginTop: 10 }}>Dots follow the order {S.vars.join(', ')}. Green: varies. Amber: one value. Grey: not recorded.</p>
     </>
   )
 }

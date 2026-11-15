@@ -8,11 +8,13 @@
     "build": "vite build",
     "preview": "vite preview",
     "sim:calibrate": "node scripts/sim/calibrate.mjs && node scripts/sim/fm2.mjs",
-    "test:sim": "node --test tests/sim/model.test.mjs"
+    "test:sim": "node --test tests/sim/model.test.mjs tests/sim/warnings.test.mjs",
+    "data": "python3 scripts/pipeline/build_data.py && python3 scripts/pipeline/build_dictionary.py && python3 scripts/pipeline/build_corpus.py && python3 scripts/pipeline/build_meta.py",
+    "test:data": "node --test tests/data/integrity.test.mjs tests/data/charts.test.mjs tests/data/query.test.mjs",
+    "test": "npm run test:sim && npm run test:data"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.3.0",
-    "@fontsource/ibm-plex-sans": "^5.3.0",
     "@fontsource/ibm-plex-sans-condensed": "^5.3.0",
     "@fontsource/newsreader": "^5.3.0",
     "plotly.js-dist-min": "^4.3.0",

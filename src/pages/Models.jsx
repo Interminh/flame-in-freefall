@@ -70,7 +70,7 @@ export default function Models() {
             <Stat k="Limiting O₂ here" v={`${calc.loc.median.toFixed(1)}%`} n={`1 g: ${calc.loc1.median.toFixed(1)}% (5–95%: ${calc.loc.q05.toFixed(1)} to ${calc.loc.q95.toFixed(1)})`} />
           </div>
           {calc.warn.map((w, i) => <div className="callout neutral" key={i}>{w}</div>)}
-          <ChartCard title="P(burn) versus O₂ at four gravity levels" sub="Posterior-style mean over 40 parameter draws; band is 5–95% at the selected gravity" notes="Only 0 g has outcome data. The other gravities are anchored to NASA buoyant-flow numbers." source="src/sim/model.js, data/derived/sim-params.json"
+          <ChartCard title="P(burn) versus O₂ at four gravity levels" sub={`Posterior-style mean over ${model.mapDraws.length} of ${model.draws.length} parameter draws; band is 5–95% at the selected gravity`} notes="Only 0 g has outcome data. The other gravities are anchored to NASA buoyant-flow numbers." source="src/sim/model.js, data/derived/sim-params.json"
             data={[{ type: 'scatter', x: [...calc.o2s, ...[...calc.o2s].reverse()], y: [...calc.band.map((b) => b[1]), ...[...calc.band].reverse().map((b) => b[0])], fill: 'toself', fillcolor: 'rgba(194,65,12,0.12)', line: { width: 0 }, name: 'Band, selected g', hoverinfo: 'skip' },
               ...calc.curves.map((c, i) => ({ type: 'scatter', mode: 'lines', name: c.n, x: calc.o2s, y: c.y, line: { color: OKABE[i], width: 2.2 } }))]}
             layout={{ xaxis: { title: 'Effective O₂ (%)' }, yaxis: { title: 'P(burn)', range: [0, 1] } }} />

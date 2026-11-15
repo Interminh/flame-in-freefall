@@ -27,6 +27,11 @@
    "pressure_kpa": 70.33,
    "ppo2_kpa": 21.1
   },
+  "moon_cabin_26_5": {
+   "o2_percent": 26.5,
+   "pressure_kpa": 70.33,
+   "ppo2_kpa": 18.64
+  },
   "moon_cabin_8p2psi": {
    "o2_percent": 34.0,
    "pressure_kpa": 56.54,

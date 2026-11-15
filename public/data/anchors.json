@@ -251,7 +251,7 @@
   "scope": "Cotton-fiberglass fabric (SIBAL), 21% O2, no forced flow",
   "use": "check",
   "how_used": "Model chance of burning for SIBAL, opposed, 1 g, 21% O2 should be below 50%.",
-  "caveat": "A qualitative outcome. This is the only 1 g outcome found for any of the four materials.",
+  "caveat": "A qualitative outcome. It is the only 1 g outcome found for opposed flow. The SAFFIRE-II ground tests (PSI-99) cover concurrent flow.",
   "quote_verified": "yes"
  }
 ]

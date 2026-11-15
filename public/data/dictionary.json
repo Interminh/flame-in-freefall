@@ -1,0 +1,143 @@
+{
+ "unified": [
+  {
+   "key": "experiment",
+   "meaning": "NASA investigation name",
+   "domain": "text",
+   "source": "Official PSI title/acronym"
+  },
+  {
+   "key": "test_id",
+   "meaning": "Source test identifier; may repeat; never a generated test",
+   "domain": "text",
+   "source": "Test # / Test / FLEX Test # / As run test no. / Sample Number"
+  },
+  {
+   "key": "platform",
+   "meaning": "Actual test platform; ground comparisons separated from flight",
+   "domain": "ISS/Cygnus/ground/drop/aircraft",
+   "source": "Official experiment description; explicit comparison designation"
+  },
+  {
+   "key": "gravity_g",
+   "meaning": "Source-supported Earth-gravity comparison = 1; missing numeric microgravity value remains empty",
+   "domain": "g/g0",
+   "source": "Explicit 1-g comparison; no artificial 0 or partial-gravity value"
+  },
+  {
+   "key": "fuel",
+   "meaning": "Material/fuel descriptor; canonical token only when explicit",
+   "domain": "text",
+   "source": "Fuel / Material / Fuel Sample Material / material"
+  },
+  {
+   "key": "fuel_geometry",
+   "meaning": "Explicit geometry; no diameter-to-thickness substitution",
+   "domain": "text",
+   "source": "Material descriptor; droplet apparatus; gas-burner configuration"
+  },
+  {
+   "key": "fuel_thickness_mm",
+   "meaning": "Explicit thickness; not sphere or rod diameter",
+   "domain": "mm",
+   "source": "Source thickness cm ×10; micrometers ÷1000; mm unchanged"
+  },
+  {
+   "key": "o2_percent",
+   "meaning": "Exact reported initial ambient oxygen; inverse burner oxygen suppressed in combined only",
+   "domain": "mole/volume %",
+   "source": "Source percent unchanged; mole/volume fraction ×100; qualified/interval values retained only in per-dataset extras"
+  },
+  {
+   "key": "pressure_kpa",
+   "meaning": "Exact scalar pressure; approximate CFI-G pressure remains an explicitly qualified extra",
+   "domain": "kPa",
+   "source": "atm ×101.325; conventional mmHg ×101.325/760; bar ×100 when exact"
+  },
+  {
+   "key": "flow_velocity_cm_s",
+   "meaning": "Exact source ventilation/inlet speed; not fan display or mass-flow setting",
+   "domain": "cm/s",
+   "source": "Air Flow (cm/s) / Air Rate (cm/s) / Inlet velocity (cm/s)"
+  },
+  {
+   "key": "flow_direction",
+   "meaning": "Explicit direction relative to flame spread",
+   "domain": "opposed/concurrent/quiescent",
+   "source": "Source flow direction; BASS-II PDF explicit direction words"
+  },
+  {
+   "key": "outcome",
+   "meaning": "Conservative source-supported state; unknown includes unavailable or ambiguous terminal events",
+   "domain": "ignited/burned_out/extinguished/no_ignition/unknown",
+   "source": "See per-dataset rules and literal evidence"
+  },
+  {
+   "key": "spread_rate_mm_s",
+   "meaning": "Numeric flame-spread rate only; qualitative descriptions remain source text",
+   "domain": "mm/s",
+   "source": "SAFFIRE-II 1-g Spread Rate, explicit numeric mm/s only"
+  },
+  {
+   "key": "burning_rate",
+   "meaning": "Reserved; always empty because a common physical definition/unit was not specified",
+   "domain": "not established",
+   "source": "Original rate quantities stay in explicitly labeled source or dataset-specific fields"
+  },
+  {
+   "key": "extinction_reason",
+   "meaning": "Only reported extinction category; no inferred chemical/transport cause",
+   "domain": "text",
+   "source": "FLEX Test end=Extinction; CFI-G terminal event=SE"
+  },
+  {
+   "key": "source_file",
+   "meaning": "Exact unchanged raw filename",
+   "domain": "filename",
+   "source": "Download manifest filename"
+  },
+  {
+   "key": "source_row_or_page",
+   "meaning": "1-based logical CSV record; workbook sheet/row; PDF page/table/row where used",
+   "domain": "locator",
+   "source": "Header=record 1; physical PDF page, not printed report page"
+  }
+ ],
+ "derived": [
+  {
+   "key": "psi_id",
+   "meaning": "PSI investigation id, read from the source file name",
+   "domain": "text"
+  },
+  {
+   "key": "material",
+   "meaning": "Canonical material name mapped from the raw fuel label (public/data/material_map.json)",
+   "domain": "text"
+  },
+  {
+   "key": "form",
+   "meaning": "Canonical fuel form (rod, film, droplet, gas burner, ...) mapped from the raw label and geometry",
+   "domain": "text"
+  },
+  {
+   "key": "rod_diameter_mm",
+   "meaning": "Rod diameter parsed from the raw label where stated",
+   "domain": "mm"
+  },
+  {
+   "key": "ppo2_kpa",
+   "meaning": "Oxygen partial pressure: o2_percent x pressure_kpa / 100; empty unless both are reported",
+   "domain": "kPa"
+  },
+  {
+   "key": "outcome_class",
+   "meaning": "Coarse outcome: ignited is flame; extinguished and no_ignition are no_flame; burned_out is burned_out; all else unknown",
+   "domain": "flame / no_flame / burned_out / unknown"
+  },
+  {
+   "key": "pillar",
+   "meaning": "Fire-safety pillar of the investigation (prevention, detection, suppression, context)",
+   "domain": "category"
+  }
+ ]
+}

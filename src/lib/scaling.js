@@ -7,7 +7,6 @@
 import { entropy } from './stats.js'
 
 export const P_REF = 101.325
-export const EARTH_AIR = { x: 20.9, p: P_REF }
 
 export const effectiveO2 = (x, p, theta) => x * (p / P_REF) ** theta
 export const ppO2 = (x, p) => (x / 100) * p
@@ -56,19 +55,22 @@ export function verdict(x, p, L, lo, hi, refLabel) {
   return { kind, head, ts, e0, e1, eLo, eHi, lowP, survivesOnlyAtPpo2, interval: [lo, hi] }
 }
 
-export const SCENARIOS = [
-  { id: 'earth_air', label: 'Earth air', short: 'Earth air', x: 20.9, p: 101.325, note: 'Sea-level air, 14.7 psi', src: 'Reference atmosphere' },
-  { id: 'moon_cabin_10p2psi', label: 'Moon cabin, 30% O₂ at 10.2 psi', short: 'Moon cabin 30% / 10.2 psi', x: 30, p: 70.33, note: 'Challenge brief: cabin of at most 10.2 psi with at least 30% O₂', src: 'Challenge brief' },
-  { id: 'moon_cabin_8p2psi', label: 'Cabin, 34% O₂ at 8.2 psia', short: '34% / 8.2 psia', x: 34, p: 56.54, note: 'Highest-O₂ ACME BRE record', src: 'PSI-20 ACME BRE' },
-  { id: 'moon_cabin_26_5', label: 'Cabin, 26.5% O₂ at 10.2 psi', short: '26.5% / 10.2 psi', x: 26.5, p: 70.33, note: 'ACME BRE record', src: 'PSI-20 ACME BRE' },
-  { id: 'suit_4p3psi', label: 'Suit, 100% O₂ at 4.3 psi', short: 'Suit 100% / 4.3 psi', x: 100, p: 29.65, note: 'Pure-O₂ suit loop', src: 'Challenge brief' },
-]
-
-// Sourced microgravity limits for PMMA rods (see data/derived/nasa_1g_anchors.csv). Other materials have no
-// sourced value in this repository, so the Atlas lets the user enter a custom limit and says so.
-export const LOC_PRESETS = [
-  { id: 'earth_air', label: 'Earth air (20.9% at 101.3 kPa)', L: 20.9, src: 'Reference atmosphere', cite: null },
-  { id: 'pmma_rod_ug', label: 'PMMA rod, zero-stretch limit (13.4%)', L: 13.4, src: 'NTRS 20170006615, p. 7', cite: 'https://ntrs.nasa.gov/citations/20170006615' },
-  { id: 'pmma_rod_1g', label: 'PMMA rod, 1 g blow-off limit (16%)', L: 16, src: 'NTRS 20160000593, p. 18', cite: 'https://ntrs.nasa.gov/citations/20160000593' },
-  { id: 'custom', label: 'Custom threshold', L: 18, src: 'User defined', cite: null },
-]
+// Scenarios and thresholds come from public/data/meta.json, written by scripts/pipeline/build_meta.py.
+const sub2 = (t) => String(t).replace(/O2/g, 'O\u2082')
+export function scenariosFrom(meta) {
+  return meta.scenarios.map((s) => ({ id: s.id, label: sub2(s.label), short: s.short, x: s.o2_percent, p: s.pressure_kpa, ppo2: s.ppo2_kpa, src: s.src }))
+}
+export function earthAirFrom(meta) {
+  const e = meta.scenarios.find((s) => s.id === 'earth_air')
+  return { x: e.o2_percent, p: e.pressure_kpa }
+}
+// Sourced thresholds: Earth air plus literature anchors. Other materials have no sourced value in the repository,
+// so a custom threshold is offered and labelled as user-defined.
+export function presetsFrom(meta) {
+  const e = earthAirFrom(meta)
+  return [
+    { id: 'earth_air', label: `Earth air (${e.x}% at ${e.p} kPa)`, L: e.x, src: 'Reference atmosphere', cite: null },
+    ...meta.loc_presets.map((l) => ({ id: l.id, label: `${l.label} (${l.o2_percent}%)`, L: l.o2_percent, src: l.src, cite: l.url, quote: l.quote })),
+    { id: 'custom', label: 'Custom threshold', L: e.x, src: 'User defined', cite: null },
+  ]
+}

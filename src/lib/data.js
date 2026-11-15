@@ -45,3 +45,5 @@ export const PILLARS = {
 }
 export const pillarColor = (p) => (PILLARS[p] || PILLARS.context).color
 export const getAnchors = () => loadJson('anchors.json')
+export const getMeta = () => loadJson('meta.json')
+export const getDictionary = () => loadJson('dictionary.json')

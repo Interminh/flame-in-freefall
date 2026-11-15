@@ -1,0 +1,117 @@
+{
+ "generated_on": "2026-11-14",
+ "counts": {
+  "investigations": 24,
+  "tables": 19,
+  "series_datasets": 3,
+  "series_points": 60369,
+  "test_rows": 1900,
+  "rows_o2_and_pressure": 808,
+  "literature_records": 85,
+  "literature_full_text": 70,
+  "corpus_chunks": 3707,
+  "corpus_chunks_ntrs": 3681,
+  "corpus_chunks_psi": 24,
+  "corpus_chunks_analysis": 2,
+  "anchors": 17,
+  "pillars": {
+   "prevention": 7,
+   "context": 11,
+   "detection": 4,
+   "suppression": 2
+  }
+ },
+ "scenarios": [
+  {
+   "id": "earth_air",
+   "label": "Earth air",
+   "short": "Earth air",
+   "o2_percent": 20.9,
+   "pressure_kpa": 101.325,
+   "src": "Sea-level air",
+   "ppo2_kpa": 21.18
+  },
+  {
+   "id": "moon_cabin_10p2psi",
+   "label": "Moon cabin, 30% O2 at 10.2 psi",
+   "short": "Moon cabin 30% / 10.2 psi",
+   "o2_percent": 30.0,
+   "pressure_kpa": 70.33,
+   "src": "Challenge brief",
+   "ppo2_kpa": 21.1
+  },
+  {
+   "id": "moon_cabin_26_5",
+   "label": "Cabin, 26.5% O2 at 10.2 psi",
+   "short": "26.5% / 10.2 psi",
+   "o2_percent": 26.5,
+   "pressure_kpa": 70.33,
+   "src": "PSI-20 ACME BRE record",
+   "ppo2_kpa": 18.64
+  },
+  {
+   "id": "moon_cabin_8p2psi",
+   "label": "Cabin, 34% O2 at 8.2 psia",
+   "short": "34% / 8.2 psia",
+   "o2_percent": 34.0,
+   "pressure_kpa": 56.54,
+   "src": "PSI-20 ACME BRE record",
+   "ppo2_kpa": 19.22
+  },
+  {
+   "id": "suit_4p3psi",
+   "label": "Suit, 100% O2 at 4.3 psi",
+   "short": "Suit 100% / 4.3 psi",
+   "o2_percent": 100.0,
+   "pressure_kpa": 29.65,
+   "src": "Challenge brief",
+   "ppo2_kpa": 29.65
+  }
+ ],
+ "loc_presets": [
+  {
+   "id": "pmma_rod_ug",
+   "label": "PMMA rod, zero-stretch limit",
+   "o2_percent": 13.4,
+   "src": "NTRS 20170006615, p. 7",
+   "url": "https://ntrs.nasa.gov/citations/20170006615",
+   "quote": "estimates that 13.4% O2 is the limiting oxygen concentration below which the fuel cannot burn at any stretch rate",
+   "anchor_id": "A6"
+  },
+  {
+   "id": "pmma_rod_1g",
+   "label": "PMMA rod, 1 g blow-off limit",
+   "o2_percent": 16.0,
+   "src": "NTRS 20160000593, p. 18",
+   "url": "https://ntrs.nasa.gov/citations/20160000593",
+   "quote": "The 1g blowoff for the \u00bc\" rod is at 16% oxygen",
+   "anchor_id": "A3"
+  }
+ ],
+ "cabin_box": {
+  "o2_min_percent": 26.0,
+  "pressure_max_kpa": 75.0
+ },
+ "solid_experiments": [
+  "BASS",
+  "BASS-II",
+  "SAFFIRE-I",
+  "SAFFIRE-II",
+  "SAFFIRE-III"
+ ],
+ "ranking": {
+  "o2_range": [
+   24,
+   40,
+   2
+  ],
+  "pressure_range_kpa": [
+   50,
+   76,
+   2
+  ],
+  "near_o2_percent": 3,
+  "near_pressure_kpa": 8
+ },
+ "theta_default_source": "flex"
+}
