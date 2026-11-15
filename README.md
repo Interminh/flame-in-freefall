@@ -227,7 +227,7 @@ the 0 g model says. A fit-quality sentence for the chosen material sits under th
 A "Warnings for these inputs" box is always shown and lists every case-specific warning (rules in `src/sim/warnings.js`,
 tested in `tests/sim/warnings.test.mjs`): known miss, outside the data, extrapolated gravity, weak fit (held-out accuracy
 no better than guessing the commoner outcome), wide range (5 to 95% range wider than 50 points), no clear difference
-from 1 g, hidden risk and the weakly supported flow direction term. The same labels appear as chips on the result.
+from 1 g, hidden risk and the weakly supported flow direction term. It sits beside the map and result, so the graph, the range bar and the warnings share one screen on a laptop.
 
 The **How it works and limits** view (also reachable at `simulation.html#how`) explains the method in plain language:
 how a result is calculated, how to read each output, every constant with its status, a table of the NASA numbers with

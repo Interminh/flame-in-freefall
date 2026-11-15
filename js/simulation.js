@@ -142,21 +142,6 @@ function renderWarnings(items) {
   $('warnings').replaceChildren(...lis)
 }
 
-// One chip per distinct warning label, so the result is never read without its caveats.
-function renderChips(items) {
-  const seen = new Set()
-  const chips = []
-  for (const w of items) {
-    if (seen.has(w.label)) continue
-    seen.add(w.label)
-    const b = html('button', { type: 'button', className: 'sim-pill', textContent: w.label, title: 'Show the warnings for these inputs' })
-    b.dataset.level = w.level
-    b.addEventListener('click', () => $('warnings-panel').scrollIntoView({ behavior: 'smooth', block: 'center' }))
-    chips.push(b)
-  }
-  $('chips').replaceChildren(...chips)
-}
-
 function renderRangeBar(here) {
   const lo = here.q05 * 100, hi = here.q95 * 100
   $('rb-band').style.left = `${lo}%`
@@ -198,7 +183,6 @@ function renderResult(inp) {
   renderRangeBar(here)
   const items = caseWarnings({ inp, ranges, here, earth, locHere, loc1, validation, central, materialLabel: matLabel(inp.material) })
   renderWarnings(items)
-  renderChips(items)
   return { here, label, items, u }
 }
 

@@ -17,21 +17,19 @@
     <div id="nav"></div>
     <main class="page">
       <section>
-        <h1>Simulation</h1>
+        <div class="sim-head">
+          <h1>Simulation</h1>
+          <div class="sim-views" role="group" aria-label="View">
+            <button type="button" id="view-sim-btn" aria-pressed="true">Simulator</button>
+            <button type="button" id="view-fm2-btn" aria-pressed="false">FM2 predictions</button>
+            <button type="button" id="view-how-btn" aria-pressed="false">How it works and limits</button>
+          </div>
+        </div>
         <p class="sim-banner" role="note">
           <strong>Estimate from a simplified model; not a prediction of a real fire; not NASA-endorsed.</strong>
+          Every test used to fit the model flew in microgravity, so other gravity levels are extrapolations tied to
+          published NASA numbers. <a href="#how" id="how-link">How it works and where it falls short</a>.
         </p>
-        <p>
-          Will a solid fuel keep burning, or go out? Set oxygen, airflow, material and gravity and compare the Moon
-          and Mars with Earth gravity and microgravity. Every test used to fit the model flew in microgravity, so the
-          other gravity levels are extrapolations, tied to published NASA numbers for Earth gravity. <a href="#how" id="how-link">How it works and where it falls short</a>.
-        </p>
-
-        <div class="sim-views" role="group" aria-label="View">
-          <button type="button" id="view-sim-btn" aria-pressed="true">Simulator</button>
-          <button type="button" id="view-fm2-btn" aria-pressed="false">FM2 predictions</button>
-          <button type="button" id="view-how-btn" aria-pressed="false">How it works and limits</button>
-        </div>
 
         <div id="status" class="sim-status" role="status">Loading the model.</div>
 
@@ -96,53 +94,54 @@
               </div>
             </form>
 
-            <div class="sim-card sim-result" aria-live="polite">
-              <h2>Result</h2>
-              <p class="sim-big"><span id="pburn">-</span> <span class="sim-chip" id="label">-</span></p>
-              <p class="sim-sub" id="pband"></p>
-              <div class="sim-rb" id="rangebar" role="img" aria-label="Range for the chance of burning">
-                <div class="sim-rb-track">
-                  <span class="sim-rb-tick" id="rb-t1"></span>
-                  <span class="sim-rb-tick" id="rb-t2"></span>
-                  <span class="sim-rb-band" id="rb-band"></span>
-                  <span class="sim-rb-mean" id="rb-mean"></span>
-                </div>
-                <div class="sim-rb-scale"><span>0%</span><span id="rb-l1"></span><span id="rb-l2"></span><span>100%</span></div>
-              </div>
-              <p class="sim-rb-note">Bar: 5 to 95% range across 200 refits. Line: average. Ticks: the label cut-offs.</p>
-              <div class="sim-chips" id="chips" aria-label="Warning labels for these inputs"></div>
-              <dl class="sim-dl">
-                <dt>Buoyant flow</dt><dd id="ub">-</dd>
-                <dt>Effective flow</dt><dd id="ueff">-</dd>
-                <dt>Limiting oxygen here</dt><dd id="loc">-</dd>
-                <dt>Limiting oxygen at 1 g</dt><dd id="loc1g">-</dd>
-                <dt>Margin versus 1 g</dt><dd id="margin">-</dd>
-              </dl>
+            <div class="sim-center">
+              <h2 class="sim-maph" id="map-h">Flammability map for your inputs</h2>
+              <p class="sim-mapsum" id="map-summary"></p>
+              <p class="sim-badge" id="map-badge"></p>
+              <figure class="sim-map" id="map-fig">
+                <svg id="map" viewBox="0 0 720 440" role="img" aria-labelledby="map-summary"></svg>
+                <figcaption id="map-caption"></figcaption>
+              </figure>
+              <aside class="sim-card sim-inspector" id="inspector" aria-live="polite" aria-labelledby="insp-h">
+                <h2 id="insp-h">Real experiment details</h2>
+                <p class="sim-insp-hint" id="insp-hint">Click a dot on the map, or a row in the table below, to see the test it came from.</p>
+                <div id="inspector-body"></div>
+              </aside>
             </div>
-          </div>
 
-          <section class="sim-card sim-warnpanel" id="warnings-panel" aria-labelledby="warn-h">
-            <h2 id="warn-h">Warnings for these inputs <span class="sim-count" id="warn-count"></span></h2>
-            <ul class="sim-warnlist" id="warnings"></ul>
-            <p class="sim-standing">
-              Always true: these are model estimates, not measurements. The flow values were read by hand from crew
-              notes, and a second person has not yet checked them.
-            </p>
-          </section>
+            <div class="sim-right">
+              <div class="sim-card sim-result" aria-live="polite">
+                <h2>Result</h2>
+                <p class="sim-big"><span id="pburn">-</span> <span class="sim-chip" id="label">-</span></p>
+                <p class="sim-sub" id="pband"></p>
+                <div class="sim-rb" id="rangebar" role="img" aria-label="Range for the chance of burning">
+                  <div class="sim-rb-track">
+                    <span class="sim-rb-tick" id="rb-t1"></span>
+                    <span class="sim-rb-tick" id="rb-t2"></span>
+                    <span class="sim-rb-band" id="rb-band"></span>
+                    <span class="sim-rb-mean" id="rb-mean"></span>
+                  </div>
+                  <div class="sim-rb-scale"><span>0%</span><span id="rb-l1"></span><span id="rb-l2"></span><span>100%</span></div>
+                </div>
+                <p class="sim-rb-note">Bar: 5 to 95% range across 200 refits. Line: average. Ticks: the label cut-offs.</p>
+                <dl class="sim-dl">
+                  <dt>Buoyant flow</dt><dd id="ub">-</dd>
+                  <dt>Effective flow</dt><dd id="ueff">-</dd>
+                  <dt>Limiting oxygen here</dt><dd id="loc">-</dd>
+                  <dt>Limiting oxygen at 1 g</dt><dd id="loc1g">-</dd>
+                  <dt>Margin versus 1 g</dt><dd id="margin">-</dd>
+                </dl>
+              </div>
 
-          <h2 class="sim-h2" id="map-h">Flammability map for your inputs</h2>
-          <p class="sim-mapsum" id="map-summary"></p>
-          <p class="sim-badge" id="map-badge"></p>
-          <div class="sim-mapgrid">
-            <figure class="sim-map" id="map-fig">
-              <svg id="map" viewBox="0 0 720 440" role="img" aria-labelledby="map-summary"></svg>
-              <figcaption id="map-caption"></figcaption>
-            </figure>
-            <aside class="sim-card sim-inspector" id="inspector" aria-live="polite" aria-labelledby="insp-h">
-              <h2 id="insp-h">Real experiment details</h2>
-              <p class="sim-insp-hint" id="insp-hint">Click a dot on the map, or a row in the table below, to see the test it came from.</p>
-              <div id="inspector-body"></div>
-            </aside>
+              <section class="sim-card sim-warnpanel" id="warnings-panel" aria-labelledby="warn-h">
+                <h2 id="warn-h">Warnings for these inputs <span class="sim-count" id="warn-count"></span></h2>
+                <ul class="sim-warnlist" id="warnings"></ul>
+                <p class="sim-standing">
+                  Always true: these are model estimates, not measurements. The flow values were read by hand from crew
+                  notes, and a second person has not yet checked them.
+                </p>
+              </section>
+            </div>
           </div>
 
           <h3 class="sim-h3">How to read the map</h3>
