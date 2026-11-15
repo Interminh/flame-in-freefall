@@ -23,7 +23,7 @@
         </p>
         <p>
           Will a solid fuel keep burning, or go out? Set oxygen, airflow, material and gravity and compare the Moon
-          and Mars with Earth gravity and microgravity. Every test behind the model flew in microgravity, so the
+          and Mars with Earth gravity and microgravity. Every test used to fit the model flew in microgravity, so the
           other gravity levels are extrapolations, tied to published NASA numbers for Earth gravity. <a href="#how" id="how-link">How it works and where it falls short</a>.
         </p>
 
@@ -140,7 +140,7 @@
             <ul>
               <li>Gravity enters only through the buoyant flow. Radiation, ignition, sample size and geometry are ignored.</li>
               <li>Solid-fuel flame spread only. No droplets, gases or smoke.</li>
-              <li>All outcome data is microgravity from BASS-II. The 0.165, 0.38 and 1 g panels are estimated, with no direct measurements. They rest on published NASA numbers for PMMA rods (a 1 g limit of 16% oxygen, a buoyant flow of about 20 cm/s), not on a 1 g outcome table.</li>
+              <li>All fitted outcome data is microgravity from BASS-II. The 0.165, 0.38 and 1 g panels are estimated, with no direct measurements. They rest on published NASA numbers for PMMA rods (a 1 g limit of 16% oxygen, a buoyant flow of about 20 cm/s). They are checked against one set of 1 g ground tests (SAFFIRE-II, concurrent flow at 20 cm/s and about 22% oxygen), not fitted to them.</li>
               <li>Those rod numbers are applied to all four materials, which is an assumption.</li>
               <li>BASS-II recorded no pressure. The fit assumes about 101.3 kPa.</li>
               <li>Only four materials have flow-linked outcomes. Nomex, Ultem and wax appear in the data but without usable flow readings, so they are not offered.</li>
@@ -283,9 +283,7 @@
               not. Each point has the quote it came from, and a test checks every quote against the raw table.
             </p>
             <p>
-              For Earth gravity the repo has no table of outcomes. The model instead uses numbers published in NASA-hosted
-              documents, mainly for PMMA rods. A search of NASA sources found no tabulated 1 g outcomes for the other three
-              materials, so the rod numbers are applied to all of them.
+              For Earth gravity the model uses numbers published in NASA-hosted documents, mainly for PMMA rods, and applies them to all four materials. The only 1 g outcomes found are the SAFFIRE-II ground comparisons in PSI-99, at one condition (concurrent flow at 20 cm/s and about 22% oxygen) where SIBAL and PMMA burned the whole sample. They are used as a check, not to fit the model.
             </p>
             <p><strong>Points left out of the fit, and why:</strong></p>
             <ul id="how-excluded"></ul>
@@ -325,11 +323,11 @@
           <details open>
             <summary>Limitations</summary>
             <ul>
-              <li><strong>No outcome data above 0 g.</strong> The Moon, Mars and 1 g results are extrapolations. They rest on published NASA numbers for PMMA rods, not on a 1 g outcome table.</li>
+              <li><strong>Almost no outcome data above 0 g.</strong> The Moon, Mars and 1 g results are extrapolations. They rest on published NASA numbers for PMMA rods. The only 1 g outcomes are SAFFIRE-II ground tests at one condition, used as a check.</li>
               <li><strong>Gravity is reduced to one idea.</strong> Only the buoyant flow changes with gravity. How gravity affects radiation, ignition, soot and the shape of the flame is not modelled.</li>
               <li><strong>The blow-off line and the buoyant flow come from rods.</strong> The 16% limit and the 20 cm/s buoyant flow are NASA numbers for PMMA rods in stagnation flow. They are applied to film, slab and fabric, where they have not been checked. The 1 g and Moon answers depend on them heavily.</li>
               <li><strong>NASA papers disagree on how flows combine.</strong> One derives a fourth-power rule, another uses a plain sum. The bands cover both, but not a third rule.</li>
-              <li><strong>One 1 g check fails.</strong> NASA reports that downward (opposed-flow) flame spread over SIBAL fabric is not possible in normal air. The model gives a high chance of burning. This is a direct sign that gravity acting only through buoyant flow is too simple, at least for thin fabric.</li>
+              <li><strong>One 1 g check fails.</strong> NASA reports that downward (opposed-flow) flame spread over SIBAL fabric is not possible in normal air. The model gives a high chance of burning. This is a direct sign that gravity acting only through buoyant flow is too simple, at least for thin fabric. The model does match the SAFFIRE-II 1 g ground tests, but those are concurrent flow near 22% oxygen, where nearly everything burns.</li>
               <li><strong>The 1 g limit is built in, not tested.</strong> The 16% figure was used to place the blow-off line, so the model matches it by construction. The checks that were not used are listed under How well it matches the data.</li>
               <li id="lim-data"><strong>Small data.</strong></li>
               <li><strong>Burns were long and changing.</strong> Many tests ran 10 to 30 minutes while the sample heated and shrank. The model treats each observation as a steady condition.</li>

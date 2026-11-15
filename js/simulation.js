@@ -426,13 +426,14 @@ function renderHow() {
     ['Quench flow, 0.1 mm film, 21% O2', c.film_quench_21.nasa, `${c.film_quench_21.model_central} cm/s`, c.film_quench_21.pass],
     ['Blow-off flow, 0.1 mm film', c.film_blowoff.nasa, `${c.film_blowoff.model_at_18} to ${c.film_blowoff.model_at_21} cm/s between 18 and 21% O2`, c.film_blowoff.pass],
     ['Downward spread over SIBAL in 1 g air', c.sibal_opposed_1g_in_air.nasa, `P(burn) ${c.sibal_opposed_1g_in_air.model_central_p_burn}, so the model says it burns`, c.sibal_opposed_1g_in_air.pass],
+    ...c.saffire2_ground.cases.map((x) => [`SAFFIRE-II ${x.test}, ${x.gravity_g} g, ${matLabel(x.material)}, 20 cm/s concurrent`, 'The whole sample burned', `P(burn) ${x.model_mean_p_burn} (${x.q05} to ${x.q95})`, x.pass]),
     ...notes.map((n) => [`BASS-II note, ${n.note}`, n.observed === 'burn' ? 'Burned' : 'Blown off', `P(burn) ${n.p_burn_central}, right in ${pct(n.share_of_draws_correct)} of draws`, n.central_correct]),
   ]
   $('how-checks').tBodies[0].replaceChildren(...checkRows.map(([name, nasa, model, pass]) =>
     html('tr', {}, html('td', { textContent: name }), html('td', { textContent: nasa }), html('td', { textContent: model }), html('td', { textContent: ok(pass) }))))
   const gap = Math.round((c.rod_nose.model_central - 13.6) * 10) / 10
   $('how-checks-note').textContent =
-    'The pass rules were fixed before the results were seen: the rod minimum within 1 point of 13.3 to 13.6%, the margin within 0.5 points of 1.4 to 2.4, Moon and Mars buoyant flow inside 5 to 20 cm/s, film quench flow under 2 cm/s, 40 cm/s between the model blow-off flows at 18 and 21%, and a chance of burning below 50% for SIBAL in opposed flow at 1 g in air. ' +
+    'The pass rules were fixed before the results were seen: the rod minimum within 1 point of 13.3 to 13.6%, the margin within 0.5 points of 1.4 to 2.4, Moon and Mars buoyant flow inside 5 to 20 cm/s, film quench flow under 2 cm/s, 40 cm/s between the model blow-off flows at 18 and 21%, and a chance of burning below 50% for SIBAL in opposed flow at 1 g in air, and at least 50% for each SAFFIRE-II case where the whole sample burned. The SAFFIRE-II rule was written after a first look at the numbers, so it is weaker evidence than the rest. ' +
     `The 1 g limit of ${c.rod_limit_1g.nasa} is not a check, because it was used to build the blow-off line. ` +
     (gap > 0 ? `The model's rod minimum sits ${gap} points above NASA's upper figure, so it is a little too cautious there.` : '') +
     (c.sibal_opposed_1g_in_air.pass ? '' : ' The SIBAL check fails: NASA says downward spread over SIBAL does not happen in 1 g air and the model says it does. The result card warns when that case comes up.')
@@ -444,7 +445,7 @@ function renderHow() {
 
 function renderValidation() {
   const v = validation, lo = v.leave_one_test_out, lm = v.leave_one_material_out, c = v.nasa_checks
-  const checks = [c.rod_nose, c.margin, c.moon_mars_buoyant_flow, c.film_quench_21, c.film_blowoff, c.sibal_opposed_1g_in_air]
+  const checks = [c.rod_nose, c.margin, c.moon_mars_buoyant_flow, c.film_quench_21, c.film_blowoff, c.sibal_opposed_1g_in_air, c.saffire2_ground]
   const notes = c.bass2_notes_on_blowoff_side
   const rel = (m) => (m.brier < m.baseline_brier_prevalence ? 'better than' : 'not better than')
   $('validation').textContent =

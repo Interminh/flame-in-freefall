@@ -326,6 +326,6 @@ export function rangeWarnings(inp, ranges) {
   if (inp.p < ranges.pressure[0] || inp.p > ranges.pressure[1])
     w.push(`Pressure ${inp.p} kPa is outside the recorded BASS range of ${ranges.pressure[0]} to ${ranges.pressure[1]} kPa. BASS-II recorded no pressure at all.`)
   if (inp.g > 0)
-    w.push(`Gravity ${inp.g} g has no outcome data. Every BASS-II test was in microgravity, so this is an extrapolation anchored only to published NASA numbers.`)
+    w.push(`Gravity ${inp.g} g has almost no outcome data. Every test used to fit the model was in microgravity, so this is an extrapolation anchored to published NASA numbers and checked against one set of 1 g ground tests.`)
   return w
 }

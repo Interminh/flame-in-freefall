@@ -13,7 +13,7 @@ material and gravity, and compares the Moon (0.165 g) and Mars (0.38 g) with 1 g
 ```
 npm install
 npm run dev          # then open http://127.0.0.1:5173/simulation.html
-npm run test:sim     # 34 unit and data-integrity tests, no extra dependencies
+npm run test:sim     # 36 unit and data-integrity tests, no extra dependencies
 npm run sim:calibrate  # refit, rewrite data/derived/*.json and fm2-predictions.csv (about 10 s, seeded, reproducible)
 ```
 
@@ -29,6 +29,7 @@ The page needs a server because it loads JSON, the same as the Ranking page.
 | `scripts/sim/fm2.mjs` | Writes `data/derived/fm2-predictions.csv`. |
 | `data/derived/bass2_flow_points.csv` | 59 flow points read from the BASS-II notes, each with a verbatim quote, what event it describes, and whether it is used in the fit. 54 are used. |
 | `data/derived/nasa_1g_anchors.csv` | 17 numbers and statements from NASA-hosted documents, each with a verbatim quote, the NTRS record and the page. |
+| `data/derived/saffire2_ground_checks.csv` | Three SAFFIRE-II cases from `data/psi_99.csv` where the whole sample burned, used as a 1 g check. |
 | `data/derived/literature_loc_checks.csv` | The figures from the task brief and two non-NASA references, kept for the record and no longer used. |
 | `tests/sim/model.test.mjs` | Unit tests for the physics, plus checks that every quote, thickness and oxygen value matches the raw table. |
 | `simulation.html`, `js/simulation.js`, `src/styles/simulation.css` | The page. Three views: Simulator, FM2 predictions, and How it works and limits. |
@@ -80,8 +81,7 @@ three notes. All of that is replaced. The quench-side fit hardly moved, since it
 Scope, as agreed: NASA-hosted sources only (PSI, NTRS, nasa.gov, standards.nasa.gov). I read the publication lists of
 PSI-25, PSI-26 and PSI-62, ran NASA-restricted searches, and downloaded and read the documents that looked relevant.
 
-**Not found:** a table of 1 g outcomes (oxygen, flow, burned or not) for any of the four materials. The PSI-25 raw files are
-mostly video and images, and the 1 g blow-off data in NTRS 20170006615 is in plots only. I do not read numbers off plots.
+**Not found:** a table of 1 g outcomes across oxygen and flow levels. The PSI-25 raw files are mostly video and images, and the 1 g blow-off data in NTRS 20170006615 is in plots only. I do not read numbers off plots. The only 1 g outcomes are the SAFFIRE-II ground comparisons already in `data/psi_99.csv`, at one condition. I missed them on the first pass and said there were none. That was wrong.
 
 **Found, and used** (each is a row in `data/derived/nasa_1g_anchors.csv`, with the quote and page, checked against the PDF
 text when the file was built):
@@ -94,6 +94,7 @@ text when the file was built):
 - NTRS 20200000557: the mixed-flow rule `U_m = U_f (P/P0) [g^2 l^2 / U_f^4 + 1]^(1/4)`. The equation was read from the
   rendered page, because text extraction garbled it.
 - NTRS 20130012832 (Ferkul, 2013): downward flame spread over SIBAL "is not possible in normal air".
+- PSI-99 (SAFFIRE-II, already in `data/`): 1 g ground comparisons at 20 cm/s concurrent flow and about 22% O2, used as a check.
 
 **Found, not used:** NTRS 20070018178 (WSTF oxygen thresholds, upward burning of aerospace materials, no PMMA). Downloaded but
 not read: NTRS 20170004702 (NASA-STD-6001B Test 1 method) and 20150004099. One PDF (NTRS 20140011099) did not extract.
@@ -132,7 +133,7 @@ before it went out, cause unclear), M9 twice (ignition only, then the flame weak
 (went out when the sample end flattened). Thickness was also filled in from the raw sample description for five
 tests where the cleaned column is blank (B6, B8, B9, B15 and M15), and a test checks each against that text.
 
-There is **no 1 g outcome table in the repo**. The Earth panel rests on the NASA numbers above, which are for PMMA rods.
+The repo has **almost no 1 g outcome data**. The Earth panel rests on the NASA numbers above, which are for PMMA rods. The one exception is SAFFIRE-II (PSI-99), whose ground comparisons are used as a check, not to fit.
 
 ### Validation
 
@@ -191,14 +192,19 @@ results were seen.
 | BASS-II note: no blow-off at 22 cm/s | burned | P(burn) 0.61, right in 82% of draws | Passes |
 | BASS-II note: blow-off at an air display of 47 | blown off | P(burn) 0.23, right in 100% of draws | Passes |
 | **Downward spread over SIBAL in 1 g air** | **not possible** | **P(burn) 0.94 (0.87 mean over draws)** | **Fails** |
+| SAFFIRE-II 2-5, SIBAL, 1 g, 20 cm/s concurrent, 22.1% O2 | whole sample burned | P(burn) 0.84 (0.61 to 0.98) | Passes |
+| SAFFIRE-II 2-5, SIBAL, 0 g, same conditions | whole 29 cm burned | P(burn) 0.93 (0.80 to 0.99) | Passes |
+| SAFFIRE-II 2-8, PMMA, 1 g, 20 cm/s concurrent, 22.0% O2 | whole sample burned | P(burn) 0.72 (0.00 to 0.95) | Passes, but the band spans 0 to 95% |
 
 The 1 g limit of 16% oxygen for rods is not a check, because it was used to place the blow-off line. The three BASS-II
 notes used to constrain the blow-off side in the earlier version are now independent checks, and they pass.
 
 **The SIBAL failure is real.** NASA says downward flame spread over SIBAL does not happen in normal air, and the model
-says it does. It is the only 1 g outcome found for any of the four materials, and it shows that letting gravity act only
+says it does. It is the only 1 g outcome found for opposed flow, and it shows that letting gravity act only
 through the buoyant flow is too simple, at least for thin fabric. I did not tune the model to fix it. The page shows a
-warning when a SIBAL opposed-flow case at high gravity comes up. The film and slab 1 g results are untested.
+warning when a SIBAL opposed-flow case at high gravity comes up. The film and slab 1 g results are untested for opposed flow.
+
+**The SAFFIRE-II cases are a weak test.** All three are concurrent flow at 20 cm/s and about 22% oxygen, where nearly everything burns, so passing says little. The PMMA band spans 0 to 95%. The pass rule was written after I had seen the model's numbers once, so unlike the other checks it was not set blind. Not scored: silicone and Nomex (not offered), tests 2-6 and 2-9 (material blank in the data) and PMMA in microgravity (about 10 cm burned, neither a clear burn nor a clear failure). The source column `1_g_burn_length` reads "Complete", which I take to mean the flame burned the whole sample.
 
 Figures from the task brief (15.6% at 1 g falling to 13 to 14% at 0.05 to 0.1 g) have no citation and are not used.
 For reference, with no forced airflow the model gives 16.0% for a rod at 1 g and 14.1% to 14.3% at 0.05 to 0.1 g.
@@ -233,7 +239,7 @@ says nothing about the real FM2 hardware or plans.
 - Gravity enters only through buoyant flow. The SIBAL miss shows this is too simple for thin fabric. Radiation, ignition,
   sample size and geometry are ignored.
 - Solid-fuel flame spread only.
-- All outcome data is microgravity. Every other gravity level rests on NASA numbers for PMMA rods, applied to all materials.
+- All fitted outcome data is microgravity. Every other gravity level rests on NASA numbers for PMMA rods, applied to all materials, and is checked against one set of 1 g ground tests (SAFFIRE-II, concurrent flow near 22% oxygen).
 - NASA papers disagree on how forced and buoyant flow combine. The bands cover a plain sum to a fourth-power rule.
 - Pressure was not recorded in BASS-II. The fit assumes about 101.3 kPa, and the NASA `P/P0` factor is not modelled.
 - The flow readings are hand-read from notes. They have not been double-checked by a second person.
