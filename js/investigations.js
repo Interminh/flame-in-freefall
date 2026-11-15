@@ -46,7 +46,8 @@
       el('span', { className: `chip ${pillar}`, textContent: PILLARS[pillar] }),
       el('span', { className: 'mono', textContent: it.psi_id }))
 
-    const title = el('h3', {}, el('a', { href: it.psi_url, target: '_blank', rel: 'noopener', textContent: it.name }))
+    const page = `investigation.html?id=${encodeURIComponent(it.psi_id)}`
+    const title = el('h3', {}, el('a', { href: page, textContent: it.name }))
 
     const size = it.rows ? `${it.rows.toLocaleString('en-US')} ${it.kind === 'series' ? 'cells' : 'rows'}` : ''
     const dots = el('span', { className: 'dots' },
@@ -73,6 +74,7 @@
       el('p', { className: 'card__meta', textContent: meta }),
       stats)
 
+    body.append(el('p', { className: 'card__links' }, el('a', { href: page, textContent: 'Graphs and publications' }), ' · ', el('a', { href: it.psi_url, target: '_blank', rel: 'noopener', textContent: 'PSI record ↗' })))
     const c = el('article', { className: 'card', }, media, body)
     c.dataset.pillar = pillar
     return c
@@ -98,7 +100,7 @@
 
   function init(d) {
     data = d
-    $('lede').textContent = `All ${d.items.length} NASA PSI investigations on one page. Read across a row to see what an investigation studied, what data it has, which variables it changed, and how many of its tests state an outcome. Select a name for its summary, charts and data.`
+    $('lede').textContent = `All ${d.items.length} NASA PSI investigations on one page. Read across a row to see what an investigation studied, what data it has, which variables it changed, and how many of its tests state an outcome. Select a name to open its graphs and publications.`
     $('pillar').replaceChildren(el('option', { value: 'all', textContent: 'All pillars' }),
       ...Object.entries(PILLARS).map(([k, label]) => el('option', { value: k, textContent: label })))
     const hws = [...new Set(d.items.map((i) => i.hardware).filter(Boolean))]

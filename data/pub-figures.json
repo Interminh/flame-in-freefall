@@ -1,0 +1,78 @@
+[
+  {
+    "file": "bass2-flammability-boundary.jpg",
+    "ntrs_id": "20160000593",
+    "page": 19,
+    "label": "Slide 19",
+    "paper": "Combustion of Solids in Microgravity: Results from the BASS-II Experiment (ASGSR 2014 poster)",
+    "psi": [
+      "PSI-25",
+      "PSI-26"
+    ],
+    "heading": "How much oxygen a PMMA rod needs to keep burning",
+    "shows": "Each mark is one BASS-II test on a PMMA rod. The vertical axis is the final oxygen level, the horizontal axis is the stretch rate (a measure of how fast air meets the flame). Blow-off, quench, and stable-flame outcomes are marked separately.",
+    "why": "Flames survive at the lowest oxygen when airflow is very slow. The authors report steady burning down to 13.6% O2 in microgravity, against 16% for the same rod in normal gravity, so a standard 1 g screening test understates the risk.",
+    "alt": "Scatter plot of final oxygen concentration against stretch rate for PMMA rod tests, with blow-off, quench and stable-flame marks and a V-shaped boundary."
+  },
+  {
+    "file": "saffire2-spread-vs-pressure.jpg",
+    "ntrs_id": "20200000557",
+    "page": 11,
+    "label": "Figure 11",
+    "paper": "Buoyancy Effects on Concurrent Flame Spread Over Thick PMMA",
+    "psi": [
+      "PSI-98",
+      "PSI-99",
+      "PSI-100"
+    ],
+    "heading": "Flame spread in normal gravity against the Saffire II result",
+    "shows": "Average flame spread rate over PMMA at ambient pressures of 40 to 100 kPa in normal gravity, measured two ways. The orange point is the single Saffire II microgravity result at 100 kPa.",
+    "why": "The microgravity flame spread far more slowly than the normal-gravity flame at the same pressure. Buoyant flow speeds a flame up on Earth, so ground tests do not transfer directly to orbit.",
+    "alt": "Plot of average flame spread rate against pressure with two rising normal-gravity series and one low orange microgravity point."
+  },
+  {
+    "file": "flex-methanol-extinction.jpg",
+    "ntrs_id": "20130014061",
+    "page": 9,
+    "label": "Figure 5",
+    "paper": "Methanol Droplet Combustion in Oxygen-Inert Environments in Microgravity",
+    "psi": [
+      "PSI-69"
+    ],
+    "heading": "How big a droplet is when its flame goes out",
+    "shows": "Droplet diameter at extinction against initial droplet diameter for more than 100 FLEX tests. Marker size shows the ambient oxygen fraction, and colour shows the diluent gas.",
+    "why": "Larger droplets at lower oxygen go out soon after ignition through radiative heat loss (the paper's explanation), while smaller droplets follow a roughly straight line. The extinction size depends on both oxygen level and droplet size.",
+    "alt": "Bubble plot of extinction diameter against initial droplet diameter with two trend lines."
+  },
+  {
+    "file": "cool-flame-extinction-o2.jpg",
+    "ntrs_id": "20140006750",
+    "page": 8,
+    "label": "Figure 4",
+    "paper": "Cool-flame Extinction During N-Alkane Droplet Combustion in Microgravity",
+    "psi": [
+      "PSI-39",
+      "PSI-69",
+      "PSI-159"
+    ],
+    "heading": "Cool-flame extinction size against oxygen level",
+    "shows": "Droplet diameter at cool-flame extinction for n-heptane, n-octane and n-decane, plotted against ambient oxygen concentration. Panel (a) is oxygen and nitrogen only, panel (b) substitutes other diluents.",
+    "why": "The extinction diameter falls as oxygen rises, so the cool flame persists to smaller droplet sizes in richer atmospheres.",
+    "alt": "Two log-log panels of extinction diameter against oxygen concentration for three n-alkane fuels, each with a falling dashed trend line."
+  },
+  {
+    "file": "same-lampwick-particle-size.jpg",
+    "ntrs_id": "20130000422",
+    "page": 8,
+    "label": "Figure 6",
+    "paper": "Particle Morphology and Size Results from the Smoke Aerosol Measurement Experiment-2",
+    "psi": [
+      "PSI-101",
+      "PSI-102"
+    ],
+    "heading": "Smoke particle size against air velocity",
+    "shows": "Particle diameters measured from lampwick smoke at three air velocities, with least-squares lines through each statistic.",
+    "why": "The authors find larger particles at low flow, and say smoke trapped in an avionics enclosure can be much larger than smoke released in ventilated areas. Detectors have to cope with that range.",
+    "alt": "Plot of mean particle diameters against air velocity from 0 to 8 cm/s, with falling linear fits."
+  }
+]
