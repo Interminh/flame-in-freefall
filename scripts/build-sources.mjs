@@ -36,6 +36,25 @@ const reports = [
   html: `${esc(a.replace(/\.$/, ''))}. "${esc(t)}." <i>NASA Technical Reports Server</i>, NASA, ${d}, ${link('https://ntrs.nasa.gov/citations/' + id)}.`,
 }))
 
+// Photos on the investigations page. Credit is "NASA" or "NASA / [GRC /] Name".
+const NOTE = ' (NASA title is the image id)'
+const photos = JSON.parse(readFileSync('img/nasa/images.json', 'utf8')).map((p) => {
+  const parts = p.credit.split(' / ').filter((x) => !['NASA', 'GRC'].includes(x))
+  let author = ''
+  if (parts[0]) {
+    const w = parts[0].split(' ')
+    author = `${esc(w.slice(1).join(' '))}, ${esc(w[0])}. `
+  }
+  // Where NASA's own title is just the image id, ours is a description, so it goes unquoted.
+  const described = p.nasa_title.endsWith(NOTE)
+  const t = esc(p.nasa_title.replace(NOTE, ''))
+  const title = described ? `${t}.` : `"${t}."`
+  return {
+    sort: (author || t) + t,
+    html: `${author}${title} <i>NASA Image and Video Library</i>, NASA, ${iso(p.date)}, ${link('https://images.nasa.gov/details/' + p.id)}.`,
+  }
+})
+
 const tools = [
   ['@fontsource/newsreader', `"Newsreader." Version 5.3.0, <i>Fontsource</i>, ${link('https://fontsource.org/fonts/newsreader')}.`],
   ['@fontsource/ibm-plex', `"IBM Plex Sans Condensed." Version 5.3.0, <i>Fontsource</i>, ${link('https://fontsource.org/fonts/ibm-plex-sans-condensed')}.`],
@@ -90,7 +109,8 @@ const html = `<!doctype html>
         ${list(ai)}
 
         <h2>Images</h2>
-        <p>This site uses no photographs or third-party images. Charts are drawn from the data above with Plotly.js, and the diagrams are our own SVG.</p>
+        <p>Photos on the investigations page are from NASA. They show related hardware or sessions, not data from the investigation. Charts are drawn from the data above with Plotly.js, and the starburst and diagrams are our own SVG.</p>
+        ${list(photos)}
       </section>
     </main>
     <script src="js/nav.js"></script>
