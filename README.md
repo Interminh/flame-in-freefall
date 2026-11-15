@@ -2,7 +2,7 @@
 
 Dashboard that summarizes and ranks NASA's microgravity combustion investigations for fire safety. Built for the NASA Space Apps Challenge 2026, "Flame in Freefall".
 
-It covers 24 investigations from NASA's Physical Sciences Informatics (PSI) database. Every fact links to a PSI page, dataset, or the challenge text. Where the source is silent, the site says "not stated in the source".
+It covers 24 investigations from NASA's Physical Sciences Informatics (PSI) database. Every fact links to a PSI page, dataset, or the challenge text. 
 
 ## Features
 
