@@ -1,0 +1,513 @@
+[
+ {
+  "experiment": "ACME CFI-G",
+  "raw_label": "30% butane",
+  "material": "30% butane",
+  "form": "gas burner",
+  "n": 52
+ },
+ {
+  "experiment": "ACME CFI-G",
+  "raw_label": "30% ethane",
+  "material": "30% ethane",
+  "form": "gas burner",
+  "n": 27
+ },
+ {
+  "experiment": "ACME CFI-G",
+  "raw_label": "30% propane",
+  "material": "30% propane",
+  "form": "gas burner",
+  "n": 36
+ },
+ {
+  "experiment": "ACME CFI-G",
+  "raw_label": "50% butane",
+  "material": "50% butane",
+  "form": "gas burner",
+  "n": 30
+ },
+ {
+  "experiment": "ACME CFI-G",
+  "raw_label": "butane",
+  "material": "butane",
+  "form": "gas burner",
+  "n": 58
+ },
+ {
+  "experiment": "ACME CFI-G",
+  "raw_label": "ethane",
+  "material": "ethane",
+  "form": "gas burner",
+  "n": 66
+ },
+ {
+  "experiment": "ACME CFI-G",
+  "raw_label": "propane",
+  "material": "propane",
+  "form": "gas burner",
+  "n": 63
+ },
+ {
+  "experiment": "ACME Flame Design",
+  "raw_label": "C2H4",
+  "material": "C2H4",
+  "form": "gas burner",
+  "n": 187
+ },
+ {
+  "experiment": "ACME Flame Design",
+  "raw_label": "C3H8",
+  "material": "C3H8",
+  "form": "gas burner",
+  "n": 20
+ },
+ {
+  "experiment": "ACME Flame Design",
+  "raw_label": null,
+  "material": "Not stated",
+  "form": "gas burner",
+  "n": 120
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "1 cm sphere",
+  "material": "Sphere (material not stated)",
+  "form": "sphere",
+  "n": 6
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "1 cm sphere, wake",
+  "material": "Sphere (material not stated)",
+  "form": "sphere",
+  "n": 1
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "1 cm wake sphere",
+  "material": "Sphere (material not stated)",
+  "form": "sphere",
+  "n": 2
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "2 cm sphere",
+  "material": "Sphere (material not stated)",
+  "form": "sphere",
+  "n": 18
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "2 cm sphere, wake ign",
+  "material": "Sphere (material not stated)",
+  "form": "sphere",
+  "n": 3
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "Japan Wax Candle, wake",
+  "material": "Paraffin or Japan wax",
+  "form": "candle",
+  "n": 8
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "Nomex",
+  "material": "Nomex",
+  "form": "fabric",
+  "n": 6
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "PMMA",
+  "material": "PMMA",
+  "form": "slab",
+  "n": 8
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "PMMA",
+  "material": "PMMA",
+  "form": "sphere",
+  "n": 20
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "PMMA",
+  "material": "PMMA",
+  "form": "unspecified",
+  "n": 20
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "SIBAL",
+  "material": "SIBAL fabric",
+  "form": "fabric",
+  "n": 12
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "candle",
+  "material": "Paraffin or Japan wax",
+  "form": "candle",
+  "n": 3
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "candle,  paraffin, wake",
+  "material": "Paraffin or Japan wax",
+  "form": "candle",
+  "n": 2
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "candle, Japan wax",
+  "material": "Paraffin or Japan wax",
+  "form": "candle",
+  "n": 2
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "flat wax slab",
+  "material": "Paraffin or Japan wax",
+  "form": "slab",
+  "n": 3
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "paraffin wax candle",
+  "material": "Paraffin or Japan wax",
+  "form": "candle",
+  "n": 1
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "paraffin wax slab",
+  "material": "Paraffin or Japan wax",
+  "form": "slab",
+  "n": 2
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "parrafin wax candle",
+  "material": "Paraffin or Japan wax",
+  "form": "candle",
+  "n": 1
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "parrafin wax slab",
+  "material": "Paraffin or Japan wax",
+  "form": "slab",
+  "n": 1
+ },
+ {
+  "experiment": "BASS",
+  "raw_label": "ultem sheet",
+  "material": "Ultem",
+  "form": "sheet",
+  "n": 2
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "0.5\" black rod",
+  "material": "PMMA (black)",
+  "form": "rod",
+  "n": 4
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "1/2\" clear rod",
+  "material": "PMMA (clear)",
+  "form": "rod",
+  "n": 1
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "1/4 blac rod",
+  "material": "PMMA (black)",
+  "form": "rod",
+  "n": 1
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "1/4 black rod",
+  "material": "PMMA (black)",
+  "form": "rod",
+  "n": 2
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "1/4 clear rod",
+  "material": "PMMA (clear)",
+  "form": "rod",
+  "n": 1
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "1/4\"  black rod",
+  "material": "PMMA (black)",
+  "form": "rod",
+  "n": 1
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "1/4\" black rod",
+  "material": "PMMA (black)",
+  "form": "rod",
+  "n": 11
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "1/4\" clear rod",
+  "material": "PMMA (clear)",
+  "form": "rod",
+  "n": 15
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "100 micron film   2 cm wide",
+  "material": "PMMA",
+  "form": "film",
+  "n": 1
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "2 cm   0.4 mm thick film",
+  "material": "PMMA",
+  "form": "film",
+  "n": 1
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "200 micron  2 cm wide",
+  "material": "PMMA",
+  "form": "film",
+  "n": 1
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "3/8\" black rod",
+  "material": "PMMA (black)",
+  "form": "rod",
+  "n": 7
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "3/8\" clear rod",
+  "material": "PMMA (clear)",
+  "form": "rod",
+  "n": 5
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "3/8\"clear rod",
+  "material": "PMMA (clear)",
+  "form": "rod",
+  "n": 2
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "300 micron film   2 cm wide",
+  "material": "PMMA",
+  "form": "film",
+  "n": 1
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "4 cm spherical section",
+  "material": "Sphere (material not stated)",
+  "form": "sphere",
+  "n": 2
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "400 micron film   2 cm wide",
+  "material": "PMMA",
+  "form": "film",
+  "n": 1
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "Japan Wax candle",
+  "material": "Paraffin or Japan wax",
+  "form": "candle",
+  "n": 1
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "Nomex",
+  "material": "Nomex",
+  "form": "fabric",
+  "n": 3
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "PMMA",
+  "material": "PMMA",
+  "form": "film",
+  "n": 9
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "PMMA",
+  "material": "PMMA",
+  "form": "rod",
+  "n": 4
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "PMMA",
+  "material": "PMMA",
+  "form": "slab",
+  "n": 3
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "PMMA",
+  "material": "PMMA",
+  "form": "unspecified",
+  "n": 25
+ },
+ {
+  "experiment": "BASS-II",
+  "raw_label": "SIBAL",
+  "material": "SIBAL fabric",
+  "form": "fabric",
+  "n": 27
+ },
+ {
+  "experiment": "CFI",
+  "raw_label": "C12H26",
+  "material": "n-dodecane",
+  "form": "droplet",
+  "n": 79
+ },
+ {
+  "experiment": "CFI",
+  "raw_label": "Farnesane",
+  "material": "Farnesane",
+  "form": "droplet",
+  "n": 44
+ },
+ {
+  "experiment": "CFI",
+  "raw_label": "[.60]/[.40] C12H26/iso-dodecane",
+  "material": "n-dodecane / iso-dodecane blend",
+  "form": "droplet",
+  "n": 52
+ },
+ {
+  "experiment": "CFI",
+  "raw_label": "[.75]/[.25] C12H26/iso-dodecane",
+  "material": "n-dodecane / iso-dodecane blend",
+  "form": "droplet",
+  "n": 51
+ },
+ {
+  "experiment": "FLEX",
+  "raw_label": "Heptane",
+  "material": "Heptane",
+  "form": "droplet",
+  "n": 117
+ },
+ {
+  "experiment": "FLEX",
+  "raw_label": "Methanol",
+  "material": "Methanol",
+  "form": "droplet",
+  "n": 157
+ },
+ {
+  "experiment": "SAFFIRE-I",
+  "raw_label": "SIBAL",
+  "material": "SIBAL fabric",
+  "form": "fabric",
+  "n": 2
+ },
+ {
+  "experiment": "SAFFIRE-II",
+  "raw_label": "PMMA",
+  "material": "PMMA",
+  "form": "unspecified",
+  "n": 4
+ },
+ {
+  "experiment": "SAFFIRE-II",
+  "raw_label": "SIBAL",
+  "material": "SIBAL fabric",
+  "form": "fabric",
+  "n": 2
+ },
+ {
+  "experiment": "SAFFIRE-II",
+  "raw_label": "Silicone",
+  "material": "Silicone",
+  "form": "unspecified",
+  "n": 8
+ },
+ {
+  "experiment": "SAFFIRE-II",
+  "raw_label": null,
+  "material": "Not stated",
+  "form": "unspecified",
+  "n": 4
+ },
+ {
+  "experiment": "SAFFIRE-III",
+  "raw_label": "SIBAL",
+  "material": "SIBAL fabric",
+  "form": "fabric",
+  "n": 2
+ },
+ {
+  "experiment": "SPICE",
+  "raw_label": "50 % Propylene",
+  "material": "50 % Propylene",
+  "form": "gas burner",
+  "n": 111
+ },
+ {
+  "experiment": "SPICE",
+  "raw_label": "75 % Propylene",
+  "material": "75 % Propylene",
+  "form": "gas burner",
+  "n": 119
+ },
+ {
+  "experiment": "SPICE",
+  "raw_label": "75% Propylene",
+  "material": "75% Propylene",
+  "form": "gas burner",
+  "n": 16
+ },
+ {
+  "experiment": "SPICE",
+  "raw_label": "Ethylene",
+  "material": "Ethylene",
+  "form": "gas burner",
+  "n": 47
+ },
+ {
+  "experiment": "SPICE",
+  "raw_label": "Methane",
+  "material": "Methane",
+  "form": "gas burner",
+  "n": 4
+ },
+ {
+  "experiment": "SPICE",
+  "raw_label": "Propane",
+  "material": "Propane",
+  "form": "gas burner",
+  "n": 50
+ },
+ {
+  "experiment": "SPICE",
+  "raw_label": "Propylene",
+  "material": "Propylene",
+  "form": "gas burner",
+  "n": 122
+ }
+]

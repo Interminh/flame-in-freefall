@@ -11,8 +11,11 @@
     "test:sim": "node --test tests/sim/model.test.mjs"
   },
   "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
     "@fontsource/ibm-plex-sans-condensed": "^5.3.0",
     "@fontsource/newsreader": "^5.3.0",
+    "plotly.js-dist-min": "^4.3.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router-dom": "^7.18.5"

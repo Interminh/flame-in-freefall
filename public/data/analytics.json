@@ -1,0 +1,1226 @@
+{
+ "facts": {
+  "rows_total": 1900,
+  "rows_with_o2_and_pressure": 808,
+  "rows_with_o2_pressure_and_outcome": 254,
+  "cabin_box_rows": 17,
+  "cabin_box_experiments": [
+   "FLEX"
+  ],
+  "cabin_box_with_outcome": 0,
+  "solid_rows": 272,
+  "solid_max_o2_percent": 22.722,
+  "solid_pressure_min_kpa": 98.2853,
+  "solid_pressure_max_kpa": 102.208,
+  "solid_rows_at_or_above_24pct_o2": 0,
+  "cabin_box_definition": "O2 >= 26% and total pressure <= 75 kPa",
+  "distinct_raw_fuel_labels": 59
+ },
+ "scenarios": {
+  "earth_air": {
+   "o2_percent": 20.9,
+   "pressure_kpa": 101.325,
+   "ppo2_kpa": 21.18
+  },
+  "moon_cabin_10p2psi": {
+   "o2_percent": 30.0,
+   "pressure_kpa": 70.33,
+   "ppo2_kpa": 21.1
+  },
+  "moon_cabin_8p2psi": {
+   "o2_percent": 34.0,
+   "pressure_kpa": 56.54,
+   "ppo2_kpa": 19.22
+  },
+  "suit_4p3psi": {
+   "o2_percent": 100.0,
+   "pressure_kpa": 29.65,
+   "ppo2_kpa": 29.65
+  }
+ },
+ "scaling_gate": {
+  "dataset": "PSI-69 FLEX",
+  "response": "visible flame extinction diameter (mm)",
+  "fuels": {
+   "Heptane": {
+    "n": 56,
+    "sd_lnD": 0.438144,
+    "loo_rmse": {
+     "O2 fraction only": 0.4537,
+     "ppO2 only": 0.4518,
+     "O2 fraction + pressure": 0.4599,
+     "O2 fraction + pressure + droplet size": 0.2607
+    },
+    "coef": {
+     "ln_xO2": -0.91372,
+     "ln_p": -0.16477,
+     "ln_d0": 1.67676
+    },
+    "ci95": {
+     "ln_xO2": [
+      -1.61555,
+      -0.547138
+     ],
+     "ln_p": [
+      -0.564467,
+      0.166921
+     ],
+     "ln_p_minus_ln_xO2": [
+      0.328947,
+      1.47067
+     ],
+     "ln_d0": [
+      1.40792,
+      2.00867
+     ]
+    },
+    "rejects_fraction_only": false,
+    "rejects_ppO2_only": true
+   },
+   "Methanol": {
+    "n": 102,
+    "sd_lnD": 0.402319,
+    "loo_rmse": {
+     "O2 fraction only": 0.3779,
+     "ppO2 only": 0.3498,
+     "O2 fraction + pressure": 0.3526,
+     "O2 fraction + pressure + droplet size": 0.2478
+    },
+    "coef": {
+     "ln_xO2": -1.04778,
+     "ln_p": -0.418665,
+     "ln_d0": 1.19134
+    },
+    "ci95": {
+     "ln_xO2": [
+      -1.43251,
+      -0.825255
+     ],
+     "ln_p": [
+      -0.939796,
+      -0.0930033
+     ],
+     "ln_p_minus_ln_xO2": [
+      0.258254,
+      0.912743
+     ],
+     "ln_d0": [
+      0.993425,
+      1.42521
+     ]
+    },
+    "rejects_fraction_only": true,
+    "rejects_ppO2_only": true
+   }
+  },
+  "rows_total": 274,
+  "rows_extinction_usable": 158,
+  "rows_in_cabin_box": 17,
+  "cabin_box_with_extinction_diameter": 4,
+  "pure_n2_rows": 46,
+  "pure_n2_pressure_levels_kpa": [
+   70.0,
+   100.0
+  ]
+ },
+ "theta": {
+  "flex": {
+   "dataset": "PSI-69 FLEX",
+   "response": "visible flame extinction diameter",
+   "n": 158,
+   "pressure_clusters_kpa": {
+    "70": 57,
+    "100": 99,
+    "210": 1,
+    "280": 1
+   },
+   "pooled_with_diluent_terms": {
+    "b_x": -1.043,
+    "b_p": -0.2972,
+    "theta": 0.285,
+    "ci95": [
+     0.0515,
+     0.626
+    ],
+    "bootstrap_valid_fraction": 1.0
+   },
+   "pure_n2_only": {
+    "n": 46,
+    "b_x": -0.6688,
+    "b_p": -0.6107,
+    "theta": 0.913,
+    "ci95": [
+     -10.9,
+     1.87
+    ],
+    "bootstrap_valid_fraction": 1.0
+   },
+   "methanol": {
+    "n": 102,
+    "b_x": -1.068,
+    "b_p": -0.3681,
+    "theta": 0.345,
+    "ci95": [
+     0.0471,
+     0.813
+    ],
+    "bootstrap_valid_fraction": 1.0
+   },
+   "heptane": {
+    "n": 56,
+    "b_x": -1.057,
+    "b_p": -0.2291,
+    "theta": 0.217,
+    "ci95": [
+     -0.0566,
+     0.539
+    ],
+    "bootstrap_valid_fraction": 1.0
+   }
+  },
+  "cfi": {
+   "dataset": "PSI-39 CFI",
+   "o2_levels_percent": [
+    17,
+    21
+   ],
+   "pressure_levels_kpa": [
+    50.7,
+    76.0,
+    101.3,
+    126.7,
+    202.7,
+    304.0,
+    506.6
+   ],
+   "hot_flame": {
+    "n": 143,
+    "b_x": -0.3771,
+    "b_p": -0.02744,
+    "theta": 0.0728,
+    "ci95": [
+     0.0376,
+     0.109
+    ],
+    "bootstrap_valid_fraction": 1.0
+   },
+   "cool_flame": {
+    "n": 70,
+    "b_x": -5.628,
+    "b_p": -0.9378,
+    "theta": 0.167,
+    "ci95": [
+     0.109,
+     0.265
+    ],
+    "bootstrap_valid_fraction": 1.0
+   }
+  },
+  "caveats": [
+   "Both responses are liquid-droplet extinction diameters, not solid-fuel flammability limits.",
+   "FLEX pressure leverage rests on two clusters near 70 and 100 kPa; the pure-N2 subset cannot identify theta.",
+   "CFI has two O2 levels (17 and 21 percent) and a helium-diluted subset, so its O2 exponent rests on one contrast.",
+   "Bootstrap resamples rows as independent; repeated tests on one apparatus are not independent in fact.",
+   "Applying theta to solid fuels is an assumption, labelled as such wherever it is used."
+  ]
+ },
+ "cfi_pressure": {
+  "dataset": "PSI-39 CFI",
+  "n": 143,
+  "o2_levels": [
+   17.0,
+   21.0
+  ],
+  "pressure_levels_kpa": [
+   50.7,
+   76.0,
+   101.3,
+   126.7,
+   202.7,
+   304.0,
+   506.6
+  ],
+  "coef_ln_p": -0.0220391,
+  "ci95_ln_p": [
+   -0.0361777,
+   -0.00878109
+  ],
+  "coef_ln_d0": 1.23106,
+  "ci95_ln_d0": [
+   1.16986,
+   1.30206
+  ],
+  "note": "Hot-flame extinction diameter, pressure effect controlling for droplet size and an O2 level indicator."
+ },
+ "fingerprint": {
+  "variables": [
+   "Fuel",
+   "Geometry",
+   "Thickness",
+   "O\u2082",
+   "Pressure",
+   "Flow speed",
+   "Flow direction",
+   "Gravity",
+   "Outcome"
+  ],
+  "by_investigation": {
+   "PSI-115": {
+    "Fuel": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Geometry": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-22": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 4
+    },
+    "Geometry": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-21": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 30
+    },
+    "Geometry": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-23": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 16
+    },
+    "Geometry": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-106": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 9
+    },
+    "Geometry": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-117": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 3
+    },
+    "Geometry": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "varies",
+     "n_unique": 2
+    },
+    "Pressure": {
+     "status": "varies",
+     "n_unique": 2
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-142": {
+    "Fuel": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Geometry": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-100": {
+    "Fuel": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Geometry": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Flow direction": {
+     "status": "varies",
+     "n_unique": 2
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-60": {
+    "Fuel": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Geometry": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-99": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 3
+    },
+    "Geometry": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Thickness": {
+     "status": "varies",
+     "n_unique": 4
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Flow direction": {
+     "status": "varies",
+     "n_unique": 2
+    },
+    "Gravity": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-102": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 5
+    },
+    "Geometry": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "varies",
+     "n_unique": 2
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-62": {
+    "Fuel": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Geometry": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-10": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 2
+    },
+    "Geometry": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "varies",
+     "n_unique": 246
+    },
+    "Pressure": {
+     "status": "varies",
+     "n_unique": 174
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-39": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 4
+    },
+    "Geometry": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "varies",
+     "n_unique": 2
+    },
+    "Pressure": {
+     "status": "varies",
+     "n_unique": 7
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-20": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 4
+    },
+    "Geometry": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-25": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 21
+    },
+    "Geometry": {
+     "status": "varies",
+     "n_unique": 4
+    },
+    "Thickness": {
+     "status": "varies",
+     "n_unique": 9
+    },
+    "O\u2082": {
+     "status": "varies",
+     "n_unique": 50
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "varies",
+     "n_unique": 2
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "varies",
+     "n_unique": 4
+    }
+   },
+   "PSI-47": {
+    "Fuel": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Geometry": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-68": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 8
+    },
+    "Geometry": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-26": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 18
+    },
+    "Geometry": {
+     "status": "varies",
+     "n_unique": 4
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "varies",
+     "n_unique": 43
+    },
+    "Pressure": {
+     "status": "varies",
+     "n_unique": 26
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "varies",
+     "n_unique": 4
+    }
+   },
+   "PSI-107": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 7
+    },
+    "Geometry": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "varies",
+     "n_unique": 60
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-101": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 5
+    },
+    "Geometry": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "varies",
+     "n_unique": 5
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-159": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 7
+    },
+    "Geometry": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "varies",
+     "n_unique": 150
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "varies",
+     "n_unique": 3
+    }
+   },
+   "PSI-98": {
+    "Fuel": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Geometry": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Thickness": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "O\u2082": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Pressure": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow speed": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Flow direction": {
+     "status": "varies",
+     "n_unique": 2
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "empty",
+     "n_unique": 0
+    }
+   },
+   "PSI-69": {
+    "Fuel": {
+     "status": "varies",
+     "n_unique": 2
+    },
+    "Geometry": {
+     "status": "constant",
+     "n_unique": 1
+    },
+    "Thickness": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "O\u2082": {
+     "status": "varies",
+     "n_unique": 15
+    },
+    "Pressure": {
+     "status": "varies",
+     "n_unique": 183
+    },
+    "Flow speed": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Flow direction": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Gravity": {
+     "status": "empty",
+     "n_unique": 0
+    },
+    "Outcome": {
+     "status": "constant",
+     "n_unique": 1
+    }
+   }
+  }
+ },
+ "outcome_by_experiment": {
+  "ACME CFI-G": {
+   "extinguished": 183,
+   "ignited": 87,
+   "unknown": 61,
+   "no_ignition": 1
+  },
+  "ACME Flame Design": {
+   "unknown": 327
+  },
+  "BASS": {
+   "unknown": 53,
+   "extinguished": 33,
+   "ignited": 20,
+   "burned_out": 10,
+   "no_ignition": 5
+  },
+  "BASS-II": {
+   "extinguished": 56,
+   "unknown": 55,
+   "ignited": 15,
+   "burned_out": 2,
+   "no_ignition": 1
+  },
+  "CFI": {
+   "unknown": 226
+  },
+  "FLEX": {
+   "extinguished": 186,
+   "unknown": 88
+  },
+  "SAFFIRE-I": {
+   "unknown": 2
+  },
+  "SAFFIRE-II": {
+   "unknown": 18
+  },
+  "SAFFIRE-III": {
+   "unknown": 2
+  },
+  "SPICE": {
+   "unknown": 469
+  }
+ }
+}
