@@ -163,69 +163,86 @@ function capabilities(fp) {
   ]
 }
 
-function aboutSection(id, cat, inv, notes, about) {
-  if (!notes && !about) return null
-  const kids = []
-  if (notes?.goal) kids.push(el('div', { className: 'panel' }, el('h3', { textContent: 'What it set out to do' }), el('p', { textContent: notes.goal }), el('p', { className: 'small', textContent: 'Our summary of the PSI record.' })))
-  const bits = []
-  const isGround = /ground/i.test(about?.project_type || '')
-  bits.push(['Type', about?.project_type ? (isGround ? 'Ground investigation: reanalyses or models flight data, no new flight' : about.project_type) : null])
-  bits.push(['Proposal title', about?.proposal_title])
-  bits.push(['NASA centre', about?.center])
-  bits.push(['PSI record updated', about?.updated])
-  const dl = el('dl', { className: 'inv-facts inv-facts--tight' }, ...bits.filter(([, v]) => v).map(([k, v]) => el('div', {}, el('dt', { textContent: k }), el('dd', { textContent: v }))))
-  if (dl.childElementCount) kids.push(dl)
-  const re = notes?.reuse || {}
-  if (re.uses?.length || re.used_by?.length || re.related?.length) {
-    const line = (label, ids) => ids?.length ? el('p', {}, el('b', { textContent: `${label} ` }), ...idLinks(cat, ids)) : null
-    kids.push(el('div', { className: 'panel' }, el('h3', { textContent: 'How it connects to other PSI datasets' }),
-      line('Reuses data from', re.uses), line('Its data are reused by', re.used_by), line('Related experiments:', re.related)))
-  }
-  if (about && (about.objectives || about.hypothesis || about.impacts)) {
-    const d = el('details', { className: 'verbatim' }, el('summary', { textContent: 'Full text from the PSI record (objectives, hypothesis, benefits)' }),
-      about.objectives && el('p', {}, el('b', { textContent: 'Objectives. ' }), about.objectives),
-      about.hypothesis && el('p', {}, el('b', { textContent: 'Hypothesis. ' }), about.hypothesis),
-      about.impacts && el('p', {}, el('b', { textContent: 'Research impacts and Earth benefits. ' }), about.impacts),
-      el('p', { className: 'small', textContent: 'Copied from the PSI record (CC0-1.0).' }))
-    kids.push(d)
-  }
-  const sec = section('About this investigation', null, ...kids)
-  sec.id = 'about'
-  return sec
-}
-
-function readingSection(inv, item, notes) {
+function readingSection(id, cat, inv, item, notes, about) {
   if (!notes) return null
   const caps = capabilities(item.fp)
-  const sec = section('What to take from this dataset', null,
+  const re = notes.reuse || {}
+  const line = (label, ids) => ids?.length ? el('p', {}, el('b', { textContent: `${label} ` }), ...idLinks(cat, ids)) : null
+  const linked = re.uses?.length || re.used_by?.length || re.related?.length
+  const ground = /ground/i.test(about?.project_type || '')
+  const kids = [
     el('div', { className: 'interp interp--big' }, el('b', { textContent: 'Our interpretation' }), el('p', { textContent: notes.interp }),
       el('p', { className: 'small', textContent: 'This is our reading for spacecraft fire safety, not a finding from the investigators.' })),
     el('div', { className: 'two' },
       el('div', { className: 'panel' }, el('h3', { textContent: 'Good for' }), el('ul', { className: 'plain' }, ...notes.use.map((u) => el('li', { textContent: u })))),
       el('div', { className: 'panel' }, el('h3', { textContent: 'Can this table answer…' }),
         el('div', { className: 'caps' }, ...caps.map(([l, ok]) => el('span', { className: `cap ${ok ? 'yes' : 'no'}` }, el('span', { className: 'mark', textContent: ok ? '✓' : '–' }), l))),
-        el('p', { className: 'small', textContent: 'A tick means the variable takes more than one value in the PSI table, so its effect can be read from the rows.' }))))
+        el('p', { className: 'small', textContent: 'A tick means the variable takes more than one value in the PSI table, so its effect can be read from the rows.' })))]
+  if (linked || ground) kids.push(el('div', { className: 'panel' }, el('h3', { textContent: 'Connected PSI datasets' }),
+    ground && el('p', { textContent: 'This is a ground study: it reanalyses or models flight data and has no flight of its own.' }),
+    line('Reuses data from', re.uses), line('Its data are reused by', re.used_by), line('Related experiments:', re.related)))
+  if (about && (about.objectives || about.hypothesis || about.impacts)) kids.push(el('details', { className: 'verbatim' }, el('summary', { textContent: 'Read the PSI objectives, hypothesis and benefits' }),
+    about.objectives && el('p', {}, el('b', { textContent: 'Objectives. ' }), about.objectives),
+    about.hypothesis && el('p', {}, el('b', { textContent: 'Hypothesis. ' }), about.hypothesis),
+    about.impacts && el('p', {}, el('b', { textContent: 'Research impacts and Earth benefits. ' }), about.impacts),
+    el('p', { className: 'small', textContent: 'Copied from the PSI record (CC0-1.0).' })))
+  const sec = section('What to take from this dataset', notes.goal ? `What it set out to do: ${notes.goal}` : null, ...kids)
   sec.id = 'reading'
   return sec
 }
 
-// Publications by year, plus what the papers are doing with this dataset.
-function papersSection(pubs, notes, cat) {
+// Themes found in publication titles, so the page can say what research is being done.
+const THEMES = [
+  ['Extinction and flammability limits', /extinct|flammab|limit|quench|blow/i, 'Where a flame can no longer sustain itself, and how that shifts in microgravity.'],
+  ['Soot and radiation', /soot|radiat/i, 'How much soot forms and how radiative heat loss shapes the flame.'],
+  ['Cool flames', /cool.flame|low.temperature|ntc/i, 'Faint low-temperature burning that appears in microgravity, mostly around droplets.'],
+  ['Droplet burning', /droplet/i, 'Burning rate and extinction of single fuel droplets, with model comparisons.'],
+  ['Flame spread and ignition', /spread|ignit|fire/i, 'How fire starts on and travels across solid material.'],
+  ['Smoke and particles', /smoke|particle|aerosol|detect/i, 'Smoke size and amount, and how detectors respond.'],
+  ['Modelling and simulation', /numeric|comput|model|simulat|cfd|kinetic|mechanism|reduced/i, 'Numerical models and reduced chemistry tested against the flight data.'],
+  ['Flame structure and measurement', /structure|temperature|measure|laser|imag|diagnos|shape/i, 'Measuring what the flame looks like and how hot it is.'],
+  ['Electric fields', /electric|ion current/i, 'Using electric fields to steer or control flames.'],
+  ['Spacecraft fire safety', /spacecraft|crew|safety|station|saffire|material/i, 'What the results mean for materials and fire response on crewed vehicles.'],
+]
+
+function papersSection(pubs, notes) {
   if (!pubs.length && !notes?.papers) return null
   const kids = []
   if (notes?.papers) kids.push(el('p', { className: 'lead lead--ink', textContent: notes.papers }))
+  const dated = pubs.filter((p) => p.year)
+  const recent = dated.filter((p) => p.year >= 2020)
+  const venues = new Set(pubs.map((p) => p.venue).filter(Boolean))
+  const stat = (n, l) => el('div', { className: 'stat' }, el('b', { textContent: String(n) }), el('span', { textContent: l }))
+  if (pubs.length) kids.push(el('div', { className: 'stats' }, stat(pubs.length, 'publications on PSI'),
+    dated.length ? stat(`${Math.min(...dated.map((p) => p.year))}–${Math.max(...dated.map((p) => p.year))}`, 'years covered') : null,
+    stat(recent.length, 'published since 2020'), venues.size ? stat(venues.size, 'different journals') : null))
+  const groups = THEMES.map(([name, re, blurb]) => ({ name, blurb, list: pubs.filter((p) => re.test(p.title)) })).filter((g) => g.list.length).sort((a, b) => b.list.length - a.list.length).slice(0, 6)
+  if (groups.length) {
+    kids.push(el('h3', { className: 'sub-h', textContent: 'Main lines of research' }))
+    kids.push(el('div', { className: 'themes' }, ...groups.map((g) => {
+      const top = [...g.list].sort((a, b) => (b.year || 0) - (a.year || 0)).slice(0, 3)
+      return el('div', { className: 'theme' },
+        el('h4', {}, g.name, el('span', { className: 'n', textContent: ` ${g.list.length}` })), el('p', { textContent: g.blurb }),
+        el('ul', {}, ...top.map((p) => el('li', {}, p.url ? el('a', { href: p.url, target: '_blank', rel: 'noopener', textContent: p.title }) : p.title, p.year ? el('span', { className: 'yr', textContent: ` (${p.year})` }) : null))))
+    })))
+    kids.push(el('p', { className: 'small', textContent: 'Sorted by matching words in paper titles, so one paper can sit in more than one line. We have not read the papers in full. Newest three shown per line.' }))
+  }
+  const newest = [...dated].sort((a, b) => b.year - a.year).slice(0, 4)
+  if (newest.length && newest[0].year >= 2020) {
+    kids.push(el('h3', { className: 'sub-h', textContent: 'Most recent work' }))
+    kids.push(el('ul', { className: 'recent' }, ...newest.map((p) => el('li', {}, el('span', { className: 'yr', textContent: p.year }), p.url ? el('a', { href: p.url, target: '_blank', rel: 'noopener', textContent: p.title }) : p.title, p.venue ? el('span', { className: 'small', textContent: p.venue }) : null))))
+  }
   const years = new Map()
-  for (const p of pubs) if (p.year) years.set(p.year, (years.get(p.year) || 0) + 1)
+  for (const p of dated) years.set(p.year, (years.get(p.year) || 0) + 1)
   if (years.size > 1 && window.Plotly) {
     const ys = [...years.keys()].sort((a, b) => a - b)
     const plot = el('div', { className: 'plot plot--short' })
-    kids.push(el('section', { className: 'plot-card' }, el('header', {}, el('h3', { textContent: 'When the papers appeared' }), el('p', { textContent: 'Publications listed by PSI for this investigation, by year of publication.' })), plot,
-      el('footer', {}, `${[...years.values()].reduce((a, b) => a + b, 0)} of ${pubs.length} papers have a year (from the DOI record or the title). Source: PSI publication lists, Crossref.`)))
+    kids.push(el('section', { className: 'plot-card' }, el('header', {}, el('h3', { textContent: 'When the papers appeared' }), el('p', { textContent: 'Publications listed by PSI for this investigation, by year.' })), plot,
+      el('footer', {}, `${dated.length} of ${pubs.length} papers have a year (from the DOI record or the title). Source: PSI publication lists, Crossref.`)))
     setTimeout(() => window.Plotly.newPlot(plot, [{ type: 'bar', x: ys, y: ys.map((y) => years.get(y)), marker: { color: '#1B5FA8', line: { color: '#111', width: 1.2 } } }], plotLayout({ xaxis: { title: 'Year' }, yaxis: { title: 'Papers' }, showlegend: false, margin: { t: 14 } }), { responsive: true, displaylogo: false, displayModeBar: false }), 0)
   }
-  const sec = section('What the papers are doing with it', null, ...kids)
+  const sec = section('What research is being done with it', 'A read of the publication list: the topics, how recent the work is, and the newest papers.', ...kids)
   sec.id = 'papers'
-  void cat
   return sec
 }
 
@@ -278,8 +295,8 @@ async function main() {
       : el('figure', { className: 'inv-photo inv-photo--none' }, el('img', { src: 'img/logo.png', alt: '' }))
 
     const links = el('div', { className: 'inv-links' }, ext(inv.psi_url, 'PSI record on NASA ↗'), inv.doi && ext(`https://doi.org/${inv.doi}`, `DOI ${inv.doi} ↗`),
-      el('a', { href: '#about', textContent: 'About' }), el('a', { href: '#reading', textContent: 'Interpretation' }), el('a', { href: '#graphs', textContent: 'Graphs' }), myFigs.length > 0 && el('a', { href: '#figures', textContent: `Paper figures (${myFigs.length})` }),
-      raw && el('a', { href: '#data', textContent: 'Data tables' }), el('a', { href: '#papers', textContent: 'What papers do' }), el('a', { href: '#pubs', textContent: `Publications (${pubs.length})` }), el('a', { href: '#limits', textContent: 'Limitations' }))
+      el('a', { href: '#reading', textContent: 'Interpretation' }), el('a', { href: '#graphs', textContent: 'Graphs' }), myFigs.length > 0 && el('a', { href: '#figures', textContent: `Paper figures (${myFigs.length})` }),
+      raw && el('a', { href: '#data', textContent: 'Data tables' }), el('a', { href: '#papers', textContent: 'Research' }), el('a', { href: '#pubs', textContent: `Publications (${pubs.length})` }), el('a', { href: '#limits', textContent: 'Limitations' }))
     const head = el('div', { className: 'inv-head' },
       el('div', {},
         el('p', { className: 'eyebrow', textContent: `${inv.psi_id} · ${inv.pillar}` }),
@@ -313,7 +330,7 @@ async function main() {
 
     const ntrsUsed = new Set(myFigs.filter((f) => f.ntrs_id).map((f) => String(f.ntrs_id)))
     const notes = notesAll[id], about = aboutAll[id]
-    const parts = [head, facts, aboutSection(id, cat, inv, notes, about), readingSection(inv, item, notes)]
+    const parts = [head, facts, readingSection(id, cat, inv, item, notes, about)]
     const g = section('Graphs from the PSI data', charts.length ? 'Picked for this investigation. Each says what it answers and how many rows it uses. Tests with no stated outcome are left out of outcome charts.' : null, chartBody)
     g.id = 'graphs'
     parts.push(g)
@@ -334,7 +351,7 @@ async function main() {
       d.id = 'data'
       parts.push(d)
     }
-    parts.push(papersSection(pubs, notes, cat))
+    parts.push(papersSection(pubs, notes))
     const p = section(`Publications (${pubs.length})`,
       pubs.length ? 'Everything PSI lists for this investigation. Titles link to the paper through its DOI or the link PSI gives. “Free copy on NTRS” marks papers we found on the NASA technical reports server.' : null,
       pubs.length ? pubList(pubs, ntrsUsed) : el('p', { className: 'empty', textContent: 'PSI lists no publications for this investigation.' }))
