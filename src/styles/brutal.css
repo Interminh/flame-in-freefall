@@ -369,12 +369,4 @@ a:hover, button, .button-link,
 
 @media (max-width: 720px) { .settings-tab { display: none; } }
 
-/* Logo: animated by default, still when motion is reduced (device or site setting). */
-.logo__still { display: none; }
-@media (prefers-reduced-motion: reduce) {
-  .logo__anim { display: none; }
-  .logo__still { display: inline; }
-}
-:root[data-motion='reduce'] .logo__anim { display: none; }
-:root[data-motion='reduce'] .logo__still { display: inline; }
 .site-nav__brand img { border-radius: 50%; }
