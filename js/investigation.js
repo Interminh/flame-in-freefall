@@ -164,25 +164,19 @@ function capabilities(fp) {
 }
 
 function readingSection(id, cat, inv, item, notes, about) {
-  if (!notes) return null
+  if (!notes && !about) return null
   const caps = capabilities(item.fp)
-  const re = notes.reuse || {}
+  const re = notes?.reuse || {}
   const line = (label, ids) => ids?.length ? [el('b', { textContent: `${label} ` }), ...idLinks(cat, ids), ' '] : []
   const linked = re.uses?.length || re.used_by?.length || re.related?.length
-  const kids = [
-    notes.goal && el('p', { className: 'lead', textContent: notes.goal }),
-    el('div', { className: 'interp' }, el('b', { textContent: 'Our interpretation' }), el('p', { textContent: notes.interp })),
-    el('h3', { className: 'sub-h', textContent: 'Good for' }),
-    el('ul', { className: 'plain' }, ...notes.use.map((u) => el('li', { textContent: u }))),
+  const para = (k, t) => t && el('p', { className: 'wide' }, el('b', { textContent: `${k}. ` }), t)
+  const sec = el('section', { className: 'inv-sec inv-sec--first', id: 'reading' },
+    para('Objectives', about?.objectives), para('Hypothesis', about?.hypothesis), para('Research impacts and Earth benefits', about?.impacts),
+    about && el('p', { className: 'small', textContent: 'Text from the PSI record (CC0-1.0).' }),
     el('h3', { className: 'sub-h', textContent: 'Questions the table can answer' }),
     el('div', { className: 'caps' }, ...caps.map(([l, ok]) => el('span', { className: `cap ${ok ? 'yes' : 'no'}` }, el('span', { className: 'mark', textContent: ok ? '✓' : '–' }), l))),
-    linked && el('p', { className: 'small small--gap' }, ...line('Reuses data from', re.uses), ...line('Reused by', re.used_by), ...line('Related:', re.related)),
-    about && (about.objectives || about.hypothesis) && el('details', { className: 'verbatim' }, el('summary', { textContent: 'PSI objectives and hypothesis' }),
-      about.objectives && el('p', {}, el('b', { textContent: 'Objectives. ' }), about.objectives),
-      about.hypothesis && el('p', {}, el('b', { textContent: 'Hypothesis. ' }), about.hypothesis),
-      el('p', { className: 'small', textContent: 'Copied from the PSI record (CC0-1.0).' }))]
-  const sec = section('What to take from this dataset', null, ...kids)
-  sec.id = 'reading'
+    el('p', { className: 'small small--gap', textContent: 'A tick means the variable takes more than one value in the PSI table, so its effect can be read from the rows.' }),
+    linked && el('p', { className: 'wide' }, ...line('Reuses data from', re.uses), ...line('Reused by', re.used_by), ...line('Related:', re.related)))
   return sec
 }
 
@@ -284,7 +278,7 @@ async function main() {
       : el('figure', { className: 'inv-photo inv-photo--none' }, el('img', { src: 'img/logo.png', alt: '' }))
 
     const links = el('div', { className: 'inv-links' }, ext(inv.psi_url, 'PSI record on NASA ↗'), inv.doi && ext(`https://doi.org/${inv.doi}`, `DOI ${inv.doi} ↗`),
-      el('a', { href: '#reading', textContent: 'Interpretation' }), el('a', { href: '#graphs', textContent: 'Graphs' }), myFigs.length > 0 && el('a', { href: '#figures', textContent: `Paper figures (${myFigs.length})` }),
+      el('a', { href: '#reading', textContent: 'PSI objectives' }), el('a', { href: '#graphs', textContent: 'Graphs' }), myFigs.length > 0 && el('a', { href: '#figures', textContent: `Paper figures (${myFigs.length})` }),
       raw && el('a', { href: '#data', textContent: 'Data tables' }), el('a', { href: '#papers', textContent: 'Research' }), el('a', { href: '#pubs', textContent: `Publications (${pubs.length})` }), el('a', { href: '#limits', textContent: 'Limitations' }))
     const head = el('div', { className: 'inv-head' },
       el('div', {},
