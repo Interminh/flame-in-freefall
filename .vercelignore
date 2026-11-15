@@ -1,0 +1,9 @@
+node_modules
+dist
+scripts
+src/*.jsx
+src/components
+src/pages
+vite.config.js
+.env
+.env.*

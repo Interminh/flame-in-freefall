@@ -18,3 +18,7 @@
 | NTRS 20200000557: Buoyancy Effects on Concurrent Flame Spread Over Thick PMMA | https://ntrs.nasa.gov/citations/20200000557 | Hosted on NTRS. Some authors are at universities or contractors. Distribution notice not checked on each record | Mixed-flow rule combining forced and buoyant flow (Eq. 6). Quotes and pages in `data/derived/nasa_1g_anchors.csv` |
 | NTRS 20130012832: Ferkul. Flammability Aspects of a Cotton-Fiberglass Fabric in Opposed and Concurrent Airflow in Microgravity (2013) | https://ntrs.nasa.gov/citations/20130012832 | Hosted on NTRS. Some authors are at universities or contractors. Distribution notice not checked on each record | Downward spread over SIBAL not possible in 1 g air. Quotes and pages in `data/derived/nasa_1g_anchors.csv` |
 | Claude Code (Anthropic) | https://claude.com/claude-code | Not applicable | AI tool. Drafted the simulation code, tests, page and the flow-point extraction. A person still has to check the flow points and the constants |
+| gpt-oss-120b (OpenAI) | https://huggingface.co/openai/gpt-oss-120b | Apache 2.0 | Open-weight AI model that scores investigations on the Ignis AI page. AI use to be credited in project credits |
+| Groq | https://groq.com | Service terms | Hosts the model for the Ignis AI function |
+| Ollama | https://ollama.com | MIT | Runs the model on a laptop for local testing and as a demo backup |
+| Vercel | https://vercel.com | Service terms | Hosts the site and the Ignis AI function |
