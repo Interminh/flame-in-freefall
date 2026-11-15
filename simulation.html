@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en" data-theme="anthropic">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulation | Flame in freefall</title>
+    <link rel="stylesheet" href="node_modules/@fontsource/newsreader/400.css" />
+    <link rel="stylesheet" href="node_modules/@fontsource/ibm-plex-sans-condensed/400.css" />
+    <link rel="stylesheet" href="node_modules/@fontsource/ibm-plex-sans-condensed/500.css" />
+    <link rel="stylesheet" href="src/styles/tokens.css" />
+    <link rel="stylesheet" href="src/styles/base.css" />
+    <link rel="stylesheet" href="src/styles/layout.css" />
+    <link rel="stylesheet" href="src/styles/themes.css" />
+    <link rel="stylesheet" href="src/styles/simulation.css" />
+  </head>
+  <body>
+    <div id="nav"></div>
+    <main class="page">
+      <section>
+        <h1>Simulation</h1>
+        <p class="sim-banner" role="note">
+          <strong>Estimate from a simplified model; not a prediction of a real fire; not NASA-endorsed.</strong>
+        </p>
+        <p>
+          Will a solid fuel keep burning, or go out? Set oxygen, airflow, material and gravity and compare the Moon
+          and Mars with Earth gravity and microgravity. Every test behind the model flew in microgravity, so the
+          other gravity levels are extrapolations, tied to published NASA numbers for Earth gravity. <a href="#how" id="how-link">How it works and where it falls short</a>.
+        </p>
+
+        <div class="sim-views" role="group" aria-label="View">
+          <button type="button" id="view-sim-btn" aria-pressed="true">Simulator</button>
+          <button type="button" id="view-fm2-btn" aria-pressed="false">FM2 predictions</button>
+          <button type="button" id="view-how-btn" aria-pressed="false">How it works and limits</button>
+        </div>
+
+        <div id="status" class="sim-status" role="status">Loading the model.</div>
+
+        <div id="view-sim" hidden>
+          <div class="sim-grid">
+            <form class="sim-card sim-controls" id="controls" onsubmit="return false" aria-label="Inputs">
+              <h2>Inputs</h2>
+
+              <label class="sim-field">Material
+                <select id="material"></select>
+              </label>
+
+              <div class="sim-field" id="thickness-field" hidden>
+                <label for="thickness">Sample thickness (mm)</label>
+                <div class="sim-pair">
+                  <input type="range" id="thickness" min="0.05" max="0.5" step="0.05" value="0.1" />
+                  <input type="number" id="thicknessn" min="0.05" max="6" step="0.05" value="0.1" aria-label="Sample thickness in millimetres" />
+                </div>
+                <span class="sim-hint" id="thickness-hint"></span>
+              </div>
+
+              <div class="sim-field">
+                <label for="o2">Oxygen (%)</label>
+                <div class="sim-pair">
+                  <input type="range" id="o2" min="10" max="40" step="0.1" value="19" />
+                  <input type="number" id="o2n" min="10" max="40" step="0.1" value="19" aria-label="Oxygen percent" />
+                </div>
+              </div>
+
+              <div class="sim-field">
+                <label for="pressure">Total pressure (kPa)</label>
+                <input type="number" id="pressure" min="20" max="200" step="0.1" value="101.3" />
+                <span class="sim-hint">Acts through the oxygen partial pressure only.</span>
+              </div>
+
+              <div class="sim-field">
+                <label for="flow">Forced airflow (cm/s)</label>
+                <div class="sim-pair">
+                  <input type="range" id="flow" min="0" max="50" step="0.5" value="10" />
+                  <input type="number" id="flown" min="0" max="50" step="0.5" value="10" aria-label="Airflow in centimetres per second" />
+                </div>
+              </div>
+
+              <fieldset class="sim-field sim-radios">
+                <legend>Flow direction</legend>
+                <label><input type="radio" name="dir" value="opposed" checked /> Opposed</label>
+                <label><input type="radio" name="dir" value="concurrent" /> Concurrent</label>
+              </fieldset>
+
+              <div class="sim-field">
+                <label for="g">Gravity</label>
+                <div class="sim-presets" id="presets" role="group" aria-label="Gravity presets">
+                  <button type="button" data-g="0">0 g</button>
+                  <button type="button" data-g="0.165">Moon 0.165</button>
+                  <button type="button" data-g="0.38">Mars 0.38</button>
+                  <button type="button" data-g="1">Earth 1</button>
+                </div>
+                <div class="sim-pair">
+                  <input type="range" id="g" min="0" max="1" step="0.005" value="0.165" />
+                  <output id="gout" for="g">0.165 g</output>
+                </div>
+              </div>
+            </form>
+
+            <div class="sim-card sim-result" aria-live="polite">
+              <h2>Result</h2>
+              <p class="sim-big"><span id="pburn">-</span> <span class="sim-chip" id="label">-</span></p>
+              <p class="sim-sub" id="pband"></p>
+              <p class="sim-flag" id="hidden" hidden></p>
+              <dl class="sim-dl">
+                <dt>Buoyant flow</dt><dd id="ub">-</dd>
+                <dt>Effective flow</dt><dd id="ueff">-</dd>
+                <dt>Limiting oxygen here</dt><dd id="loc">-</dd>
+                <dt>Limiting oxygen at 1 g</dt><dd id="loc1g">-</dd>
+                <dt>Margin versus 1 g</dt><dd id="margin">-</dd>
+              </dl>
+              <ul class="sim-warnings" id="warnings"></ul>
+            </div>
+          </div>
+
+          <h2 class="sim-h2">Flammability map</h2>
+          <p class="sim-note">
+            Shading is the chance the flame keeps burning. The line is the limiting oxygen level and the band is its
+            5 to 95% range. Above the line burns. Hatched areas are outside the BASS-II data. The ring is your input.
+            Gravity changes the effective flow, so the same forced airflow lands differently in each panel.
+          </p>
+          <div class="sim-maps" id="maps"></div>
+          <p class="sim-fit" id="fit-line"></p>
+
+          <h2 class="sim-h2">Nearest real experiments</h2>
+          <p class="sim-note">
+            Flow values were read from the crew notes in the PSI-25 experimental table, quoted below. A person has not
+            yet checked every reading against the source. Points left out of the fit are not listed here.
+          </p>
+          <div class="sim-tablewrap">
+            <table class="sim-table" id="evidence">
+              <thead>
+                <tr><th>Test</th><th>Material</th><th>Thickness mm</th><th>Oxygen %</th><th>Flow cm/s</th><th>Direction</th><th>Observed</th><th>Quote from the notes</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <h2 class="sim-h2">Assumptions and limits</h2>
+          <div class="sim-card sim-limits">
+            <ul>
+              <li>Gravity enters only through the buoyant flow. Radiation, ignition, sample size and geometry are ignored.</li>
+              <li>Solid-fuel flame spread only. No droplets, gases or smoke.</li>
+              <li>All outcome data is microgravity from BASS-II. The 0.165, 0.38 and 1 g panels are estimated, with no direct measurements. They rest on published NASA numbers for PMMA rods (a 1 g limit of 16% oxygen, a buoyant flow of about 20 cm/s), not on a 1 g outcome table.</li>
+              <li>Those rod numbers are applied to all four materials, which is an assumption.</li>
+              <li>BASS-II recorded no pressure. The fit assumes about 101.3 kPa.</li>
+              <li>Only four materials have flow-linked outcomes. Nomex, Ultem and wax appear in the data but without usable flow readings, so they are not offered.</li>
+              <li>The model does not carry over to materials it has not seen. See the validation summary below.</li>
+              <li>The thick PMMA slab fit is the weakest. Use that result with extra care.</li>
+              <li>How forced and buoyant flow combine differs between two NASA papers. The bands span both.</li>
+              <li>Known miss: NASA says downward flame spread over SIBAL does not happen in 1 g air. The model says it can. The result card warns when that case comes up.</li>
+            </ul>
+            <p><a href="#how" id="how-link2">Read the full explanation</a></p>
+            <h3>Validation summary</h3>
+            <p id="validation">Loading.</p>
+          </div>
+        </div>
+
+        <div id="view-fm2" hidden>
+          <h2 class="sim-h2">Testable predictions for a lunar test</h2>
+          <p class="sim-note">
+            Estimates at 0.165 g that a Flammability of Materials on the Moon (FM2) experiment could confirm or refute.
+            Each is a model output with a 5 to 95% band, not a measurement. Conditions stay inside the BASS-II oxygen
+            and flow range, so the open question is gravity. Thickness is the default for that material.
+          </p>
+          <p><button type="button" id="fm2-download">Download CSV</button></p>
+          <div class="sim-tablewrap">
+            <table class="sim-table" id="fm2-table">
+              <thead>
+                <tr>
+                  <th>ID</th><th>Material</th><th>Thickness mm</th><th>Oxygen %</th><th>Pressure kPa</th><th>Flow cm/s</th><th>Direction</th>
+                  <th>Predicted</th><th>P(burn)</th><th>5 to 95% band</th><th>P(burn) at 1 g</th><th>Hidden risk</th><th>Refuted if</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="view-how" class="sim-how" hidden>
+          <h2 class="sim-h2">How the simulation works, and where it falls short</h2>
+          <p class="sim-note">
+            Plain-language notes on what this tool does, where its numbers come from and what it cannot tell you.
+            Sections open and close.
+          </p>
+
+          <details open>
+            <summary>What this is, and what it is not</summary>
+            <p>
+              It estimates the chance that a flame on a solid fuel keeps burning, given the oxygen level, how fast air
+              moves past the sample, the material and the strength of gravity. It is built from burn tests that astronauts
+              ran on the International Space Station (the BASS-II experiment, PSI record 25), and from nothing else.
+            </p>
+            <p>
+              It is a screening estimate from a simplified model. It is not a prediction of any real fire, it is not
+              NASA-endorsed, and it should not be used for safety decisions. Its best use is to show where gravity
+              might matter and which experiments would test that.
+            </p>
+          </details>
+
+          <details open>
+            <summary>How a result is calculated</summary>
+            <ol>
+              <li>
+                <strong>Gravity becomes an airflow.</strong> A flame heats the gas around it and the hot gas rises, which
+                pulls fresh air in. In microgravity there is no rise, so no pull. The model turns gravity into an extra
+                airflow, the <em>buoyant flow</em>, using <code>U_b = U_1g × sqrt(g)</code>, where g is in units of Earth
+                gravity. The square-root scaling and a 1 g value of about 20 cm/s (range 15 to 25) come from NASA papers
+                on PMMA rods.
+              </li>
+              <li>
+                <strong>The two flows combine.</strong> <code>U_eff = (U_forced^n + U_b^n)^(1/n)</code>. One NASA paper
+                derives n = 4. Another uses a plain sum, n = 1. The model's central choice is 4 and the bands sample
+                everything from 1 to 4. The effective flow is then treated as if it were forced airflow in a microgravity
+                test.
+              </li>
+              <li>
+                <strong>A burn window in flow.</strong> Too little flow and the flame starves (it falls below a quench
+                flow). Too much and it is blown off. The quench flow comes from fitting the BASS-II points and rises as
+                oxygen falls. The blow-off flow is a straight line in oxygen taken from NASA numbers for rods: zero flow at
+                about 13.4% oxygen, and 16% oxygen at the 1 g buoyant flow. The two limits meet at a minimum oxygen level,
+                and below it nothing burns.
+              </li>
+              <li>
+                <strong>Chance of burning.</strong> Two smooth steps, one at each edge of the window, multiplied together.
+                Inside the window the chance is high. At either edge it falls through 50%.
+              </li>
+              <li>
+                <strong>Limiting oxygen (LOC).</strong> The oxygen level at which the chance of burning is 50%, found by
+                searching. The margin compares it with the same inputs at 1 g.
+              </li>
+              <li>
+                <strong>Uncertainty.</strong> The model is refitted 200 times on resampled tests, with the NASA-anchored
+                constants varied over the ranges those sources support, and extra spread added as gravity increases. The
+                5 to 95% bands are the spread of those 200 answers.
+              </li>
+            </ol>
+            <p>Pressure acts only through oxygen partial pressure. Total pressure does not change the buoyant flow in this scaling.</p>
+          </details>
+
+          <details>
+            <summary>How to read the outputs</summary>
+            <ul>
+              <li><strong>Chance of burning and the label.</strong> Burns at 65% or more, extinguishes at 35% or less, marginal in between. These cut-offs are assumed.</li>
+              <li><strong>5 to 95% range.</strong> The spread across the 200 refits. It does not include the model being the wrong shape.</li>
+              <li><strong>Limiting oxygen here and at 1 g.</strong> Lower means the flame survives with less oxygen. The margin is the difference.</li>
+              <li><strong>Hidden risk.</strong> Shown when the condition burns at the chosen gravity but would not at 1 g.</li>
+              <li><strong>Maps.</strong> Shading is the chance of burning. The black line is the 50% oxygen level at each airflow, and the grey-orange band is its 5 to 95% range. Hatched areas are outside the oxygen and flow range of the data.</li>
+              <li><strong>Dots on the 0 g map.</strong> Real BASS-II observations. Filled means the flame burned, open means it went out or blew off. A dark ring means the dot is on the wrong side of the line. A grey cross was read from the notes but left out of the fit, and hovering shows why.</li>
+              <li><strong>Nearest real experiments.</strong> The closest observations by oxygen, flow, material, direction and thickness, each with the quote it was read from.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Where the numbers come from</summary>
+            <p>
+              Every constant, and where it comes from. <strong>From a NASA source</strong> means a number quoted in a NASA-hosted
+              document, listed with its quote and page below. <strong>Fitted</strong> means fitted to the BASS-II points.
+              <strong>Assumed</strong> means the authors' judgment, with no measurement behind it.
+            </p>
+            <div class="sim-tablewrap">
+              <table class="sim-table" id="how-constants">
+                <thead><tr><th>Constant</th><th>Status</th><th>Value used</th><th>Range sampled</th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <p class="sim-note" id="how-blowoff"></p>
+            <p><strong>The NASA numbers it uses and checks against</strong></p>
+            <div class="sim-tablewrap">
+              <table class="sim-table" id="how-anchors">
+                <thead><tr><th>ID</th><th>Used for</th><th>What it says</th><th>Value</th><th>Source</th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </details>
+
+          <details>
+            <summary>The data behind it</summary>
+            <p id="how-data"></p>
+            <p>
+              BASS-II has no usable airflow column in its table, and the dataset notes say the fan and air display values
+              are not calibrated cm/s. So flow was read by hand from the crew notes. The air-display column is in time
+              order, which made it possible to tell a flame that went out while flow was being reduced from one that did
+              not. Each point has the quote it came from, and a test checks every quote against the raw table.
+            </p>
+            <p>
+              For Earth gravity the repo has no table of outcomes. The model instead uses numbers published in NASA-hosted
+              documents, mainly for PMMA rods. A search of NASA sources found no tabulated 1 g outcomes for the other three
+              materials, so the rod numbers are applied to all of them.
+            </p>
+            <p><strong>Points left out of the fit, and why:</strong></p>
+            <ul id="how-excluded"></ul>
+            <p id="how-thickness"></p>
+            <p>
+              The direction term (concurrent versus opposed) changed sign between two versions of the fit, from slightly
+              negative to positive. Treat the direction setting as weakly supported.
+            </p>
+          </details>
+
+          <details>
+            <summary>How well it matches the data</summary>
+            <p id="how-fit-intro"></p>
+            <div class="sim-tablewrap">
+              <table class="sim-table" id="how-fit">
+                <thead>
+                  <tr>
+                    <th>Material</th><th>Points used</th><th>On the right side of the line</th>
+                    <th>Right on unseen tests</th><th>Guessing the commoner outcome</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <p id="how-validation"></p>
+            <p><strong>Checks against NASA numbers that were not used to build the model:</strong></p>
+            <div class="sim-tablewrap">
+              <table class="sim-table" id="how-checks">
+                <thead><tr><th>Check</th><th>NASA says</th><th>Model</th><th>Result</th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <p id="how-checks-note"></p>
+            <p id="how-literature"></p>
+          </details>
+
+          <details open>
+            <summary>Limitations</summary>
+            <ul>
+              <li><strong>No outcome data above 0 g.</strong> The Moon, Mars and 1 g results are extrapolations. They rest on published NASA numbers for PMMA rods, not on a 1 g outcome table.</li>
+              <li><strong>Gravity is reduced to one idea.</strong> Only the buoyant flow changes with gravity. How gravity affects radiation, ignition, soot and the shape of the flame is not modelled.</li>
+              <li><strong>The blow-off line and the buoyant flow come from rods.</strong> The 16% limit and the 20 cm/s buoyant flow are NASA numbers for PMMA rods in stagnation flow. They are applied to film, slab and fabric, where they have not been checked. The 1 g and Moon answers depend on them heavily.</li>
+              <li><strong>NASA papers disagree on how flows combine.</strong> One derives a fourth-power rule, another uses a plain sum. The bands cover both, but not a third rule.</li>
+              <li><strong>One 1 g check fails.</strong> NASA reports that downward (opposed-flow) flame spread over SIBAL fabric is not possible in normal air. The model gives a high chance of burning. This is a direct sign that gravity acting only through buoyant flow is too simple, at least for thin fabric.</li>
+              <li><strong>The 1 g limit is built in, not tested.</strong> The 16% figure was used to place the blow-off line, so the model matches it by construction. The checks that were not used are listed under How well it matches the data.</li>
+              <li id="lim-data"><strong>Small data.</strong></li>
+              <li><strong>Burns were long and changing.</strong> Many tests ran 10 to 30 minutes while the sample heated and shrank. The model treats each observation as a steady condition.</li>
+              <li><strong>Samples differed in ways the model ignores.</strong> Width, one-sided versus two-sided burning and sample length vary between tests.</li>
+              <li><strong>It does not carry over to new materials.</strong> Only PMMA film, PMMA slab, PMMA rod and SIBAL fabric are offered. Thick slabs fit worst.</li>
+              <li><strong>Pressure was not recorded</strong> in BASS-II. The fit assumes about 101.3 kPa. One NASA paper also scales the mixed flow by pressure, which this model does not.</li>
+              <li><strong>Solid-fuel flame spread only.</strong> Not smoke, droplets or gas flames. No spread rate is shown because the raw tables contain none for BASS-II.</li>
+              <li><strong>Not checked in every browser.</strong> Tested in headless Chrome only.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Glossary</summary>
+            <dl class="sim-dl sim-glossary">
+              <dt>Microgravity</dt><dd>The near-weightless condition on the ISS. Written 0 g here.</dd>
+              <dt>Opposed flow</dt><dd>Air moves against the direction the flame spreads.</dd>
+              <dt>Concurrent flow</dt><dd>Air moves in the same direction as the flame spreads.</dd>
+              <dt>Quench flow</dt><dd>The airflow below which the flame starves and goes out.</dd>
+              <dt>Blow-off</dt><dd>The flame is pushed off the fuel by too much airflow.</dd>
+              <dt>Buoyant flow</dt><dd>The airflow a flame induces by heating gas that then rises. Zero in microgravity.</dd>
+              <dt>Effective flow</dt><dd>Forced airflow and buoyant flow combined.</dd>
+              <dt>LOC</dt><dd>Limiting oxygen concentration. The lowest oxygen level that still supports burning in the given conditions.</dd>
+              <dt>Brier score</dt><dd>How far predicted chances are from what happened. Lower is better. Zero is perfect.</dd>
+              <dt>Bootstrap</dt><dd>Refitting the model on resampled data to see how much the answer moves.</dd>
+              <dt>FM2</dt><dd>Flammability of Materials on the Moon, a proposed lunar experiment. This page says nothing about its real hardware or plans.</dd>
+            </dl>
+          </details>
+
+          <details>
+            <summary>Check or reproduce it</summary>
+            <p>
+              The model is in <code>src/sim/model.js</code>. <code>npm run sim:calibrate</code> refits it and rewrites the
+              numbers on this page. <code>npm run test:sim</code> runs the unit and data checks. The points are in
+              <code>data/derived/bass2_flow_points.csv</code>. The README has the full method and every validation number.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/nav.js"></script>
+    <script type="module" src="js/simulation.js"></script>
+  </body>
+</html>

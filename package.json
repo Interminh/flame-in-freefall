@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sim:calibrate": "node scripts/sim/calibrate.mjs && node scripts/sim/fm2.mjs",
+    "test:sim": "node --test tests/sim/model.test.mjs"
   },
   "dependencies": {
     "@fontsource/ibm-plex-sans-condensed": "^5.3.0",
