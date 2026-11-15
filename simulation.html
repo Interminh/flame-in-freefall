@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="img/logo.svg" />
+    <link rel="icon" type="image/png" href="img/logo.png" />
     <title>Simulation | Flame in freefall</title>
     <script src="js/prefs.js"></script>
     <link rel="stylesheet" href="fonts/fonts.css" />
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="src/styles/themes.css" />
     <link rel="stylesheet" href="src/styles/simulation.css" />
     <link rel="stylesheet" href="src/styles/brutal.css" />
+    <link rel="stylesheet" href="src/styles/sim-polish.css" />
   </head>
   <body>
     <div id="nav"></div>
@@ -143,16 +144,22 @@
             </div>
           </div>
 
-          <section class="sim-card sim-warnpanel sim-warnwide" id="warnings-panel" aria-labelledby="warn-h">
-            <h2 id="warn-h">Warnings for these inputs <span class="sim-count" id="warn-count"></span></h2>
+          <section class="sim-warnpanel sim-warnwide" id="warnings-panel" aria-labelledby="warn-h">
+            <details class="sim-fold" open>
+              <summary><h2 id="warn-h">Warnings for these inputs <span class="sim-count" id="warn-count"></span></h2></summary>
+              <div class="sim-fold__body">
             <ul class="sim-warnlist" id="warnings"></ul>
             <p class="sim-standing">
               Always true: these are model estimates, not measurements. The flow values were read by hand from crew
               notes, and a second person has not yet checked them.
             </p>
+              </div>
+            </details>
           </section>
 
-          <h3 class="sim-h3">How to read the map</h3>
+          <details class="sim-fold">
+            <summary><h2>How to read the map</h2></summary>
+            <div class="sim-fold__body">
           <ul class="sim-legend" id="map-legend">
             <li><svg viewBox="0 0 28 14" aria-hidden="true"><rect x="1" y="1" width="26" height="12" class="sim-cell" fill-opacity="0.7"/></svg><span><strong>Shading</strong>: chance the flame keeps burning at your gravity. Darker is higher.</span></li>
             <li><svg viewBox="0 0 28 14" aria-hidden="true"><path d="M0 7H28" class="sim-median"/></svg><span><strong>Solid line</strong>: limiting oxygen at your gravity. Above it burns, below it goes out.</span></li>
@@ -163,6 +170,8 @@
             <li><svg viewBox="0 0 70 14" aria-hidden="true"><circle cx="8" cy="7" r="4.5" class="sim-pt-burn"/><circle cx="26" cy="7" r="4.5" class="sim-pt-out"/><path d="M44 2L49 7L44 12L39 7Z" class="sim-pt-out"/><path d="M60 3L66 11M60 11L66 3" class="sim-pt-skip"/></svg><span><strong>Real microgravity tests</strong>, for this material: filled burned, open circle went out, open diamond blown off, grey cross left out of the fit. Compare them with the dashed 0 g line, whatever gravity you chose. A dark ring means the 0 g model disagrees with that test.</span></li>
             <li><svg viewBox="0 0 28 14" aria-hidden="true"><circle cx="9" cy="7" r="3.5" class="sim-pt-burn"/><circle cx="9" cy="7" r="6.2" class="sim-near"/></svg><span><strong>Dashed ring</strong>: the five closest tests, listed in the table below. The test shown in the details box has a thick ring.</span></li>
           </ul>
+            </div>
+          </details>
           <p class="sim-fit" id="fit-line"></p>
 
           <h2 class="sim-h2">Nearest real experiments</h2>
@@ -180,8 +189,9 @@
             </table>
           </div>
 
-          <h2 class="sim-h2">Assumptions and limits</h2>
-          <div class="sim-card sim-limits">
+          <details class="sim-fold">
+            <summary><h2>Assumptions and limits</h2></summary>
+            <div class="sim-fold__body sim-limits">
             <ul>
               <li>Gravity enters only through the buoyant flow. Radiation, ignition, sample size and geometry are ignored.</li>
               <li>Solid-fuel flame spread only. No droplets, gases or smoke.</li>
@@ -197,7 +207,8 @@
             <p><a href="#how" id="how-link2">Read the full explanation</a></p>
             <h3>Validation summary</h3>
             <p id="validation">Loading.</p>
-          </div>
+            </div>
+          </details>
         </div>
 
         <div id="view-fm2" hidden>
