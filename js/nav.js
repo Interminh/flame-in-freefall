@@ -6,7 +6,6 @@ const links = [
   { href: 'ai.html', label: 'Ignis AI' },
   { href: 'presentation.html', label: 'Presentation' },
   { href: 'sources.html', label: 'Our sources' },
-  { href: 'novelty.html', label: 'Novelty' },
 ]
 
 const here = location.pathname.split('/').pop() || 'index.html'
