@@ -21,15 +21,31 @@
 | Grandstander (@fontsource/grandstander) | https://fontsource.org/fonts/grandstander | SIL OFL 1.1 | Headings. Local copy in `fonts/` |
 | Itim (@fontsource/itim) | https://fontsource.org/fonts/itim | SIL OFL 1.1 | Body text. Local copy in `fonts/` |
 | JetBrains Mono (@fontsource/jetbrains-mono) | https://fontsource.org/fonts/jetbrains-mono | SIL OFL 1.1 | Labels, nav, numbers. Local copy in `fonts/` |
-| NASA Image and Video Library | https://images.nasa.gov | NASA media, generally not copyrighted. Usage guidelines: https://www.nasa.gov/nasa-brand-center/images-and-media/ . Per-image rights not checked beyond that | Source of the eight photos in `img/nasa/`, found with the public search API |
-| NASA photo iss040e086481, BASS-II Experiment (Reid Wiseman, 2014) | https://images.nasa.gov/details/iss040e086481 | NASA media | PSI-25 card and home page |
-| NASA photo iss030e178648, BASS fire safety tests at the MSG (2012) | https://images.nasa.gov/details/iss030e178648 | NASA media | PSI-26 card |
-| NASA photo iss051e039882, Saffire cargo in Cygnus OA-7 (Thomas Pesquet, 2017) | https://images.nasa.gov/details/iss051e039882 | NASA media | PSI-100 card and home page. NASA's title says Saffire-II, its description and the label in the photo say Saffire-III |
-| NASA photo GRC-2016-C-05051, ACME chamber insert (Marvin Smith, 2016) | https://images.nasa.gov/details/GRC-2016-C-05051 | NASA media | PSI-10 and PSI-20 cards and home page |
-| NASA photo iss058e026380, Combustion Integrated Rack (2019) | https://images.nasa.gov/details/iss058e026380 | NASA media | PSI-159 and PSI-23 cards |
-| NASA photo iss030e128918, SLICE at the MSG (2012) | https://images.nasa.gov/details/iss030e128918 | NASA media | PSI-106 card and home page |
-| NASA photo iss050e035112, MDCA reconfigured for the Cool Flames Investigation (Shane Kimbrough, 2017) | https://images.nasa.gov/details/iss050e035112 | NASA media | PSI-39 card |
-| NASA photo iss035e017702, MDCA fuel reservoir swap (Chris Hadfield, 2013) | https://images.nasa.gov/details/iss035e017702 | NASA media | PSI-68 and PSI-69 cards. Shows the shared droplet hardware, not a FLEX run |
+| NASA Image and Video Library | https://images.nasa.gov | NASA media, generally not copyrighted. Usage guidelines: https://www.nasa.gov/nasa-brand-center/images-and-media/ . Per-image rights not checked beyond that | Source of the 24 photos in `img/nasa/`, found with the public search API |
+| NASA photo iss040e086481, BASS-II Experiment (NASA / Reid Wiseman, 2014) | https://images.nasa.gov/details/iss040e086481 | NASA media | PSI-25 card |
+| NASA photo iss030e178648, Pettit performs a session of BASS Fire Safety Tests at the MSG (NASA, 2012) | https://images.nasa.gov/details/iss030e178648 | NASA media | PSI-26 card |
+| NASA photo iss051e039882, Saffire-II in Cygnus OA-7 during Cargo Transfer OPS (NASA / Thomas Pesquet, 2017) | https://images.nasa.gov/details/iss051e039882 | NASA media | PSI-100 card. NASA's title says Saffire-II, its description and the label in the photo say Saffire-III |
+| NASA photo GRC-2016-C-05051, Advanced Combustion via Microgravity Experiments, ACME chamber insert (NASA / GRC / Marvin Smith, 2016) | https://images.nasa.gov/details/GRC-2016-C-05051 | NASA media | PSI-20 card |
+| NASA photo iss058e026380, Astronaut David Saint-Jacques works on the Combustion Integrated Rack (NASA, 2019) | https://images.nasa.gov/details/iss058e026380 | NASA media | PSI-159 card |
+| NASA photo iss030e128918, Pettit works with the SLICE at the MSG in the U.S. Laboratory (NASA, 2012) | https://images.nasa.gov/details/iss030e128918 | NASA media | PSI-106 card |
+| NASA photo iss050e035112, MDCA Hardware Reconfiguration Part 2 (NASA / Shane Kimbrough, 2017) | https://images.nasa.gov/details/iss050e035112 | NASA media | PSI-39 card |
+| NASA photo iss035e017702, Cassidy conducts MDCA Fuel Reservoir Remove and Replace OPS (NASA / Chris Hadfield, 2013) | https://images.nasa.gov/details/iss035e017702 | NASA media | PSI-69 card. Shows the shared droplet hardware, not a FLEX run |
+| NASA photo iss059e103188, CIR / ACME / Flame Design hardware replacement (NASA / Christina Koch, 2019) | https://images.nasa.gov/details/iss059e103188 | NASA media | PSI-10 card |
+| NASA photo iss057e055269, ACME Hardware Replacement OPS (NASA / Alex Gerst, 2018) | https://images.nasa.gov/details/iss057e055269 | NASA media | PSI-21 card. Close match only: ACME hardware set up for E-FIELD, used for the CLD Flame card |
+| NASA photo GRC-2013-C-03367, E-FIELD Flames engineering hardware inspection (NASA title is the image id) (NASA / GRC / Marvin Smith, 2013) | https://images.nasa.gov/details/GRC-2013-C-03367 | NASA media | PSI-22 card |
+| NASA photo GRC-2020-C-00116, Review of ISS data from the s-Flame experiment (NASA / GRC / Marvin Smith, 2020) | https://images.nasa.gov/details/GRC-2020-C-00116 | NASA media | PSI-23 card |
+| NASA photo jsc2023e046375, Fabric sample burning in Saffire-IV (NASA title is the image id) (NASA, 2023) | https://images.nasa.gov/details/jsc2023e046375 | NASA media | PSI-98 card. Shows Saffire-IV, a later flight, as a close match for SAFFIRE-I fabric burns |
+| NASA photo jsc2023e046631, Plexiglass burning in Saffire-IV (NASA title is the image id) (NASA, 2023) | https://images.nasa.gov/details/jsc2023e046631 | NASA media | PSI-99 card. Shows Saffire-IV, a later flight, as a close match for SAFFIRE-II |
+| NASA photo iss024e008351, MSG SAME Experiment (NASA, 2010) | https://images.nasa.gov/details/iss024e008351 | NASA media | PSI-101 card. Shows SAME in the Columbus glovebox, 2010 |
+| NASA photo iss015e27411, Anderson working with SAME hardware, Expedition 15 (NASA, 2007) | https://images.nasa.gov/details/iss015e27411 | NASA media | PSI-102 card |
+| NASA photo iss015e26252, Anderson setting up SAME hardware, Expedition 15 (NASA, 2007) | https://images.nasa.gov/details/iss015e26252 | NASA media | PSI-115 card. Close match only: SAME hardware, used for the data-modeling card |
+| NASA photo iss024e008364, MSG SAME Experiment (NASA, 2010) | https://images.nasa.gov/details/iss024e008364 | NASA media | PSI-47 card. Close match only: SAME smoke hardware used for the DAFT card |
+| NASA photo iss061e111467, Fabric sample from the Confined Combustion investigation (NASA title is the image id) (NASA, 2019) | https://images.nasa.gov/details/iss061e111467 | NASA media | PSI-62 card. Close match only: flame spread in confined spaces, used for the flame spread modeling card |
+| NASA photo iss043e190395, CIR MDCA replacement (NASA / Terry Virts, 2015) | https://images.nasa.gov/details/iss043e190395 | NASA media | PSI-68 card. Shows FLEX-2 hardware prep |
+| NASA photo iss019e012391, Barratt with MSG in Kibo (NASA, 2009) | https://images.nasa.gov/details/iss019e012391 | NASA media | PSI-107 card |
+| NASA photo iss038e053250, Mastracchio works with BASS-II (NASA, 2014) | https://images.nasa.gov/details/iss038e053250 | NASA media | PSI-60 card. Close match only: a glovebox combustion session used for the SPICE data-analysis card |
+| NASA photo iss036e024637, MDCA Chamber Insert Assembly (NASA, 2013) | https://images.nasa.gov/details/iss036e024637 | NASA media | PSI-117 card. Close match only: droplet hardware used for the cool flame CFD card |
+| NASA photo iss037e004956, MDCA hardware replacement (NASA, 2013) | https://images.nasa.gov/details/iss037e004956 | NASA media | PSI-142 card. Close match only: droplet hardware used for the cool flame transitions card |
 | Claude Code (Anthropic) | https://claude.com/claude-code | Not applicable | AI tool. Drafted the simulation code, tests, page and the flow-point extraction. A person still has to check the flow points and the constants |
 | gpt-oss-120b (OpenAI) | https://huggingface.co/openai/gpt-oss-120b | Apache 2.0 | Open-weight AI model that scores investigations on the Ignis AI page. AI use to be credited in project credits |
 | Groq | https://groq.com | Service terms | Hosts the model for the Ignis AI function |
