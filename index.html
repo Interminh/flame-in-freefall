@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="anthropic">
+<html lang="en" data-theme="brutal">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,11 +10,14 @@
     <link rel="stylesheet" href="src/styles/layout.css" />
     <link rel="stylesheet" href="src/styles/themes.css" />
     <link rel="stylesheet" href="src/styles/landing.css" />
+    <link rel="stylesheet" href="src/styles/brutal.css" />
   </head>
   <body>
     <div id="nav"></div>
     <main class="page">
       <section id="summary" class="hero">
+        <img class="hero__burst" src="img/starburst.svg" alt="" width="190" height="190" />
+        <p class="eyebrow">NASA Space Apps 2026 · PSI microgravity combustion</p>
         <h1>Ethay <span class="accent-blue">ameflay</span> inyay <span class="accent-amber">eefallfray</span></h1>
         <p class="hero__lede">Ethay uickqay ownbray oxfay umpsjay overyay ethay azylay ogday.</p>
         <div class="actions">
@@ -49,6 +52,29 @@
         </ul>
         <figcaption>Aceholderplay apmay. Ethay ealray apmay omescay ateray.</figcaption>
       </figure>
+
+      <section class="photos" aria-labelledby="photos-h">
+        <h2 id="photos-h">From the <span class="hl">station</span></h2>
+        <div class="photos__grid">
+          <figure class="photo">
+            <img src="img/nasa/iss040e086481.jpg" alt="A blue flame wraps the end of a dark fuel sample inside the BASS-II chamber." loading="lazy" width="1280" height="850" />
+            <figcaption><b>BASS-II flame test</b>NASA / Reid Wiseman, 2014 · <a href="https://images.nasa.gov/details/iss040e086481" target="_blank" rel="noopener">NASA image</a></figcaption>
+          </figure>
+          <figure class="photo">
+            <img src="img/nasa/GRC-2016-C-05051.jpg" alt="An engineer looks through the ACME insert hardware, with a thin gas-jet burner tube in front of them." loading="lazy" width="1280" height="960" />
+            <figcaption><b>ACME chamber insert</b>NASA / GRC / Marvin Smith, 2016 · <a href="https://images.nasa.gov/details/GRC-2016-C-05051" target="_blank" rel="noopener">NASA image</a></figcaption>
+          </figure>
+          <figure class="photo">
+            <img src="img/nasa/iss030e128918.jpg" alt="An astronaut works with the SLICE hardware at the Microgravity Science Glovebox." loading="lazy" width="1280" height="850" />
+            <figcaption><b>SLICE at the glovebox</b>NASA, 2012 · <a href="https://images.nasa.gov/details/iss030e128918" target="_blank" rel="noopener">NASA image</a></figcaption>
+          </figure>
+          <figure class="photo">
+            <img src="img/nasa/iss051e039882.jpg" alt="White cargo bags strapped down inside a Cygnus spacecraft, with yellow Saffire do-not-remove labels." loading="lazy" width="1279" height="851" />
+            <figcaption><b>Saffire cargo in Cygnus</b>NASA / Thomas Pesquet, 2017 · <a href="https://images.nasa.gov/details/iss051e039882" target="_blank" rel="noopener">NASA image</a></figcaption>
+          </figure>
+        </div>
+        <p class="photos__note">Photos are from the NASA Image and Video Library. They show hardware and sessions, not results. <a href="investigations.html">See every investigation</a>.</p>
+      </section>
 
       <section id="edge" class="section">
         <h2>Our edge</h2>

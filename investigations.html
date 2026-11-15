@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="anthropic">
+<html lang="en" data-theme="brutal">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,12 +10,14 @@
     <link rel="stylesheet" href="src/styles/layout.css" />
     <link rel="stylesheet" href="src/styles/themes.css" />
     <link rel="stylesheet" href="src/styles/investigations.css" />
+    <link rel="stylesheet" href="src/styles/brutal.css" />
   </head>
   <body>
     <div id="nav"></div>
     <main class="page">
       <section>
-        <h1>Investigations</h1>
+        <p class="eyebrow">NASA PSI database</p>
+        <h1>The <span class="hl">investigations</span></h1>
         <p id="lede">Loading the investigations.</p>
 
         <div class="cat-tools">
@@ -30,21 +32,9 @@
           <span id="count"></span>
         </div>
 
-        <div class="cat-wrap">
-          <table class="cat">
-            <thead>
-              <tr>
-                <th>Investigation</th>
-                <th>What it studied</th>
-                <th>Data</th>
-                <th title="Variables that take more than one value in the table">Variables changed</th>
-                <th title="Share of harmonised rows that state an outcome">Outcome stated</th>
-              </tr>
-            </thead>
-            <tbody id="rows"></tbody>
-          </table>
-        </div>
+        <div class="cards" id="rows"></div>
         <p class="cat-note" id="note"></p>
+        <p class="cat-credit">Photos: NASA Image and Video Library, credited on each card. Photos show related hardware or sessions and are not data from the investigation. Not every investigation has a photo.</p>
       </section>
     </main>
     <script src="js/nav.js"></script>
