@@ -703,7 +703,7 @@ async function boot() {
   $('g').addEventListener('input', () => { syncGravity(); schedule() })
   document.querySelectorAll('#presets button').forEach((b) => b.addEventListener('click', () => setGravity(Number(b.dataset.g))))
   for (const key of Object.keys(VIEWS)) $(`view-${key}-btn`).addEventListener('click', () => showView(key))
-  for (const id of ['how-link', 'how-link2']) $(id).addEventListener('click', (e) => { e.preventDefault(); showView('how'); window.scrollTo(0, 0) })
+  for (const id of ['how-link2']) $(id).addEventListener('click', (e) => { e.preventDefault(); showView('how'); window.scrollTo(0, 0) })
   window.addEventListener('hashchange', () => showView(viewFromHash()))
 
   worker = new Worker('js/sim-worker.js', { type: 'module' })

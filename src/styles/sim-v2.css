@@ -79,3 +79,8 @@
   .sim-compute { text-align: left; }
   .sim-result .sim-big { font-size: 42px; }
 }
+
+/* How it works: use the full page width */
+.sim-how .sim-h2 { margin-top: var(--space-4); }
+.sim-how p, .sim-how li, .sim-how .sim-note, .sim-how blockquote, .sim-how dd { max-width: none; }
+.sim-how details p, .sim-how details ul, .sim-how details ol { max-width: none; }
