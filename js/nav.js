@@ -25,9 +25,27 @@ document.getElementById('nav').outerHTML = `
     <a href="index.html" class="site-nav__brand"><img src="img/starburst.svg" alt="" width="32" height="32" />Flame in freefall</a>
     <ul class="site-nav__links">
       ${items}
+      <li><button type="button" class="mode-toggle" id="mode-toggle"></button></li>
     </ul>
   </nav>
-</header>`
+</header>`;
 
-// TEMPORARY: theme lab for tuning the style. Delete this line and js/theme-lab.js to remove it.
-document.body.append(Object.assign(document.createElement('script'), { src: 'js/theme-lab.js' }))
+// Light and dark switch. Saved in this browser only.
+(() => {
+  const toggle = document.getElementById('mode-toggle')
+  const isDark = () => {
+    const m = document.documentElement.dataset.mode
+    return m ? m === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches
+  }
+  const label = () => {
+    toggle.textContent = isDark() ? 'Light mode' : 'Dark mode'
+    toggle.setAttribute('aria-label', isDark() ? 'Switch to light mode' : 'Switch to dark mode')
+  }
+  toggle.addEventListener('click', () => {
+    const next = isDark() ? 'light' : 'dark'
+    document.documentElement.dataset.mode = next
+    try { localStorage.setItem('mode', next) } catch { /* ignore */ }
+    label()
+  })
+  label()
+})()
