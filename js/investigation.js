@@ -243,7 +243,6 @@ function limitsSection(inv, item, ds, rows, notes) {
   if (empty.length && empty.length < 9) list.push(`From the data: these variables are never recorded in the table: ${empty.join(', ')}.`)
   for (const c of inv.caveats || []) if (!list.includes(c)) list.push(c)
   const kids = [el('ul', { className: 'caveats' }, ...list.map((c) => el('li', { textContent: c })))]
-  kids.push(el('p', { className: 'small', textContent: `Our notes have not yet been checked by a second person (record flag: ${inv.verified ? 'verified' : 'not verified'}). Where we say something is not stated, the PSI record does not state it.` }))
   const sec = section('Limitations', 'What this dataset cannot tell you, and what to watch for when using it.', ...kids)
   sec.id = 'limits'
   return sec
@@ -341,7 +340,6 @@ async function main() {
     p.id = 'pubs'
     parts.push(p)
     parts.push(limitsSection(inv, item, ds, rows, notes))
-    parts.push(el('p', { className: 'prov', textContent: `PSI record modified ${inv.psi_record_modified}; retrieved ${inv.retrieved_on}. Second-person check: ${inv.verified ? 'done' : 'not yet done'}. License: ${inv.license || 'not stated in the source'}.` }))
     view.replaceChildren(...parts.filter(Boolean))
     if (location.hash) document.querySelector(location.hash)?.scrollIntoView()
   } catch (e) {
