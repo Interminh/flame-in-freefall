@@ -76,7 +76,7 @@ const list = (items) =>
   `<ul class="works-cited">\n${[...items].sort((a, b) => a.sort.localeCompare(b.sort)).map((x) => `          <li>${x.html}</li>`).join('\n')}\n        </ul>`
 
 const html = `<!doctype html>
-<html lang="en" data-theme="anthropic">
+<html lang="en" data-theme="brutal">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -87,6 +87,7 @@ const html = `<!doctype html>
     <link rel="stylesheet" href="src/styles/layout.css" />
     <link rel="stylesheet" href="src/styles/themes.css" />
     <link rel="stylesheet" href="src/styles/sources.css" />
+    <link rel="stylesheet" href="src/styles/brutal.css" />
   </head>
   <body>
     <div id="nav"></div>
