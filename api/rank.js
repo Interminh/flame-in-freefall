@@ -4,7 +4,7 @@
 import investigations from '../data/investigations.json' with { type: 'json' }
 
 const BASE_URL = process.env.LLM_BASE_URL || 'https://api.groq.com/openai/v1'
-const MODEL = process.env.LLM_MODEL || 'llama-3.3-70b-versatile'
+const MODEL = process.env.LLM_MODEL || 'openai/gpt-oss-120b'
 const API_KEY = process.env.LLM_API_KEY
 const IS_LOCAL = /\/\/(localhost|127\.0\.0\.1)/.test(BASE_URL)
 

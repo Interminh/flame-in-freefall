@@ -2,7 +2,7 @@
 // Run: node --env-file=.env scripts/check-model.mjs
 // Reads LLM_API_KEY, LLM_BASE_URL and LLM_MODEL from .env. Never prints the key.
 const base = process.env.LLM_BASE_URL || 'https://api.groq.com/openai/v1'
-const model = process.env.LLM_MODEL || 'llama-3.3-70b-versatile'
+const model = process.env.LLM_MODEL || 'openai/gpt-oss-120b'
 const key = process.env.LLM_API_KEY
 
 console.log('Base URL:', base)
