@@ -138,9 +138,43 @@ export function compact(i) {
   }
 }
 
-export async function callModel(messages, retried = false) {
+// Models tried in order. Groq counts rate limits per model, so when one hits a
+// 429 the next has its own allowance on the same key. Set LLM_FALLBACK_MODELS to
+// a comma-separated list to change them, or to an empty value to turn this off.
+const FALLBACKS = (process.env.LLM_FALLBACK_MODELS ?? 'openai/gpt-oss-20b,qwen/qwen3.8-27b')
+  .split(',')
+  .map((m) => m.trim())
+  .filter((m) => m && m !== MODEL)
+const MODELS = [MODEL, ...FALLBACKS]
+
+// Models that hit a 429 are skipped for a minute, so later requests do not
+// waste a call finding out again.
+const COOLDOWN_MS = 60_000
+const coolUntil = new Map()
+
+export async function callModel(messages) {
+  const now = Date.now()
+  const ready = MODELS.filter((m) => (coolUntil.get(m) || 0) <= now)
+  // If every model is cooling down, still try the primary rather than refuse.
+  const order = ready.length ? ready : [MODEL]
+  let lastErr
+  for (const model of order) {
+    try {
+      return await callOne(model, messages)
+    } catch (err) {
+      lastErr = err
+      if (err.message !== 'model_http_429') throw err
+      coolUntil.set(model, Date.now() + COOLDOWN_MS)
+    }
+  }
+  throw lastErr
+}
+
+async function callOne(model, messages, retried = false) {
   const ctrl = new AbortController()
   const timer = setTimeout(() => ctrl.abort(), 25_000)
+  // Only gpt-oss models take reasoning_effort.
+  const useEffort = effort && model.includes('gpt-oss')
   try {
     const res = await fetch(`${BASE_URL}/chat/completions`, {
       method: 'POST',
@@ -150,10 +184,10 @@ export async function callModel(messages, retried = false) {
         ...(API_KEY ? { Authorization: `Bearer ${API_KEY}` } : {}),
       },
       body: JSON.stringify({
-        model: MODEL,
+        model,
         temperature: 0,
         response_format: { type: 'json_object' },
-        ...(effort ? { reasoning_effort: effort } : {}),
+        ...(useEffort ? { reasoning_effort: effort } : {}),
         messages,
       }),
     })
@@ -161,10 +195,10 @@ export async function callModel(messages, retried = false) {
       // The provider's error text says why (for example an unknown model name).
       // It does not include our key or the question.
       const detail = await res.text().catch(() => '')
-      console.error('model error body:', detail.slice(0, 300))
-      if (res.status === 400 && effort && !retried) {
+      console.error('model error body:', model, detail.slice(0, 300))
+      if (res.status === 400 && useEffort && !retried) {
         effort = ''
-        return callModel(messages, true)
+        return callOne(model, messages, true)
       }
       throw new Error(`model_http_${res.status}`)
     }
