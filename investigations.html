@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-theme="anthropic">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investigations | Flame in freefall</title>
+    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="src/styles/tokens.css" />
+    <link rel="stylesheet" href="src/styles/base.css" />
+    <link rel="stylesheet" href="src/styles/layout.css" />
+    <link rel="stylesheet" href="src/styles/themes.css" />
+    <link rel="stylesheet" href="src/styles/investigations.css" />
+  </head>
+  <body>
+    <div id="nav"></div>
+    <main class="page">
+      <section>
+        <h1>Investigations</h1>
+        <p id="lede">Loading the investigations.</p>
+
+        <div class="cat-tools">
+          <input type="search" id="q" placeholder="Search name, material, tag" aria-label="Search investigations" />
+          <select id="pillar" aria-label="Filter by pillar"></select>
+          <select id="hw" aria-label="Filter by hardware"></select>
+          <select id="sort" aria-label="Sort">
+            <option value="id">PSI number</option>
+            <option value="rows">Most data</option>
+            <option value="varied">Most variables changed</option>
+          </select>
+          <span id="count"></span>
+        </div>
+
+        <div class="cat-wrap">
+          <table class="cat">
+            <thead>
+              <tr>
+                <th>Investigation</th>
+                <th>What it studied</th>
+                <th>Data</th>
+                <th title="Variables that take more than one value in the table">Variables changed</th>
+                <th title="Share of harmonised rows that state an outcome">Outcome stated</th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+        <p class="cat-note" id="note"></p>
+      </section>
+    </main>
+    <script src="js/nav.js"></script>
+    <script src="js/investigations.js"></script>
+  </body>
+</html>
