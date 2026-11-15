@@ -21,7 +21,7 @@ const items = links
 document.getElementById('nav').outerHTML = `
 <header class="site-nav">
   <nav class="site-nav__inner" aria-label="Main">
-    <a href="index.html" class="site-nav__brand">Flame in freefall</a>
+    <a href="index.html" class="site-nav__brand"><img src="img/starburst.svg" alt="" width="32" height="32" />Flame in freefall</a>
     <ul class="site-nav__links">
       ${items}
     </ul>
