@@ -214,10 +214,20 @@ slab. The O2 sensitivity is 0.15 per percentage point.
 
 ### The page
 
-The Simulator view takes the inputs and shows the chance of burning, the limiting oxygen, four maps and the nearest real
-experiments. On the 0 g map every fitted point is drawn: filled for burned, open for went out, a dark ring where the
-model is on the wrong side of the line, and a grey cross for points that were read but left out (hover for the reason).
-A sentence under the maps gives the fit quality for the chosen material.
+The Simulator view takes the inputs and shows the chance of burning with its 5 to 95% range bar, warning labels, and one
+flammability map drawn for exactly those inputs (the gravity from the slider, not a fixed set of panels). Shading is the
+chance of burning, the solid line is the limiting oxygen at your gravity with its 5 to 95% band, and dashed lines show
+the middle estimate of the same line at 0 g, Moon, Mars and 1 g for comparison. Hatching marks the area outside the
+BASS-II oxygen and flow range. Every real microgravity test of the chosen material is a dot: filled for burned, open
+circle for went out, open diamond for blown off, a dark ring where the 0 g model is on the wrong side, and a grey cross
+for points that were read but left out. Clicking a dot (or a row of the nearest-experiments table) opens a details box
+with the PSI link, conditions, what happened, how the flow was read, the quote, whether it was used in the fit and what
+the 0 g model says. A fit-quality sentence for the chosen material sits under the map.
+
+A "Warnings for these inputs" box is always shown and lists every case-specific warning (rules in `src/sim/warnings.js`,
+tested in `tests/sim/warnings.test.mjs`): known miss, outside the data, extrapolated gravity, weak fit (held-out accuracy
+no better than guessing the commoner outcome), wide range (5 to 95% range wider than 50 points), no clear difference
+from 1 g, hidden risk and the weakly supported flow direction term. The same labels appear as chips on the result.
 
 The **How it works and limits** view (also reachable at `simulation.html#how`) explains the method in plain language:
 how a result is calculated, how to read each output, every constant with its status, a table of the NASA numbers with
