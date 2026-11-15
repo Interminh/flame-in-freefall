@@ -53,6 +53,10 @@
       className: 'chat-note',
       textContent: 'AI-generated from the data on this site. It can be wrong, so check the linked source.',
     }),
+    el('p', {
+      className: 'chat-note',
+      textContent: 'Our MVP faces token limits, please wait for a minute if you hit an error.',
+    }),
   )
   panel.setAttribute('aria-label', 'Help chat')
 

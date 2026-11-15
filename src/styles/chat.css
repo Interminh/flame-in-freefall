@@ -82,6 +82,7 @@
   border: 2px solid var(--ink);
 }
 .chat-note { margin: 0; padding: 0 12px 10px; font-size: 13px; color: var(--muted); }
+.chat-note + .chat-note { padding-top: 0; margin-top: -6px; }
 
 @media (max-width: 520px) {
   .chat-panel { right: 12px; bottom: 12px; height: calc(100vh - 24px); }
