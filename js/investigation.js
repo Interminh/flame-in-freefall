@@ -25,7 +25,8 @@ function toRows(ds) {
 const css = (v, d) => getComputedStyle(document.documentElement).getPropertyValue(v).trim() || d
 
 function plotLayout(extra) {
-  const ink = css('--ink', '#111')
+  // The plot area stays a light panel in dark mode too, so it uses fixed dark text rather than the page ink.
+  const ink = '#111'
   const merge = (a, b) => {
     const o = { ...a }
     for (const k of Object.keys(b || {})) o[k] = a[k] && typeof a[k] === 'object' && !Array.isArray(a[k]) && typeof b[k] === 'object' && !Array.isArray(b[k]) ? merge(a[k], b[k]) : b[k]
@@ -33,7 +34,7 @@ function plotLayout(extra) {
   }
   const axis = { gridcolor: '#E6DFBA', zerolinecolor: '#E6DFBA', linecolor: ink, linewidth: 2, automargin: true, ticks: 'outside', tickcolor: ink }
   const out = merge({
-    paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: '#FFFFFF',
+    paper_bgcolor: '#FFFFFF', plot_bgcolor: '#FFFFFF',
     font: { family: 'JetBrains Mono, ui-monospace, monospace', size: 12, color: ink },
     margin: { l: 60, r: 20, t: 14, b: 54 }, xaxis: axis, yaxis: axis, yaxis2: axis,
     legend: { orientation: 'h', x: 0, y: -0.28, font: { size: 12 } },
@@ -163,7 +164,7 @@ async function main() {
     const media = photo
       ? el('figure', { className: 'inv-photo' }, el('img', { src: `img/nasa/${photo.file}`, alt: photo.alt, width: 1280, height: 800 }),
         el('figcaption', {}, ext(`https://images.nasa.gov/details/${photo.id}`, photo.credit), ' · NASA Image and Video Library'))
-      : el('figure', { className: 'inv-photo inv-photo--none' }, el('img', { src: 'img/starburst.svg', alt: '' }))
+      : el('figure', { className: 'inv-photo inv-photo--none' }, el('img', { src: 'img/logo.png', alt: '' }))
 
     const links = el('div', { className: 'inv-links' }, ext(inv.psi_url, 'PSI record on NASA ↗'), inv.doi && ext(`https://doi.org/${inv.doi}`, `DOI ${inv.doi} ↗`),
       el('a', { href: '#graphs', textContent: 'Graphs' }), myFigs.length > 0 && el('a', { href: '#figures', textContent: `Paper figures (${myFigs.length})` }),

@@ -42,7 +42,7 @@
           textContent: pic.credit,
           title: pic.nasa_title,
         }))
-      : el('div', { className: 'card__media card__media--none' }, el('img', { src: 'img/starburst.svg', alt: '' }))
+      : el('div', { className: 'card__media card__media--none' }, el('img', { src: 'img/logo.png', alt: '' }))
 
     const top = el('div', { className: 'card__top' },
       el('span', { className: `chip ${pillar}`, textContent: PILLARS[pillar] }),

@@ -1,0 +1,115 @@
+/* Simulation page layout: calmer and more spacious. Loads after brutal.css and only on this page.
+   Two columns (inputs, then map and result), long reference material tucked into folds. */
+
+main.page { max-width: 1240px; padding-top: var(--space-8); }
+
+.sim-head { margin-bottom: var(--space-4); }
+.sim-head h1 { font-size: clamp(34px, 5vw, 52px); }
+
+/* Quiet notice instead of a yellow slab. The wording is unchanged. */
+.sim-banner {
+  max-width: 80ch;
+  margin: 0 0 var(--space-8);
+  padding: var(--space-1) 0 var(--space-1) var(--space-4);
+  background: transparent;
+  border: 0;
+  border-left: 4px solid var(--blue);
+  border-radius: 0;
+  box-shadow: none;
+  font-family: var(--font-read);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.sim-banner strong { color: var(--ink); font-weight: 500; }
+
+/* Layout */
+.sim-grid {
+  grid-template-columns: 300px minmax(0, 1fr);
+  grid-template-areas: 'controls right' 'controls center';
+  gap: var(--space-8);
+  align-items: start;
+}
+.sim-controls { grid-area: controls; position: sticky; top: var(--space-4); }
+.sim-center { grid-area: center; }
+.sim-right { grid-area: right; }
+
+.sim-card { padding: var(--space-6); }
+.sim-card h2, .sim-maph { font-size: 22px; margin-bottom: var(--space-3); }
+
+/* Inputs */
+.sim-controls { gap: var(--space-5, 20px); padding: var(--space-6); }
+.sim-field { gap: var(--space-2); font-size: 13px; }
+.sim-field > label, .sim-field legend { font-weight: 500; color: var(--ink); }
+.sim-hint { font-size: 12px; line-height: 1.45; color: var(--muted); }
+#presets { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+#presets button { padding: var(--space-2) var(--space-1); font-size: 12px; box-shadow: none; }
+.sim-radios { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); }
+
+/* Map */
+.sim-mapsum { margin: 0 0 var(--space-1); font-size: 15px; color: var(--ink); }
+.sim-badge { margin: 0 0 var(--space-3); font-size: 12px; color: var(--muted); }
+.sim-key { gap: var(--space-1) var(--space-4); margin-bottom: var(--space-3); font-size: 12px; color: var(--muted); }
+.sim-mapwrap { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+.sim-map { padding: var(--space-4); margin-bottom: 0; }
+
+/* Details of the selected test sit under the map instead of squeezed beside it */
+.sim-center .sim-inspector {
+  padding: var(--space-4) var(--space-6);
+  border-left: 0;
+  box-shadow: none;
+  background: transparent;
+  border: 1px dashed var(--ink);
+  border-radius: var(--radius-card);
+  font-size: 14px;
+}
+.sim-center .sim-inspector h2 { font-size: 18px; margin-bottom: var(--space-2); }
+.sim-insp-hint { padding: 0; background: transparent; color: var(--muted); font-size: 14px; }
+
+/* Result: a wide summary under the map. Big number and range bar left, the figures right. */
+.sim-result { margin-top: 0; padding: var(--space-6); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 0 var(--space-8); align-items: start; }
+.sim-result h2 { grid-column: 1 / -1; }
+.sim-result .sim-big, .sim-result .sim-sub, .sim-result .sim-rb, .sim-result .sim-rb-note { grid-column: 1; }
+.sim-result .sim-dl { grid-column: 2; grid-row: 2 / span 4; align-self: start; margin: 0; font-size: 14px; grid-template-columns: minmax(130px, 1fr) 1.4fr; gap: var(--space-2) var(--space-4); }
+.sim-result .sim-big { font-size: 44px; }
+
+/* Warnings and the other reference blocks live in folds */
+.sim-warnpanel { margin: var(--space-8) 0 var(--space-4); padding: 0; background: transparent; border: 0; box-shadow: none; }
+.sim-fold { margin: var(--space-4) 0; background: var(--surface); border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
+.sim-fold > summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-4) var(--space-6); cursor: pointer; list-style: none; }
+.sim-fold > summary::-webkit-details-marker { display: none; }
+.sim-fold > summary::after { content: '+'; flex: none; font-family: var(--font-data); font-size: 22px; line-height: 1; color: var(--muted); }
+.sim-fold[open] > summary::after { content: '\2212'; }
+.sim-fold > summary h2 { margin: 0; font-size: 22px; }
+.sim-fold > summary:focus-visible { outline: 3px solid var(--blue); outline-offset: -3px; border-radius: var(--radius-card); }
+.sim-fold__body { padding: 0 var(--space-6) var(--space-6); }
+.sim-fold .sim-warnlist { margin: 0 0 var(--space-3); padding: 0; list-style: none; display: grid; gap: var(--space-2); }
+.sim-warn { padding: var(--space-3) var(--space-4); background: var(--paper); border-left: 4px solid var(--amber); border-radius: 0 var(--radius-control) var(--radius-control) 0; font-size: 14px; line-height: 1.5; }
+.sim-standing { margin: 0; font-size: 12px; }
+.sim-legend { gap: var(--space-3) var(--space-8); }
+.sim-limits { max-width: none; box-shadow: none; padding-top: 0; }
+.sim-fold .sim-limits ul { padding-left: var(--space-5, 20px); }
+.sim-fit { margin: var(--space-6) 0 0; font-size: 13px; color: var(--muted); max-width: 90ch; }
+
+/* Evidence table: lighter, so the rows are what you see */
+.sim-h2 { margin: var(--space-12) 0 var(--space-2); font-size: clamp(24px, 3vw, 30px); }
+.sim-note { max-width: 80ch; font-size: 15px; }
+.sim-table thead th { background: var(--paper); border-bottom: var(--bw) solid var(--ink); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.sim-table th, .sim-table td { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--rule); }
+.sim-table tbody tr:last-child td { border-bottom: 0; }
+
+@media (max-width: 1000px) {
+  .sim-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'controls' 'right' 'center'; }
+  .sim-controls { position: static; }
+  .sim-result { grid-template-columns: minmax(0, 1fr); }
+  .sim-result .sim-dl { grid-column: 1; grid-row: auto; margin-top: var(--space-4); }
+}
+@media (max-width: 560px) {
+  .sim-fold > summary, .sim-fold__body { padding-left: var(--space-4); padding-right: var(--space-4); }
+}
+
+/* Test details: label and value on one row so the panel stays short. */
+.sim-center .sim-insp-dl { grid-template-columns: 150px minmax(0, 1fr); gap: var(--space-1) var(--space-6); font-size: 13px; }
+.sim-center .sim-insp-dl dt { color: var(--muted); }
+.sim-center .sim-insp-dl dd { margin: 0; }
+@media (max-width: 560px) { .sim-center .sim-insp-dl { grid-template-columns: minmax(0, 1fr); } }
