@@ -173,3 +173,14 @@ export async function explainMany(question, ids) {
   }
   return out
 }
+
+// Sends the right error for a failed model call. Logs the error type only, never
+// the question, the key or the model text.
+export function sendModelError(res, err, label) {
+  console.error(label, err.message)
+  if (err.message === "model_http_429") {
+    return res.status(429).json({ error: "The AI is at its usage limit right now. Wait a minute and try again.", code: err.message })
+  }
+  // The short code (for example model_http_404) is safe to show and helps debugging.
+  return res.status(502).json({ error: "The AI service could not answer. Try again in a moment.", code: err.message })
+}

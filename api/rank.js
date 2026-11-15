@@ -1,6 +1,6 @@
 // Vercel function: ranks the 24 investigations for a researcher's question.
 // The model only scores. Sorting, validation and the top picks are done here in code.
-import { investigations, IDS, BY_ID, MODEL, guard, compact, callModel, explainMany } from './_shared.js'
+import { investigations, IDS, BY_ID, MODEL, guard, compact, callModel, explainMany, sendModelError } from './_shared.js'
 
 // How many of the top results get a written explanation up front.
 const TOP_N = 5
@@ -86,9 +86,6 @@ export default async function handler(req, res) {
       model: MODEL,
     })
   } catch (err) {
-    // Log the error type only. Never the question, the key or the model text.
-    console.error('rank failed:', err.message)
-    // The short code (for example model_http_404) is safe to show and helps debugging.
-    return res.status(502).json({ error: 'The AI service could not answer. Try again in a moment.', code: err.message })
+    return sendModelError(res, err, 'rank failed:')
   }
 }
