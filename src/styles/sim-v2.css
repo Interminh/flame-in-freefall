@@ -84,3 +84,24 @@
 .sim-how .sim-h2 { margin-top: var(--space-4); }
 .sim-how p, .sim-how li, .sim-how .sim-note, .sim-how blockquote, .sim-how dd { max-width: none; }
 .sim-how details p, .sim-how details ul, .sim-how details ol { max-width: none; }
+
+/* How it works: dropdown padding. Same pattern as the folds on the Simulator view. */
+.sim-how details { padding: 0; margin: 0 0 var(--space-4); overflow: hidden; }
+.sim-how details > summary {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+  padding: var(--space-4) var(--space-6); margin: 0; border-bottom: 0; list-style: none; cursor: pointer;
+}
+.sim-how details > summary::-webkit-details-marker { display: none; }
+.sim-how details > summary::after { content: '+'; flex: none; font-family: var(--font-data); font-size: 22px; line-height: 1; color: var(--muted); }
+.sim-how details[open] > summary::after { content: '\2212'; }
+.sim-how details > summary:focus-visible { outline: 3px solid var(--blue); outline-offset: -3px; border-radius: var(--radius-card); }
+.sim-how details[open] > summary { border-bottom: 1px solid var(--rule); margin-bottom: var(--space-4); }
+.sim-how details > :not(summary) { margin-left: var(--space-6); margin-right: var(--space-6); }
+.sim-how details > ol, .sim-how details > ul { margin-left: var(--space-6); padding-left: var(--space-5, 20px); }
+.sim-how details > .sim-tablewrap { margin-top: var(--space-3); margin-bottom: var(--space-4); }
+.sim-how details > :last-child { margin-bottom: var(--space-6); }
+.sim-how details > p, .sim-how details > ol > li, .sim-how details > ul > li { line-height: 1.6; }
+@media (max-width: 560px) {
+  .sim-how details > summary { padding-left: var(--space-4); padding-right: var(--space-4); }
+  .sim-how details > :not(summary) { margin-left: var(--space-4); margin-right: var(--space-4); }
+}
