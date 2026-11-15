@@ -1,4 +1,4 @@
-// Investigations table. Data comes from data/catalogue.json, a per-investigation
+// Investigations cards. Data comes from data/catalogue.json, a per-investigation
 // roll-up of the PSI tables. Wrapped so names do not clash with nav.js.
 (() => {
   const PILLARS = { prevention: 'Prevention', detection: 'Detection', suppression: 'Suppression', context: 'Context' }
@@ -19,38 +19,63 @@
   const varied = (it, vars) => vars.filter((v) => it.fp[v] === 'varies')
 
   let data
+  const photos = new Map()
 
-  function row(it) {
+  // One card per investigation. A photo is shown only where we have a NASA image for it.
+  function card(it) {
     const v = varied(it, data.vars)
     const share = it.harmonised ? it.out / it.harmonised : null
     const meta = [it.hardware, it.fuel_type].filter(Boolean).join(' · ')
+    const pillar = PILLARS[it.pillar] ? it.pillar : 'context'
+    const pic = photos.get(it.psi_id)
 
-    const name = el('td', {},
-      el('a', { href: it.psi_url, target: '_blank', rel: 'noopener' }, el('b', { textContent: it.name })),
-      el('div', { className: 'small mono', textContent: it.psi_id }),
-      el('span', { className: `chip ${it.pillar}`, textContent: PILLARS[it.pillar] || PILLARS.context }))
+    const media = pic
+      ? el('figure', { className: 'card__media' },
+        el('img', { src: `img/nasa/${pic.file}`, alt: pic.alt, loading: 'lazy', width: 1280, height: 800 }),
+        el('a', {
+          className: 'card__credit',
+          href: `https://images.nasa.gov/details/${pic.id}`,
+          target: '_blank',
+          rel: 'noopener',
+          textContent: pic.credit,
+          title: pic.nasa_title,
+        }))
+      : el('div', { className: 'card__media card__media--none' }, el('img', { src: 'img/starburst.svg', alt: '' }))
 
-    const studied = el('td', { className: 'small', textContent: firstSentence(it.summary) },
-      el('div', { className: 'muted', textContent: meta }))
+    const top = el('div', { className: 'card__top' },
+      el('span', { className: `chip ${pillar}`, textContent: PILLARS[pillar] }),
+      el('span', { className: 'mono', textContent: it.psi_id }))
+
+    const title = el('h3', {}, el('a', { href: it.psi_url, target: '_blank', rel: 'noopener', textContent: it.name }))
 
     const size = it.rows ? `${it.rows.toLocaleString('en-US')} ${it.kind === 'series' ? 'cells' : 'rows'}` : ''
-    const dataCell = el('td', { className: 'small' }, el('b', { textContent: KIND[it.kind] }), el('div', { textContent: size }))
-
     const dots = el('span', { className: 'dots' },
       ...data.vars.map((k) => el('i', { className: it.fp[k], title: `${k}: ${it.fp[k] === 'empty' ? 'not recorded' : it.fp[k]}` })))
     const list = v.length ? v.slice(0, 3).join(', ') + (v.length > 3 ? ` +${v.length - 3}` : '') : 'none'
-    const varCell = el('td', {}, dots, el('div', { className: 'small muted', textContent: list }))
 
-    const outCell = el('td', { className: 'small' })
+    const outcome = el('dd')
     if (share == null) {
-      outCell.append(el('span', { className: 'muted', textContent: 'not in harmonised table' }))
+      outcome.append(el('span', { className: 'muted', textContent: 'not in harmonised table' }))
     } else {
       const pct = Math.round(share * 100)
       const bar = el('span', { className: 'fillbar' }, el('i'))
       bar.firstChild.style.width = `${pct}%`
-      outCell.append(bar, `${pct}%`, el('div', { className: 'muted', textContent: `${it.out} of ${it.harmonised}` }))
+      outcome.append(bar, `${pct}% (${it.out} of ${it.harmonised})`)
     }
-    return el('tr', {}, name, studied, dataCell, varCell, outCell)
+
+    const stats = el('dl', { className: 'card__stats' },
+      el('dt', { textContent: 'Data' }), el('dd', { textContent: [KIND[it.kind], size].filter(Boolean).join(', ') }),
+      el('dt', { textContent: 'Varied' }), el('dd', {}, dots, ` ${list}`),
+      el('dt', { textContent: 'Outcome' }), outcome)
+
+    const body = el('div', { className: 'card__body' }, top, title,
+      el('p', { className: 'card__sum', textContent: firstSentence(it.summary) }),
+      el('p', { className: 'card__meta', textContent: meta }),
+      stats)
+
+    const c = el('article', { className: 'card', }, media, body)
+    c.dataset.pillar = pillar
+    return c
   }
 
   function render() {
@@ -67,7 +92,7 @@
         sort === 'rows' ? b.rows - a.rows
           : sort === 'varied' ? varied(b, data.vars).length - varied(a, data.vars).length
             : num(a) - num(b))
-    $('rows').replaceChildren(...list.map(row))
+    $('rows').replaceChildren(...list.map(card))
     $('count').textContent = `${list.length} shown`
   }
 
@@ -84,8 +109,13 @@
     render()
   }
 
-  fetch('data/catalogue.json')
-    .then((r) => { if (!r.ok) throw new Error(r.status); return r.json() })
-    .then(init)
+  const getJson = (u) => fetch(u).then((r) => { if (!r.ok) throw new Error(r.status); return r.json() })
+
+  // The photo manifest is optional: the page still works without it.
+  Promise.all([getJson('data/catalogue.json'), getJson('img/nasa/images.json').catch(() => [])])
+    .then(([d, imgs]) => {
+      for (const p of imgs) for (const id of p.psi) photos.set(id, p)
+      init(d)
+    })
     .catch(() => { $('lede').textContent = 'Could not load the investigations.' })
 })()
