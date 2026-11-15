@@ -309,7 +309,7 @@ test('the anchored constants in PARAMS match the numbers quoted in the anchors f
 test('NASA checks are recorded with a pass flag, and the three notes are held out', { skip: !existsSync('data/derived/sim-validation.json') }, () => {
   const v = JSON.parse(readFileSync('data/derived/sim-validation.json', 'utf8'))
   const c = v.nasa_checks
-  for (const k of ['rod_nose', 'margin', 'moon_mars_buoyant_flow', 'film_quench_21', 'film_blowoff', 'sibal_opposed_1g_in_air']) assert.equal(typeof c[k].pass, 'boolean', k)
+  for (const k of ['rod_nose', 'margin', 'moon_mars_buoyant_flow', 'film_quench_21', 'film_blowoff', 'sibal_opposed_1g_in_air', 'saffire2_ground']) assert.equal(typeof c[k].pass, 'boolean', k)
   assert.equal(c.bass2_notes_on_blowoff_side.length, 3)
   for (const n of c.bass2_notes_on_blowoff_side) assert.ok(n.share_of_draws_correct >= 0 && n.share_of_draws_correct <= 1)
 })
@@ -328,4 +328,30 @@ test('known-miss warning appears for opposed SIBAL at high gravity in air, and n
 test('the SIBAL check is recorded and the model is honest about missing it', { skip: !existsSync('data/derived/sim-validation.json') }, () => {
   const c = JSON.parse(readFileSync('data/derived/sim-validation.json', 'utf8')).nasa_checks.sibal_opposed_1g_in_air
   assert.equal(c.pass, c.model_central_p_burn < 0.5, 'pass flag must follow the pre-declared rule')
+})
+
+test('SAFFIRE-II check cases are copied from the PSI-99 rows exactly', () => {
+  const src = new Map(readCsvObjects('data/psi_99.csv').map((r) => [r.test_id, r]))
+  const rows = readCsvObjects('data/derived/saffire2_ground_checks.csv')
+  assert.ok(rows.length >= 3)
+  for (const r of rows) {
+    const s = src.get(r.test_id)
+    assert.ok(s, `${r.check_id}: test ${r.test_id} not in psi_99.csv`)
+    assert.equal(s.src_material, r.source_material)
+    assert.equal(s.src_percent_o2_note_1, r.o2_percent_stated)
+    assert.equal(s.src_flow_direction.toLowerCase(), r.flow_direction)
+    assert.equal(Number(s.src_air_flow_cm_s.split(' ')[0]), Number(r.forced_flow_cm_s))
+    assert.equal(s[r.observed_source_column], r.observed_text, `${r.check_id}: observed text differs from the source`)
+    assert.ok(MATERIALS.some((m) => m.id === r.material_class))
+    // The O2 used must lie inside the stated value or interval.
+    const nums = (r.o2_percent_stated.match(/\d+(\.\d+)?/g) || []).map(Number)
+    assert.ok(Number(r.o2_percent_used) >= Math.min(...nums) - 1e-9 && Number(r.o2_percent_used) <= Math.max(...nums) + 1e-9, `${r.check_id}: O2 used is outside the stated value`)
+  }
+})
+
+test('SAFFIRE-II check results are recorded and the pass flag follows the rule', { skip: !existsSync('data/derived/sim-validation.json') }, () => {
+  const c = JSON.parse(readFileSync('data/derived/sim-validation.json', 'utf8')).nasa_checks.saffire2_ground
+  assert.ok(c.cases.length >= 3)
+  for (const x of c.cases) assert.equal(x.pass, (x.model_mean_p_burn >= 0.5) === (x.observed === 'burn'), x.check)
+  assert.equal(c.pass, c.cases.every((x) => x.pass))
 })
