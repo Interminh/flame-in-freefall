@@ -106,7 +106,7 @@ const html = `<!doctype html>
         ${list(tools)}
 
         <h2>AI tools and hosting</h2>
-        <p>Claude, an AI assistant from Anthropic, supported the development of this project through coding, analysis, and more. AI summaries were checked by a person against the PSI record.</p>
+        <p>Claude supported the development of this project through coding and analysis. AI work was reviewed by people on our team, and AI summaries were checked against the PSI record.</p>
         ${list(ai)}
 
         <h2>Images</h2>
