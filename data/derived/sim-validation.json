@@ -229,35 +229,35 @@
     "rod_nose": {
       "nasa": "13.3 to 13.6% O2 (anchors H1, A5, A6)",
       "model_central": 14.13,
-      "model_median": 14.1,
-      "q05": 13.68,
-      "q95": 14.65,
+      "model_median": 14.12,
+      "q05": 13.66,
+      "q95": 14.64,
       "pass": true
     },
     "rod_limit_1g": {
       "note": "Fixed by construction from anchor A3, shown for reference",
       "nasa": "16% O2",
       "model_central": 16.01,
-      "model_median": 16.01,
-      "q05": 14.62,
-      "q95": 19.89
+      "model_median": 16.02,
+      "q05": 14.66,
+      "q95": 19.04
     },
     "margin": {
       "nasa": "1.4 to 2.4 points (anchors H3, H4)",
       "model_central": 1.88,
-      "model_median": 1.86,
-      "q05": 0.43,
-      "q95": 5.81,
+      "model_median": 1.92,
+      "q05": 0.49,
+      "q95": 5,
       "pass": true
     },
     "moon_mars_buoyant_flow": {
       "nasa": "5 to 20 cm/s (anchor H2)",
       "moon_central": 8.12,
-      "moon_q05": 3.68,
-      "moon_q95": 16.23,
+      "moon_q05": 3.97,
+      "moon_q95": 16.17,
       "mars_central": 12.33,
-      "mars_q05": 4.98,
-      "mars_q95": 27.91,
+      "mars_q05": 5.34,
+      "mars_q95": 27.88,
       "pass": true
     },
     "film_quench_21": {
@@ -286,7 +286,7 @@
         "observed": "burn",
         "p_burn_central": 0.605,
         "central_correct": true,
-        "share_of_draws_correct": 0.82
+        "share_of_draws_correct": 0.8
       },
       {
         "note": "T21: blow-off at an air display of 47",
@@ -310,8 +310,8 @@
           "observed": "burn",
           "observed_text": "Complete",
           "model_central_p_burn": 0.929,
-          "model_mean_p_burn": 0.844,
-          "q05": 0.614,
+          "model_mean_p_burn": 0.849,
+          "q05": 0.634,
           "q95": 0.979,
           "pass": true
         },
@@ -325,7 +325,7 @@
           "observed_text": "29 cm",
           "model_central_p_burn": 0.952,
           "model_mean_p_burn": 0.926,
-          "q05": 0.798,
+          "q05": 0.796,
           "q95": 0.991,
           "pass": true
         },
@@ -338,9 +338,9 @@
           "observed": "burn",
           "observed_text": "Complete",
           "model_central_p_burn": 0.84,
-          "model_mean_p_burn": 0.723,
-          "q05": 0.001,
-          "q95": 0.951,
+          "model_mean_p_burn": 0.744,
+          "q05": 0.077,
+          "q95": 0.953,
           "pass": true
         }
       ],
@@ -349,8 +349,73 @@
     "sibal_opposed_1g_in_air": {
       "nasa": "no sustained downward spread in normal air (anchor H7)",
       "model_central_p_burn": 0.935,
-      "model_mean_p_burn": 0.871,
+      "model_mean_p_burn": 0.877,
       "pass": false
+    }
+  },
+  "resampling": {
+    "draws": 1000,
+    "seed": 2026,
+    "method": "Stratified cluster bootstrap over tests inside each material, a refit per draw, plus a draw of the NASA-anchored constants from their published ranges and a draw of the extra gravity spread.",
+    "loto_accuracy_ci95": [
+      0.691,
+      0.891
+    ],
+    "loto_brier_ci95": [
+      0.086,
+      0.203
+    ],
+    "calibration_loto": [
+      {
+        "from": 0,
+        "to": 0.2,
+        "n": 4,
+        "mean_predicted": 0.063,
+        "share_burned": 0.25
+      },
+      {
+        "from": 0.2,
+        "to": 0.4,
+        "n": 7,
+        "mean_predicted": 0.284,
+        "share_burned": 0.143
+      },
+      {
+        "from": 0.4,
+        "to": 0.6,
+        "n": 5,
+        "mean_predicted": 0.508,
+        "share_burned": 0.6
+      },
+      {
+        "from": 0.6,
+        "to": 0.8,
+        "n": 11,
+        "mean_predicted": 0.697,
+        "share_burned": 0.727
+      },
+      {
+        "from": 0.8,
+        "to": 1,
+        "n": 27,
+        "mean_predicted": 0.908,
+        "share_burned": 0.926
+      }
+    ],
+    "monte_carlo_check": {
+      "input": "PMMA slab, 3 mm, 19% O2, 10 cm/s opposed, 0.165 g",
+      "even_draws": {
+        "p": 0.65,
+        "loc_median": 17.23
+      },
+      "odd_draws": {
+        "p": 0.639,
+        "loc_median": 17.27
+      },
+      "all_draws": {
+        "p": 0.645,
+        "loc_median": 17.24
+      }
     }
   },
   "brief_figures_check": {
@@ -393,27 +458,27 @@
         "forced_flow_cm_s": 0,
         "loc_g0": {
           "central": 28.41,
-          "median": 28.55,
-          "q05": 23.98,
-          "q95": 38.27
+          "median": 28.91,
+          "q05": 23.93,
+          "q95": 38.99
         },
         "loc_g0.05": {
           "central": 14.16,
-          "median": 14.24,
+          "median": 14.22,
           "q05": 13.93,
-          "q95": 16.02
+          "q95": 15.71
         },
         "loc_g0.1": {
           "central": 14.32,
-          "median": 14.44,
-          "q05": 14.03,
-          "q95": 15.29
+          "median": 14.41,
+          "q05": 14.04,
+          "q95": 15.12
         },
         "loc_g1": {
           "central": 16.01,
-          "median": 16.01,
+          "median": 16.02,
           "q05": 14.64,
-          "q95": 19.89
+          "q95": 19.04
         }
       },
       {
@@ -421,27 +486,27 @@
         "forced_flow_cm_s": 10,
         "loc_g0": {
           "central": 14.75,
-          "median": 14.83,
-          "q05": 14.49,
+          "median": 14.8,
+          "q05": 14.51,
           "q95": 15.19
         },
         "loc_g0.05": {
           "central": 14.76,
-          "median": 14.93,
-          "q05": 14.6,
-          "q95": 15.37
+          "median": 14.92,
+          "q05": 14.58,
+          "q95": 15.38
         },
         "loc_g0.1": {
           "central": 14.79,
-          "median": 15.02,
-          "q05": 14.65,
+          "median": 15.04,
+          "q05": 14.64,
           "q95": 15.6
         },
         "loc_g1": {
           "central": 16.05,
-          "median": 16.29,
-          "q05": 15.15,
-          "q95": 19.93
+          "median": 16.34,
+          "q05": 15.14,
+          "q95": 19.28
         }
       },
       {
@@ -449,27 +514,27 @@
         "forced_flow_cm_s": 0,
         "loc_g0": {
           "central": 41.2,
-          "median": 40.49,
-          "q05": 29.35,
+          "median": 41.89,
+          "q05": 28.35,
           "q95": ">60"
         },
         "loc_g0.05": {
           "central": 23.5,
-          "median": 23.61,
-          "q05": 17.18,
-          "q95": 31.21
+          "median": 23.91,
+          "q05": 17.1,
+          "q95": 31.09
         },
         "loc_g0.1": {
           "central": 21.25,
-          "median": 21.25,
-          "q05": 16.12,
-          "q95": 27.85
+          "median": 21.48,
+          "q05": 15.91,
+          "q95": 28.28
         },
         "loc_g1": {
           "central": 16.87,
-          "median": 17.38,
-          "q05": 16.19,
-          "q95": 20.85
+          "median": 17.26,
+          "q05": 15.93,
+          "q95": 21
         }
       },
       {
@@ -478,26 +543,26 @@
         "loc_g0": {
           "central": 18.43,
           "median": 18.46,
-          "q05": 15.61,
-          "q95": 21.77
+          "q05": 15.55,
+          "q95": 21.61
         },
         "loc_g0.05": {
           "central": 18.37,
-          "median": 17.92,
-          "q05": 15.47,
-          "q95": 21.38
+          "median": 17.97,
+          "q05": 15.56,
+          "q95": 21.21
         },
         "loc_g0.1": {
           "central": 18.23,
-          "median": 17.48,
-          "q05": 15.56,
-          "q95": 20.89
+          "median": 17.58,
+          "q05": 15.57,
+          "q95": 20.77
         },
         "loc_g1": {
           "central": 16.89,
-          "median": 17.25,
-          "q05": 16.11,
-          "q95": 20.31
+          "median": 17.14,
+          "q05": 15.97,
+          "q95": 19.74
         }
       },
       {
@@ -505,27 +570,27 @@
         "forced_flow_cm_s": 0,
         "loc_g0": {
           "central": 25.74,
-          "median": 25.08,
-          "q05": 21.43,
-          "q95": 34.16
+          "median": 26.14,
+          "q05": 21.66,
+          "q95": 35.78
         },
         "loc_g0.05": {
           "central": 14.05,
           "median": 14.11,
-          "q05": 13.86,
-          "q95": 14.5
+          "q05": 13.88,
+          "q95": 14.51
         },
         "loc_g0.1": {
           "central": 14.26,
-          "median": 14.35,
-          "q05": 13.96,
-          "q95": 14.97
+          "median": 14.34,
+          "q05": 13.97,
+          "q95": 14.89
         },
         "loc_g1": {
           "central": 16.01,
-          "median": 16.01,
-          "q05": 14.59,
-          "q95": 19.89
+          "median": 16,
+          "q05": 14.63,
+          "q95": 19.04
         }
       },
       {
@@ -533,27 +598,27 @@
         "forced_flow_cm_s": 10,
         "loc_g0": {
           "central": 14.72,
-          "median": 14.79,
-          "q05": 14.46,
-          "q95": 15.14
+          "median": 14.77,
+          "q05": 14.5,
+          "q95": 15.15
         },
         "loc_g0.05": {
           "central": 14.73,
           "median": 14.9,
-          "q05": 14.56,
+          "q05": 14.58,
           "q95": 15.34
         },
         "loc_g0.1": {
           "central": 14.77,
-          "median": 14.99,
-          "q05": 14.64,
-          "q95": 15.56
+          "median": 15.01,
+          "q05": 14.62,
+          "q95": 15.58
         },
         "loc_g1": {
           "central": 16.05,
-          "median": 16.29,
-          "q05": 15.15,
-          "q95": 19.93
+          "median": 16.34,
+          "q05": 15.11,
+          "q95": 19.28
         }
       }
     ]

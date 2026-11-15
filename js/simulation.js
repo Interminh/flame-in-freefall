@@ -17,8 +17,6 @@ const REFS = [
 const FLOW_MAX = 50
 const O2_MIN = 10
 const O2_MAX = 30
-const NX = 48
-const NY = 40
 const W = 640, H = 390
 const M = { l: 54, r: 14, t: 10, b: 48 }
 const PW = W - M.l - M.r
@@ -51,8 +49,7 @@ const OBSERVED = { burn: 'Burned', extinguish: 'Went out', blowoff: 'Blown off' 
 const matLabel = (id) => MATERIALS.find((m) => m.id === id)?.label ?? id
 
 let params, validation, draws, central, points, ranges
-let mapDraws, boundaryDraws, refDraws
-let cellKey = '', refKey = ''
+let cellKey = ''
 let selectedIdx = null
 let pinned = false
 const mapEls = {}
@@ -180,6 +177,7 @@ function renderResult(inp) {
       : `${Math.abs(loc1.median - locHere.median).toFixed(1)} points ${loc1.median >= locHere.median ? 'lower' : 'higher'} than at 1 g`
 
   renderRangeBar(here)
+  $('rb-note').textContent = `Bar: 5 to 95% range across ${draws.length} refits. Line: average. Ticks: the label cut-offs.`
   const items = caseWarnings({ inp, ranges, here, earth, locHere, loc1, validation, central, materialLabel: matLabel(inp.material) })
   renderWarnings(items)
   return { here, label, items, u }
@@ -283,7 +281,7 @@ function buildMap() {
     svg('rect', { x: xOf(ranges.flow[1]), y: yOf(b), width: M.l + PW - xOf(ranges.flow[1]), height: yOf(a) - yOf(b), fill: hp }))
 
   Object.assign(mapEls, {
-    cells: svg('g'), band: svg('path', { class: 'sim-band' }), refs: svg('g'), median: svg('path', { class: 'sim-median' }),
+    band: svg('path', { class: 'sim-band' }), refs: svg('g'), median: svg('path', { class: 'sim-median' }),
     pts: svg('g'),
     marker: svg('g', { class: 'sim-marker-group' },
       svg('circle', { class: 'sim-marker', r: 9 }), svg('circle', { class: 'sim-marker-dot', r: 2 }),
@@ -291,7 +289,7 @@ function buildMap() {
   })
   chart.append(
     svg('defs', {}, svg('pattern', { id: 'hatch-map', width: 7, height: 7, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, svg('line', { class: 'sim-hatch', x1: 0, y1: 0, x2: 0, y2: 7 }))),
-    mapEls.cells, hatch, mapEls.band, mapEls.refs, mapEls.median, axes, mapEls.pts, mapEls.marker)
+    hatch, mapEls.band, mapEls.refs, mapEls.median, axes, mapEls.pts, mapEls.marker)
 }
 
 // The key above the map names every line, so the plot itself carries no text labels.
@@ -301,50 +299,62 @@ function buildKey() {
   $('line-key').replaceChildren(
     item(line('sim-median'), '', 'key-own'),
     ...REFS.map((r) => item(line('sim-ref', r.dash), r.name)),
+    item(html('span', { className: 'sim-scale', ariaHidden: 'true' }), 'Chance of burning, 0 to 100%'),
     item(svg('svg', { viewBox: '0 0 30 10', 'aria-hidden': 'true' }, svg('circle', { class: 'sim-marker', cx: 15, cy: 5, r: 4.5 }), svg('circle', { class: 'sim-marker-dot', cx: 15, cy: 5, r: 1.3 })), 'Your input'))
 }
 
 const pathOf = (a) => a.map(([x, y], k) => `${k ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`).join('')
+const lineXY = (l, arr) => l.f.map((f, i) => [xOf(f), yOf(clampO2(arr[i]))])
 
-function paintCells(inp) {
-  const cw = PW / NX, ch = PH / NY
-  const rects = []
-  for (let j = 0; j < NY; j++) {
-    const o2 = O2_MIN + ((j + 0.5) * (O2_MAX - O2_MIN)) / NY
-    for (let i = 0; i < NX; i++) {
-      const uForced = ((i + 0.5) * FLOW_MAX) / NX
-      let s = 0
-      for (const d of mapDraws) s += burnProbability({ ...inp, uForced, o2 }, d)
-      const p = s / mapDraws.length
-      if (p < 0.03) continue
-      rects.push(svg('rect', { class: 'sim-cell', x: M.l + i * cw, y: yOf(O2_MIN + ((j + 1) * (O2_MAX - O2_MIN)) / NY), width: cw, height: ch, 'shape-rendering': 'crispEdges', 'fill-opacity': Math.min(0.85, p * 0.9).toFixed(2) }))
-    }
+// ---- shaded grid: drawn on a canvas under the SVG and scaled up smoothly ----
+const RAMP = [[0, 255, 236, 210, 0], [0.12, 253, 218, 170, 0.45], [0.4, 248, 172, 106, 0.66], [0.7, 238, 125, 70, 0.78], [1, 214, 82, 48, 0.86]]
+function rampColor(p) {
+  let k = 1
+  while (k < RAMP.length - 1 && p > RAMP[k][0]) k++
+  const [p0, r0, g0, b0, a0] = RAMP[k - 1], [p1, r1, g1, b1, a1] = RAMP[k]
+  const t = Math.min(1, Math.max(0, (p - p0) / (p1 - p0)))
+  return [r0 + (r1 - r0) * t, g0 + (g1 - g0) * t, b0 + (b1 - b0) * t, (a0 + (a1 - a0) * t) * 255]
+}
+function paintHeat(res) {
+  const c = $('heat')
+  c.width = res.nx
+  c.height = res.ny
+  const ctx = c.getContext('2d')
+  const img = ctx.createImageData(res.nx, res.ny)
+  for (let i = 0; i < res.heat.length; i++) {
+    const [r, g, b, a] = rampColor(res.heat[i])
+    img.data.set([r, g, b, a], i * 4)
   }
-  mapEls.cells.replaceChildren(...rects)
+  ctx.putImageData(img, 0, 0)
 }
 
-// Limiting oxygen against flow for one gravity: the 5th, 50th and 95th percentile across draws.
-function limitLine(inp, g, drawSet, step) {
-  const lo = [], mid = [], hi = []
-  for (let f = 0; f <= FLOW_MAX; f += step) {
-    const locs = drawSet.map((d) => locO2({ ...inp, g, uForced: f }, d)).sort((p, q) => p - q)
-    lo.push([xOf(f), yOf(clampO2(quantile(locs, 0.05)))])
-    mid.push([xOf(f), yOf(clampO2(quantile(locs, 0.5)))])
-    hi.push([xOf(f), yOf(clampO2(quantile(locs, 0.95)))])
-  }
-  return { lo, mid, hi }
-}
-
-function paintOwnLine(inp) {
-  const { lo, mid, hi } = limitLine(inp, inp.g, boundaryDraws, 2)
+function paintLines(res) {
+  const { own, refs } = res
+  const lo = lineXY(own, own.lo), hi = lineXY(own, own.hi)
   mapEls.band.setAttribute('d', `${pathOf(lo)}${[...hi].reverse().map(([x, y]) => `L${x.toFixed(1)} ${y.toFixed(1)}`).join('')}Z`)
-  mapEls.median.setAttribute('d', pathOf(mid))
+  mapEls.median.setAttribute('d', pathOf(lineXY(own, own.mid)))
+  mapEls.refs.replaceChildren(...refs.map((r) => svg('path', { class: 'sim-ref', d: pathOf(lineXY(r, r.mid)), 'stroke-dasharray': REFS.find((x) => x.g === r.g).dash })))
 }
 
-// Reference lines do not depend on the gravity slider, so they are cached on everything else.
-function paintRefLines(inp) {
-  const lines = REFS.map((r) => svg('path', { class: 'sim-ref', d: pathOf(limitLine(inp, r.g, refDraws, 2).mid), 'stroke-dasharray': r.dash }))
-  mapEls.refs.replaceChildren(...lines)
+// ---- worker: the heavy work runs off the page thread, quick pass first, then all refits ----
+let worker = null
+let jobId = 0
+function requestMap(inp) {
+  jobId++
+  $('compute').textContent = 'Refining…'
+  $('compute').dataset.state = 'busy'
+  worker.postMessage({ type: 'map', id: jobId, inp })
+}
+function onWorker(e) {
+  const res = e.data
+  if (res.type !== 'result' || res.id !== jobId) return
+  paintHeat(res)
+  paintLines(res)
+  const full = res.quality === 'full'
+  $('compute').dataset.state = full ? 'done' : 'busy'
+  $('compute').textContent = full
+    ? `Shading from ${res.heatDraws} of ${draws.length} refits, lines from ${res.draws}. Result card uses all ${draws.length}.`
+    : `Quick preview from ${res.draws} refits. Refining…`
 }
 
 // A dot per real test of the chosen material. Click or Enter selects it. The five nearest carry their table number.
@@ -409,10 +419,8 @@ function renderFitLine(inp) {
 }
 
 function renderMap(inp, res) {
-  const nk = `${inp.material}|${inp.direction}|${inp.p}|${inp.thickness}`
-  const ck = `${nk}|${inp.g}`
-  if (nk !== refKey) { refKey = nk; paintRefLines(inp); renderFitLine(inp) }
-  if (ck !== cellKey) { cellKey = ck; paintCells(inp); paintOwnLine(inp) }
+  const ck = `${inp.material}|${inp.direction}|${inp.p}|${inp.thickness}|${inp.g}`
+  if (ck !== cellKey) { cellKey = ck; requestMap(inp); renderFitLine(inp) }
   $('key-own').textContent = `Your gravity, ${inp.g} g`
 
   const sameMaterial = usedByMaterial(inp.material)
@@ -558,6 +566,14 @@ function renderHow() {
     `Across all materials, on tests held out of the fit the model was right ${pct(lo.accuracy)} of the time (Brier ${lo.brier}, a constant guess scores ${lo.baseline_brier_prevalence}), which is ${rel(lo)} a constant guess. ` +
     `For a material the model had never seen it was right ${pct(lm.accuracy)} (Brier ${lm.brier} against ${lm.baseline_brier_prevalence}), which is ${rel(lm)} a constant guess. That is why only the four fitted materials are offered.`
 
+  const rs = v.resampling
+  if (rs) {
+    const mc = rs.monte_carlo_check
+    $('how-resampling').textContent =
+      `${rs.draws} refits. On held-out tests the accuracy of ${pct(lo.accuracy)} has a 95% interval of ${pct(rs.loto_accuracy_ci95[0])} to ${pct(rs.loto_accuracy_ci95[1])} and the Brier score of ${lo.brier} an interval of ${rs.loto_brier_ci95[0]} to ${rs.loto_brier_ci95[1]}, from resampling the held-out tests. ` +
+      `Monte Carlo check (${mc.input}): the even-numbered refits give ${pct(mc.even_draws.p)} and the odd-numbered ${pct(mc.odd_draws.p)}, so more refits would not move the answer by more than about a point. Below, when the model said a chance, how often the flame burned on tests it had not been fitted to. With this few tests, treat the bins as rough.`
+    $('how-calib').tBodies[0].replaceChildren(...rs.calibration_loto.map((b) => html('tr', {}, html('td', { textContent: `${pct(b.from)} to ${pct(b.to)}` }), html('td', { textContent: b.n }), html('td', { textContent: b.n ? pct(b.mean_predicted) : '' }), html('td', { textContent: b.n ? pct(b.share_burned) : '' }))))
+  }
   const c = v.nasa_checks
   const ok = (b) => (b ? 'Passes' : 'Fails')
   const range = (m) => `${m.model_central}% (5 to 95%: ${m.q05} to ${m.q95})`
@@ -598,15 +614,72 @@ function renderValidation() {
     `Per-material numbers are under How it works and limits, and everything is in the README.`
 }
 
+// ---------- hover and drag on the plot ----------
+function placeCanvas() {
+  const c = $('heat').style
+  c.left = `${(M.l / W) * 100}%`
+  c.top = `${(M.t / H) * 100}%`
+  c.width = `${(PW / W) * 100}%`
+  c.height = `${(PH / H) * 100}%`
+}
+
+function pointAt(e) {
+  const r = $('map').getBoundingClientRect()
+  const x = ((e.clientX - r.left) / r.width) * W
+  const y = ((e.clientY - r.top) / r.height) * H
+  const inside = x >= M.l && x <= M.l + PW && y >= M.t && y <= M.t + PH
+  const flow = Math.min(FLOW_MAX, Math.max(0, ((x - M.l) / PW) * FLOW_MAX))
+  const o2 = Math.min(O2_MAX, Math.max(O2_MIN, O2_MAX - ((y - M.t) / PH) * (O2_MAX - O2_MIN)))
+  return { inside, flow, o2, px: e.clientX - $('plot').getBoundingClientRect().left, py: e.clientY - $('plot').getBoundingClientRect().top }
+}
+
+function showTip(e) {
+  const tip = $('tip')
+  const p = pointAt(e)
+  if (!p.inside || e.target.closest?.('.sim-dot')) { tip.hidden = true; return }
+  const base = lastInputs
+  const s = summarizeProbability({ ...base, uForced: p.flow, o2: p.o2 }, draws)
+  tip.replaceChildren(
+    html('strong', { textContent: `${pct(s.mean)} chance of burning` }),
+    html('span', { textContent: `5 to 95%: ${pct(s.q05)} to ${pct(s.q95)}` }),
+    html('span', { textContent: `${p.o2.toFixed(1)}% oxygen, ${p.flow.toFixed(1)} cm/s` }))
+  tip.hidden = false
+  const w = $('plot').clientWidth
+  tip.style.left = `${Math.min(w - tip.offsetWidth - 6, p.px + 14)}px`
+  tip.style.top = `${Math.max(4, p.py - tip.offsetHeight - 10)}px`
+}
+
+function moveInputTo(e) {
+  const p = pointAt(e)
+  const flow = Math.round(p.flow * 2) / 2
+  const o2 = Math.round(p.o2 * 10) / 10
+  $('flow').value = $('flown').value = flow
+  $('o2').value = $('o2n').value = o2
+  schedule()
+}
+
+function wirePlot() {
+  const plot = $('plot')
+  let dragging = false
+  plot.addEventListener('pointermove', (e) => { if (lastInputs) showTip(e); if (dragging) moveInputTo(e) })
+  plot.addEventListener('pointerleave', () => { $('tip').hidden = true })
+  plot.addEventListener('pointerdown', (e) => {
+    if (e.target.closest?.('.sim-dot') || !pointAt(e).inside) return
+    dragging = true
+    plot.setPointerCapture(e.pointerId)
+    moveInputTo(e)
+  })
+  const stop = () => { dragging = false }
+  plot.addEventListener('pointerup', stop)
+  plot.addEventListener('pointercancel', stop)
+}
+
 // ---------- boot ----------
 async function boot() {
   const get = (p) => fetch(p).then((r) => { if (!r.ok) throw new Error(`${p}: ${r.status}`); return r.json() })
   ;[params, validation] = await Promise.all([get('data/derived/sim-params.json'), get('data/derived/sim-validation.json')])
   draws = params.draws.map(thetaFromPacked)
   central = thetaFromPacked({ ...params.central, zG: 0 })
-  mapDraws = draws.filter((_, i) => i % 4 === 0)
-  boundaryDraws = draws.filter((_, i) => i % 4 === 0)
-  refDraws = draws.filter((_, i) => i % 10 === 0)
   ranges = params.ranges
   // p0 is the central model's chance of burning at 0 g at the test's own conditions. A test is on the wrong side
   // when that call is the opposite of what was observed.
@@ -633,8 +706,13 @@ async function boot() {
   for (const id of ['how-link', 'how-link2']) $(id).addEventListener('click', (e) => { e.preventDefault(); showView('how'); window.scrollTo(0, 0) })
   window.addEventListener('hashchange', () => showView(viewFromHash()))
 
+  worker = new Worker('js/sim-worker.js', { type: 'module' })
+  worker.onmessage = onWorker
+  worker.postMessage({ type: 'init', draws: params.draws })
+  placeCanvas()
   buildMap()
   buildKey()
+  wirePlot()
   syncGravity()
   renderValidation()
   renderHow()

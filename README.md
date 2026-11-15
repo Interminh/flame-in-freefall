@@ -14,7 +14,7 @@ material and gravity, and compares the Moon (0.165 g) and Mars (0.38 g) with 1 g
 npm install
 npm run dev          # then open http://127.0.0.1:5173/simulation.html
 npm run test:sim     # 36 unit and data-integrity tests, no extra dependencies
-npm run sim:calibrate  # refit, rewrite data/derived/*.json and fm2-predictions.csv (about 10 s, seeded, reproducible)
+npm run sim:calibrate  # refit, rewrite data/derived/*.json and fm2-predictions.csv (a few minutes, seeded, reproducible)
 ```
 
 The page needs a server because it loads JSON, the same as the Ranking page.
@@ -53,7 +53,7 @@ Raw data in `data/psi_*.csv` is only read, never changed. Everything the simulat
      nothing burns.
 4. **Limiting oxygen concentration (LOC).** The O2 at which `P(burn) = 0.5`, found by bisection. The margin is the LOC at
    1 g minus the LOC here, at the same forced flow.
-5. **Uncertainty.** 200 draws. Each refits the quench side on a cluster bootstrap of the tests (resampling whole tests),
+5. **Uncertainty.** 1000 draws. Each refits the quench side on a stratified cluster bootstrap of the tests (whole tests, resampled inside each material),
    samples the NASA-anchored constants over the ranges those sources support, samples `sb`, and adds a log-normal spread to
    `U_b` that grows with gravity.
 

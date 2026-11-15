@@ -15,7 +15,8 @@ import {
 } from '../../src/sim/model.js'
 
 const SEED = 2026
-const DRAWS = 200
+// 1000 refits: the 5th and 95th percentiles still move by a few hundredths at 200. See resampling in sim-validation.json.
+const DRAWS = 1000
 const NM = MATERIALS.length
 const IBETA = 4 + NM // index of the thickness term in the parameter vector
 
@@ -76,7 +77,7 @@ const clip = (p) => Math.min(1 - 1e-4, Math.max(1e-4, p))
 const START = [Math.log(0.3), Math.log(2.5), Math.log(5), 0, 0, 0, 0, 0, 0]
 
 // useBeta = false pins the thickness term at zero (the model without thickness).
-function fit(train, right, start, useBeta = true) {
+function fit(train, right, start, useBeta = true, restarts = 2) {
   const f = (v0) => {
     const v = useBeta ? v0 : [...v0.slice(0, IBETA), 0]
     const th = unpack(v, right)
@@ -87,7 +88,7 @@ function fit(train, right, start, useBeta = true) {
     }
     return nll + penalty(v)
   }
-  const { x } = nelderMead(f, start ?? START)
+  const { x } = nelderMead(f, start ?? START, { restarts: start ? restarts : 4 })
   return useBeta ? x : [...x.slice(0, IBETA), 0]
 }
 
@@ -161,7 +162,7 @@ function evaluate(useBeta) {
   const lotoPreds = cv((p) => p.testId, [...new Set(points.map((p) => p.testId))])
   const perMaterial = (preds) => Object.fromEntries(MATERIALS.map((m) => [m.id, metrics(preds, points.filter((p) => p.material === m.id))]))
   return {
-    vC, th,
+    vC, th, lotoPreds,
     in_sample: metrics(inSamplePreds, points),
     leave_one_test_out: metrics(lotoPreds, points),
     leave_one_material_out: metrics(lomoPreds, points),
@@ -188,11 +189,15 @@ const thetaCentral = chosen.th
 const byTest = new Map()
 points.forEach((p) => byTest.set(p.testId, [...(byTest.get(p.testId) ?? []), p]))
 const testIds = [...byTest.keys()]
+// Stratified cluster bootstrap: tests are resampled inside each material, so every material keeps its number of
+// tests in every refit. A plain bootstrap sometimes drops a small material (sibal, rod) and its fit then jumps.
+const testMaterial = new Map(testIds.map((t) => [t, byTest.get(t)[0].material]))
+const stratTests = MATERIALS.map((m) => testIds.filter((t) => testMaterial.get(t) === m.id))
 const draws = Array.from({ length: DRAWS }, () => {
   const right = priorRight()
   const sample = []
-  for (let i = 0; i < testIds.length; i++) sample.push(...byTest.get(testIds[R.int(testIds.length)]))
-  const v = fit(sample, right, vCentral, useBeta)
+  for (const group of stratTests) for (let i = 0; i < group.length; i++) sample.push(...byTest.get(group[R.int(group.length)]))
+  const v = fit(sample, right, vCentral, useBeta, 1)
   return { ...unpack(v, right), zG: R.normal() }
 })
 
@@ -314,6 +319,42 @@ const litVerdicts = lit.filter((r) => r.forced_flow_cm_s === 0).map((r) => {
   }
 })
 
+// ---------- how much to trust the numbers: resampling diagnostics ----------
+// 1. Held-out score with an interval: resample the held-out tests, so the headline accuracy is not one lucky number.
+// 2. Calibration: when the model says 30% or 80%, how often did the flame burn on held-out tests?
+// 3. Monte Carlo error: the same summary from the first and second half of the draws. If they agree, 1000 draws are enough.
+const Rd = rng(SEED + 1)
+const lotoPairs = points.map((p) => ({ test: p.testId, y: p.y, p: chosen.lotoPreds.get(p.id).p }))
+const lotoByTest = new Map()
+lotoPairs.forEach((r) => lotoByTest.set(r.test, [...(lotoByTest.get(r.test) ?? []), r]))
+const lotoTests = [...lotoByTest.keys()]
+const bootScores = Array.from({ length: 2000 }, () => {
+  const rows = []
+  for (let i = 0; i < lotoTests.length; i++) rows.push(...lotoByTest.get(lotoTests[Rd.int(lotoTests.length)]))
+  return {
+    acc: rows.filter((r) => (r.p >= 0.5) === (r.y === 1)).length / rows.length,
+    brier: rows.reduce((s, r) => s + (r.p - r.y) ** 2, 0) / rows.length,
+  }
+})
+const ci = (key) => { const a = bootScores.map((b) => b[key]).sort((x, y) => x - y); return [round(quantile(a, 0.025)), round(quantile(a, 0.975))] }
+const BINS = [[0, 0.2], [0.2, 0.4], [0.4, 0.6], [0.6, 0.8], [0.8, 1.0001]]
+const calibration = BINS.map(([a, b]) => {
+  const rows = lotoPairs.filter((r) => r.p >= a && r.p < b)
+  return { from: a, to: Math.min(b, 1), n: rows.length, mean_predicted: rows.length ? round(rows.reduce((s, r) => s + r.p, 0) / rows.length) : null, share_burned: rows.length ? round(rows.reduce((s, r) => s + r.y, 0) / rows.length) : null }
+})
+const probe = { o2: 19, p: P_REF_KPA, uForced: 10, direction: 'opposed', g: 0.165, material: 'pmma_slab', thickness: 3 }
+const halves = [draws.filter((_, i) => i % 2 === 0), draws.filter((_, i) => i % 2 === 1)]
+const probeOf = (d) => ({ p: round(summarizeProbability(probe, d).mean), loc_median: fin(summarizeLOC(probe, d).median) })
+const resampling = {
+  draws: DRAWS,
+  seed: SEED,
+  method: 'Stratified cluster bootstrap over tests inside each material, a refit per draw, plus a draw of the NASA-anchored constants from their published ranges and a draw of the extra gravity spread.',
+  loto_accuracy_ci95: ci('acc'),
+  loto_brier_ci95: ci('brier'),
+  calibration_loto: calibration,
+  monte_carlo_check: { input: 'PMMA slab, 3 mm, 19% O2, 10 cm/s opposed, 0.165 g', even_draws: probeOf(halves[0]), odd_draws: probeOf(halves[1]), all_draws: probeOf(draws) },
+}
+
 // ---------- write ----------
 const phys = ['ub1g', 'o2Int', 'sb', 'mixExponent', 'gamma', 'sq', 'dirShift', 'beta', 'lnUq0', 'zG']
 const pack = (th) => {
@@ -378,6 +419,7 @@ writeFileSync('data/derived/sim-validation.json', JSON.stringify({
   per_material: chosen.per_material,
   excluded_points: excluded.map((p) => ({ id: p.id, test: p.testId, event: p.event, reason: p.readingNote })),
   nasa_checks: nasaChecks,
+  resampling,
   brief_figures_check: { note: 'Figures from the task brief, no citation found. Informational only.', verdicts: litVerdicts, table: lit },
 }, null, 2) + '\n')
 

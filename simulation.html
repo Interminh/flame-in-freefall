@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="src/styles/simulation.css" />
     <link rel="stylesheet" href="src/styles/brutal.css" />
     <link rel="stylesheet" href="src/styles/sim-polish.css" />
+    <link rel="stylesheet" href="src/styles/sim-v2.css" />
   </head>
   <body>
     <div id="nav"></div>
@@ -99,48 +100,62 @@
               </div>
             </form>
 
-            <div class="sim-center">
-              <h2 class="sim-maph" id="map-h">Flammability map for your inputs</h2>
-              <p class="sim-mapsum" id="map-summary"></p>
-              <p class="sim-badge" id="map-badge"></p>
-              <ul class="sim-key" id="line-key" aria-label="Key to the lines"></ul>
-              <div class="sim-mapwrap">
-                <figure class="sim-map" id="map-fig">
-                  <svg id="map" viewBox="0 0 640 390" role="img" aria-labelledby="map-summary"></svg>
-                  <figcaption id="map-caption"></figcaption>
-                </figure>
-                <aside class="sim-inspector" id="inspector" aria-live="polite" aria-labelledby="insp-h">
-                  <h2 id="insp-h">Real experiment details</h2>
-                  <p class="sim-insp-hint" id="insp-hint">Click a dot or a table row to see the test it came from.</p>
-                  <div id="inspector-body"></div>
-                </aside>
-              </div>
-            </div>
-
-            <div class="sim-right">
+            <div class="sim-main">
               <div class="sim-card sim-result" aria-live="polite">
-                <h2>Result</h2>
-                <p class="sim-big"><span id="pburn">-</span> <span class="sim-chip" id="label">-</span></p>
-                <p class="sim-sub" id="pband"></p>
-                <div class="sim-rb" id="rangebar" role="img" aria-label="Range for the chance of burning">
-                  <div class="sim-rb-track">
-                    <span class="sim-rb-tick" id="rb-t1"></span>
-                    <span class="sim-rb-tick" id="rb-t2"></span>
-                    <span class="sim-rb-band" id="rb-band"></span>
-                    <span class="sim-rb-mean" id="rb-mean"></span>
+                <div class="sim-result__top">
+                  <div>
+                    <p class="sim-eyebrow">Chance of burning</p>
+                    <p class="sim-big"><span id="pburn">-</span> <span class="sim-chip" id="label">-</span></p>
+                    <p class="sim-sub" id="pband"></p>
                   </div>
-                  <div class="sim-rb-scale"><span>0%</span><span id="rb-l1"></span><span id="rb-l2"></span><span>100%</span></div>
+                  <div class="sim-rbwrap">
+                    <div class="sim-rb" id="rangebar" role="img" aria-label="Range for the chance of burning">
+                      <div class="sim-rb-track">
+                        <span class="sim-rb-tick" id="rb-t1"></span>
+                        <span class="sim-rb-tick" id="rb-t2"></span>
+                        <span class="sim-rb-band" id="rb-band"></span>
+                        <span class="sim-rb-mean" id="rb-mean"></span>
+                      </div>
+                      <div class="sim-rb-scale"><span>0%</span><span id="rb-l1"></span><span id="rb-l2"></span><span>100%</span></div>
+                    </div>
+                    <p class="sim-rb-note" id="rb-note"></p>
+                  </div>
                 </div>
-                <p class="sim-rb-note">Bar: 5 to 95% range across 200 refits. Line: average. Ticks: the label cut-offs.</p>
-                <dl class="sim-dl">
-                  <dt>Buoyant flow</dt><dd id="ub">-</dd>
-                  <dt>Effective flow</dt><dd id="ueff">-</dd>
-                  <dt>Limiting oxygen here</dt><dd id="loc">-</dd>
-                  <dt>Limiting oxygen at 1 g</dt><dd id="loc1g">-</dd>
-                  <dt>Margin versus 1 g</dt><dd id="margin">-</dd>
+                <dl class="sim-stats">
+                  <div><dt>Buoyant flow</dt><dd id="ub">-</dd></div>
+                  <div><dt>Effective flow</dt><dd id="ueff">-</dd></div>
+                  <div><dt>Limiting oxygen here</dt><dd id="loc">-</dd></div>
+                  <div><dt>Limiting oxygen at 1 g</dt><dd id="loc1g">-</dd></div>
+                  <div><dt>Margin versus 1 g</dt><dd id="margin">-</dd></div>
                 </dl>
               </div>
 
+              <div class="sim-card sim-chart">
+                <div class="sim-chart__head">
+                  <div>
+                    <h2 class="sim-maph" id="map-h">Flammability map</h2>
+                    <p class="sim-mapsum" id="map-summary"></p>
+                  </div>
+                  <p class="sim-compute" id="compute" role="status"></p>
+                </div>
+                <p class="sim-badge" id="map-badge"></p>
+                <ul class="sim-key" id="line-key" aria-label="Key to the lines"></ul>
+                <figure class="sim-map" id="map-fig">
+                  <div class="sim-plot" id="plot">
+                    <canvas id="heat" aria-hidden="true"></canvas>
+                    <svg id="map" viewBox="0 0 640 390" role="img" aria-labelledby="map-summary"></svg>
+                    <div class="sim-tip" id="tip" hidden></div>
+                  </div>
+                  <figcaption id="map-caption"></figcaption>
+                </figure>
+                <p class="sim-tiphelp">Hover to read the chance of burning at any point. Click or drag to move your input there.</p>
+              </div>
+
+              <aside class="sim-inspector" id="inspector" aria-live="polite" aria-labelledby="insp-h">
+                <h2 id="insp-h">Real experiment details</h2>
+                <p class="sim-insp-hint" id="insp-hint">Click a dot or a table row to see the test it came from.</p>
+                <div id="inspector-body"></div>
+              </aside>
             </div>
           </div>
 
@@ -285,9 +300,11 @@
                 searching. The margin compares it with the same inputs at 1 g.
               </li>
               <li>
-                <strong>Uncertainty.</strong> The model is refitted 200 times on resampled tests, with the NASA-anchored
-                constants varied over the ranges those sources support, and extra spread added as gravity increases. The
-                5 to 95% bands are the spread of those 200 answers.
+                <strong>Uncertainty.</strong> The model is refitted 1000 times on resampled tests (tests are resampled inside each
+                material, so no material drops out of a refit), with the NASA-anchored constants varied over the ranges those
+                sources support, and extra spread added as gravity increases. The 5 to 95% bands are the spread of those
+                1000 answers. The page computes the shading and lines in a background thread, first from a thin sample for an
+                instant preview, then from the full set.
               </li>
             </ol>
             <p>Pressure acts only through oxygen partial pressure. Total pressure does not change the buoyant flow in this scaling.</p>
@@ -297,7 +314,7 @@
             <summary>How to read the outputs</summary>
             <ul>
               <li><strong>Chance of burning and the label.</strong> Burns at 65% or more, extinguishes at 35% or less, marginal in between. These cut-offs are assumed.</li>
-              <li><strong>5 to 95% range.</strong> The spread across the 200 refits. It does not include the model being the wrong shape.</li>
+              <li><strong>5 to 95% range.</strong> The spread across the 1000 refits. It does not include the model being the wrong shape.</li>
               <li><strong>Limiting oxygen here and at 1 g.</strong> Lower means the flame survives with less oxygen. The margin is the difference.</li>
               <li><strong>Hidden risk.</strong> Shown when the condition burns at the chosen gravity but would not at 1 g.</li>
               <li><strong>The map.</strong> One map for exactly the inputs you set. Shading is the chance of burning, the solid line is the 50% oxygen level at each airflow for your gravity, and the wide band around it is its 5 to 95% range. Dashed lines show the middle estimate of the same line at 0 g, Moon, Mars and 1 g. Hatched areas are outside the oxygen and flow range of the data.</li>
@@ -366,6 +383,9 @@
               </table>
             </div>
             <p id="how-validation"></p>
+            <h3>How stable the numbers are</h3>
+            <p id="how-resampling"></p>
+            <div class="sim-tablewrap"><table class="sim-table" id="how-calib"><thead><tr><th>Model said</th><th>Held-out tests</th><th>Average said</th><th>Share that burned</th></tr></thead><tbody></tbody></table></div>
             <p><strong>Checks against NASA numbers that were not used to build the model:</strong></p>
             <div class="sim-tablewrap">
               <table class="sim-table" id="how-checks">

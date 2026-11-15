@@ -1,0 +1,81 @@
+/* Simulator layout and chart, second pass. Loads last on the Simulation page.
+   The plot sits on a fixed light panel with dark text in both light and dark mode, like the charts on the
+   investigation pages, so the warm shading and the dark lines stay readable. */
+
+.sim-grid { grid-template-columns: 290px minmax(0, 1fr); grid-template-areas: 'controls main'; gap: var(--space-6); align-items: start; }
+.sim-controls { grid-area: controls; }
+.sim-main { grid-area: main; display: grid; gap: var(--space-4); min-width: 0; }
+
+/* Result strip */
+.sim-result { display: block; padding: var(--space-5, 20px) var(--space-6); margin: 0; }
+.sim-result__top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--space-6); align-items: center; }
+.sim-eyebrow { margin: 0; font-family: var(--font-data); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.sim-result .sim-big { margin: 0; font-size: 52px; line-height: 1.1; display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
+.sim-result .sim-sub { margin: var(--space-1) 0 0; font-size: 13px; color: var(--muted); max-width: none; }
+.sim-rbwrap .sim-rb-note { margin: var(--space-2) 0 0; font-size: 12px; color: var(--muted); max-width: none; }
+.sim-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-3); margin: var(--space-5, 20px) 0 0; padding-top: var(--space-4); border-top: 1px solid var(--rule); }
+.sim-stats div { min-width: 0; }
+.sim-stats dt { font-family: var(--font-data); font-size: 12px; color: var(--muted); }
+.sim-stats dd { margin: 2px 0 0; font-size: 15px; font-weight: 600; overflow-wrap: anywhere; }
+
+/* Chart card */
+.sim-chart { padding: var(--space-5, 20px) var(--space-6); margin: 0; }
+.sim-chart__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: var(--space-2) var(--space-4); }
+.sim-chart .sim-maph { margin: 0; font-size: 22px; }
+.sim-chart .sim-mapsum { margin: var(--space-1) 0 0; font-size: 14px; max-width: 70ch; }
+.sim-compute { margin: 0; flex: 1 1 100%; justify-content: flex-start; font-family: var(--font-data); font-size: 12px; color: var(--muted); display: inline-flex; align-items: center; gap: var(--space-2); max-width: none; text-align: left; margin-top: var(--space-2); }
+.sim-compute::before { content: ''; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+.sim-compute[data-state='busy']::before { background: var(--amber); animation: simpulse 0.9s ease-in-out infinite; }
+.sim-compute[data-state='done']::before { background: var(--green, #2f9e5a); }
+@keyframes simpulse { 50% { opacity: 0.3; } }
+@media (prefers-reduced-motion: reduce) { .sim-compute[data-state='busy']::before { animation: none; } }
+.sim-chart .sim-badge { margin: var(--space-3) 0 var(--space-2); }
+.sim-chart .sim-key { margin: 0 0 var(--space-3); display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); padding: 0; list-style: none; font-size: 12px; color: var(--muted); }
+.sim-key li { display: inline-flex; align-items: center; gap: var(--space-2); }
+.sim-key svg { width: 30px; height: 10px; flex: none; }
+.sim-scale { width: 54px; height: 10px; border-radius: 5px; border: 1px solid #b9a88f; background: linear-gradient(90deg, #fff0d8, #fddaaa 12%, #f8ac6a 40%, #ee7d46 70%, #d65230); }
+
+/* Plot: fixed light panel */
+.sim-chart .sim-map { margin: 0; padding: 0; background: transparent; box-shadow: none; border: 0; }
+.sim-plot { position: relative; background: #fffaf2; color: #1d1a16; border: 2px solid var(--ink); border-radius: var(--radius-card); overflow: hidden; touch-action: none; cursor: crosshair; }
+.sim-plot svg { position: relative; display: block; width: 100%; height: auto; }
+.sim-plot canvas { position: absolute; image-rendering: auto; pointer-events: none; }
+.sim-plot .sim-axis { stroke: #6f6558; }
+.sim-plot .sim-tick, .sim-plot .sim-axis-label { fill: #4a4237; }
+.sim-plot .sim-hatch { stroke: #6f6558; stroke-opacity: 0.22; }
+.sim-plot .sim-band { fill: #3d6fb4; fill-opacity: 0.2; }
+.sim-plot .sim-median { stroke: #1d1a16; stroke-width: 2.2; }
+.sim-plot .sim-ref { stroke: #1d1a16; stroke-opacity: 0.7; stroke-width: 1.4; }
+.sim-plot .sim-pt-burn { fill: #b8331f; stroke: #fffaf2; stroke-width: 1.4; }
+.sim-plot .sim-pt-out { fill: #fffaf2; stroke: #2a5da8; stroke-width: 2; }
+.sim-plot .sim-pt-skip { stroke: #8a7f70; }
+.sim-plot .sim-pt-wrong { stroke: #1d1a16; }
+.sim-plot .sim-pt-sel { stroke: #1d1a16; }
+.sim-plot .sim-near { stroke: #1d1a16; stroke-opacity: 0.6; }
+.sim-plot .sim-marker { stroke: #1d1a16; stroke-width: 2.6; fill: #fffaf2; fill-opacity: 0.45; }
+.sim-plot .sim-marker-dot { fill: #1d1a16; }
+.sim-plot .sim-miss-label { fill: #1d1a16; }
+.sim-dot { cursor: pointer; }
+.sim-dot:focus-visible { outline: none; }
+.sim-dot:focus-visible .sim-hit { stroke: #1d1a16; stroke-width: 2; stroke-dasharray: 3 2; fill: none; }
+.sim-hit { fill: transparent; }
+
+.sim-tip { position: absolute; z-index: 3; display: grid; gap: 2px; padding: var(--space-2) var(--space-3); background: #1d1a16; color: #fffaf2; border-radius: var(--radius-control); font-family: var(--font-data); font-size: 12px; line-height: 1.35; pointer-events: none; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25); white-space: nowrap; }
+.sim-tip strong { font-size: 13px; }
+.sim-chart figcaption { padding-top: var(--space-3); font-size: 13px; color: var(--muted); }
+.sim-tiphelp { margin: var(--space-1) 0 0; font-size: 12px; color: var(--muted); max-width: none; }
+
+/* Details of the selected test */
+.sim-main .sim-inspector { margin: 0; padding: var(--space-4) var(--space-6); border: 1px dashed var(--ink); border-radius: var(--radius-card); background: transparent; box-shadow: none; font-size: 14px; }
+.sim-main .sim-inspector h2 { font-size: 18px; margin: 0 0 var(--space-2); }
+
+@media (max-width: 1000px) {
+  .sim-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'controls' 'main'; }
+  .sim-controls { position: static; }
+}
+@media (max-width: 700px) {
+  .sim-result__top { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+  .sim-result, .sim-chart { padding: var(--space-4); }
+  .sim-compute { text-align: left; }
+  .sim-result .sim-big { font-size: 42px; }
+}

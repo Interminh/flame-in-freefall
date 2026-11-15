@@ -8,7 +8,7 @@ Files here are produced for the Simulation tab. They are separate from the PSI d
 | `nasa_1g_anchors.csv` | By hand, quotes checked by script | 17 numbers and statements from NASA-hosted documents. Columns: quote, NTRS record, PDF page, what it says, whether it builds the model (`calibration`), is only a check, or is context, and a caution. `quote_verified` is `yes` when the quote was found in the PDF text while the file was built. The PDFs are not stored here, so use the NTRS link. |
 | `saffire2_ground_checks.csv` | Copied from `psi_99.csv` by script | Three SAFFIRE-II cases where the whole sample burned: SIBAL at 1 g and 0 g, PMMA at 1 g. Scored in `sim-validation.json`. Tests check each value against `psi_99.csv`. |
 | `literature_loc_checks.csv` | By hand | Figures from the task brief and two non-NASA references. Kept for the record and not used by the model. |
-| `sim-params.json` | `scripts/sim/calibrate.mjs` | Fitted values, 200 bootstrap draws, data ranges, the constants with their status, and the points. Do not edit. |
+| `sim-params.json` | `scripts/sim/calibrate.mjs` | Fitted values, 1000 bootstrap draws, data ranges, the constants with their status, and the points. Do not edit. |
 | `sim-validation.json` | `scripts/sim/calibrate.mjs` | Validation numbers quoted in the root README. |
 | `fm2-predictions.csv` | `scripts/sim/fm2.mjs` | Eight testable predictions at 0.165 g. Film and slab rows carry the default thickness. |
 
