@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "sim:calibrate": "node scripts/sim/calibrate.mjs && node scripts/sim/fm2.mjs",
-    "test:sim": "node --test tests/sim/model.test.mjs"
+    "test:sim": "node --test tests/sim/model.test.mjs tests/sim/warnings.test.mjs"
   },
   "dependencies": {
     "@fontsource/ibm-plex-sans-condensed": "^5.3.0",

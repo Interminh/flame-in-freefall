@@ -314,18 +314,24 @@ export function knownMisses(inp) {
 }
 
 // ranges = { o2: [min, max], flow: [min, max], pressure: [min, max], thickness: { material: [min, max] } } from the data.
-export function rangeWarnings(inp, ranges) {
+// Returns { kind, text } items so the page can label each warning. kind is one of
+// thickness, o2, flow, pressure, gravity.
+export function rangeWarningItems(inp, ranges) {
   const w = []
   const tr = ranges.thickness?.[inp.material]
   if (tr && inp.thickness > 0 && (inp.thickness < tr[0] || inp.thickness > tr[1]))
-    w.push(`Thickness ${inp.thickness} mm is outside the ${tr[0]} to ${tr[1]} mm used to fit this material.`)
+    w.push({ kind: 'thickness', text: `Thickness ${inp.thickness} mm is outside the ${tr[0]} to ${tr[1]} mm used to fit this material.` })
   if (inp.o2 < ranges.o2[0] || inp.o2 > ranges.o2[1])
-    w.push(`Oxygen ${inp.o2}% is outside the BASS-II range of ${ranges.o2[0]} to ${ranges.o2[1]}%.`)
+    w.push({ kind: 'o2', text: `Oxygen ${inp.o2}% is outside the BASS-II range of ${ranges.o2[0]} to ${ranges.o2[1]}%.` })
   if (inp.uForced < ranges.flow[0] || inp.uForced > ranges.flow[1])
-    w.push(`Airflow ${inp.uForced} cm/s is outside the range of the extracted BASS-II flow points, ${ranges.flow[0]} to ${ranges.flow[1]} cm/s.`)
+    w.push({ kind: 'flow', text: `Airflow ${inp.uForced} cm/s is outside the range of the extracted BASS-II flow points, ${ranges.flow[0]} to ${ranges.flow[1]} cm/s.` })
   if (inp.p < ranges.pressure[0] || inp.p > ranges.pressure[1])
-    w.push(`Pressure ${inp.p} kPa is outside the recorded BASS range of ${ranges.pressure[0]} to ${ranges.pressure[1]} kPa. BASS-II recorded no pressure at all.`)
+    w.push({ kind: 'pressure', text: `Pressure ${inp.p} kPa is outside the recorded BASS range of ${ranges.pressure[0]} to ${ranges.pressure[1]} kPa. BASS-II recorded no pressure at all.` })
   if (inp.g > 0)
-    w.push(`Gravity ${inp.g} g has almost no outcome data. Every test used to fit the model was in microgravity, so this is an extrapolation anchored to published NASA numbers and checked against one set of 1 g ground tests.`)
+    w.push({ kind: 'gravity', text: `Gravity ${inp.g} g has almost no outcome data. Every test used to fit the model was in microgravity, so this is an extrapolation anchored to published NASA numbers and checked against one set of 1 g ground tests.` })
   return w
+}
+
+export function rangeWarnings(inp, ranges) {
+  return rangeWarningItems(inp, ranges).map((x) => x.text)
 }
